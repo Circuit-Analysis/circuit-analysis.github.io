@@ -727,41 +727,9 @@ We can also consider these numbers in polar form. We are constrained to the real
 \end{tikzpicture}
 \end{center}
 So $-2\angle 0^\circ$ is equivalent to $2\angle 180^\circ$ and $-2\angle 180^\circ$ is equivalent to $2\angle 0^\circ$. This rotation by $180^\circ$ extends to the complex plane. Negating $5\angle 36.86^\circ$ is shown graphically here resulting in $5\angle 216.86^\circ$
-\begin{center}
-\begin{tikzpicture}
-\centerarc[black,thick](3.45,2.55)(36.86:-2:5mm)
-\centerarc[black,thick](3.45,2.55)(214:-2:3mm)
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-4,-3) };
 
-    	\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$5\angle 36.86^\circ$};
-    	\addplot [black, mark = *] coordinates {( -4, -3)} {};
-    	\addplot [black] coordinates {( -3.75, -3.25)} {} node[below,pos=1,fill=white] {$-5\angle 36.86^\circ$};
-    	\addplot [black] coordinates {( -3.5, -2.5)} {} node[above,pos=1,fill=white] {$5\angle 216.86^\circ$};
+# REMOVED PICTURE
 
-    \addplot [black] coordinates {( 1, .5)} {} node[right,pos=1,fill=white] {$36.86^\circ$};
-    \addplot [black] coordinates {( -.5, .5)} {} node[left,pos=1,fill=white] {$216.86^\circ$};
-
-    	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-    \end{axis}
-    \end{tikzpicture}
-
-\end{center}
 Mathematically we can find the negative of a complex number in either form. In polar form, we rotate by $180^\circ$ modulo 360 (never exceeding a magnitude of the angle of $360^\circ$). So
 $$ -5\angle 36.86^\circ=5\angle(36.86^\circ+180^\circ)=5\angle 216.86^\circ $$
 or
