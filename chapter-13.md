@@ -727,41 +727,9 @@ We can also consider these numbers in polar form. We are constrained to the real
 \end{tikzpicture}
 \end{center}
 So $-2\angle 0^\circ$ is equivalent to $2\angle 180^\circ$ and $-2\angle 180^\circ$ is equivalent to $2\angle 0^\circ$. This rotation by $180^\circ$ extends to the complex plane. Negating $5\angle 36.86^\circ$ is shown graphically here resulting in $5\angle 216.86^\circ$
-\begin{center}
-\begin{tikzpicture}
-\centerarc[black,thick](3.45,2.55)(36.86:-2:5mm)
-\centerarc[black,thick](3.45,2.55)(214:-2:3mm)
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-4,-3) };
 
-    	\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$5\angle 36.86^\circ$};
-    	\addplot [black, mark = *] coordinates {( -4, -3)} {};
-    	\addplot [black] coordinates {( -3.75, -3.25)} {} node[below,pos=1,fill=white] {$-5\angle 36.86^\circ$};
-    	\addplot [black] coordinates {( -3.5, -2.5)} {} node[above,pos=1,fill=white] {$5\angle 216.86^\circ$};
+% REMOVED PICTURE
 
-    \addplot [black] coordinates {( 1, .5)} {} node[right,pos=1,fill=white] {$36.86^\circ$};
-    \addplot [black] coordinates {( -.5, .5)} {} node[left,pos=1,fill=white] {$216.86^\circ$};
-
-    	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-    \end{axis}
-    \end{tikzpicture}
-
-\end{center}
 Mathematically we can find the negative of a complex number in either form. In polar form, we rotate by $180^\circ$ modulo 360 (never exceeding a magnitude of the angle of $360^\circ$). So
 $$ -5\angle 36.86^\circ=5\angle(36.86^\circ+180^\circ)=5\angle 216.86^\circ $$
 or
@@ -1325,11 +1293,11 @@ $$ \frac{dv(t)}{dt}={-A}\omega\sin(\omega{t}+\theta) $$
 Notice the $\omega$ in the coefficient results from the chain rule. This derivative can be substituted into the capacitor equation
 $$ i(t)={-A}\omega{C}\sin(\omega{t}+\theta)~A $$
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
-$$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\sin(\omega{t}+\theta) A} $$
+$$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\sin(\omega{t}+\theta) A} $$
 This is where phasors prove useful.  Without phasors we would have to rely on some esoteric trig identities but let's not do that here.  Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
-$$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} $$
+$$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} $$
 The cosines can now be transformed to phasors and divided
-$$ Z_C=\frac{v(t)}{i(t)}=\frac{A}{{-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{{-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
+$$ Z_C=\frac{v(t)}{i(t)}=\frac{A}{ {-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{ {-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
 The amplitude, $A$, of each function cancel each other. Distributing the negative sign into the angle of the denominator leaves only a $+90^\circ$
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{-1}{\omega{C}}(1\angle90^\circ)~\Omega $$
 This result meets our definition of impedance: a complex number that relates a voltage to a current if they are both sinusoidal but it is not the form typically used. The polar form $(1\angle{90^\circ})$ is usually replaced by the rectangular form ($j$).
@@ -1579,19 +1547,9 @@ Find the Thevenin equivalent of the circuit above.
 
 \Solution
 Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V$_S$ and 50$\angle$30$^\circ$~V}] (0,0)
-(0,3) to[L,lx={L and j20~$\Omega$},v=~] (3,3)
-(3,3) to[C,lx={C and -j10~$\Omega$},v=~] (3,0)
-(3,3) to[R,lx={R and 10~$\Omega$},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-(1.5,1.5) node[red]{I}
-;
-\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+% Removed picture
+
 We can find I using mesh analysis on the single mesh.  
  $$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
 so

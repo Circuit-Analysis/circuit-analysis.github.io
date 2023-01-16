@@ -1481,43 +1481,8 @@ We can also consider these numbers in polar form. We are constrained to the real
 (-1,0) node[above]{<span class="math notranslate nohighlight">\(2\angle 180^\circ\)</span>};
 \end{tikzpicture}
 \end{center}
-So <span class="math notranslate nohighlight">\(-2\angle 0^\circ\)</span> is equivalent to <span class="math notranslate nohighlight">\(2\angle 180^\circ\)</span> and <span class="math notranslate nohighlight">\(-2\angle 180^\circ\)</span> is equivalent to <span class="math notranslate nohighlight">\(2\angle 0^\circ\)</span>. This rotation by <span class="math notranslate nohighlight">\(180^\circ\)</span> extends to the complex plane. Negating <span class="math notranslate nohighlight">\(5\angle 36.86^\circ\)</span> is shown graphically here resulting in <span class="math notranslate nohighlight">\(5\angle 216.86^\circ\)</span>
-\begin{center}
-\begin{tikzpicture}
-\centerarc<span class="xref myst">black,thick</span>(36.86:-2:5mm)
-\centerarc<span class="xref myst">black,thick</span>(214:-2:3mm)
-\begin{axis}
-[
-ytick ={-7,…,8}, yticklabels={<span class="math notranslate nohighlight">\(-7j\)</span>, <span class="math notranslate nohighlight">\(-6j\)</span>, <span class="math notranslate nohighlight">\(-5j\)</span>, <span class="math notranslate nohighlight">\(-4j\)</span>, <span class="math notranslate nohighlight">\(-3j\)</span>, <span class="math notranslate nohighlight">\(-2j\)</span>, <span class="math notranslate nohighlight">\(-j\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(2j\)</span>, <span class="math notranslate nohighlight">\(3j\)</span>, <span class="math notranslate nohighlight">\(4j\)</span>, <span class="math notranslate nohighlight">\(5j\)</span>, <span class="math notranslate nohighlight">\(6j\)</span>, <span class="math notranslate nohighlight">\(7j\)</span>, <span class="math notranslate nohighlight">\(8j\)</span>},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=<span class="math notranslate nohighlight">\(Re\)</span>,
-ylabel=<span class="math notranslate nohighlight">\(Im\)</span>,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-4,-3) };</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>	\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$5\angle 36.86^\circ$};
-	\addplot [black, mark = *] coordinates {( -4, -3)} {};
-	\addplot [black] coordinates {( -3.75, -3.25)} {} node[below,pos=1,fill=white] {$-5\angle 36.86^\circ$};
-	\addplot [black] coordinates {( -3.5, -2.5)} {} node[above,pos=1,fill=white] {$5\angle 216.86^\circ$};
-
-\addplot [black] coordinates {( 1, .5)} {} node[right,pos=1,fill=white] {$36.86^\circ$};
-\addplot [black] coordinates {( -.5, .5)} {} node[left,pos=1,fill=white] {$216.86^\circ$};
-
-	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-	\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-\end{axis}
-\end{tikzpicture}
-</pre></div>
-</div>
-<p>\end{center}
-Mathematically we can find the negative of a complex number in either form. In polar form, we rotate by <span class="math notranslate nohighlight">\(180^\circ\)</span> modulo 360 (never exceeding a magnitude of the angle of <span class="math notranslate nohighlight">\(360^\circ\)</span>). So
+So <span class="math notranslate nohighlight">\(-2\angle 0^\circ\)</span> is equivalent to <span class="math notranslate nohighlight">\(2\angle 180^\circ\)</span> and <span class="math notranslate nohighlight">\(-2\angle 180^\circ\)</span> is equivalent to <span class="math notranslate nohighlight">\(2\angle 0^\circ\)</span>. This rotation by <span class="math notranslate nohighlight">\(180^\circ\)</span> extends to the complex plane. Negating <span class="math notranslate nohighlight">\(5\angle 36.86^\circ\)</span> is shown graphically here resulting in <span class="math notranslate nohighlight">\(5\angle 216.86^\circ\)</span></p>
+<p>Mathematically we can find the negative of a complex number in either form. In polar form, we rotate by <span class="math notranslate nohighlight">\(180^\circ\)</span> modulo 360 (never exceeding a magnitude of the angle of <span class="math notranslate nohighlight">\(360^\circ\)</span>). So
 $<span class="math notranslate nohighlight">\( -5\angle 36.86^\circ=5\angle(36.86^\circ+180^\circ)=5\angle 216.86^\circ \)</span><span class="math notranslate nohighlight">\(
 or
 \)</span><span class="math notranslate nohighlight">\( -5\angle 36.86^\circ=5\angle(36.86^\circ-180^\circ)=5\angle -143.14^\circ \)</span><span class="math notranslate nohighlight">\(
@@ -2070,11 +2035,11 @@ The time-derivative of the voltage is
 Notice the \)</span>\omega<span class="math notranslate nohighlight">\( in the coefficient results from the chain rule. This derivative can be substituted into the capacitor equation
 \)</span><span class="math notranslate nohighlight">\( i(t)={-A}\omega{C}\sin(\omega{t}+\theta)~A \)</span><span class="math notranslate nohighlight">\(
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
-\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\sin(\omega{t}+\theta) A} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\sin(\omega{t}+\theta) A} \)</span><span class="math notranslate nohighlight">\(
 This is where phasors prove useful.  Without phasors we would have to rely on some esoteric trig identities but let's not do that here.  Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by \)</span>{-90}^\circ<span class="math notranslate nohighlight">\(.
-\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} \)</span><span class="math notranslate nohighlight">\(
 The cosines can now be transformed to phasors and divided
-\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A}{{-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{{-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{A}{ {-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{ {-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega \)</span><span class="math notranslate nohighlight">\(
 The amplitude, \)</span>A<span class="math notranslate nohighlight">\(, of each function cancel each other. Distributing the negative sign into the angle of the denominator leaves only a \)</span>+90^\circ<span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\( Z_C=\frac{v(t)}{i(t)}=\frac{-1}{\omega{C}}(1\angle90^\circ)~\Omega \)</span><span class="math notranslate nohighlight">\(
 This result meets our definition of impedance: a complex number that relates a voltage to a current if they are both sinusoidal but it is not the form typically used. The polar form \)</span>(1\angle{90^\circ})<span class="math notranslate nohighlight">\( is usually replaced by the rectangular form (\)</span>j<span class="math notranslate nohighlight">\().
@@ -2311,21 +2276,8 @@ Find i<span class="math notranslate nohighlight">\(_O\)</span>(t) given that i<s
 \end{center}
 Find the Thevenin equivalent of the circuit above.</p>
 <p>\Solution
-Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 50<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,3)
-(3,3) to[C,lx={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-(1.5,1.5) node[red]{I}
-;
-\centerarc<span class="xref myst">red,-&gt;,thick</span>(225:-45:5mm)
-\end{circuitikz}
-\end{center}
-We can find I using mesh analysis on the single mesh.<br />
+Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
+<p>We can find I using mesh analysis on the single mesh.<br />
 $<span class="math notranslate nohighlight">\( (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 \)</span><span class="math notranslate nohighlight">\(
 so
 \)</span><span class="math notranslate nohighlight">\( I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) \)</span><span class="math notranslate nohighlight">\(
