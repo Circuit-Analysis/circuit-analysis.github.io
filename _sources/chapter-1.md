@@ -952,7 +952,7 @@ $$ \frac{ 5 A h}{ 0.05 A} = 100 h $$
 
 Over 40 hours, the battery can discharge
 
-$$ \frac{5 A h }{ 40 h} = 0.125 A or 125 mA
+$$ \frac{5 A h }{ 40 h} = 0.125 A = 125 mA $$
 
 ```
 
