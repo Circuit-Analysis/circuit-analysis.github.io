@@ -2276,21 +2276,8 @@ Find i<span class="math notranslate nohighlight">\(_O\)</span>(t) given that i<s
 \end{center}
 Find the Thevenin equivalent of the circuit above.</p>
 <p>\Solution
-Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 50<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,3)
-(3,3) to[C,lx={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-(1.5,1.5) node[red]{I}
-;
-\centerarc<span class="xref myst">red,-&gt;,thick</span>(225:-45:5mm)
-\end{circuitikz}
-\end{center}
-We can find I using mesh analysis on the single mesh.<br />
+Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
+<p>We can find I using mesh analysis on the single mesh.<br />
 $<span class="math notranslate nohighlight">\( (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 \)</span><span class="math notranslate nohighlight">\(
 so
 \)</span><span class="math notranslate nohighlight">\( I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) \)</span><span class="math notranslate nohighlight">\(

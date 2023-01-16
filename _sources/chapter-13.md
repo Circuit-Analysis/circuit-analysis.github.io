@@ -1547,19 +1547,9 @@ Find the Thevenin equivalent of the circuit above.
 
 \Solution
 Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V$_S$ and 50$\angle$30$^\circ$~V}] (0,0)
-(0,3) to[L,lx={L and j20~$\Omega$},v=~] (3,3)
-(3,3) to[C,lx={C and -j10~$\Omega$},v=~] (3,0)
-(3,3) to[R,lx={R and 10~$\Omega$},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-(1.5,1.5) node[red]{I}
-;
-\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+% Removed picture
+
 We can find I using mesh analysis on the single mesh.  
  $$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
 so
