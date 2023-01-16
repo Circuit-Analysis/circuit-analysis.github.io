@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Equivalent Components &#8212; Circuit Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dividers" href="chapter-4.html" />
+    <link rel="prev" title="Anatomy of a Circuit" href="chapter-2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Circuit Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Circuit Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-1.html">
+   Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-2.html">
+   Anatomy of a Circuit
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Equivalent Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-4.html">
+   Dividers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-5.html">
+   A Sloppy Approach to Circuit Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-6.html">
+   Review of Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-7.html">
+   Mesh Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-8.html">
+   Nodal Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-9.html">
+   Superposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-10.html">
+   Equivalent Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-11.html">
+   Other Passive Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-12.html">
+   Alternating Current: Differential Equation Approach
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-13.html">
+   Alternating Current: Phasors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-14.html">
+   Power in Alternating Current Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-15.html">
+   A Simpler Approach: Complex Power
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-16.html">
+   Power Factor Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-17.html">
+   Transients in Capacitors and Inductors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-18.html">
+   More Complex Circuits using the ``Step-by-step Method’’
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-19.html">
+   Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://circuit-analysis.github.io/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://circuit-analysis.github.io//issues/new?title=Issue%20on%20page%20%2Fchapter-3.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/chapter-3.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-parallel-neither-both">
+   Series, Parallel, Neither, Both
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series-resistors">
+     Series Resistors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-resistors">
+     Parallel Resistors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-complex-circuits">
+   More Complex Circuits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-voltage-supplies">
+   Series Voltage Supplies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-current-supplies">
+   Parallel Current Supplies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delta-wye-conversions">
+   Delta-Wye Conversions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Equivalent Components</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-parallel-neither-both">
+   Series, Parallel, Neither, Both
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series-resistors">
+     Series Resistors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-resistors">
+     Parallel Resistors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-complex-circuits">
+   More Complex Circuits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-voltage-supplies">
+   Series Voltage Supplies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-current-supplies">
+   Parallel Current Supplies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delta-wye-conversions">
+   Delta-Wye Conversions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="equivalent-components">
+<h1>Equivalent Components<a class="headerlink" href="#equivalent-components" title="Permalink to this headline">#</a></h1>
+<section id="series-parallel-neither-both">
+<h2>Series, Parallel, Neither, Both<a class="headerlink" href="#series-parallel-neither-both" title="Permalink to this headline">#</a></h2>
+<p>Elements in a circuit can be connected in four different ways:
+\begin{itemize}
+\item Series
+\item Parallel
+\item Neither
+\item Both
+\end{itemize}
+Students often assume that two elements are either in parallel or series. Beware of this false dichotomy and avoid it by studying the definitions of series and parallel connections carefully.</p>
+<p>In series or parallel, some components can be combined. When neither, they can not.</p>
+<section id="series-resistors">
+<h3>Series Resistors<a class="headerlink" href="#series-resistors" title="Permalink to this headline">#</a></h3>
+<p>Two elements connected in series share one node \textbf{exclusively}.
+\begin{center}\begin{circuitikz}\draw
+(-3,3) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
+(3,3) to[R,l_=<span class="math notranslate nohighlight">\(R_2\)</span>] (0,3)
+;
+\end{circuitikz}\end{center}
+When two resistors are in series they can be redrawn as a single resistor
+\begin{center}\begin{circuitikz}\draw
+(-3,3) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>+<span class="math notranslate nohighlight">\(R_2\)</span>] (0,3)
+;
+\end{circuitikz}\end{center}
+When two elements are in series, the same current flows through each.
+[ I*{R1}=I*{R2}]</p>
+</section>
+<section id="parallel-resistors">
+<h3>Parallel Resistors<a class="headerlink" href="#parallel-resistors" title="Permalink to this headline">#</a></h3>
+<p>Two elements are in parallel when they are connected to the same two nodes.</p>
+<p>\begin{center}\begin{circuitikz}\draw
+(0,0) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
+(2,0) to[R,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (2,3)
+(0,0) – (2,0)
+(0,3) – (2,3)
+;
+\end{circuitikz}\end{center}</p>
+<p>When two resistors are in parallel they can be redrawn as a single resistor
+\begin{center}\begin{circuitikz}\draw
+(0,0) to[R,l=<span class="math notranslate nohighlight">\(G_1\)</span>+<span class="math notranslate nohighlight">\(G_2\)</span>] (0,3)
+;
+\end{circuitikz}\end{center}</p>
+<p>The conductances add. Recall that
+[G=\frac{1}{R}]
+so
+[\frac{1}{R_P}=\frac{1}{R_1}+\frac{1}{R_2}]
+Solving for <span class="math notranslate nohighlight">\(R_P\)</span> and adding additional resistors
+[R_P=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\dots+\frac{1}{R_N}}]
+The value of two resistors in parallel is commonly expressed as
+[R_P=\frac{R_1R_2}{R_1+R_2}]</p>
+<p>Careful:
+\begin{itemize}
+\item They may not be drawn geometrically parallel.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}\draw
+(0,0) to[R,l=$R_1$] (0,3)
+(0,3) to[R,l=$R_2$] (3,3)
+(3,3) -- (3,0)
+(0,0) -- (3,0)
+;
+\end{circuitikz}\end{center}
+$R_1$ and $R_2$ are in parallel.
+
+\item If they are drawn geometrically parallel they may not be
+</pre></div>
+</div>
+<p>connected in parallel.
+\begin{center}\begin{circuitikz}\draw
+(0,0) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
+(0,3) to[R,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,3)
+(3,3) to[R,l=<span class="math notranslate nohighlight">\(R_3\)</span>] (3,0)
+(0,0) – (3,0)
+;
+\end{circuitikz}\end{center}
+<span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are \textbf{not} in parallel.
+How are they connected?</p>
+<p>\end{itemize}</p>
+</section>
+</section>
+<section id="more-complex-circuits">
+<h2>More Complex Circuits<a class="headerlink" href="#more-complex-circuits" title="Permalink to this headline">#</a></h2>
+<p>\begin{example}
+Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
+\begin{center}\begin{circuitikz}\draw
+(0,3) to[R,l=5\Om] (3,3)
+(3,3) to[R,l=6\Om] (3,0)
+(3,3) to[R,l=2\Om] (6,3)
+(6,3) to[R,l=4\Om] (6,0)
+(9,3) to[R,l=4\Om] (9,0)
+(0,0) – (9,0)
+(6,3) – (9,3)
+(0,0) node[above]{A}
+(0,3) node[below]{B}
+;
+\end{circuitikz}\end{center}
+\Solution
+<span class="math notranslate nohighlight">\(R_{AB}\)</span>=7.4\Om
+\end{example}</p>
+<p>\begin{example}
+Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
+\begin{center}\begin{circuitikz}[scale=1.5]\draw
+(0,3) to[R,l=10\Om] (3,3)
+(6,3) to[R,l=1\Om] (9,3)
+(3,3) to[R,l=1\Om] (6,3)
+(3,3) to[R,l_=3\Om] (3,0)
+(6,3) to[R,l=4\Om] (6,0)
+(9,3) to[R,l=5\Om] (9,0)
+(3,3) to[R,l=6\Om] (4.5,1.5) – (6,0)
+(3,0) to[R,l=12\Om] (4.5,1.5) – (6,3)
+(0,0) – (9,0)
+(0,0) node[above]{A}
+(0,3) node[below]{B}
+;
+\end{circuitikz}\end{center}
+\Solution
+<span class="math notranslate nohighlight">\(R_{AB}\)</span>=11.2\Om
+\end{example}</p>
+<p>\begin{example}
+Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[R,l=3k\Om] (3,3)
+(3,3) to[R,l=5k\Om] (6,0)
+(0,0) to[R,l=2k\Om] (3,-3)
+(3,-3) to[R,l=6k\Om] (6,0)
+(0,0) – (1,0)
+(5,0) – (6,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1,0) node[right]{A}
+(5,0) node[left]{B}
+;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\Solution
+<span class="math notranslate nohighlight">\(R_{AB}\)</span>=4k\Om
+\end{example}</p>
+</section>
+<section id="series-voltage-supplies">
+<h2>Series Voltage Supplies<a class="headerlink" href="#series-voltage-supplies" title="Permalink to this headline">#</a></h2>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 6~V}] (0,0)
+(0,5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_2\)</span> and 12~V}] (0,2.5)
+(0,5) to[short] (3,5)
+(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 9~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span>+<span class="math notranslate nohighlight">\(V_2\)</span> and 18~V}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 9~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 7~V}] (0,0)
+(0,2.5) to[voltage source,lx^={<span class="math notranslate nohighlight">\(V_2\)</span> and 14~V}] (0,5)
+(0,5) to[short] (3,5)
+(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 7~V}] (0,0)
+(0,2.5) to[voltage source,lx^={14~V and <span class="math notranslate nohighlight">\(V_2\)</span>}] (0,5)
+(0,5) to[short] (3,5)
+(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[voltage source,lx^={7~V and <span class="math notranslate nohighlight">\(V_2-V_1\)</span>}] (0,3)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 8~V}] (0,0)
+(0,2.5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 3~\Om}] (0,5)
+(3,5) to[voltage source,lx_={\raisebox{1ex}{<span class="math notranslate nohighlight">\(V_2\)</span>} and \raisebox{3ex}{16~V}}] (0,5)
+(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 8~V}] (0,0)
+(0,2.5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 3~\Om}] (0,5)
+(0,5) to[voltage source,lx^={\raisebox{3ex}{<span class="math notranslate nohighlight">\(V_2\)</span>} and \raisebox{1ex}{16~V}}] (3,5)
+(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\end{minipage}</p>
+</section>
+<section id="parallel-current-supplies">
+<h2>Parallel Current Supplies<a class="headerlink" href="#parallel-current-supplies" title="Permalink to this headline">#</a></h2>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
+(3,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,3)
+(0,3) to[short] (6,3)
+(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
+(0,0) to[short] (6,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,3)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}</p>
+<p>\vspace{0.5cm}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
+(3,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,0)
+(0,3) to[short] (6,3)
+(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
+(0,0) to[short] (6,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx^={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,3)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}</p>
+<p>\vspace{0.5cm}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
+(3,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,0)
+(0,3) to[short] (6,3)
+(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
+(0,0) to[short] (6,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}</p>
+<p>\vspace{0.5cm}</p>
+<p>\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
+(4,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (4,0)
+(0,3) to[short] (6,3)
+(2,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om}] (2,0)
+(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
+(0,0) to[short] (6,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{center}\begin{circuitikz}[scale=1]\draw
+(0,3) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,0)
+(0,3) to[short] (3,3)
+(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
+(0,0) to[short] (3,0)
+;
+\end{circuitikz}\end{center}
+\end{minipage}</p>
+</section>
+<section id="delta-wye-conversions">
+<h2>Delta-Wye Conversions<a class="headerlink" href="#delta-wye-conversions" title="Permalink to this headline">#</a></h2>
+<p>\begin{align}
+R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \
+R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \
+R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
+\end{align}</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}[scale=0.75]\draw
+(0,0) to[R,l={$R_a$}] (-2.5,1.5)  node[circle,fill,label=above:A] {}
+(0,0) to[R,l={$R_b$}] (2.5,1.5)  node[circle,fill,label=above:B] {}
+(0,0) to[R,l={$R_c$}] (0,-3)  node[circle,fill,label=below:C] {}
+;
+(0,0) node[above]{A};
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+<p>\begin{align}
+R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \
+R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \
+R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
+\end{align}</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}[scale=0.75]\draw
+(2.5,1.5) to[R,l={$R_1$}] (-2.5,1.5) 	node[circle,fill,label=above:A] {}
+(-2.5,1.5) to[R,l={$R_2$}] (0,-3) node[circle,fill,label=above:C] {}
+(0,-3) to[R,l={$R_3$}] (2.5,1.5) node[circle,fill,label=above:B] {}
+;
+\end{circuitikz}\end{center}
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chapter-2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Anatomy of a Circuit</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chapter-4.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dividers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By David J. Broderick &amp; Peter J. Kootsookos<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://circuit-analysis.github.io">Circuit Analysis</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/djbrod">David J. Broderick</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kootsoop">Peter J. Kootsookos</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

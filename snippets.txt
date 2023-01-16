@@ -1,0 +1,6 @@
+SEARCH: \\begin\{example\}(.*?(.|[\n])*?)\\end\{example\}
+REPLACE: ````{admonition} Example\n $1\n```
+
+
+\\index\{(.*?(.|[\n])*?)\}
+\n```{index} $1\n```
