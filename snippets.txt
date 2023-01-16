@@ -4,3 +4,9 @@ REPLACE: ````{admonition} Example\n $1\n```
 
 \\index\{(.*?(.|[\n])*?)\}
 \n```{index} $1\n```
+
+\\section\{(.*?(.|[\n])*?)\}
+## $1
+
+\\paragraph\{(.*?(.|[\n])*?)\}
+### $1
