@@ -1267,7 +1267,8 @@ The impedance of a resistor is just its resistance. It may seem strange to say t
 \subsection{Reactive Components}
 We can now consider the other two passive elements using the same thought process as we did for the resistor.
 
-\paragraph{Capacitor}
+### Capacitor
+
 Let's consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
 \[v(t)=A\cos(\omega{t}+\theta)~V\]
 The voltage source is connected to the capacitor as shown here
@@ -1287,9 +1288,9 @@ The time-derivative of the voltage is
 Notice the $\omega$ in the coefficient results from the chain rule. This derivative can be substituted into the capacitor equation
 \[i(t)={-A}\omega{C}\sin(\omega{t}+\theta)~A\]
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
-\[Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\sin(\omega{t}+\theta)~A}\]
+\[Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\sin(\omega{t}+\theta) A}\]
 This is where phasors prove useful.  Without phasors we would have to rely on some esoteric trig identities but let's not do that here.  Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
-\[Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\cos(\omega{t}+\theta-90^\circ)~A}\]
+\[Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{{-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A}\]
 The cosines can now be transformed to phasors and divided
 \[Z_C=\frac{v(t)}{i(t)}=\frac{A}{{-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{{-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega\]
 The amplitude, $A$, of each function cancel each other. Distributing the negative sign into the angle of the denominator leaves only a $+90^\circ$

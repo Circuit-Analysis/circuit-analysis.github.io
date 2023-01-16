@@ -372,12 +372,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capacitor">
+   Capacitor
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -389,6 +413,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capacitor">
+   Capacitor
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -1612,8 +1649,9 @@ Dividing the phasors results in 1. A in the numerator cancels A in the denominat
 The impedance of a resistor is just its resistance. It may seem strange to say that <span class="math notranslate nohighlight">\(R~\Omega\)</span> is a complex number but it does locate a point on the complex plane. It just happens that the point is on the real axis with no imaginary component. In other words it could be expressed as <span class="math notranslate nohighlight">\(R+j0~\Omega\)</span>.</p>
 <p>\subsection{Reactive Components}
 We can now consider the other two passive elements using the same thought process as we did for the resistor.</p>
-<p>\paragraph{Capacitor}
-Let’s consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
+<section id="capacitor">
+<h2>Capacitor<a class="headerlink" href="#capacitor" title="Permalink to this headline">#</a></h2>
+<p>Let’s consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
 [v(t)=A\cos(\omega{t}+\theta)~V]
 The voltage source is connected to the capacitor as shown here
 \begin{center}
@@ -1969,6 +2007,7 @@ Those two impedances combine to a <span class="math notranslate nohighlight">\(1
 <p>From this point we can use a simple current divider to find <span class="math notranslate nohighlight">\(I_O\)</span>.
 [I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A]</p>
 <p>\end{example}</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
