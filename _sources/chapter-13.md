@@ -1,7 +1,9 @@
 # Alternating Current: Phasors
 
 \index{Phasors}
-\section{Sinusoidal Functions as Rotating Vectors}
+
+## Sinusoidal Functions as Rotating Vectors
+
 \index{Sinusoid}
 \begin{center}
 \begin{tikzpicture}
@@ -310,7 +312,8 @@ node[left=7pt] {1}
 %freq
 %period
 
-\section{Review of Complex Numbers}
+## Review of Complex Numbers
+
 %The horrible ways complex numbers are taught
 %complex numbers: an extension of the 1D number line into the 2D complex plane
 The first thing you learned about numbers was how to count: 1,2,3,4,... Then you learned what 0 was and then that there are numbers less than zero: -1,-2,-3,-4,... All of these numbers allow you to locate points on a numbers line. The numbers indicate two things:
@@ -381,7 +384,9 @@ xmax=+5
 \end{center}
 
 In all instances we are locating a point with a distance from the origin and a direction. This is consistent whether we are locating the point on a number line or the 2D complex plane.
-\subsection{Other Complex Number Forms}
+
+### Other Complex Number Forms
+
 The form we have been using so far in this section is known as polar form. There are two other commonly used forms for complex numbers . In all cases the complex number represents a point on the complex plane. So let's pick a point on a plane:
 \begin{center}
 \begin{tikzpicture}
@@ -405,7 +410,9 @@ xmax=+5
 \end{tikzpicture}
 \end{center}
 We can represent the location of the black dot shown on the plane above in three forms.
-\paragraph{Polar Form}
+
+### Polar Form
+
 This is the form introduced earlier in this section. It specifies a direction and distance from the origin to the point.
 \begin{center}
 \begin{tikzpicture}
@@ -434,7 +441,9 @@ xmax=+5
     \end{tikzpicture}
 
 \end{center}
-\paragraph{Rectangular Form}
+
+### Rectangular Form
+
 We can use the rectangular form to represent the same point. This form specifies a distance from the origin along the real (horizontal) axis and a distance from the real axis parallel to the imaginary (vertical) axis.
 
 \begin{center}
@@ -469,7 +478,8 @@ The same type of information is included in this form: direction and distance. D
 \]
 The complex numbers look different but they locate the same point on the plane.
 
-\paragraph{Exponential Form}
+### Exponential Form
+
 The last form we will discuss if the exponential form. This form shares the same information as polar but in a different format. The format change can be explained by a Swiss mathematician named Euler. I'll restate his identity here. I encourage you to read more about his work if you are interested but will not require you to understand the details of the identity.
 \[
 e^{j\theta}=\cos\theta+j\sin\theta
@@ -515,10 +525,12 @@ While the identity originally specified the angle in radians modern calculators 
 5e^{j36.86^\circ}
 \]
 
-\paragraph{Conversion Between Complex Forms}
+### Conversion Between Complex Forms
+
 Since all of the complex forms introduced above can specify the same point it is possible to convert any complex form to any of the others. If we reexamine the complex planes in this section it should become clear that the vectors of the different forms create a right triangle. Therefore, conversion between the types is an application of trigonometry and Pythagoras' theorem.
 
-\paragraph{Polar/Exponential to Rectangular}
+### Polar/Exponential to Rectangular
+
 If a polar value is given as
 \[A\angle\theta\]
 conversion to exponential form is as simple as writing
@@ -532,7 +544,8 @@ and
 \[b=A\sin\theta\]
 again respecting the units of $\theta$. (Check your calculator mode!)
 
-\paragraph{Polar/Exponential to Rectangular}
+### Polar/Exponential to Rectangular
+
 if a rectangular value is given as
 \[a+jb\]
 it can be converted to either the polar or exponential forms
@@ -544,7 +557,8 @@ and
 once more, respecting the units of $\theta$. (Check your calculator mode again... just to be sure!) You must also consider that the angle $\theta$ is measured from the real axis in the counter-clockwise direction. If the complex number is in the second or third quadrant you must find the supplementary angle of theta before writing the converted complex value.
 %perhaps an illustrative example of this here.
 
-\subsection{Extending Operations into 2D Plane}
+### Extending Operations into 2D Plane
+
 %Reconsidering 1D operations and extension to 2D
 Now that we can locate points on a 2D plane instead of a simple 1D number line we should reconsider the operations we perform on these new numbers. What we will find is that the operations are the same regardless of the type of number we are using. Stated differently, the scalar operations reviewed below are equivalent to complex operations on a 2D plane.
 
@@ -562,7 +576,8 @@ Negation&Negation\\
 \end{tabular}
 \end{center}
 
-\paragraph{Addition}
+### Addition
+
 With operations we can begin to visualize and represent more realistic problems. Since we're relearning how to add let's revisit some problem you may have heard when you were learning addition the first time such as
 \begin{quote}
 \textit{Colin walks 2 meters in one direction. Now he walks 3 meters in the same direction. How far is Colin from where he started?}
@@ -664,7 +679,8 @@ This operation is straight-forward if the complex values are in rectangular form
 \end{center}
 This is why I prefer rectangular form for addition.
 
-\paragraph{Negation}
+### Negation
+
 A scalar value has the same two pieces of information as a polar number. The distance from the origin is clearly the magnitude (absolute value) of the number. The direction may not be immediately obvious. The sign of the scalar number tells us whether it is located to the left or right of the origin.
 
 When we negate a number (multiply by -1) we simply switch the side of the origin the number is located on. The distance from the origin remains the same.
@@ -779,7 +795,8 @@ xmax=+5
 We can also see graphically that the negation of the rectangular form matches the negation of the polar form. So
 \[-4-j3=5\angle 216.86^\circ\]
 
-\paragraph{Subtraction}
+### Subtraction
+
 Subtraction is a simple combination of negation and addition. For instance to perform
 \begin{center}
 \begin{tabular}{rc}
@@ -877,7 +894,8 @@ xmax=+5
 \end{center}
 The result is shown in orange on the previous plot, $-2+j2$.
 
-\paragraph{Multiplication}
+### Multiplication
+
 Multiplication stretches and rotates a value. This is true whether you are multiplying two scalar numbers or two complex numbers. When multiplying two numbers the result can be found using
 \[(r_1\angle\theta_1)(r_2\angle\theta_2)=r_1r_2\angle(\theta_1+\theta_2)
 \]
@@ -991,7 +1009,8 @@ xmax=+5
 
 \end{center}
 
-\paragraph{Inverse}
+### Inverse
+
 When a number is multiplied by its inverse the result is real valued 1 also known as $1\angle 0^\circ$. With scalars, the inverse of 2 is $\sfrac{1}{2}$. Multiplying the two values results in
 \[\frac{2}{1}\times\frac{1}{2}=\frac{2}{2}=1=1\angle 0^\circ\]
 Graphically, the two vectors shown here
@@ -1069,7 +1088,8 @@ xmax=+2.5
 \end{center}
 Once again, the operation is consistent whether performed on a 1D number line or 2D complex plane.
 
-\paragraph{Division}
+### Division
+
 Division is a simple combination of inversion and multiplication. For instance to perform
 \[6\div2=3\]
 we invert the second operand and then perform a multiplication
@@ -1155,7 +1175,8 @@ xmax=+3
 In general, complex division is performed as
 \[(r_1\angle\theta_1)\div(r_2\angle\theta_2)=\frac{r_1}{r_2}\angle(\theta_1-\theta_2)\]
 
-\paragraph{So what's the deal with $j=\sqrt{-1}$?}
+### So what's the deal with $j=\sqrt{-1}$ ?
+
 You were undoubtedly taught the fact the the square root of a negative number does not exist and therefore it is labeled ``imaginary''. This is one of the greatest disservices that is done in math classrooms. Is it true the $\sqrt{-1}=j$? Yes. Is it the most important fact about imaginary (complex) numbers? No. It is a mere consequence of everything that we've discussed in this section. It is far more important that the operations performed on 1D scalar numbers are the same as the operations performed on 2D complex numbers. This is what should be taught. This should be the one thing most students remember about complex numbers. But it is not.
 
 I said it was true so I will briefly demonstrate that using the operations and complex forms discussed in this section. But please remember that it is a consequence of the important concepts, not the important concept itself.
@@ -1237,9 +1258,12 @@ and therefore
 \[\sqrt{j^2}=j=\sqrt{-1}\]
 So it's true but it is better thought of as a number, an actual number since it really exists just like any other point on the complex plane. It is a vector that when multiplying some other value it leaves that magnitude unchanged and rotates the angle by positive 90 degrees.
 
-\section{Impedance}
+## Impedance
+
 I've hopefully impressed upon you that all of circuit analysis is built on the three fundamental laws: Ohm's law, KVL, and KCL. We have to revisit Ohm's law as we begin to consider the new passive circuit elements. Ohm's law relates the voltage and current across and through a resistor. We can develop a similar relationship for capacitors and inductor using complex numbers.
-\subsection{Resistive Component}
+
+### Resistive Component
+
 Let's consider a sinusoidal voltage placed across a resistor. That voltage takes the form of
 \[v(t)=A\cos(\omega{t}+\theta)~V\]
 Notice that even though the voltage is a time variant function it still has the appropriate unit of volts assigned to it. The voltage source is connected to the resistor as shown here
@@ -1264,7 +1288,8 @@ Dividing the phasors results in 1. A in the numerator cancels A in the denominat
 \[Z_R=\frac{v(t)}{i(t)}=R~\Omega\]
 The impedance of a resistor is just its resistance. It may seem strange to say that $R~\Omega$ is a complex number but it does locate a point on the complex plane. It just happens that the point is on the real axis with no imaginary component. In other words it could be expressed as $R+j0~\Omega$.
 
-\subsection{Reactive Components}
+### Reactive Components
+
 We can now consider the other two passive elements using the same thought process as we did for the resistor.
 
 ### Capacitor
@@ -1303,7 +1328,8 @@ When j moves between the numerator and denominator it is negated. Therefore the 
 \[Z_C=\frac{-j}{\omega{C}}~\Omega=\frac{1}{j\omega{C}}~\Omega\]
 These forms also match the definition of impedance, a complex number that relates sinusoidal voltages and currents for a capacitor. Notice it is purely imaginary and results in a $90^\circ$ phase shift.
 
-\paragraph{Inductor}
+### Inductor
+
 Last one! Let's consider a sinusoidal voltage placed across an inductor. That voltage again takes the form of
 \[v(t)=A\cos(\omega{t}+\theta)~V\]
 The voltage source is connected to the inductor as shown here
@@ -1350,8 +1376,10 @@ Capacitor&0&$-\frac{1}{\omega C}$&0-$\frac{j}{\omega C}$&OR&0+$\frac{1}{j\omega 
 \end{tabular}
 \end{center}
 
-\section{Equivalent Impedances}
-\subsection{Equivalent Impedance: Series}
+## Equivalent Impedances
+
+### Equivalent Impedance: Series
+
 Two elements connected in series share one node \textbf{exclusively}.
 \begin{center}\begin{circuitikz}\draw
 (-3,3) to[european resistor,l=Z\tss{1}] (0,3)
@@ -1364,7 +1392,8 @@ When two impedances are in series they can be redrawn as a single impedance
 ;
 \end{circuitikz}\end{center}
 
-\subsection{Equivalent Impedance: Parallel}
+### Equivalent Impedance: Parallel
+
 Two elements are in parallel when they are connected to the same two nodes.
 
 \begin{center}\begin{circuitikz}\draw
@@ -1392,7 +1421,7 @@ The value of two inductors in parallel is commonly expressed as
 
 %%%%%%%%%%%%%%%FIXED SECTIONS to HERE
 
-\section{Analysis Methods and Theorems with Alternating Current}
+## Analysis Methods and Theorems with Alternating Current
 
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
@@ -1430,7 +1459,8 @@ The value of two inductors in parallel is commonly expressed as
 
 \end{tikzpicture}\end{center}
 
-\subsection{Voltage Divider}
+### Voltage Divider
+
 \index{Voltage Divider}
 \begin{example}
 \begin{center}
@@ -1445,7 +1475,8 @@ The value of two inductors in parallel is commonly expressed as
 Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
 \end{example}
 
-\subsection{Current Divider}
+### Current Divider
+
 \begin{example}
 \begin{center}
 \begin{circuitikz}[american]\draw
@@ -1460,7 +1491,8 @@ Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
 Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 \end{example}
 
-\subsection{Mesh Analysis}
+### Mesh Analysis
+
 \index{Mesh Analysis}
 \begin{example}
 \begin{center}
@@ -1477,7 +1509,8 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 \end{center}
 \end{example}
 
-\subsection{Nodal Analysis}
+### Nodal Analysis
+
 \begin{example}
 \begin{center}
 \begin{circuitikz}[american]\draw
@@ -1509,8 +1542,11 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 \end{circuitikz}
 \end{center}
 \end{example}
-\subsection{Superposition}
-\subsection{Thevenin's Theorem}
+
+### Superposition
+
+### Thevenin's Theorem
+
 \index{Thevenin's Theorem}
 \begin{example}
 \begin{center}
@@ -1591,9 +1627,12 @@ We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and
 
 \end{example}
 
-\subsection{Norton's Theorem}
+### Norton's Theorem
+
 \index{Norton's Theorem}
-\subsection{Source Conversions}
+
+### Source Conversions
+
 \index{Source Conversions}
 \begin{example}
 \begin{center}
