@@ -917,16 +917,46 @@ Summing the **Power Dissipated** column shows that the sum is zero, so power is 
 
 ```
 
-For SI units {cite:ts}`nist_si_units`. energy is measured in joules (J) and power is measured in joules per second (J/s). One joule per second is equal to one watt.
+For SI units ({cite:ts}`nist_si_units`) energy is measured in joules (J) and power is measured in joules per second (J/s). One joule per second is equal to one watt.
 
 Because of the usual scale of usage, the power company tends to report power in kilowatts (kW) or megawatts (MW). The power company uses a measure of energy that is easier to relate to residential or commercial power usage: multiplying the power in kW by the time of the usage in hours to get kilowatt-hours (kW-h).
 
-Eversource {cite:ts}`eversource_costs` currently charges 23.031 cents per kilowatt-hour.
+Eversource ({cite:ts}`eversource_costs`) currently charges 23.031 cents per kilowatt-hour.
+
+If you've ever bought a power bank ({cite:ts}`wirecutter_power_banks`), then you'll have noticed these are usually rated by the milliamp-hours (mA-h). As you can probably deduce, this is neither a measure of energy nor a measure of power. If we work it out, it's really a measure of **charge**: milliamps are milli-coulombs per second, and hours are a measure of time, so we are left with a (scaled) measure of charge.
+
+Similarly, car batteries are also usually rated in amp-hours (Ah). This is still a measure of charge, but because car batteries are usually assumed to output 12V[^carbatteryvoltage]
+
+[^carbatteryvoltage]: Despite the actual voltage being somewhere between 12.6V and 14.4V.
 
 12V 5AH battery
 How many watt hours?
 how long will it last if discharged at 1.3A? 50mA?
 How many amps can be drawn if it needs to last 40hrs?
+
+````{admonition} Example
+Suppose we have a 5Ah car battery. How many watt-hours of energy is that? How long will it last if discharged at 1.3A? How about 50 mA?  How many amps can be drawn if it needs to last 40 hours?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+Assume the 5Ah car battery outputs 12V.  Over one hour, this battery can output 5A @ 12V for a total of 60 watts or 60 Wh.
+
+If it needs to discharge 1.3A, then it can do this for
+
+$$ \frac{ 5 A h}{ 1.3 A} \approx 3.85 h $$
+
+If it needs to discharge 50 mA, then it can do this for
+
+$$ \frac{ 5 A h}{ 0.05 A} = 100 h $$
+
+Over 40 hours, the battery can discharge
+
+$$ \frac{5 A h }{ 40 h} = 0.125 A or 125 mA
+
+```
+
+````
 
 ## References
 
