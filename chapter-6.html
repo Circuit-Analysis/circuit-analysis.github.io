@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Review of Solving Linear Systems &#8212; Circuit Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mesh Analysis" href="chapter-7.html" />
+    <link rel="prev" title="A Sloppy Approach to Circuit Analysis" href="chapter-5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Circuit Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Circuit Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-1.html">
+   Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-2.html">
+   Anatomy of a Circuit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-3.html">
+   Equivalent Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-4.html">
+   Dividers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-5.html">
+   A Sloppy Approach to Circuit Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Review of Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-7.html">
+   Mesh Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-8.html">
+   Nodal Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-9.html">
+   Superposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-10.html">
+   Equivalent Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-11.html">
+   Other Passive Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-12.html">
+   Alternating Current: Differential Equation Approach
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-13.html">
+   Alternating Current: Phasors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-14.html">
+   Power in Alternating Current Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-15.html">
+   A Simpler Approach: Complex Power
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-16.html">
+   Power Factor Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-17.html">
+   Transients in Capacitors and Inductors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-18.html">
+   More Complex Circuits using the ``Step-by-step Method’’
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-19.html">
+   Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://circuit-analysis.github.io/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://circuit-analysis.github.io//issues/new?title=Issue%20on%20page%20%2Fchapter-6.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/chapter-6.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-linear-system">
+   What is a linear system?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-are-we-interested">
+   Why are we interested?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-linear-systems">
+   Solving Linear Systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#substitution">
+     Substitution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elimination">
+     Elimination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-inverse">
+     Matrix Inverse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators">
+   Solving Linear Systems with Complex Coefficients on TI-83 / TI-84 Calculators
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Review of Solving Linear Systems</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-linear-system">
+   What is a linear system?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-are-we-interested">
+   Why are we interested?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-linear-systems">
+   Solving Linear Systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#substitution">
+     Substitution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elimination">
+     Elimination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-inverse">
+     Matrix Inverse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators">
+   Solving Linear Systems with Complex Coefficients on TI-83 / TI-84 Calculators
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="review-of-solving-linear-systems">
+<h1>Review of Solving Linear Systems<a class="headerlink" href="#review-of-solving-linear-systems" title="Permalink to this headline">#</a></h1>
+<section id="what-is-a-linear-system">
+<span id="index-0"></span><h2>What is a linear system?<a class="headerlink" href="#what-is-a-linear-system" title="Permalink to this headline">#</a></h2>
+<p>In this book, a linear system is a series of equations. The equations have one or more unknowns (AKA variables). Each unknown probably has a scaling factor (coefficient). And each equation also probably has a constant associated with it.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>For example, the equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\green{x} + \green{y} + \green{z} &amp;= \blue{1}\\
+2\green{x} + 3\green{y} + 4\green{z} &amp;= \blue{2}\\
+6\green{x} + 7\green{y} + 8\green{z} &amp;= \blue{3}\tag{LIN1}\label{eq:lin1}
+\end{align*}
+\end{split}\]</div>
+<p>have
+\begin{itemize}
+\item three unknowns: <span class="math notranslate nohighlight">\(\green{x}\)</span>, <span class="math notranslate nohighlight">\(\green{y}\)</span>, and <span class="math notranslate nohighlight">\(\green{z}\)</span>,
+\item several constants: \blue{1}, \blue{2}, \blue{3}, and
+\item nine coefficients: 1, 1, 1, 2, 3, 4, 6, 7, 8.
+\begin{itemize}
+\item The first equation is really <span class="math notranslate nohighlight">\( 1\cdot\green{x} + 1\cdot\green{y} +1\cdot\green{z} = \blue{1} \)</span>
+\end{itemize}
+\end{itemize}</p>
+</div>
+</section>
+<section id="why-are-we-interested">
+<h2>Why are we interested?<a class="headerlink" href="#why-are-we-interested" title="Permalink to this headline">#</a></h2>
+<p>Linear equations like~(\ref{eq:lin1}) are useful in circuit analysis, because they crop up when applying the Mesh Analysis and Nodal Analysis techniques we will meet shortly in Chapters~\ref{ch:mesh} and \ref{ch:nodal}.</p>
+<p>However, many real world problems (outside of circuit analysis) can be solved by applying linear systems.</p>
+<p>\pagebreak</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>\label{ex:lumber1}
+You have 15 feet of lumber, and you are asked to make three shelves using the lumber. If all the shelves are of equal length, what length is it?</p>
+<p>This word problem can be expressed as the equation:
+[
+3 \green{x} = \blue{15}
+]
+which has the obvious solution
+[
+x= 15 / 3 = 5.
+]</p>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>\label{ex:lumber2}
+Suppose now there are more constraints on the problem of making three shelves.</p>
+<p>You still have 15 feet of lumber, and you are still asked to make three shelves using the lumber.</p>
+<p>However, now we have different constraints:
+\begin{itemize}
+\item The second shelf must be one foot shorter than the first shelf.
+\item The third shelf must be one foot shorter than three times the length of the first shelf.
+\end{itemize}</p>
+<p>This word problem now needs to be expressed in several equations:
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+\green{x} + \green{y} + \green{z} &amp;= \blue{15}\\
+\green{y} &amp;= \green{x} \blue{- 1}\\
+\green{z} &amp;= 3\green{x} \blue{-1}
+\end{align*}
+\)</span>$
+This problem is not as easy to solve as the previous one. In the next section, we’ll look at how to solve them.</p>
+</div>
+</section>
+<section id="solving-linear-systems">
+<h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this headline">#</a></h2>
+<p>The equations in Example~\ref{ex:lumber2} are harder to solve than the single equation in Example~\ref{ex:lumber1}. This is because the second example has 3 \green{unknowns} or variables. The second example must satisfy all three constraints {\em simultaneously}. This is the reason that these linear systems are sometimes called {\sl simultaneous equations.}</p>
+<p id="index-1">There are several ways to solve linear systems of simultaneous equations. We will talk about three of them: elimination, substitution, and matrix inverse. The first two can be done using linear algebra and manipulating equations. The third is very useful if you have a calculator capable of doing matrix math.</p>
+<section id="substitution">
+<h3>Substitution<a class="headerlink" href="#substitution" title="Permalink to this headline">#</a></h3>
+<p>Substitution involves manipulating one of the equations so that a single unknown is on the left side of the equation, and all the others are on the right. Then we can replace all instances of this unknown in the remaining equations to reduce their complexity.</p>
+<p>\pagebreak</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>\label{ex:subst}
+Let’s revisit the equations we had in Example~\ref{ex:lumber2}.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\green{x} + \green{y} + \green{z} &amp;= \blue{15}\\
+\green{y} &amp;= \green{x} \blue{- 1}\\
+\green{z} &amp;= 3\green{x} \blue{-1}
+\end{align*}
+\end{split}\]</div>
+<p>These are already written out in a way that makes substitution easy: the second and third equations already have <span class="math notranslate nohighlight">\(\green{y}\)</span> or <span class="math notranslate nohighlight">\(\green{z}\)</span> on one side.
+Let’s substite these two equations into the first one:
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+\green{x} + \green{x} \blue{- 1} + 3\green{x} \blue{-1} &amp;= \blue{15}\\
+(1 + 1 + 3) \green{x} &amp;= \blue{15} + \blue{1} + \blue{1}\\
+5 \green{x} &amp;= \blue{17}\\
+\green{x} &amp;= \red{17/5} = \red{3.4}
+\end{align*}
+\)</span>$</p>
+<p>Now that we have <span class="math notranslate nohighlight">\(\green{x}\)</span>, we can substitute its value back into the other two equations to get <span class="math notranslate nohighlight">\(\green{y}\)</span> and <span class="math notranslate nohighlight">\(\green{z}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\green{y} &amp;= \red{3.4} \blue{- 1} = \red{2.4}\\
+\green{z} &amp;= 3\times \red{3.4} \blue{-1} = \red{9.2}
+\end{align*}
+\end{split}\]</div>
+<p>And to check that our first equation is satisfied, we can substitute all values into it:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\green{x} + \green{y} + \green{z} &amp;= 3.4 + 2.4 + 9.2 = \blue{15}\\
+\end{align*}
+\end{split}\]</div>
+</div>
+</section>
+<section id="elimination">
+<h3>Elimination<a class="headerlink" href="#elimination" title="Permalink to this headline">#</a></h3>
+<p>Elimination involves adding or subtracting the equations we have so that one or more of the unknowns is eliminated. Once we’ve eliminated all but one of the unknowns, we can then solve the problem with the remaining single unknown like we did in Example~\ref{ex:lumber1}.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Let’s revisit the equations we had in Example~\ref{ex:lumber2}.</p>
+<p>To apply elimination, we need to get all equations into a similar form with all the unknowns on the left and the constants on the right.
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\green{x} + \green{y} + \green{z} = \blue{15} &amp;\rightarrow \green{x} + \green{y} + \green{z} = \blue{15}\label{eq:elim1}\\
+\green{y} = \green{x} \blue{- 1}&amp;\rightarrow -\green{x} + \green{y} = \blue{-1}\label{eq:elim2}\\
+\green{z} = 3\green{x} \blue{-1}&amp;\rightarrow - 3\green{x} + \green{z} = \blue{-1}\label{eq:elim3}
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Now we can use (\ref{eq:elim2}) to remove instances of \)</span>\green{x}$ from the other two equations by adding it to (\ref{eq:elim1}) and subtracting three times it from (\ref{eq:elim3}).</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align}
+(\ref{eq:elim1}) + (\ref{eq:elim2}) &amp;\Rightarrow
+\left.
+\begin{array}{lcc}
+&amp; \green{x} + \green{y} + \green{z} &amp;= \blue{15}\\\end{split}\\\begin{split}- &amp; -\green{x} + \green{y} &amp;= \blue{-1}
+\end{array}
+\right\} \Rightarrow 2 \green{y} + \green{z} = \blue{14}\label{eq:elim4}\\
+(\ref{eq:elim3}) - 3\times (\ref{eq:elim2}) &amp;\Rightarrow
+\left.
+\begin{array}{lcc}
+&amp; - 3\green{x} + \green{z} &amp;= \blue{-1}\\\end{split}\\* &amp; 3\times(-\green{x} + \green{y} &amp;= \blue{-1})
+\end{array}
+\right\} \Rightarrow -3 \green{y} + \green{z} = \blue{2}\label{eq:elim5}
+\end{align}
+\end{aligned}\end{align} \]</div>
+<p>Now we have to subtract (\ref{eq:elim5}) from (\ref{eq:elim4}) to find <span class="math notranslate nohighlight">\(\green{y}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{align*}
+(\ref{eq:elim4}) - (\ref{eq:elim5}) &amp;\Rightarrow
+\left.
+\begin{array}{lcc}
+&amp; 2 \green{y} + \green{z} = \blue{14}\\\end{split}\\\begin{split}- &amp; -3 \green{y} + \green{z} = \blue{2}
+\end{array}
+\right\} \Rightarrow 5 \green{y} = \blue{12}\\
+\end{align*}
+\end{split}\end{aligned}\end{align} \]</div>
+<p>This gives
+$<span class="math notranslate nohighlight">\(
+\green{y} = \red{2.4}
+\)</span><span class="math notranslate nohighlight">\(
+as in Example~\ref{ex:subst}, and we can back substitute into the other equations to find \)</span>\green{x}<span class="math notranslate nohighlight">\( and \)</span>\green{z}$.</p>
+</div>
+</section>
+<section id="matrix-inverse">
+<h3>Matrix Inverse<a class="headerlink" href="#matrix-inverse" title="Permalink to this headline">#</a></h3>
+<p>Matrices and vectors can be used to write linear systems in a shorthand notation.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>As with the elimination technique, we need to get all equations into a similar form with all the unknowns on the left and the constants on the right.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\green{x} + \green{y} + \green{z} = \blue{15} &amp;\rightarrow \green{x} + \green{y} + \green{z} = \blue{15}\\
+\green{y} = \green{x} \blue{- 1}&amp;\rightarrow -\green{x} + \green{y} = \blue{-1}\\
+\green{z} = 3\green{x} \blue{-1}&amp;\rightarrow - 3\green{x} + \green{z} = \blue{-1}
+\end{align*}
+\end{split}\]</div>
+<p>The shorthand notation involves splitting the coefficients, the \green{unknowns}, and the \blue{constants} into separate matrices and vectors.</p>
+<p>For the equations in this example, this yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left[
+\begin{array}{ccc}
+1 &amp; 1 &amp; 1\\
+-1 &amp; 1 &amp; 0^\dagger\\
+-3 &amp; 0^\ddagger &amp; 1
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+\green{x}\\
+\green{y}\\
+\green{z}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+\blue{15}\\
+\blue{-1}\\
+\blue{-1}
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>Note that the second equation does not refer to <span class="math notranslate nohighlight">\(\green{z}\)</span>, but we still need to fill in the matrix entry with <span class="math notranslate nohighlight">\(0^\dagger\)</span>, and the third equation does not refer to <span class="math notranslate nohighlight">\(\green{y}\)</span> but will still need to fill that entry with a <span class="math notranslate nohighlight">\(0^\ddagger\)</span>.</p>
+<p>Now we have several ways we can solve this equation:</p>
+<ul class="simple">
+<li><p>By using the inverse function (<span class="math notranslate nohighlight">\(x^{-1}\)</span>) on a calculator but with <span class="math notranslate nohighlight">\(x\)</span> as a matrix.</p></li>
+<li><p>By using the {\tt rref} matrix function on a calculator.</p></li>
+<li><p>By using the various options available in Matlab<span class="math notranslate nohighlight">\(^\text{TM}\)</span>.</p></li>
+</ul>
+<p id="index-2">We will exam these in the next few examples.</p>
+</div>
+<p>\pagebreak</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>To solve</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left[
+\begin{array}{ccc}
+1 &amp; 1 &amp; 1\\
+-1 &amp; 1 &amp; 0\\
+-3 &amp; 0 &amp; 1
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+\green{x}\\
+\green{y}\\
+\green{z}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+\blue{15}\\
+\blue{-1}\\
+\blue{-1}
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>using the inverse function on a calculator, we first need to create a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix, {\tt A} and a <span class="math notranslate nohighlight">\(3 \times 1\)</span> vector called {\tt B}. Enter the values so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+{\tt A} &amp;=
+\left[
+\begin{array}{ccc}
+1 &amp; 1 &amp; 1\\
+-1 &amp; 1 &amp; 0\\
+-3 &amp; 0 &amp; 1
+\end{array}
+\right]\\
+{\tt B} &amp;=
+\left[
+\begin{array}{c}
+\blue{15}\\
+\blue{-1}\\
+\blue{-1}
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>Then enter</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\tt [A]^{-1} * B
+\end{align*}
+\]</div>
+<p>Then the answer should be
+$<span class="math notranslate nohighlight">\(
+\left[
+\begin{array}{c}
+\red{3.4}\\
+\red{2.4}\\
+\red{9.2}
+\end{array}
+\right]
+\)</span>$</p>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>To solve</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left[
+\begin{array}{ccc}
+1 &amp; 1 &amp; 1\\
+-1 &amp; 1 &amp; 0\\
+-3 &amp; 0 &amp; 1
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+\green{x}\\
+\green{y}\\
+\green{z}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+\blue{15}\\
+\blue{-1}\\
+\blue{-1}
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>using the {\tt rref} function on a calculator, we first need to create a <span class="math notranslate nohighlight">\(3 \times \)</span>{\large 4} matrix, {\tt A}. Enter the values so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+{\tt A} &amp;=
+\left[
+\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 15\\
+-1 &amp; 1 &amp; 0 &amp; -1\\
+-3 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>Then enter</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\tt rref(A)
+\end{align*}
+\]</div>
+<p>Then the answer should be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp;\red{3.4}\\
+0 &amp; 1 &amp; 0 &amp;\red{2.4}\\
+0 &amp; 0 &amp; 1 &amp;\red{9.2}
+\end{array}
+\right]
+\end{split}\]</div>
+<p>The function {\tt rref} stands for {\bf reduced row echelon form.}.</p>
+<span class="target" id="index-3"></span><p id="index-4">This means that the result will have the unit matrix in the first part and the answer we are looking for in the rest (provided the problem is well-posed).</p>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>To solve</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left[
+\begin{array}{ccc}
+1 &amp; 1 &amp; 1\\
+-1 &amp; 1 &amp; 0\\
+-3 &amp; 0 &amp; 1
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+\green{x}\\
+\green{y}\\
+\green{z}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+\blue{15}\\
+\blue{-1}\\
+\blue{-1}
+\end{array}
+\right]
+\end{align*}
+\end{split}\]</div>
+<p>using using Matlab<span class="math notranslate nohighlight">\(^\text{TM}\)</span>, we must first enter the matrix and vector.</p>
+<p id="index-5">\begin{center}
+\tt A = [1, 1, 1; -1, 1, 0; -3, 0, 1];\
+b = [15; -1; -1];
+\end{center}
+Then we can solve the equations using any one of the following:
+\begin{center}
+\tt A\textbackslash b\
+inv(A)*b\
+pinv(A)*b\
+rref([A b])
+\end{center}</p>
+</div>
+</section>
+</section>
+<section id="solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators">
+<h2>Solving Linear Systems with Complex Coefficients on TI-83 / TI-84 Calculators<a class="headerlink" href="#solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators" title="Permalink to this headline">#</a></h2>
+<p>Some calculators, like the TI-83 or TI-84, only allow matrices with real-valued entries. For circuit analysis of capacitive or inductive impedances, we need to work with complex-valued matrices.</p>
+<p>It’s possible to use these calculators to deal with complex-valued matrices, but we have to use a trick: each complex number must be replaced by a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix as indicated below.</p>
+<p>[
+a + \jmath b \rightarrow \left[ \begin{array}{cc} a &amp; -b \ b &amp; a\end{array} \right]
+]</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>For example, let’s find the {\tt rref} of the following complex-valued matrix equation:
+[
+\left[ \begin{array}{cc} 7-\jmath10 &amp; -7 \ -7 &amp; 10+\jmath6 \end{array} \right] \left[ \begin{array}{c} I_1 \ I_2 \end{array} \right] = \left[ \begin{array}{c} -8 \angle{55^\circ} \ 0 \end{array} \right] = \left[ \begin{array}{c} -4.5886 -\jmath 6.5532 \ 0 \end{array} \right]
+]</p>
+<p>To use {\tt rref} we need to augment the square matrix on the left with the vector on the left.
+[
+\left[ \begin{array}{ccc} 7-\jmath10 &amp; -7 &amp; -4.5886 -\jmath 6.5532 \ -7 &amp; 10+\jmath6 &amp; 0 \end{array} \right]
+]</p>
+<p>To enter this matrix into a calculator that cannot do complex matrices, we replace each complex number with its <span class="math notranslate nohighlight">\(2 \times 2\)</span> equivalent. This means the <span class="math notranslate nohighlight">\(2 \times 3\)</span> augmented matrix above will now be <span class="math notranslate nohighlight">\(4 \times 6\)</span>.</p>
+<p>[
+\left[ \begin{array}{cccccc} 7 &amp; 10 &amp; -7&amp;0 &amp; -4.5886 &amp; 6.5532 \
+-10 &amp; 7 &amp; 0 &amp; -7 &amp; -6.5532 &amp; -4.5886\
+-7 &amp; 0 &amp; 10 &amp; -6 &amp; 0 &amp; 0\
+0 &amp; -7 &amp; 6 &amp; 10 &amp; 0 &amp; 0
+\end{array} \right]
+]</p>
+<p>The result of the {\tt rref} of this matrix is then:
+[
+\left[
+\begin{array}{cccccc}
+1.0000&amp; 0&amp; 0&amp; 0&amp; 0.3641&amp; 1.5177\
+0&amp; 1.0000&amp; 0&amp; 0&amp; -1.5177&amp; 0.3641\
+0&amp; 0&amp; 1.0000&amp; 0&amp; -0.2813&amp; 0.8936\
+0&amp; 0&amp; 0&amp; 1.0000&amp; -0.8936&amp; -0.2813
+\end{array}
+\right]
+]
+Note that the structure of the resulting matrix has a unit matrix in the first <span class="math notranslate nohighlight">\(4 \ times 4\)</span> slots and the answers in the <span class="math notranslate nohighlight">\(2\times 2\)</span> format in the last slots.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chapter-5.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">A Sloppy Approach to Circuit Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chapter-7.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mesh Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By David J. Broderick &amp; Peter J. Kootsookos<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://circuit-analysis.github.io">Circuit Analysis</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/djbrod">David J. Broderick</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kootsoop">Peter J. Kootsookos</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

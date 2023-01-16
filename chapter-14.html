@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Power in Alternating Current Circuits &#8212; Circuit Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="A Simpler Approach: Complex Power" href="chapter-15.html" />
+    <link rel="prev" title="Alternating Current: Phasors" href="chapter-13.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Circuit Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Circuit Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-1.html">
+   Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-2.html">
+   Anatomy of a Circuit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-3.html">
+   Equivalent Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-4.html">
+   Dividers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-5.html">
+   A Sloppy Approach to Circuit Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-6.html">
+   Review of Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-7.html">
+   Mesh Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-8.html">
+   Nodal Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-9.html">
+   Superposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-10.html">
+   Equivalent Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-11.html">
+   Other Passive Components
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-12.html">
+   Alternating Current: Differential Equation Approach
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-13.html">
+   Alternating Current: Phasors
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Power in Alternating Current Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-15.html">
+   A Simpler Approach: Complex Power
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-16.html">
+   Power Factor Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-17.html">
+   Transients in Capacitors and Inductors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-18.html">
+   More Complex Circuits using the ``Step-by-step Method’’
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter-19.html">
+   Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://circuit-analysis.github.io/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://circuit-analysis.github.io//issues/new?title=Issue%20on%20page%20%2Fchapter-14.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/chapter-14.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Power in Alternating Current Circuits</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="power-in-alternating-current-circuits">
+<h1>Power in Alternating Current Circuits<a class="headerlink" href="#power-in-alternating-current-circuits" title="Permalink to this headline">#</a></h1>
+<p>In the early chapters of this book the calculation of power dissipated or supplied by components was simple enough to be embedded within chapters covering the fundamental calculations of circuit analysis.
+In the previous chapter we concerned ourselves with the analysis of circuits containing AC sources operating at a single frequency. The result of this analysis led to sinusoidal representations of voltages and currents. In this chapter, we will discover that power dissipation in AC circuits can take many forms. It is critical to understand which form is appropriate for a given application. Therefore power calculations in AC circuits was earned itself a dedicated chapter</p>
+<p>\section{Instantaneous Power}
+Instantaneous power is the power being supplied or dissipated at a single instant in time. If the voltage is defined as
+[v(t)=V_pcos(\omega t+\theta_v)]
+and the current as
+[i(t)=I_pcos(\omega t+\theta_i)]
+then the instantaneous power can be calculated as
+[p(t)=v(t)i(t)]
+Notice that the instantaneous power is a time-domain function just as the voltage and current signals used to calculate is. It can change from instant to instant.</p>
+<p>This plot shows a voltage and current signal on the top plot and the resulting instantaneous power on the bottom. Draw a vertical line anywhere on the plot and convince yourself that the product of the two signals on the top is the value of the instantaneous power on the bottom plot.</p>
+<p>ADD subplot(2,1,x)</p>
+<p>We are often more concerned with the energy supplied or consumed over a period of time. This would require the integration of the instantaneous power of a period of time which is tedious considering our signals are always sinusoidal in the AC case. To characterize the power consumption of a component we will begin to develop alternate means of describing the power supplied or dissipated in AC circuits.</p>
+<p>\section{Average Power}
+The first means of characterizing power in AC circuits is average power. We must now differentiate between power that is being \textbf{dissipated} by a resistor versus power that is being \textbf{stored} in a storage element such as a capacitor or inductor. Calculating average power will tell us how much power us being \textbf{dissipated} by a circuit.</p>
+<p>Recall that you can find the average value of any periodic signal by integrating over a period and dividing by the period. For an instantaneous power signal that would look like
+[P=\frac{1}{T}\int_t^{t+T}p(\tau)d\tau]
+This integral is written to find the average power for any periodic signal but let’s consider two cases, the DC case and the AC case.</p>
+<p>\subsection{Average DC Power}
+For this case the voltage and current are constant and will be written using capital V and I respectively. If we use the integral for average power defined above we get
+[P=\frac{1}{T}\int_t^{t+T}VI~d\tau]
+V and I are constant in this case and therefore can be pulled out in front of the intergal
+[P=\frac{VI}{T}\int_t^{t+T}~d\tau]
+leading to
+[P=\left.\frac{VI}{T}~\tau\right|_t^{t+T}]
+and
+[P=\frac{VI}{T}~\left[t+T-t\right]]
+the two t’s cancel as well as the two periods T leading to
+[P=VI]
+Looks familiar? When we were calculating DC power earlier we were really calculating average power which is equivalent to instantaneous power for the DC case only. This may seem trivial right now but is a building block for a more common way to characterize power in AC circuits. We’ll get to that soon but first the other case I want to show you.</p>
+<p>\subsection{Average AC Power}
+The AC case is a bit more involved but we’ll get through it. The voltage and current are defined as time-domain sinusoidal signals as we did previously.
+[v(t)=V_pcos(\omega t+\theta_v)]
+[i(t)=I_pcos(\omega t+\theta_i)]
+Starting with out average power integral we have
+[P=\frac{1}{T}\int_t^{t+T}p(\tau)d\tau]
+Replacing the instantaneous power with the voltage and current signals leads to
+[P=\frac{1}{T}\int_t^{t+T}v(\tau)i(\tau)d\tau]
+Substituting for <span class="math notranslate nohighlight">\(v(\tau)\)</span> and <span class="math notranslate nohighlight">\(i(\tau)\)</span> and rearranging things a bit thanks to commutativity gives us
+[P=\frac{1}{T}\int_t^{t+T}V_pI_pcos(\omega \tau+\theta_v)cos(\omega \tau+\theta_i)d\tau]
+and applying a trigonometric identity to the product of cosines
+[P=\frac{1}{T}\int_t^{t+T}V_pI_p\frac{cos(\theta_v-\theta_i)+cos(2\omega \tau+\theta_v+\theta_i)}{2}d\tau]
+<span class="math notranslate nohighlight">\(V_p\)</span>, <span class="math notranslate nohighlight">\(I_p\)</span>, and the 2 are constants and are moved to the outside of the integral and the two terms left inside the integral are broken up into two integrals
+[P=\frac{V_pI_p}{2T}\left[\int_t^{t+T}cos(\theta_v-\theta_i)d\tau+\int_t^{t+T}cos(2\omega \tau+\theta_v+\theta_i)d\tau\right]]
+The first cosine doesn’t vary with the variable of integration, <span class="math notranslate nohighlight">\(\tau\)</span>, and is therefore constant and can be moved to the outside of the integral
+[P=\frac{V_pI_p}{2T}\left[cos(\theta_v-\theta_i)\int_t^{t+T}d\tau+\int_t^{t+T}cos(2\omega \tau+\theta_v+\theta_i)d\tau\right]]
+and evaluating that integral (on the left) gives us
+[P=\frac{V_pI_p}{2T}\left[cos(\theta_v-\theta_i)\left[\left.\tau\right|_t^{t+T}\right]+\int_t^{t+T}cos(2\omega \tau+\theta_v+\theta_i)d\tau\right]]
+and
+[P=\frac{V_pI_p}{2T}\left[cos(\theta_v-\theta_i)\left[t+T-t\right]+\int_t^{t+T}cos(2\omega \tau+\theta_v+\theta_i)d\tau\right]]
+which eliminates <span class="math notranslate nohighlight">\(t\)</span> from the first term. The integral on the right is periodic with respect to the variable of integration, <span class="math notranslate nohighlight">\(\tau\)</span>. Since that integral spans a period of the signal, the areas of the function above the axis and below the axis cancel leaving zero thus eliminating the entire second term.
+[P=\frac{V_pI_p}{2T}\left[cos(\theta_v-\theta_i)T\right]]
+Lastly, the <span class="math notranslate nohighlight">\(T\)</span>’s cancel leaving
+[P=\frac{V_pI_p}{2}\left[cos(\theta_v-\theta_i)\right]]
+Now we can look closely at this final expression for the average power dissipated by a component with a sinusoidal voltage and current. The average power depends on the magnitudes of the voltage an current. This is trivial and hopefully intuitive. What usually is not intuitive is the fact that the average power is also dependent on the phase shift of the voltage and current. When there is no difference in the phase angles, the average power is one-half the product of the peak voltages. Any change in the phase shift will decrease the average power.</p>
+<p>We can use the table below to summarize these sections
+\bgroup
+\def\arraystretch{1.75}% 1 is the default, change whatever you need
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&amp;Instantaneous&amp;Average\
+\hline\hline
+DC&amp;<span class="math notranslate nohighlight">\(P=VI\)</span>&amp;<span class="math notranslate nohighlight">\(P=VI\)</span>\
+\hline
+AC&amp;<span class="math notranslate nohighlight">\(p(t)=v(t)i(t)\)</span>&amp;<span class="math notranslate nohighlight">\(P=\frac{V_pI_p}{2}\left[cos(\theta_v-\theta_i)\right]\)</span>\
+\hline
+\end{tabular}
+\end{center}
+\egroup
+From this, we can take away the following
+\begin{itemize}
+\item For DC signals there is no difference between the instantaneous and average powers
+\item The instantaneous AC power is calculated in a similar manner to that of the DC power but it is time variant resulting in a time-domain function
+\item The average AC power is dependent on the phase shift between the voltage and current
+\item The maximum value of average AC power is found when there is now phase-shift ie<span class="math notranslate nohighlight">\(\sim~ \theta_v-\theta_i\)</span> is zero
+\end{itemize}</p>
+<p>\section{Effective Power (RMS)}
+The average power suffers from an additional problem. That’s not to say it isn’t necessary or useful but we must identify and address this problem. The average power is simply the average of the instantaneous power as formulated in the previous section. The instantaneous power can be positive at times an negative at others. If we simply take the integral over a period we may not fully understand how much power is being dissipated as those two intervals of the function may cancel each other when integrated.</p>
+<p>\subsection{General Form of RMS Voltage and Current}
+Instead we use the concept of effective power to avoid this. Effective power is often referred to as RMS power for reason that will become apparent at the end of this section. To introduce effective power we will tell the story of two circuits: an AC circuit and a DC circuit. Those circuits are pictured here:</p>
+<p>\vspace{1em}
+\begin{minipage}{.49\textwidth}
+\begin{center}\begin{circuitikz}\draw
+(0,0) to[sV,l=v(t)] (0,3)
+(0,0) – (3,0)
+(0,3) to<span class="xref myst">short,i=i(t)</span>
+(3,0) to[R,l_=R] (3,3)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{center}\begin{circuitikz}\draw
+(0,3) to[battery,l_=V\tss{EFF}] (0,0)
+(0,0) – (3,0)
+(0,3) to[short,i=I\tss{EFF}] (3,3)
+(3,0) to[R,l_=R] (3,3)
+;
+\end{circuitikz}\end{center}
+\end{minipage}
+\vspace{1em}</p>
+<p>Our goal is to find values for <span class="math notranslate nohighlight">\(V_{EFF}\)</span> and <span class="math notranslate nohighlight">\(I_{EFF}\)</span> such that the the resistor in the AC circuit dissipates the same power as the resistor in the DC circuit. In other words, the two circuits will be \textbf{effectively} the same with regards to the power dissipated by the resistor.</p>
+<p>To determine values for the effective voltage and current we will use the form of power <span class="math notranslate nohighlight">\(P=I^2R\)</span> we get from combining Ohm’s Law and the definition of electrical power. We setup the following integral to find the average power in the AC circuit resistor using this form
+[P=\frac{1}{T}\int_0^Ti^2Rdt=\frac{R}{T}\int_0^Ti^2dt]
+The resistor is constant so I’ve moved it to the coefficient of the integral.</p>
+<p>The DC circuit is a straight-forward application of the power equation
+[P=I_{eff}^2R]</p>
+<p>We set the two equal to each to solve for <span class="math notranslate nohighlight">\(I_{eff}\)</span>
+[I*{eff}^2R=\frac{R}{T}\int_0^Ti^2dt]
+The first thing I notice is that R cancels out. The value of <span class="math notranslate nohighlight">\(I*{eff}\)</span> is not dependent on the resistor.
+[I*{eff}^2=\frac{1}{T}\int_0^Ti^2dt]
+Solving for <span class="math notranslate nohighlight">\(I*{eff}\)</span> is then as simple as calculating the square root of both sides.
+[I*{eff}=\sqrt{\frac{1}{T}\int_0^Ti^2dt}]
+A similar path can be followed to show that
+[V*{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt}]</p>
+<p>Looking closely at the previous equation show us where the term ``RMS’’ came from. Inside the integral is the \textbf{square} of the current. The integral itself is finding the \textbf{mean} of that squared current. Lastly, the \textbf{root} covers to whole equation. This \textbf{root-mean-square} (RMS) formula can be applied to any signal.</p>
+<p>\subsection{RMS Voltage and Current for Sinusoidal Signals}
+For the AC case we can find a more compact form that does not involve calculus. Given a current in the form of
+[i(t)=I<em>pcos(\omega t+\theta_i)]
+we can setup the integral to find the effective current (which will now be referred to as the RMS current)
+[I</em>{RMS}=\sqrt{\frac{1}{T}\int<em>0^T\left[ I_pcos(\omega t+\theta_i) \right]^2dt}]
+We can pull <span class="math notranslate nohighlight">\(I_p\)</span>, along with its exponent, out in fron of the integral as in
+[I</em>{RMS}=\sqrt{\frac{I<em>p^2}{T}\int_0^T\left[ cos(\omega t+\theta_i) \right]^2dt}]
+and integrate
+[I</em>{RMS}=\sqrt{\left.\frac{I<em>p^2}{T}\left[\frac{\omega}{2}+\frac{sin(2\theta+2\omega t}{4t}\right]\right|_0^T}]
+which reduces to
+[I</em>{RMS}=\sqrt{\frac{I<em>p^2}{T}\left[\frac{\pi}{\omega}\right]}]
+Using the fact that <span class="math notranslate nohighlight">\(\omega\)</span> is related to <span class="math notranslate nohighlight">\(T\)</span> by <span class="math notranslate nohighlight">\(T=(2\pi)/\omega\)</span> leads to
+[I</em>{RMS}=\sqrt{\frac{I<em>p^2\pi}{T\omega}}=\sqrt{\frac{I_p^2\pi}{\frac{2\pi}{\omega}\omega}}]
+Canceling the <span class="math notranslate nohighlight">\(\omega\)</span>’s and the <span class="math notranslate nohighlight">\(\pi\)</span>’s
+[I</em>{RMS}=\sqrt{\frac{I<em>p^2}{2}}]
+or the more common form
+[I</em>{RMS}=\frac{I<em>p}{\sqrt{2}}\approx 0.707I_p]
+Similar analysis can be done for voltage with a similar result
+[V</em>{RMS}=\frac{I<em>p}{\sqrt{2}}\approx 0.707V_p]
+It is also common to see the equations inverted to solve for the peak values
+[I</em>{p}=I*{RMS}\sqrt{2}\approx 1.414I*{RMS}]
+or
+[V*{p}=V*{RMS}\sqrt{2}\approx 1.414V_{RMS}]</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chapter-13.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Alternating Current: Phasors</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chapter-15.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A Simpler Approach: Complex Power</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By David J. Broderick &amp; Peter J. Kootsookos<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://circuit-analysis.github.io">Circuit Analysis</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/djbrod">David J. Broderick</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kootsoop">Peter J. Kootsookos</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
