@@ -917,12 +917,11 @@ Summing the **Power Dissipated** column shows that the sum is zero, so power is 
 
 ```
 
-Energy in Joules
-Power is joules/second
-1 watt is joule per second
-w-hrs, kw-hrs used by your power company
-3.73kw-hrs
-0.15833\$/kw-hr
+For SI units {cite:ts}`nist_si_units`. energy is measured in joules (J) and power is measured in joules per second (J/s). One joule per second is equal to one watt.
+
+Because of the usual scale of usage, the power company tends to report power in kilowatts (kW) or megawatts (MW). The power company uses a measure of energy that is easier to relate to residential or commercial power usage: multiplying the power in kW by the time of the usage in hours to get kilowatt-hours (kW-h).
+
+Eversource {cite:ts}`eversource_costs` currently charges 23.031 cents per kilowatt-hour.
 
 12V 5AH battery
 How many watt hours?

@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-01-15T21:17:22.358202</dc:date>
+    <dc:date>2023-01-16T16:33:01.833251</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -41,7 +41,7 @@ L 60.2298 88.63
 L 44.9298 93.73 
 L 52.5798 96.28 
 L 52.5798 126.88 
-" clip-path="url(#pd1fac0908e)" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+" clip-path="url(#p2114820c35)" style="fill: none; stroke: #000000; stroke-linecap: round"/>
    </g>
    <g id="line2d_2">
     <path d="M 52.5798 35.08 
@@ -54,10 +54,10 @@ L 60.2298 88.63
 L 44.9298 93.73 
 L 52.5798 96.28 
 L 52.5798 126.88 
-" clip-path="url(#pd1fac0908e)" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+" clip-path="url(#p2114820c35)" style="fill: none; stroke: #000000; stroke-linecap: round"/>
    </g>
    <g id="text_1">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $1k \Omega$ -->
      <g transform="translate(20.7448 83.903828)scale(0.125 -0.125)">
       <defs>
@@ -153,7 +153,7 @@ z
     </g>
    </g>
    <g id="text_2">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $8V$ -->
      <g transform="translate(45.5798 29.297344)scale(0.125 -0.125)">
       <defs>
@@ -226,7 +226,7 @@ z
     </g>
    </g>
    <g id="text_3">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $-2V$ -->
      <g transform="translate(41.3298 138.510312)scale(0.125 -0.125)">
       <defs>
@@ -269,7 +269,7 @@ z
     </g>
    </g>
    <g id="text_4">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $1k \Omega$ -->
      <g transform="translate(20.7448 83.903828)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Regular-31" transform="translate(0 0.703125)"/>
@@ -279,7 +279,7 @@ z
     </g>
    </g>
    <g id="text_5">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $8V$ -->
      <g transform="translate(45.5798 29.297344)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Regular-38" transform="translate(0 0.40625)"/>
@@ -288,7 +288,7 @@ z
     </g>
    </g>
    <g id="text_6">
-    <g clip-path="url(#pd1fac0908e)">
+    <g clip-path="url(#p2114820c35)">
      <!-- $-2V$ -->
      <g transform="translate(41.3298 138.510312)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Regular-2212" transform="translate(0 0.40625)"/>
@@ -308,7 +308,7 @@ C 50.526616 33.887564 50.2848 34.471359 50.2848 35.08
 C 50.2848 35.688641 50.526616 36.272436 50.95699 36.70281 
 C 51.387364 37.133184 51.971159 37.375 52.5798 37.375 
 z
-" clip-path="url(#pd1fac0908e)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+" clip-path="url(#p2114820c35)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 52.5798 129.175 
@@ -321,7 +321,7 @@ C 50.526616 125.687564 50.2848 126.271359 50.2848 126.88
 C 50.2848 127.488641 50.526616 128.072436 50.95699 128.50281 
 C 51.387364 128.933184 51.971159 129.175 52.5798 129.175 
 z
-" clip-path="url(#pd1fac0908e)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+" clip-path="url(#p2114820c35)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 52.5798 37.375 
@@ -334,7 +334,7 @@ C 50.526616 33.887564 50.2848 34.471359 50.2848 35.08
 C 50.2848 35.688641 50.526616 36.272436 50.95699 36.70281 
 C 51.387364 37.133184 51.971159 37.375 52.5798 37.375 
 z
-" clip-path="url(#pd1fac0908e)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+" clip-path="url(#p2114820c35)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 52.5798 129.175 
@@ -347,12 +347,12 @@ C 50.526616 125.687564 50.2848 126.271359 50.2848 126.88
 C 50.2848 127.488641 50.526616 128.072436 50.95699 128.50281 
 C 51.387364 128.933184 51.971159 129.175 52.5798 129.175 
 z
-" clip-path="url(#pd1fac0908e)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+" clip-path="url(#p2114820c35)" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pd1fac0908e">
+  <clipPath id="p2114820c35">
    <rect x="7.2" y="7.2" width="70.2117" height="141.44"/>
   </clipPath>
  </defs>
