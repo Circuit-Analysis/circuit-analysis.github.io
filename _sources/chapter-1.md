@@ -944,15 +944,15 @@ Assume the 5Ah car battery outputs 12V.  Over one hour, this battery can output 
 
 If it needs to discharge 1.3A, then it can do this for
 
-$$ \frac{ 5 A h}{ 1.3 A} \approx 3.85 h $$
+$$ \frac{ 5 {\rm A h}}{ 1.3 {\rm A}} \approx 3.85 {\rm h} $$
 
 If it needs to discharge 50 mA, then it can do this for
 
-$$ \frac{ 5 A h}{ 0.05 A} = 100 h $$
+$$ \frac{ 5 {\rm A h}}{ 0.05 {\rm A}} = 100 {\rm h} $$
 
 Over 40 hours, the battery can discharge
 
-$$ \frac{5 A h }{ 40 h} = 0.125 A = 125 mA $$
+$$ \frac{5 {\rm A h} }{ 40 {\rm h}} = 0.125 {\rm A} = 125 {\rm mA} $$
 
 ```
 
