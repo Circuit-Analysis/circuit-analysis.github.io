@@ -20,7 +20,7 @@ with schemdraw.Drawing(file='anatomy-node.svg') as d:
 
 import schemdraw
 import schemdraw.elements as elm
-with schemdraw.Drawing(file='anatomy-node.svg') as d:
+with schemdraw.Drawing(file='anatomy-branch.svg') as d:
     d += elm.Dot()
     d += elm.Resistor().right().color('blue')
     d += elm.Dot()
