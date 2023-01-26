@@ -53,7 +53,7 @@ with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
     d += (LR := elm.Line().down().toy(R4.start))
     d += elm.LoopCurrent([R2,R5,LB,R1],pad=0.5).label('$I_1$').color('blue')
     d += elm.LoopCurrent([R3,R4,LB,R5],pad=0.5).label('$I_2$').color('red')
-    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_2$').color('green')
+    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_3$').color('green')
 ```
 
 ```{code-cell} ipython3
@@ -88,7 +88,7 @@ with schemdraw.Drawing(file='find-Ia.svg') as d:
     d += (LR := elm.Line().down().toy(R4.start))
     d += elm.LoopCurrent([R2,R5,LB,R1],pad=0.5).label('$I_1$').color('blue')
     d += elm.LoopCurrent([R3,R4,LB,R5],pad=0.5).label('$I_2$').color('red')
-    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_2$').color('green')
+    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_3$').color('green')
     d += elm.Annotate().at(R1.start).delta(dx=-1, dy=-.5).label('KCL Here')
 ```
 
@@ -125,7 +125,7 @@ with schemdraw.Drawing(file='find-Ib.svg') as d:
     d += (LR := elm.Line().down().toy(R4.start))
     d += elm.LoopCurrent([R2,R5,LB,R1],pad=0.5).label('$I_1$').color('blue')
     d += elm.LoopCurrent([R3,R4,LB,R5],pad=0.5).label('$I_2$').color('red')
-    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_2$').color('green')
+    d += elm.LoopCurrent([R6,LR,R2,LL],pad=0.5).label('$I_3$').color('green')
     d += elm.Annotate().at(R1.end).delta(dx=-1, dy=-.5).label('KCL Here')
 ```
 
