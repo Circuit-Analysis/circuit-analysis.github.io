@@ -467,78 +467,43 @@ title="Print to PDF"
 <h1>Anatomy of a Circuit<a class="headerlink" href="#anatomy-of-a-circuit" title="Permalink to this headline">#</a></h1>
 <section id="nodes">
 <h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">#</a></h2>
-<p>\begin{itemize}
-\item Any point in a circuit that 2 or more elements are connected.
-\item Voltage at all points on the node is constant.
-\end{itemize}
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[R] (0,3)
-(3,3) to[R] (0,3)
-(0,0) to[R] (0,3)
-(0,3) node[above]{Node}
-;
-\end{circuitikz}\end{center}</p>
+<p>A <strong>node</strong> is any point in a circuit that connects two or more elements. The voltage at all points on the node is constant.</p>
+<figure class="align-default" id="anatomy-node">
+<a class="reference internal image-reference" href="_images/anatomy-node.svg"><img alt="_images/anatomy-node.svg" height="250px" src="_images/anatomy-node.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Example of a node.</span><a class="headerlink" href="#anatomy-node" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="branches">
 <h2>Branches<a class="headerlink" href="#branches" title="Permalink to this headline">#</a></h2>
-<p>Any current path between two nodes
-\begin{center}\begin{circuitikz}\draw
-(0,6) to[battery] (0,0)
-(3,0) to[R] (3,6)
-(6,0) to[R] (6,3)
-(6,3) to[R] (6,6)
-(0,0) – (6,0)
-(0,6) – (6,6)
-;
-\end{circuitikz}\end{center}</p>
-<p>\pagebreak</p>
+<p>A <strong>branch</strong> is any circuit element connecting two nodes.</p>
+<figure class="align-default" id="anatomy-branch">
+<a class="reference internal image-reference" href="anatomy-branch.svg"><img alt="anatomy-branch.svg" height="250px" src="anatomy-branch.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Example of three different branches.</span><a class="headerlink" href="#anatomy-branch" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
-<p>Any closed path in a circuit. (Begin and end at the same node)
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery] (0,0)
-(3,0) to[R] (3,3)
-(6,0) to[R] (6,3)
-(3,3) to[R] (6,3)
-(3,0) to[R] (6,0)
-(6,-3) to[R] (6,0)
-(6,-3) to[R] (3,-3)
-(3,-3) – (3,0)
-(0,0) – (3,0)
-(0,3) – (3,3)
-;
-\centerarc<span class="xref myst">red,-&gt;,thick</span>(225:-45:5mm)
-\centerarc<span class="xref myst">blue,-&gt;,thick</span>(225:-45:5mm)
-\centerarc<span class="xref myst">orange,-&gt;,thick</span>(225:-45:5mm)
-\end{circuitikz}\end{center}
-Loops over opens</p>
+<p>A <strong>loop</strong> is any closed path in a circuit. <em>Closed</em> means that it begins and ends at the same node.</p>
+<figure class="align-default" id="anatomy-loop">
+<a class="reference internal image-reference" href="anatomy-loop.svg"><img alt="anatomy-loop.svg" height="250px" src="anatomy-loop.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Five different loops.</span><a class="headerlink" href="#anatomy-loop" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="meshes">
 <h2>Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">#</a></h2>
-<p>\begin{itemize}
-\item Any closed path in a circuit. (Begin and end at the same node)
-\item Has no intermediate branches
-\end{itemize}</p>
-<p>\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery] (0,0)
-(3,0) to[R] (3,3)
-(6,0) to[R] (6,3)
-(3,3) to[R] (6,3)
-(3,0) to[R] (6,0)
-(6,-3) to[R] (6,0)
-(6,-3) to[R] (3,-3)
-(3,-3) – (3,0)
-(0,0) – (3,0)
-(0,3) – (3,3)
-;
-\centerarc<span class="xref myst">red,-&gt;,thick</span>(225:-45:5mm)
-\draw[red,thick] (1.5,1.5) node{<span class="math notranslate nohighlight">\(I_1\)</span>};
-\centerarc<span class="xref myst">blue,-&gt;,thick</span>(225:-45:5mm)
-\draw[blue,thick] (4.5,1.5) node{<span class="math notranslate nohighlight">\(I_2\)</span>};
-\centerarc<span class="xref myst">orange,-&gt;,thick</span>(225:-45:5mm)
-\draw[orange,thick] (4.5,-1.5) node{<span class="math notranslate nohighlight">\(I_3\)</span>};</p>
-<p>\end{circuitikz}\end{center}</p>
+<p>A <strong>mesh</strong> is a loop with no intermediate branches.</p>
+<figure class="align-default" id="anatomy-mesh">
+<a class="reference internal image-reference" href="_images/anatomy-mesh.svg"><img alt="_images/anatomy-mesh.svg" height="250px" src="_images/anatomy-mesh.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Only <span class="math notranslate nohighlight">\(I_1\)</span>, <span class="math notranslate nohighlight">\(I_2\)</span>, and <span class="math notranslate nohighlight">\(I_3\)</span> are meshes.</span><a class="headerlink" href="#anatomy-mesh" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
