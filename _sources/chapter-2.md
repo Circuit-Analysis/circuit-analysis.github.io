@@ -1,5 +1,14 @@
 # Anatomy of a Circuit
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+```
+
 ## Nodes
 
 A **node** is any point in a circuit that connects two or more elements. The voltage at all points on the node is constant.
