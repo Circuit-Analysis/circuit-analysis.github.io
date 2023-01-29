@@ -4,6 +4,14 @@
 
 ## Sinusoidal Functions as Rotating Vectors
 
+```{figure} ./animations/media/videos/scene/480p15/SineCurveUnitCircle.mp4
+---
+height: 150px
+name: SineCurveUnitCircle
+---
+Converting from a rotating vector to a sine wave.
+```
+
 \index{Sinusoid}
 \begin{center}
 \begin{tikzpicture}
