@@ -4,7 +4,7 @@
 
 ## Sinusoidal Functions as Rotating Vectors
 
-```{figure} ./animations/media/videos/scene/480p15/SineCurveUnitCircle.mp4
+```{figure} ./animations/media/videos/scene/480p15/SineCurveUnitCircle.gif
 ---
 height: 150px
 name: SineCurveUnitCircle
