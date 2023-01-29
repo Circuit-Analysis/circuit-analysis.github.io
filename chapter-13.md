@@ -6,7 +6,7 @@
 
 ```{figure} ./animations/media/videos/scene/480p15/SineCurveUnitCircle.gif
 ---
-height: 150px
+height: 450px
 name: SineCurveUnitCircle
 ---
 Converting from a rotating vector to a sine wave.
