@@ -1,33 +1,64 @@
+---
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.1
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
 # Equivalent Components
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+```
 
 ## Series, Parallel, Neither, Both
 
 Elements in a circuit can be connected in four different ways:
-\begin{itemize}
-\item Series
-\item Parallel
-\item Neither
-\item Both
-\end{itemize}
-Students often assume that two elements are either in parallel or series. Beware of this false dichotomy and avoid it by studying the definitions of series and parallel connections carefully.
+
+- Series
+- Parallel
+- Neither
+- Both
+  Students often assume that two elements are either in parallel or series. Beware of this false dichotomy and avoid it by studying the definitions of series and parallel connections carefully.
 
 In series or parallel, some components can be combined. When neither, they can not.
 
 ### Series Resistors
 
-Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[R,l=$R_1$] (0,3)
-(3,3) to[R,l_=$R_2$] (0,3)
-;
-\end{circuitikz}\end{center}
-When two resistors are in series they can be redrawn as a single resistor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[R,l=$R_1$+$R_2$] (0,3)
-;
-\end{circuitikz}\end{center}
+Two elements connected in series share one node **exclusively**.
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-resistor.svg') as d:
+    d += elm.Resistor().label('$R_1$')
+    d += elm.Resistor().label('$R_2$')
+```
+
+```{figure} series-resistors.svg
+---
+height: 250px
+name: anatomy-node
+---
+$R_1$ and $R_2$ are in series.
+```
+
 When two elements are in series, the same current flows through each.
-\[ I*{R1}=I*{R2}\]
+
+$$I_{R1}=I_{R2}$$
 
 ### Parallel Resistors
 
