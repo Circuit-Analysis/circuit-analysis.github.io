@@ -268,6 +268,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/docs/chapter-3.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -334,6 +363,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="_sources/chapter-3.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="_sources/chapter-3.md"
    class="headerbtn"
@@ -499,82 +545,103 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="equivalent-components">
 <h1>Equivalent Components<a class="headerlink" href="#equivalent-components" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <section id="series-parallel-neither-both">
 <h2>Series, Parallel, Neither, Both<a class="headerlink" href="#series-parallel-neither-both" title="Permalink to this headline">#</a></h2>
-<p>Elements in a circuit can be connected in four different ways:
-\begin{itemize}
-\item Series
-\item Parallel
-\item Neither
-\item Both
-\end{itemize}
-Students often assume that two elements are either in parallel or series. Beware of this false dichotomy and avoid it by studying the definitions of series and parallel connections carefully.</p>
+<p>Elements in a circuit can be connected in four different ways:</p>
+<ul class="simple">
+<li><p>Series</p></li>
+<li><p>Parallel</p></li>
+<li><p>Neither</p></li>
+<li><p>Both</p></li>
+</ul>
+<p>Students often assume that two elements are either in parallel or series. Beware of this false dichotomy and avoid it by studying the definitions of series and parallel connections carefully.</p>
 <p>In series or parallel, some components can be combined. When neither, they can not.</p>
 <section id="series-resistors">
 <h3>Series Resistors<a class="headerlink" href="#series-resistors" title="Permalink to this headline">#</a></h3>
-<p>Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
-(3,3) to[R,l_=<span class="math notranslate nohighlight">\(R_2\)</span>] (0,3)
-;
-\end{circuitikz}\end{center}
-When two resistors are in series they can be redrawn as a single resistor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>+<span class="math notranslate nohighlight">\(R_2\)</span>] (0,3)
-;
-\end{circuitikz}\end{center}
-When two elements are in series, the same current flows through each.
-[ I*{R1}=I*{R2}]</p>
+<p>Two elements connected in series share one node <strong>exclusively</strong>.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/series-resistors.svg"><img alt="_images/series-resistors.svg" height="150px" src="_images/series-resistors.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> are in series.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When two elements are in series, the same current flows through each.</p>
+<div class="math notranslate nohighlight">
+\[I_{R1}=I_{R2}\]</div>
+<p>When two resistors are in series they can be redrawn as a single resistor.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="series-resistors-equivalent">
+<a class="reference internal image-reference" href="_images/series-equivalent.svg"><img alt="_images/series-equivalent.svg" height="150px" src="_images/series-equivalent.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">The equivalent resistance of <span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> in series is <span class="math notranslate nohighlight">\(R_S = R_1 + R_2\)</span>.</span><a class="headerlink" href="#series-resistors-equivalent" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="parallel-resistors">
 <h3>Parallel Resistors<a class="headerlink" href="#parallel-resistors" title="Permalink to this headline">#</a></h3>
 <p>Two elements are in parallel when they are connected to the same two nodes.</p>
-<p>\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
-(2,0) to[R,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (2,3)
-(0,0) – (2,0)
-(0,3) – (2,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>When two resistors are in parallel they can be redrawn as a single resistor
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,l=<span class="math notranslate nohighlight">\(G_1\)</span>+<span class="math notranslate nohighlight">\(G_2\)</span>] (0,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>The conductances add. Recall that
-[G=\frac{1}{R}]
-so
-[\frac{1}{R_P}=\frac{1}{R_1}+\frac{1}{R_2}]
-Solving for <span class="math notranslate nohighlight">\(R_P\)</span> and adding additional resistors
-[R_P=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\dots+\frac{1}{R_N}}]
-The value of two resistors in parallel is commonly expressed as
-[R_P=\frac{R_1R_2}{R_1+R_2}]</p>
-<p>Careful:
-\begin{itemize}
-\item They may not be drawn geometrically parallel.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,l=$R_1$] (0,3)
-(0,3) to[R,l=$R_2$] (3,3)
-(3,3) -- (3,0)
-(0,0) -- (3,0)
-;
-\end{circuitikz}\end{center}
-$R_1$ and $R_2$ are in parallel.
-
-\item If they are drawn geometrically parallel they may not be
-</pre></div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>connected in parallel.
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,l=<span class="math notranslate nohighlight">\(R_1\)</span>] (0,3)
-(0,3) to[R,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,3)
-(3,3) to[R,l=<span class="math notranslate nohighlight">\(R_3\)</span>] (3,0)
-(0,0) – (3,0)
-;
-\end{circuitikz}\end{center}
-<span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are \textbf{not} in parallel.
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/parallel-resistors.svg"><img alt="_images/parallel-resistors.svg" height="150px" src="_images/parallel-resistors.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> are in parallel.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When two resistors are in parallel they can be redrawn as a single resistor.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="parallel-resistors-equivalent">
+<a class="reference internal image-reference" href="_images/parallel-equivalent.svg"><img alt="_images/parallel-equivalent.svg" height="150px" src="_images/parallel-equivalent.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The equivalent conductance of <span class="math notranslate nohighlight">\(G_1\)</span> and <span class="math notranslate nohighlight">\(G_2\)</span> in series is <span class="math notranslate nohighlight">\(G_P = G_1 + G_2\)</span>.</span><a class="headerlink" href="#parallel-resistors-equivalent" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The conductances add. Recall that</p>
+<div class="math notranslate nohighlight">
+\[G=\frac{1}{R}\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{R_P}=\frac{1}{R_1}+\frac{1}{R_2}\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(R_P\)</span> and adding additional resistors</p>
+<div class="math notranslate nohighlight">
+\[R_P=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\dots+\frac{1}{R_N}}\]</div>
+<p>The value of two resistors in parallel is commonly expressed as</p>
+<div class="math notranslate nohighlight">
+\[R_P=\frac{R_1R_2}{R_1+R_2}\]</div>
+<p>Careful:</p>
+<ul class="simple">
+<li><p>They may not be drawn geometrically parallel.</p></li>
+</ul>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="electrically-parallel-resistors">
+<a class="reference internal image-reference" href="_images/electrically-parallel-resistors.svg"><img alt="_images/electrically-parallel-resistors.svg" height="150px" src="_images/electrically-parallel-resistors.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> are still <em>electrically</em> in parallel.</span><a class="headerlink" href="#electrically-parallel-resistors" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>If they are drawn geometrically parallel they may not be connected in parallel.</p></li>
+</ul>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="not-electrically-parallel-resistors">
+<a class="reference internal image-reference" href="_images/not-electrically-parallel-resistors.svg"><img alt="_images/not-electrically-parallel-resistors.svg" height="150px" src="_images/not-electrically-parallel-resistors.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are <strong>not</strong> electrically in parallel.</span><a class="headerlink" href="#not-electrically-parallel-resistors" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are <strong>not</strong> in parallel.
 How are they connected?</p>
-<p>\end{itemize}</p>
+</div>
 </section>
 </section>
 <section id="more-complex-circuits">
