@@ -75,7 +75,7 @@ with schemdraw.Drawing(file='anatomy-branch.svg') as d:
 
 import schemdraw
 import schemdraw.elements as elm
-with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
+with schemdraw.Drawing(file='anatomy-loop.svg') as d:
     d.push()
     d += (R1 := elm.RBox().up().color('gray'))
     d += (R2 := elm.RBox().right().color('gray'))

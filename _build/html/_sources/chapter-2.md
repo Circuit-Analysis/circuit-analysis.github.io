@@ -87,7 +87,7 @@ A **loop** is any closed path in a circuit. _Closed_ means that it begins and en
 
 import schemdraw
 import schemdraw.elements as elm
-with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
+with schemdraw.Drawing(file='anatomy-loop.svg') as d:
     d.push()
     d += (R1 := elm.RBox().up().color('gray'))
     d += (R2 := elm.RBox().right().color('gray'))

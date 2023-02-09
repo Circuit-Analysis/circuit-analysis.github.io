@@ -1,2 +1,6 @@
 scratch\ pad.ipynb
 .ipynb_checkpoints/*
+animations/media/videos/scene/*
+animations/media/Tex/*
+animations/media/texts/*
+animations/__pycache__/*
