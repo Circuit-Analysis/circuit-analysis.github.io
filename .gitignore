@@ -4,3 +4,7 @@ animations/media/videos/scene/*
 animations/media/Tex/*
 animations/media/texts/*
 animations/__pycache__/*
+__pycache__/*
+_build/*
+_build/.doctrees/*
+*.svg
