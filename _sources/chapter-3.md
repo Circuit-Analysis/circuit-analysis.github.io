@@ -263,7 +263,7 @@ with schemdraw.Drawing(file='complex-example-2.svg') as d:
     d += (R6 := elm.Resistor().theta(-60).label('$6\Omega$', halign='right', rotate=-45))
     d += elm.Line().endpoints(R6.end, R5.end)
     d.move_from(R5.start,0,0)
-    d += (R8 := elm.Resistor().label('$12\Omega$', halign='center', rotate=45).theta(-120))
+    d += (R8 := elm.Resistor().label('$12\Omega$', halign='center', rotate=45).theta(-120).length(2.5))
     d += elm.Line().endpoints(R8.end, R7.end)
 ```
 
