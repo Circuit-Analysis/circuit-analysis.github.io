@@ -256,13 +256,14 @@ with schemdraw.Drawing(file='complex-example-2.svg') as d:
     d += (R5 := elm.Resistor().down().label('$4\Omega$', loc='bottom'))
     d.pop()
     d.push()
-    d += elm.Resistor().down().label('$3\Omega$')
+    d += (R7 := elm.Resistor().down().label('$3\Omega$'))
     # d += elm.Resistor().endpoints(R2.start, L1.start).label('$6\Omega$')
     # d += elm.Resistor().endpoints(R2.end, L1.end).label('$12\Omega$')
     d.pop()
     d += (R6 := elm.Resistor().theta(-60).label('$6\Omega$', halign='right', rotate=-45))
     d += elm.Line().endpoints(R6.end, R5.end)
-    d += elm.Resistor().endpoints(R2.end, R6.end).label('$12\Omega$', halign='center', rotate=45)
+    d += (R8 := elm.Resistor().endpoints(R2.end, R6.end).label('$12\Omega$', halign='center', rotate=45))
+    d += elm.Line().endpoints(R8.end, R7.end)
 ```
 
 ````{admonition} Example
