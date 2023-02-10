@@ -268,6 +268,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/docs/chapter-8.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -334,6 +363,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="_sources/chapter-8.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="_sources/chapter-8.md"
    class="headerbtn"
@@ -745,13 +791,14 @@ and plugging in values
 [\frac{1}{4}V_B-\frac{3}{4}V_C=0]
 And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p>\paragraph{Solving the system of equations}
-We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.
-\begin{eqnarray}
--\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\
-\frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\
+We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d383352-7bbf-45cf-9668-db9b4dc07c5f">
+<span class="eqno">(5)<a class="headerlink" href="#equation-2d383352-7bbf-45cf-9668-db9b4dc07c5f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+-\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
+\frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
-\end{eqnarray}
-Be very careful transferring the coefficients to matrices as some terms have coefficients of zero and do not appear in the equations above.
+\end{eqnarray}\]</div>
+<p>Be very careful transferring the coefficients to matrices as some terms have coefficients of zero and do not appear in the equations above.
 [ \left[ \begin{array}{rrr}
 -\frac{1}{2}&amp;\frac{1}{2}&amp;0\
 \frac{1}{2}&amp;-1&amp;\frac{1}{4}\
@@ -819,13 +866,14 @@ breaking up the fractions gives us
 Substituting values leads to an equation suitable for inclusion in the system of equations
 [\frac{1}{4k}V_B-\frac{1}{4k}V_C=6~\text{mA}]</p>
 <p>\paragraph{Solve the System of Equations}
-Let’s gather the results of the three KCLs written above
-\begin{alignat}{3}
--\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\
-\frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\
+Let’s gather the results of the three KCLs written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aae18114-716d-479a-8353-e1de0f41fd0b">
+<span class="eqno">(6)<a class="headerlink" href="#equation-aae18114-716d-479a-8353-e1de0f41fd0b" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+-\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\\
+\frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\\
 &amp;\frac{1}{4k}V_B-\frac{1}{4k}V_C&amp;&amp;=6~\text{mA}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 -\frac{1}{4k}&amp;\frac{1}{4k}&amp;0\
 \frac{1}{4k}&amp;-\frac{1}{1k}&amp;\frac{1}{4k}\
@@ -906,13 +954,14 @@ Gathering like terms yields
 Substituting values leads to an equation suitable for inclusion in the system of equations
 [\frac{1}{6}V_A-\frac{1}{3}V_B+\frac{1}{12}V_C=0]</p>
 <p>\paragraph{Solve the System of Equations}
-Let’s gather the results of the three equations written above
-\begin{alignat}{3}
-&amp;&amp;V_C&amp;=8~\text{V}\nonumber\
--\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\sfrac{2}{3}~\text{A}\nonumber\
+Let’s gather the results of the three equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-17866d2c-ef9e-4df7-aace-f6f411a4ba54">
+<span class="eqno">(7)<a class="headerlink" href="#equation-17866d2c-ef9e-4df7-aace-f6f411a4ba54" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+&amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
+-\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\sfrac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 0&amp;0&amp;1\
 -\frac{1}{6}&amp;\frac{1}{6}&amp;0\
@@ -1012,14 +1061,15 @@ A bit of algebra give us an equation with values and unknown know voltages; suit
 or with values
 [\frac{1}{8}V_C-\frac{13}{40}V_D=0]</p>
 <p>\paragraph{Solve the System of Equations}
-Let’s gather the results of the four equations written above
-\begin{alignat}{4}
-~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\
-\frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\
--\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\
+Let’s gather the results of the four equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3e74a88-763a-4219-ada6-eb69b0345a7b">
+<span class="eqno">(8)<a class="headerlink" href="#equation-c3e74a88-763a-4219-ada6-eb69b0345a7b" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
+\frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
+-\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
 &amp;&amp;\frac{1}{8}V_C-&amp;\frac{13}{40}V_D&amp;=0\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrrr}
 0&amp;1&amp;-1&amp;0\
 \frac{1}{6}&amp;-\frac{1}{4}&amp;-\frac{3}{8}&amp;\frac{1}{8}\
@@ -1119,14 +1169,15 @@ A bit of algebra give us an equation with values and unknown know voltages; suit
 or with values
 [\frac{1}{8}V_C-\frac{13}{40}V_D=0]</p>
 <p>\paragraph{Solve the System of Equations}
-Let’s gather the results of the four equations written above
-\begin{alignat}{4}
-~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\
-\frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\
--\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\
+Let’s gather the results of the four equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3692e4c2-5a8e-4d61-8247-96f7cfb6b4b9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-3692e4c2-5a8e-4d61-8247-96f7cfb6b4b9" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
+\frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
+-\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
 &amp;&amp;\frac{1}{8}V_C-&amp;\frac{13}{40}V_D&amp;=0\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrrr}
 0&amp;1&amp;-1&amp;0\
 \frac{1}{6}&amp;-\frac{1}{4}&amp;-\frac{1}{8}&amp;\frac{1}{8}\
@@ -1218,13 +1269,14 @@ Now that we have an equation comprised only of constants and unknown node voltag
 and substitute values
 [\frac{5}{4}V_A-\frac{5}{4}V_C=0]</p>
 <p>\paragraph{Solve the System of Equations}
-Let’s gather the results of the three equations written above
-\begin{alignat}{3}
--\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\
--\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\
+Let’s gather the results of the three equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aa78dfa0-d521-4a7c-9d2d-9fcffb3086be">
+<span class="eqno">(10)<a class="headerlink" href="#equation-aa78dfa0-d521-4a7c-9d2d-9fcffb3086be" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+-\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
+-\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 -\frac{9}{8}&amp;0&amp;1\
 -\frac{1}{4}&amp;-\frac{1}{2}&amp;0\
@@ -1296,13 +1348,14 @@ Find <span class="math notranslate nohighlight">\(V_O\)</span> using nodal analy
 [-\frac{V_C-V_B}{2}=-6]
 [\frac{1}{2}V_B-\frac{1}{2}V_C=-6]
 \paragraph{Solve the System of Equations}
-Let’s gather the results of the three equations written above
-\begin{alignat}{3}
--\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\
-\frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\
+Let’s gather the results of the three equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1c57e2f0-5359-4d00-9ca5-ddf0a1cb2f7c">
+<span class="eqno">(11)<a class="headerlink" href="#equation-1c57e2f0-5359-4d00-9ca5-ddf0a1cb2f7c" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+-\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
+\frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 -\frac{7}{20}&amp;-\frac{11}{4}&amp;3\
 \frac{1}{4}&amp;-\frac{19}{20}&amp;\frac{1}{2}\
@@ -1449,13 +1502,14 @@ The circuit has three non-reference nodes which I will label below. Just as befo
 [\frac{V_A-V_B}{3k}-\frac{V_B-V_C}{15k}-0=0]
 [\frac{1}{3k}V_A+\left[-\frac{1}{3k}-\frac{1}{15k}\right]V_B+\frac{1}{15k}V_C=0]</p>
 <p>\paragraph{Solve the System}
-Let’s gather the results of the three equations written above
-\begin{alignat}{3}
-V_A&amp;&amp;&amp;=10~\text{V}\nonumber\
-~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\%there has got to be a better way to align this
+Let’s gather the results of the three equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a68fbbde-8cfd-4333-a33a-229566649fcb">
+<span class="eqno">(12)<a class="headerlink" href="#equation-a68fbbde-8cfd-4333-a33a-229566649fcb" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
+~&amp;~~~~~~~\text{V}\_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 1&amp;0&amp;0\
 0&amp;1&amp;0\
@@ -1505,13 +1559,14 @@ and put them in matrix form
 [-\frac{V_B-0}{4}-\frac{V_B-V_C}{12}-0=0~\text{A}]
 [\left[-\frac{1}{4}-\frac{1}{12}\right]V_B+\frac{1}{12}V_C=0~\text{A}]</p>
 <p>\paragraph{Solve the System}~
-Let’s gather the results of the three equations written above
-\begin{alignat}{3}
-V_A&amp;&amp;&amp;=10~\text{V}\nonumber\
-V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\%there has got to be a better way to align this
+Let’s gather the results of the three equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-75640d58-4de2-4478-8bb5-20af51976f1e">
+<span class="eqno">(13)<a class="headerlink" href="#equation-75640d58-4de2-4478-8bb5-20af51976f1e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
+V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrr}
 1&amp;0&amp;0\
 1&amp;-1&amp;0\
@@ -1574,14 +1629,15 @@ and put them in matrix form
 [V_C=V_D]
 [V_C-V_D=0]</p>
 <p>\paragraph{Solve the System}~
-Let’s gather the results of the four equations written above
-\begin{alignat}{4}
-V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\
-\frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\%there has got to be a better way to align this
-&amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\%there has got to be a better way to align this
-&amp;&amp;V_C&amp;-V_D&amp;=0~\text{V}\nonumber\
-\end{alignat}
-and put them in matrix form
+Let’s gather the results of the four equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5fe7a040-b28d-467d-a896-a7a28f8c148d">
+<span class="eqno">(14)<a class="headerlink" href="#equation-5fe7a040-b28d-467d-a896-a7a28f8c148d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
+\frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
+&amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
+&amp;&amp;V_C&amp;-V_D&amp;=0~\text{V}\nonumber\\
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrrr}
 1&amp;0&amp;0&amp;0\
 \frac{1}{4k}&amp;-\frac{83}{140k}&amp;\frac{1}{7k}&amp;\frac{1}{5k}\
@@ -1648,14 +1704,15 @@ Find <span class="math notranslate nohighlight">\(I_O\)</span>
 [\frac{1}{18}V_B+\left[-\frac{1}{18}-\frac{1}{72}\right]V_C+\frac{1}{72}V_D=0~\text{A}]
 [\frac{1}{18}V_B-\frac{5}{72}V_C+\frac{1}{72}V_D=0~\text{A}]</p>
 <p>\paragraph{Solve the system}
-Let’s gather the results of the four equations written above
-\begin{alignat}{4}
-V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\
--\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\%there has got to be a better way to align this
-&amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\
+Let’s gather the results of the four equations written above</p>
+<div class="amsmath math notranslate nohighlight" id="equation-02c05ad0-0566-4b47-8660-484c9e2cfc34">
+<span class="eqno">(15)<a class="headerlink" href="#equation-02c05ad0-0566-4b47-8660-484c9e2cfc34" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
+-\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
+&amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
 &amp;\frac{1}{18}V_B&amp;-\frac{5}{72}V_C&amp;+\frac{1}{72}V_D&amp;=0~\text{A}\nonumber
-\end{alignat}
-and put them in matrix form
+\end{alignat}\]</div>
+<p>and put them in matrix form
 [ \left[ \begin{array}{rrrr}
 1&amp;-1&amp;0&amp;0\
 -\frac{1}{6}&amp;-\frac{1}{6}&amp;\frac{1}{18}&amp;0\

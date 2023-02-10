@@ -268,6 +268,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/docs/chapter-6.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -334,6 +363,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="_sources/chapter-6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="_sources/chapter-6.md"
    class="headerbtn"
@@ -553,13 +599,14 @@ Suppose now there are more constraints on the problem of making three shelves.</
 \item The third shelf must be one foot shorter than three times the length of the first shelf.
 \end{itemize}</p>
 <p>This word problem now needs to be expressed in several equations:
-$<span class="math notranslate nohighlight">\(
-\begin{align*}
+$$</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \green{x} + \green{y} + \green{z} &amp;= \blue{15}\\
 \green{y} &amp;= \green{x} \blue{- 1}\\
 \green{z} &amp;= 3\green{x} \blue{-1}
-\end{align*}
-\)</span>$
+\end{align*}\]</div>
+<p>$$
 This problem is not as easy to solve as the previous one. In the next section, we’ll look at how to solve them.</p>
 </div>
 </section>
@@ -585,29 +632,28 @@ Let’s revisit the equations we had in Example~\ref{ex:lumber2}.</p>
 \end{split}\]</div>
 <p>These are already written out in a way that makes substitution easy: the second and third equations already have <span class="math notranslate nohighlight">\(\green{y}\)</span> or <span class="math notranslate nohighlight">\(\green{z}\)</span> on one side.
 Let’s substite these two equations into the first one:
-$<span class="math notranslate nohighlight">\(
-\begin{align*}
+$$</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \green{x} + \green{x} \blue{- 1} + 3\green{x} \blue{-1} &amp;= \blue{15}\\
 (1 + 1 + 3) \green{x} &amp;= \blue{15} + \blue{1} + \blue{1}\\
 5 \green{x} &amp;= \blue{17}\\
 \green{x} &amp;= \red{17/5} = \red{3.4}
-\end{align*}
-\)</span>$</p>
-<p>Now that we have <span class="math notranslate nohighlight">\(\green{x}\)</span>, we can substitute its value back into the other two equations to get <span class="math notranslate nohighlight">\(\green{y}\)</span> and <span class="math notranslate nohighlight">\(\green{z}\)</span>.</p>
+\end{align*}\]</div>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
+\[Now that we have $\green{x}$, we can substitute its value back into the other two equations to get $\green{y}$ and $\green{z}$.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \green{y} &amp;= \red{3.4} \blue{- 1} = \red{2.4}\\
 \green{z} &amp;= 3\times \red{3.4} \blue{-1} = \red{9.2}
-\end{align*}
-\end{split}\]</div>
-<p>And to check that our first equation is satisfied, we can substitute all values into it:</p>
+\end{align*}\]</div>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
+\[And to check that our first equation is satisfied, we can substitute all values into it:\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \green{x} + \green{y} + \green{z} &amp;= 3.4 + 2.4 + 9.2 = \blue{15}\\
-\end{align*}
-\end{split}\]</div>
+\end{align*}\]</div>
+<p>$$</p>
 </div>
 </section>
 <section id="elimination">
@@ -617,47 +663,54 @@ $<span class="math notranslate nohighlight">\(
 <p class="admonition-title">Example</p>
 <p>Let’s revisit the equations we had in Example~\ref{ex:lumber2}.</p>
 <p>To apply elimination, we need to get all equations into a similar form with all the unknowns on the left and the constants on the right.
-$<span class="math notranslate nohighlight">\(
-\begin{align}
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5bc207d6-ca34-4c48-acc3-dea2c8213c3c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5bc207d6-ca34-4c48-acc3-dea2c8213c3c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \green{x} + \green{y} + \green{z} = \blue{15} &amp;\rightarrow \green{x} + \green{y} + \green{z} = \blue{15}\label{eq:elim1}\\
 \green{y} = \green{x} \blue{- 1}&amp;\rightarrow -\green{x} + \green{y} = \blue{-1}\label{eq:elim2}\\
 \green{z} = 3\green{x} \blue{-1}&amp;\rightarrow - 3\green{x} + \green{z} = \blue{-1}\label{eq:elim3}
-\end{align}
-\)</span><span class="math notranslate nohighlight">\(
-Now we can use (\ref{eq:elim2}) to remove instances of \)</span>\green{x}$ from the other two equations by adding it to (\ref{eq:elim1}) and subtracting three times it from (\ref{eq:elim3}).</p>
+\end{align}\]</div>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
-\begin{align}
+\[
+Now we can use (\ref{eq:elim2}) to remove instances of $\green{x}$ from the other two equations by adding it to (\ref{eq:elim1}) and subtracting three times it from (\ref{eq:elim3}).\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-de7bad6e-b1f6-49fe-b5e1-1662debfedbc">
+<span class="eqno">(4)<a class="headerlink" href="#equation-de7bad6e-b1f6-49fe-b5e1-1662debfedbc" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\ref{eq:elim1}) + (\ref{eq:elim2}) &amp;\Rightarrow
 \left.
 \begin{array}{lcc}
-&amp; \green{x} + \green{y} + \green{z} &amp;= \blue{15}\\\end{split}\\\begin{split}- &amp; -\green{x} + \green{y} &amp;= \blue{-1}
+&amp; \green{x} + \green{y} + \green{z} &amp;= \blue{15}\\
+
+- &amp; -\green{x} + \green{y} &amp;= \blue{-1}
 \end{array}
 \right\} \Rightarrow 2 \green{y} + \green{z} = \blue{14}\label{eq:elim4}\\
 (\ref{eq:elim3}) - 3\times (\ref{eq:elim2}) &amp;\Rightarrow
 \left.
 \begin{array}{lcc}
-&amp; - 3\green{x} + \green{z} &amp;= \blue{-1}\\\end{split}\\* &amp; 3\times(-\green{x} + \green{y} &amp;= \blue{-1})
+&amp; - 3\green{x} + \green{z} &amp;= \blue{-1}\\
+
+* &amp; 3\times(-\green{x} + \green{y} &amp;= \blue{-1})
 \end{array}
 \right\} \Rightarrow -3 \green{y} + \green{z} = \blue{2}\label{eq:elim5}
-\end{align}
-\end{aligned}\end{align} \]</div>
-<p>Now we have to subtract (\ref{eq:elim5}) from (\ref{eq:elim4}) to find <span class="math notranslate nohighlight">\(\green{y}\)</span>.</p>
+\end{align}\]</div>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
-\begin{align*}
+\[Now we have to subtract (\ref{eq:elim5}) from (\ref{eq:elim4}) to find $\green{y}$.\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 (\ref{eq:elim4}) - (\ref{eq:elim5}) &amp;\Rightarrow
 \left.
 \begin{array}{lcc}
-&amp; 2 \green{y} + \green{z} = \blue{14}\\\end{split}\\\begin{split}- &amp; -3 \green{y} + \green{z} = \blue{2}
+&amp; 2 \green{y} + \green{z} = \blue{14}\\
+
+- &amp; -3 \green{y} + \green{z} = \blue{2}
 \end{array}
 \right\} \Rightarrow 5 \green{y} = \blue{12}\\
-\end{align*}
-\end{split}\end{aligned}\end{align} \]</div>
-<p>This gives
+\end{align*}\]</div>
+<div class="math notranslate nohighlight">
+\[
+This gives
+\]</div>
+<p>\green{y} = \red{2.4}
 $<span class="math notranslate nohighlight">\(
-\green{y} = \red{2.4}
-\)</span><span class="math notranslate nohighlight">\(
 as in Example~\ref{ex:subst}, and we can back substitute into the other equations to find \)</span>\green{x}<span class="math notranslate nohighlight">\( and \)</span>\green{z}$.</p>
 </div>
 </section>

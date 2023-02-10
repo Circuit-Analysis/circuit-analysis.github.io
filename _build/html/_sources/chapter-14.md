@@ -1,3 +1,17 @@
+---
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.1
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
 # Power in Alternating Current Circuits
 
 In the early chapters of this book the calculation of power dissipated or supplied by components was simple enough to be embedded within chapters covering the fundamental calculations of circuit analysis.

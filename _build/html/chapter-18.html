@@ -268,6 +268,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/docs/chapter-18.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -334,6 +363,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="_sources/chapter-18.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="_sources/chapter-18.md"
    class="headerbtn"
@@ -415,7 +461,7 @@ Write an expression for v\tss{OUT}(t) for <span class="math notranslate nohighli
 \begin{circuitikz}[american]\draw
 (3,2.5) node<span class="xref myst">spdt,rotate=90,scale=0.8</span>{}
 (3.2,2.5) node[right]{t=0}
-(<a class="reference external" href="http://sw.in">sw.in</a>) to[C,lx={C and 100~<span class="math notranslate nohighlight">\(\mu\)</span>F}] (3,0)
+(sw.in) to[C,lx={C and 100~<span class="math notranslate nohighlight">\(\mu\)</span>F}] (3,0)
 (sw.out 1) to[R,lx_={R\tss{1} and 2~k\Om}] (<span class="math notranslate nohighlight">\((sw.out 1)+(-2.5,0)\)</span>) to[battery,lx_={V\tss{S} and 12~V}] (<span class="math notranslate nohighlight">\((sw.out 1)+(-2.5,-3)\)</span>) to[short] (<span class="math notranslate nohighlight">\((sw.out 2)+(+2.5,-3)\)</span>)
 (sw.out 2) to[short] (<span class="math notranslate nohighlight">\((sw.out 2)+(2.5,0)\)</span>) to[R,lx={R\tss{2} and 5~k\Om},v=v\tss{OUT}] (<span class="math notranslate nohighlight">\((sw.out 2)+(+2.5,-3)\)</span>)
 ;
@@ -429,7 +475,7 @@ Write an expression for v\tss{OUT}(t) for <span class="math notranslate nohighli
 \begin{circuitikz}[american]\draw
 (3,2.5) node<span class="xref myst">spdt,rotate=90,scale=0.8</span>{}
 (3.2,2.5) node[right]{t=0}
-(<a class="reference external" href="http://sw.in">sw.in</a>) to[R,lx={R\tss{2} and 4~k\Om}] (<span class="math notranslate nohighlight">\((sw.in)+(0,-2)\)</span>) to[L,lx={L and 10~mH}] (<span class="math notranslate nohighlight">\((sw.in)+(0,-4)\)</span>)
+(sw.in) to[R,lx={R\tss{2} and 4~k\Om}] (<span class="math notranslate nohighlight">\((sw.in)+(0,-2)\)</span>) to[L,lx={L and 10~mH}] (<span class="math notranslate nohighlight">\((sw.in)+(0,-4)\)</span>)
 (sw.out 1) to[R,lx_={R\tss{1} and 6~k\Om}] (<span class="math notranslate nohighlight">\((sw.out 1)+(-2.5,0)\)</span>) to[battery,lx_={V\tss{S} and 10~V}] (<span class="math notranslate nohighlight">\((sw.out 1)+(-2.5,-5)\)</span>) to[short] (<span class="math notranslate nohighlight">\((sw.out 2)+(+2.5,-5)\)</span>)
 (sw.out 2) to[short] (<span class="math notranslate nohighlight">\((sw.out 2)+(2.5,0)\)</span>) to[R,lx={R\tss{3} and 1~k\Om},v=v\tss{OUT}] (<span class="math notranslate nohighlight">\((sw.out 2)+(+2.5,-5)\)</span>)
 ;
@@ -458,7 +504,7 @@ Write an expression for i\tss{OUT}(t) for <span class="math notranslate nohighli
 \begin{circuitikz}[american]\draw
 (3,2.5) node<span class="xref myst">spdt,xscale=-1,scale=0.8</span>{}
 (2.7,3.1) node[right]{t=0}
-(<a class="reference external" href="http://sw.in">sw.in</a>) to[R,lx={R\tss{1} and R}] (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>)
+(sw.in) to[R,lx={R\tss{1} and R}] (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>)
 (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>) to[short,i=i\tss{O}(t)] (<span class="math notranslate nohighlight">\((sw.in) + (4,0)\)</span>)
 (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>) to[C] (<span class="math notranslate nohighlight">\((sw.in) + (2,-3)\)</span>)
 (<span class="math notranslate nohighlight">\((sw.in) + (4,0)\)</span>) to[R] (<span class="math notranslate nohighlight">\((sw.in) + (4,-3)\)</span>)
@@ -475,7 +521,7 @@ Write an expression for v\tss{O}(t) for <span class="math notranslate nohighligh
 \begin{circuitikz}[american]\draw
 (3,2.5) node<span class="xref myst">spdt,xscale=-1,scale=0.8</span>{}
 (2.7,3.1) node[right]{t=0}
-(<a class="reference external" href="http://sw.in">sw.in</a>) to[R,lx={R\tss{1} and R}] (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>)
+(sw.in) to[R,lx={R\tss{1} and R}] (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>)
 (<span class="math notranslate nohighlight">\((sw.in) + (2,0)\)</span>) to[L] (<span class="math notranslate nohighlight">\((sw.in) + (2,-3)\)</span>)
 (sw.out 1) to[short] (<span class="math notranslate nohighlight">\((sw.out 1) + (-1.5,0)\)</span>) to[current source,invert] (<span class="math notranslate nohighlight">\((sw.out 1) + (-1.5,-3)\)</span>) |- (<span class="math notranslate nohighlight">\((sw.in) + (2,-3)\)</span>)
 (sw.out 2) to[R,v^=v\tss{O}(t)] (<span class="math notranslate nohighlight">\((sw.out 1) + (0,-3)\)</span>) |- (<span class="math notranslate nohighlight">\((sw.in) + (2,-3)\)</span>)
