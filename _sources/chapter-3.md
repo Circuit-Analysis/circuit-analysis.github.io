@@ -20,8 +20,6 @@ kernelspec:
 import matplotlib
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
 matplotlib.rcParams['font.family'] = 'STIXGeneral'
-import matplotlib.pyplot as plt
-plt.xkcd()
 ```
 
 ## Series, Parallel, Neither, Both
