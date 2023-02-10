@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:linearsystems)=
+
 # Review of Solving Linear Systems
 
 ```{index} linear systems
@@ -26,33 +28,35 @@ $\newcommand{\red}[1]{{\color{red} #1}}$
 
 In this book, a linear system is a series of equations. The equations have one or more unknowns (AKA variables). Each unknown probably has a scaling factor (coefficient). And each equation also probably has a constant associated with it.
 
-```{admonition} Example
+````{admonition} Example
 For example, the equations:
 
-
+```{math}
+:label: eq:lin1
 \begin{align*}
 \green{x} + \green{y} + \green{z} &= \blue{1}\\
 2\green{x} + 3\green{y} + 4\green{z} &= \blue{2}\\
-6\green{x} + 7\green{y} + 8\green{z} &= \blue{3}\tag{LIN1}\label{eq:lin1}
+6\green{x} + 7\green{y} + 8\green{z} &= \blue{3}
 \end{align*}
+```
 
 have
 
 - three unknowns: $\green{x}$, $\green{y}$, and $\green{z}$,
 - several constants: $\blue{1}$, $\blue{2}$, $\blue{3}$, and
 - nine coefficients: 1, 1, 1, 2, 3, 4, 6, 7, 8.
-    - The first equation is really $ 1\cdot\green{x} + 1\cdot\green{y} +1\cdot\green{z} = \blue{1} $
+  - The first equation is really $ 1\cdot\green{x} + 1\cdot\green{y} +1\cdot\green{z} = \blue{1} $
 
-```
+````
 
 ## Why are we interested?
 
-Linear equations like~(\ref{eq:lin1}) are useful in circuit analysis, because they crop up when applying the Mesh Analysis and Nodal Analysis techniques we will meet shortly in Chapters~\ref{ch:mesh} and \ref{ch:nodal}.
+Linear equations like [](eq:lin1) are useful in circuit analysis, because they crop up when applying the Mesh Analysis and Nodal Analysis techniques we will meet shortly in Chapters {ref}`content:chapter:mesh` and {ref}`content:chapter:nodal`.
 
 However, many real world problems (outside of circuit analysis) can be solved by applying linear systems.
 
 %%%%
-\pagebreak
+
 %%%%
 
 ```{admonition} Example
@@ -111,7 +115,7 @@ There are several ways to solve linear systems of simultaneous equations. We wil
 Substitution involves manipulating one of the equations so that a single unknown is on the left side of the equation, and all the others are on the right. Then we can replace all instances of this unknown in the remaining equations to reduce their complexity.
 
 %%%%
-\pagebreak
+
 %%%%
 
 ```{admonition} Example
@@ -296,7 +300,7 @@ We will exam these in the next few examples.
 `````
 
 %%%%
-\pagebreak
+
 %%%%
 
 ```{admonition} Example

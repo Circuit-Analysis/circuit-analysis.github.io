@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:differentialequations)=
+
 # Alternating Current: Differential Equation Approach
 
 ## Analysis Methods and Theorems with Alternating Current

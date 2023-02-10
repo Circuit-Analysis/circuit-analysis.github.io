@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:otherpassivecomponents)=
+
 # Other Passive Components
 
 ## Capacitors

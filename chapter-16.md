@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:powerfactorcorrection)=
+
 # Power Factor Correction
 
 ## A Lagging Circuit

@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:transientsusingdifferentialequations)=
+
 # Analyzing Circuits with Transient Signals using Differential Equations
 
 \label{sec_transientsDiffEq}
