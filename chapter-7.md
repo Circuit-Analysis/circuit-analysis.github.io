@@ -551,6 +551,42 @@ $$V_B=I_2R_4=(583.3~\text{mA})(10~\Omega)=5.833\text{V}$$
 ## Mesh Analysis with Multiple Sources
 
 I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let's look at a quick example
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n10 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
+    d += (R4 := elm.SourceI().at(R3.end).down().label('$I_S$\n5A'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+```
+
+```{figure} mesh-multiple-sources.svg
+---
+height: 300px
+name: mesh-multiple-sources
+---
+```
+
+
+
+
+
 \begin{example}
 Find $V_A$
 \begin{center}\begin{circuitikz}\draw
