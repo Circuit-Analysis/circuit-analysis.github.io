@@ -824,7 +824,7 @@ that the signs matter: in a passive element (like this resistor) current flows f
 
 ```
 
-Always answers the question: "How much power is being dissipated" Negative sign tells you whether it is supplied or absorbed.
+Always answers the question: "How much power is begin dissipated?" Negative sign tells you whether it is supplied or absorbed.
 
 ### Conservation of power
 

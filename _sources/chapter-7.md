@@ -223,143 +223,197 @@ $$
 
 ## Our First Toy Problem
 
-Applying the fundamental laws (Ohm's, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods considered here is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.
-\begin{example}
-Find $V_A$\par
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l=$V_S$~~21~V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$~~24~\Om] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-;
-\end{circuitikz}\end{center}
+Applying the fundamental laws (Ohm's, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods we consider is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.
 
-\Solution
-Using previous methods we can find the current leaving the positive terminal of the source, $I_S$, by reducing the resistor network. Note that $R_3$ and $R_4$ are in series.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l=$V_S$~~21~V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$~~24~\Om] (3,0)
-(3,3) -- (6,3)
-(6,3) to[resistor,l=$R_3$+$R_4$~~24~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-;
-\end{circuitikz}\end{center}
+Find $V_A$\par
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+```
+
+```{figure} mesh-toy-problem.svg
+---
+height: 300px
+name: mesh-toy-problem
+---
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-step1.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Line().right())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_3$+$R_4$\n24Ω'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-step2.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$||($R_3$+$R_4$)\n12Ω',loc='bottom'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+```
+
+
+````{admonition} Seat-of-pants Solution  
+:class: tip, dropdown
+Using previous methods we can find the voltage at node A with respect to ground by reducing the resistor network. Note that $R_3$ and $R_4$ are in series.
+
+```{figure} mesh-toy-problem-step1.svg
+---
+height: 300px
+name: mesh-toy-problem-step1
+---
+```
 Next note that the combination $R_3$+$R_4$ is in parallel with $R_2$. Combining those resistances yields:
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21~V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=($R_3$+$R_4$)$\|$$R_2$~~12~\Om] (3,0)
-(3,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-;
-\end{circuitikz}\end{center}
+```{figure} mesh-toy-problem-step2.svg
+---
+height: 300px
+name: mesh-toy-problem-step2
+---
+```
 Now we must notice that the two resistors are in series with a voltage supply. In this case the voltage divider is used to find $V_A$
-\[
-V*A=V_S\left[\frac{(R*{3}+R*{4})\|R*{2}}{((R*{3}+R*{4})\|R*{2})+R*{1}}\right]=21V\left[\frac{12~\Omega}{12~\Omega+6~\Omega}\right]=14~\text{V}
-\]
-\end{example}
-Let's keep this result in mind for the next few sections
+
+$$V_A=V_S\left[\frac{(R_{3}+R_{4})\|R_{2}}{((R_{3}+R_{4})\|R_{2})+R_{1}}\right]=21V\left[\frac{12~\Omega}{12~\Omega+6~\Omega}\right]=14~\text{V}$$
+
+````
+Seat of the pants analysis tells us that $V_A$ is 14 V.  Let's keep this result in mind for the next few sections
 
 ## The Steps
 
-I'm going to list the steps here as reference. Use these steps as we walk through the next example.
-\begin{framed}
-\Large\textbf{Steps for Mesh Analysis}\normalsize
-\begin{enumerate}
-\item Assign mesh currents. Identify any ``Super-meshes'' (We'll discuss what a super-mesh is later).
-\item Use KVL on each mesh current.
-\item Use Ohm's law to express the resistor voltages in terms of mesh currents.
-\item Distribute and group like terms.
-\item Plug in values and solve the system.
-\end{enumerate}
-\end{framed}
+I'm going to list the steps here as reference. Use these steps as we walk through the next example.  A more complete summary is included at the endof the chapter.  ADD LINK HERE
 
-Let's apply these steps to the previous example:
-\begin{example}
-Find $V_A$ using Mesh Analysis\par
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$~~24\Om] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-;
-\end{circuitikz}\end{center}
+```{admonition} Steps for Mesh Analysis
+1. Assign mesh currents. Identify any ``Super-meshes'' (We'll discuss what a super-mesh is later).
+2. Use KVL on each mesh current.
+3. Use Ohm's law to express the resistor voltages in terms of mesh currents.
+4. Distribute and group like terms.
+5. Plug in values and solve the system.
+```
 
-\Solution
-Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{24\Om}
-;
 
-% %\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-% %\draw[red,thick] (1.5,1.5) node{$I_1$};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%%\draw[blue,thick] (4.5,1.5) node{$I_2$};
-\end{circuitikz}\end{center}
-In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I'm currently working on. It is possible, as we see here with $R_2$, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the passive (resistors here) components.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{24\Om}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};
-%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-(5.75,2.5) node[below]{+}
-(5.75,1) node[below]{-};
-\end{circuitikz}\end{center}
+Let's apply these steps to our toy problem.  Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-mesh1.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+    
+```
+
+```{figure} mesh-toy-problem-mesh1.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh1
+---
+```
+
+In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I'm currently working on. It is possible, as we see here with $R_2$, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the **passive** (resistors here) components.  The voltage supply is active and therefore its polarity is unaffected by our choice of mesh current direction.
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-mesh2.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='red'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω').label(('+','','-'),loc='top',color='red'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω').label(('+','','-'),loc='top',color='blue'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+    
+```
+
+```{figure} mesh-toy-problem-mesh2.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh2
+---
+```
+
 Following the colors of the mesh currents in the schematics the two KVL equations are
 \begin{eqnarray*}\color{red}
-V*S-V*{R1}-V*{R2}=0\\
+V_S-V_{R1}-V_{R2}=0\\
 \color{blue}
--V*{R2}-V*{R3}-V*{R4}=0
+-V_{R2}-V_{R3}-V_{R4}=0
 \end{eqnarray*}
+
 Step 3 calls for the resistor voltages to be replaced using Ohm's law. Given the mesh currents and the resistances we can express 3 of the voltages this way:
 \begin{eqnarray*}
-V*{R1}&=&I*1R_1\\
-V*{R3}&=&I*2R_3\\
-V*{R4}&=&I_2R_4\\
+V_{R1}&=&I_1R_1\\
+V_{R3}&=&I_2R_3\\
+V_{R4}&=&I_2R_4\\
 \end{eqnarray*}
-The three resistors listed above only have a single mesh current flowing through them. The final voltage drop is that across $R_2$. Since this voltage appears in both meshes it is important to keep the positive current direction correct as each individual KVL equation is considered. When writing the equation for the first mesh $I_1$ indicates the positive current direction. Likewise, when writing the equation for the second mesh $I_2$ indicates the positive current direction. We must then write $V*{R2}$ differently for each KVL as we see here:
+
+The three resistors listed above only have a single mesh current flowing through them. The final voltage drop is that across $R_2$. Since this voltage appears in both meshes it is important to keep the positive current direction correct as each individual KVL equation is considered. When writing the equation for the first mesh $I_1$ indicates the positive current direction. Likewise, when writing the equation for the second mesh $I_2$ indicates the positive current direction. We must then write $V_{R2}$ differently for each KVL as we see here:
 \begin{eqnarray*}\color{red}
-V*{R2}=(I*1-I_2)R_2\\
+V_{R2}=(I_1-I_2)R_2\\
 \color{blue}
-V*{R2}=(-I_1+I_2)R_2\\
+V_{R2}=(-I_1+I_2)R_2\\
 \end{eqnarray*}
 All of the necessary voltages are now expressed in terms of the unknown mesh currents, $I_1$ and $I_2$. Substituting these into the KVL equations taking care to preserve the signs of each term yields:
 \begin{eqnarray*}\color{red}
@@ -367,7 +421,7 @@ V_S-I_1R_1-(I_1-I_2)R_2=0\\
 \color{blue}
 -(-I_1+I_2)R_2-I_2R_3-I_2R_4=0
 \end{eqnarray*}
-Step 4 calls for a bit of algebra practice but distributing where appropriate yields:
+Step 4 calls for a bit of algebra practice.  Distributing where appropriate yields:
 \begin{eqnarray*}\color{red}
 V_S-I_1R_1-I_1R_2+I_2R_2=0\\
 \color{blue}
@@ -398,56 +452,141 @@ or
 24~\Omega I_1-48~\Omega I_2=0~\text{V}
 \end{eqnarray*}
 In matrix form this looks like
-\[ \left[ \begin{array}{cc}
+
+$$\left[ \begin{array}{cc}
 30~\Omega&-24~\Omega\\
 24~\Omega&-48~\Omega\\
-\end{array} \right]\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]\]
+\end{array} \right]\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]$$
 and solving for the currents gives us
-\[ \left[ \begin{array}{cc}
+
+$$\left[ \begin{array}{cc}
 30~\Omega&-24~\Omega\\
 24~\Omega&-48~\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\\583.3~\text{mA}\end{array}\right]\]
-Even after all of this we still haven't found what we were asked to, $V_A$. We can do that using the expression for $V*{R2}$ discussed in this example, but which one? $V_A$ is the voltage at node A with reference to ground. Following the passive sign convention in this case the positive current direction is down through the resistor. Therefore, the voltage, $V_A$ is found with
-\[
-V*A=(I_1-I_2)R_2=(1.167~\text{A}-583.3~\text{mA})24~\Omega=14~\text{V}
-\]
-\end{example}
+\end{array} \right]^{-1}\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\\583.3~\text{mA}\end{array}\right]$$
+
+Even after all of this we still haven't found what we were asked to, $V_A$. We can do that using the expression for $V_{R2}$ discussed in this example, but which one? $V_A$ is the voltage at node A with reference to ground. Following the passive sign convention in this case the positive current direction is down through the resistor. Therefore, the voltage, $V_A$ is found with
+
+$$V_A=(I_1-I_2)R_2=(1.167~\text{A}-583.3~\text{mA})24~\Omega=14~\text{V}$$
+
+
 Why on earth would we go through all of that when we have already solved this problem in a simpler manner?
-\begin{enumerate}
-\item These steps can be applied in general. The previous method depended on your clever mind to find a path to the answer. As circuits become more complex finding that path can become more convoluted and therefore more prone to error.
-\item Until now we have been limited to analyzing circuits with a single source. Mesh analysis can be applied regardless of the number of sources in the circuit.
-\item Once you have calculated the mesh currents you can easily revisit the circuit and find any value of interest.
-\end{enumerate}
+
+1. These steps can be applied in general. The seat-of-the-pants method depended on your clever mind to find a path to the answer. As circuits become more complex finding that path can become more convoluted and therefore more prone to error.
+2. Until now we have been limited to analyzing circuits with a single source. Mesh analysis can be applied regardless of the number of sources in the circuit.
+3. Once you have calculated the mesh currents you can easily revisit the circuit and find any value of interest.
+
 Consider the next example that uses the same circuit. If we were later asked to analyze the circuit for$V_B$ we may have to perform the analysis again with a different goal. Using the previously calculated mesh currents it is a trivial matter to find the value.
-\begin{example}
-Find$V_B$ given $I_1$=1.167~A and $I_2$=583.3~mA.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l*=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(6,3) node[above]{$V*{B}$}
-(3.6,.9) node[above]{24\Om}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%%%\draw[red,thick] (1.5,1.5) node{$I_1$};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%%\draw[blue,thick] (4.5,1.5) node{$I_2$};
-\end{circuitikz}\end{center}
 
-\Solution
-We can see from the diagram that$V_B$ is equivalent to the voltage across $R_4$. Furthermore, we can see that $I_2$ flows in the positive direction according to the passive sign convention. Therefore,$V_B$ is simply
-\[V_B=I_2R_4=(583.3~\text{mA})(10~\Omega)=5.833\text{V}\]
 
-\end{example}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-other-value.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-other-value-solution.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω').label(('+','$V_B$','-'),loc='bottom'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+```
+
+`````{admonition} Example
+Find $V_B$ given $I_1$=1.167 A and $I_2$=583.3 mA.
+```{figure} mesh-toy-problem-other-value.svg
+---
+height: 300px
+name: mesh-toy-problem-other-value
+---
+```
+````{admonition} Solution  
+:class: tip, dropdown
+We can see from the diagram that $V_B$ is equivalent to the voltage across $R_4$.
+```{figure} mesh-toy-problem-other-value-solution.svg
+---
+height: 300px
+name: mesh-toy-problem-other-value-solution
+---
+```
+Furthermore, we can see that $I_2$ flows in the positive direction according to the passive sign convention. Therefore,$V_B$ is simply
+
+$$V_B=I_2R_4=(583.3~\text{mA})(10~\Omega)=5.833\text{V}$$
+````
+`````
 
 ## Mesh Analysis with Multiple Sources
 
 I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let's look at a quick example
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n10 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
+    d += (R4 := elm.SourceI().at(R3.end).down().label('$I_S$\n5A'))
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+```
+
+```{figure} mesh-multiple-sources.svg
+---
+height: 300px
+name: mesh-multiple-sources
+---
+```
+
+
+
+
+
 \begin{example}
 Find $V_A$
 \begin{center}\begin{circuitikz}\draw

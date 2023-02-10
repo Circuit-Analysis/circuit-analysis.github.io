@@ -696,134 +696,78 @@ I_b=I_1-I_2
 </section>
 <section id="our-first-toy-problem">
 <h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
-<p>Applying the fundamental laws (Ohm’s, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods considered here is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.
-\begin{example}
-Find <span class="math notranslate nohighlight">\(V_A\)</span>\par
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l=<span class="math notranslate nohighlight">\(V_S\)</span>~~21~V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~24~\Om] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~14~\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~10~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-;
-\end{circuitikz}\end{center}</p>
-<p>\Solution
-Using previous methods we can find the current leaving the positive terminal of the source, <span class="math notranslate nohighlight">\(I_S\)</span>, by reducing the resistor network. Note that <span class="math notranslate nohighlight">\(R_3\)</span> and <span class="math notranslate nohighlight">\(R_4\)</span> are in series.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l=<span class="math notranslate nohighlight">\(V_S\)</span>~~21~V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~24~\Om] (3,0)
-(3,3) – (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>+<span class="math notranslate nohighlight">\(R_4\)</span>~~24~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-;
-\end{circuitikz}\end{center}
-Next note that the combination <span class="math notranslate nohighlight">\(R_3\)</span>+<span class="math notranslate nohighlight">\(R_4\)</span> is in parallel with <span class="math notranslate nohighlight">\(R_2\)</span>. Combining those resistances yields:
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_S\)</span>~~21~V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=(<span class="math notranslate nohighlight">\(R_3\)</span>+<span class="math notranslate nohighlight">\(R_4\)</span>)<span class="math notranslate nohighlight">\(\|\)</span><span class="math notranslate nohighlight">\(R_2\)</span>~~12~\Om] (3,0)
-(3,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-;
-\end{circuitikz}\end{center}
-Now we must notice that the two resistors are in series with a voltage supply. In this case the voltage divider is used to find <span class="math notranslate nohighlight">\(V_A\)</span>
-[
-V<em>A=V_S\left[\frac{(R</em>{3}+R*{4})|R*{2}}{((R*{3}+R*{4})|R*{2})+R*{1}}\right]=21V\left[\frac{12~\Omega}{12~\Omega+6~\Omega}\right]=14~\text{V}
-]
-\end{example}
-Let’s keep this result in mind for the next few sections</p>
+<p>Applying the fundamental laws (Ohm’s, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods we consider is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.</p>
+<p>Find <span class="math notranslate nohighlight">\(V_A\)</span>\par</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-toy-problem">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem.svg"><img alt="_images/mesh-toy-problem.svg" height="300px" src="_images/mesh-toy-problem.svg" /></a>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Seat-of-pants Solution  </p>
+<p>Using previous methods we can find the voltage at node A with respect to ground by reducing the resistor network. Note that <span class="math notranslate nohighlight">\(R_3\)</span> and <span class="math notranslate nohighlight">\(R_4\)</span> are in series.</p>
+<figure class="align-default" id="mesh-toy-problem-step1">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-step1.svg"><img alt="_images/mesh-toy-problem-step1.svg" height="300px" src="_images/mesh-toy-problem-step1.svg" /></a>
+</figure>
+<p>Next note that the combination <span class="math notranslate nohighlight">\(R_3\)</span>+<span class="math notranslate nohighlight">\(R_4\)</span> is in parallel with <span class="math notranslate nohighlight">\(R_2\)</span>. Combining those resistances yields:</p>
+<figure class="align-default" id="mesh-toy-problem-step2">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-step2.svg"><img alt="_images/mesh-toy-problem-step2.svg" height="300px" src="_images/mesh-toy-problem-step2.svg" /></a>
+</figure>
+<p>Now we must notice that the two resistors are in series with a voltage supply. In this case the voltage divider is used to find <span class="math notranslate nohighlight">\(V_A\)</span></p>
+<div class="math notranslate nohighlight">
+\[V_A=V_S\left[\frac{(R_{3}+R_{4})\|R_{2}}{((R_{3}+R_{4})\|R_{2})+R_{1}}\right]=21V\left[\frac{12~\Omega}{12~\Omega+6~\Omega}\right]=14~\text{V}\]</div>
+</div>
+<p>Seat of the pants analysis tells us that <span class="math notranslate nohighlight">\(V_A\)</span> is 14 V.  Let’s keep this result in mind for the next few sections</p>
 </section>
 <section id="the-steps">
 <h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
-<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example.
-\begin{framed}
-\Large\textbf{Steps for Mesh Analysis}\normalsize
-\begin{enumerate}
-\item Assign mesh currents. Identify any ``Super-meshes’’ (We’ll discuss what a super-mesh is later).
-\item Use KVL on each mesh current.
-\item Use Ohm’s law to express the resistor voltages in terms of mesh currents.
-\item Distribute and group like terms.
-\item Plug in values and solve the system.
-\end{enumerate}
-\end{framed}</p>
-<p>Let’s apply these steps to the previous example:
-\begin{example}
-Find <span class="math notranslate nohighlight">\(V_A\)</span> using Mesh Analysis\par
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_S\)</span>~~21V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~24\Om] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~14~\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~10~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-;
-\end{circuitikz}\end{center}</p>
-<p>\Solution
-Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We’ll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn’t matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let’s start with both mesh currents flowing in the clockwise (CW) direction.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_S\)</span>~~21V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~14~\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~10~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-(3.6,.9) node[above]{24\Om}
-;</p>
-<p>\end{circuitikz}\end{center}
-In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I’m currently working on. It is possible, as we see here with <span class="math notranslate nohighlight">\(R_2\)</span>, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the passive (resistors here) components.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_S\)</span>~~21V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~14~\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~10~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-(3.6,.9) node[above]{24\Om}
-;</p>
-<p>(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};</p>
-<p>(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-(5.75,2.5) node[below]{+}
-(5.75,1) node[below]{-};
-\end{circuitikz}\end{center}
-Following the colors of the mesh currents in the schematics the two KVL equations are</p>
+<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example.  A more complete summary is included at the endof the chapter.  ADD LINK HERE</p>
+<div class="admonition-steps-for-mesh-analysis admonition">
+<p class="admonition-title">Steps for Mesh Analysis</p>
+<ol class="simple">
+<li><p>Assign mesh currents. Identify any ``Super-meshes’’ (We’ll discuss what a super-mesh is later).</p></li>
+<li><p>Use KVL on each mesh current.</p></li>
+<li><p>Use Ohm’s law to express the resistor voltages in terms of mesh currents.</p></li>
+<li><p>Distribute and group like terms.</p></li>
+<li><p>Plug in values and solve the system.</p></li>
+</ol>
+</div>
+<p>Let’s apply these steps to our toy problem.  Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We’ll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn’t matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let’s start with both mesh currents flowing in the clockwise (CW) direction.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-toy-problem-mesh1">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-mesh1.svg"><img alt="_images/mesh-toy-problem-mesh1.svg" height="300px" src="_images/mesh-toy-problem-mesh1.svg" /></a>
+</figure>
+<p>In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I’m currently working on. It is possible, as we see here with <span class="math notranslate nohighlight">\(R_2\)</span>, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the <strong>passive</strong> (resistors here) components.  The voltage supply is active and therefore its polarity is unaffected by our choice of mesh current direction.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-toy-problem-mesh2">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-mesh2.svg"><img alt="_images/mesh-toy-problem-mesh2.svg" height="300px" src="_images/mesh-toy-problem-mesh2.svg" /></a>
+</figure>
+<p>Following the colors of the mesh currents in the schematics the two KVL equations are</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-V*S-V*{R1}-V*{R2}=0\\
+V_S-V_{R1}-V_{R2}=0\\
 \color{blue}
--V*{R2}-V*{R3}-V*{R4}=0
+-V_{R2}-V_{R3}-V_{R4}=0
 \end{eqnarray*}\]</div>
 <p>Step 3 calls for the resistor voltages to be replaced using Ohm’s law. Given the mesh currents and the resistances we can express 3 of the voltages this way:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-V*{R1}&amp;=&amp;I*1R_1\\
-V*{R3}&amp;=&amp;I*2R_3\\
-V*{R4}&amp;=&amp;I_2R_4\\
+V_{R1}&amp;=&amp;I_1R_1\\
+V_{R3}&amp;=&amp;I_2R_3\\
+V_{R4}&amp;=&amp;I_2R_4\\
 \end{eqnarray*}\]</div>
-<p>The three resistors listed above only have a single mesh current flowing through them. The final voltage drop is that across <span class="math notranslate nohighlight">\(R_2\)</span>. Since this voltage appears in both meshes it is important to keep the positive current direction correct as each individual KVL equation is considered. When writing the equation for the first mesh <span class="math notranslate nohighlight">\(I_1\)</span> indicates the positive current direction. Likewise, when writing the equation for the second mesh <span class="math notranslate nohighlight">\(I_2\)</span> indicates the positive current direction. We must then write <span class="math notranslate nohighlight">\(V*{R2}\)</span> differently for each KVL as we see here:</p>
+<p>The three resistors listed above only have a single mesh current flowing through them. The final voltage drop is that across <span class="math notranslate nohighlight">\(R_2\)</span>. Since this voltage appears in both meshes it is important to keep the positive current direction correct as each individual KVL equation is considered. When writing the equation for the first mesh <span class="math notranslate nohighlight">\(I_1\)</span> indicates the positive current direction. Likewise, when writing the equation for the second mesh <span class="math notranslate nohighlight">\(I_2\)</span> indicates the positive current direction. We must then write <span class="math notranslate nohighlight">\(V_{R2}\)</span> differently for each KVL as we see here:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-V*{R2}=(I*1-I_2)R_2\\
+V_{R2}=(I_1-I_2)R_2\\
 \color{blue}
-V*{R2}=(-I_1+I_2)R_2\\
+V_{R2}=(-I_1+I_2)R_2\\
 \end{eqnarray*}\]</div>
 <p>All of the necessary voltages are now expressed in terms of the unknown mesh currents, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span>. Substituting these into the KVL equations taking care to preserve the signs of each term yields:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -832,7 +776,7 @@ V_S-I_1R_1-(I_1-I_2)R_2=0\\
 \color{blue}
 -(-I_1+I_2)R_2-I_2R_3-I_2R_4=0
 \end{eqnarray*}\]</div>
-<p>Step 4 calls for a bit of algebra practice but distributing where appropriate yields:</p>
+<p>Step 4 calls for a bit of algebra practice.  Distributing where appropriate yields:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
 V_S-I_1R_1-I_1R_2+I_2R_2=0\\
@@ -867,52 +811,59 @@ R_2I_1+(-R_2-R_3-R_4)I_2=0
 \color{blue}
 24~\Omega I_1-48~\Omega I_2=0~\text{V}
 \end{eqnarray*}\]</div>
-<p>In matrix form this looks like
-[ \left[ \begin{array}{cc}
-30~\Omega&amp;-24~\Omega\
-24~\Omega&amp;-48~\Omega\
-\end{array} \right]\left[\begin{array}{c}I_1\I_2\end{array}\right]=\left[\begin{array}{c}21~\text{V}\0~\text{V}\end{array}\right]]
-and solving for the currents gives us
-[ \left[ \begin{array}{cc}
-30~\Omega&amp;-24~\Omega\
-24~\Omega&amp;-48~\Omega\
-\end{array} \right]^{-1}\left[\begin{array}{c}21~\text{V}\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\583.3~\text{mA}\end{array}\right]]
-Even after all of this we still haven’t found what we were asked to, <span class="math notranslate nohighlight">\(V_A\)</span>. We can do that using the expression for <span class="math notranslate nohighlight">\(V*{R2}\)</span> discussed in this example, but which one? <span class="math notranslate nohighlight">\(V_A\)</span> is the voltage at node A with reference to ground. Following the passive sign convention in this case the positive current direction is down through the resistor. Therefore, the voltage, <span class="math notranslate nohighlight">\(V_A\)</span> is found with
-[
-V<em>A=(I_1-I_2)R_2=(1.167~\text{A}-583.3~\text{mA})24~\Omega=14~\text{V}
-]
-\end{example}
-Why on earth would we go through all of that when we have already solved this problem in a simpler manner?
-\begin{enumerate}
-\item These steps can be applied in general. The previous method depended on your clever mind to find a path to the answer. As circuits become more complex finding that path can become more convoluted and therefore more prone to error.
-\item Until now we have been limited to analyzing circuits with a single source. Mesh analysis can be applied regardless of the number of sources in the circuit.
-\item Once you have calculated the mesh currents you can easily revisit the circuit and find any value of interest.
-\end{enumerate}
-Consider the next example that uses the same circuit. If we were later asked to analyze the circuit for<span class="math notranslate nohighlight">\(V_B\)</span> we may have to perform the analysis again with a different goal. Using the previously calculated mesh currents it is a trivial matter to find the value.
-\begin{example}
-Find<span class="math notranslate nohighlight">\(V_B\)</span> given <span class="math notranslate nohighlight">\(I_1\)</span>=1.167~A and <span class="math notranslate nohighlight">\(I_2\)</span>=583.3~mA.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l</em>=<span class="math notranslate nohighlight">\(V_S\)</span>~~21V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~14~\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~10~\Om] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-(6,3) node[above]{<span class="math notranslate nohighlight">\(V*{B}\)</span>}
-(3.6,.9) node[above]{24\Om}
-;</p>
-<p>\end{circuitikz}\end{center}</p>
-<p>\Solution
-We can see from the diagram that<span class="math notranslate nohighlight">\(V_B\)</span> is equivalent to the voltage across <span class="math notranslate nohighlight">\(R_4\)</span>. Furthermore, we can see that <span class="math notranslate nohighlight">\(I_2\)</span> flows in the positive direction according to the passive sign convention. Therefore,<span class="math notranslate nohighlight">\(V_B\)</span> is simply
-[V_B=I_2R_4=(583.3~\text{mA})(10~\Omega)=5.833\text{V}]</p>
-<p>\end{example}</p>
+<p>In matrix form this looks like</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{cc}
+30~\Omega&amp;-24~\Omega\\
+24~\Omega&amp;-48~\Omega\\
+\end{array} \right]\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]\end{split}\]</div>
+<p>and solving for the currents gives us</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{cc}
+30~\Omega&amp;-24~\Omega\\
+24~\Omega&amp;-48~\Omega\\
+\end{array} \right]^{-1}\left[\begin{array}{c}21~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\\583.3~\text{mA}\end{array}\right]\end{split}\]</div>
+<p>Even after all of this we still haven’t found what we were asked to, <span class="math notranslate nohighlight">\(V_A\)</span>. We can do that using the expression for <span class="math notranslate nohighlight">\(V_{R2}\)</span> discussed in this example, but which one? <span class="math notranslate nohighlight">\(V_A\)</span> is the voltage at node A with reference to ground. Following the passive sign convention in this case the positive current direction is down through the resistor. Therefore, the voltage, <span class="math notranslate nohighlight">\(V_A\)</span> is found with</p>
+<div class="math notranslate nohighlight">
+\[V_A=(I_1-I_2)R_2=(1.167~\text{A}-583.3~\text{mA})24~\Omega=14~\text{V}\]</div>
+<p>Why on earth would we go through all of that when we have already solved this problem in a simpler manner?</p>
+<ol class="simple">
+<li><p>These steps can be applied in general. The seat-of-the-pants method depended on your clever mind to find a path to the answer. As circuits become more complex finding that path can become more convoluted and therefore more prone to error.</p></li>
+<li><p>Until now we have been limited to analyzing circuits with a single source. Mesh analysis can be applied regardless of the number of sources in the circuit.</p></li>
+<li><p>Once you have calculated the mesh currents you can easily revisit the circuit and find any value of interest.</p></li>
+</ol>
+<p>Consider the next example that uses the same circuit. If we were later asked to analyze the circuit for<span class="math notranslate nohighlight">\(V_B\)</span> we may have to perform the analysis again with a different goal. Using the previously calculated mesh currents it is a trivial matter to find the value.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_B\)</span> given <span class="math notranslate nohighlight">\(I_1\)</span>=1.167 A and <span class="math notranslate nohighlight">\(I_2\)</span>=583.3 mA.</p>
+<figure class="align-default" id="mesh-toy-problem-other-value">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-other-value.svg"><img alt="_images/mesh-toy-problem-other-value.svg" height="300px" src="_images/mesh-toy-problem-other-value.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>We can see from the diagram that <span class="math notranslate nohighlight">\(V_B\)</span> is equivalent to the voltage across <span class="math notranslate nohighlight">\(R_4\)</span>.</p>
+<figure class="align-default" id="mesh-toy-problem-other-value-solution">
+<a class="reference internal image-reference" href="_images/mesh-toy-problem-other-value-solution.svg"><img alt="_images/mesh-toy-problem-other-value-solution.svg" height="300px" src="_images/mesh-toy-problem-other-value-solution.svg" /></a>
+</figure>
+<p>Furthermore, we can see that <span class="math notranslate nohighlight">\(I_2\)</span> flows in the positive direction according to the passive sign convention. Therefore,<span class="math notranslate nohighlight">\(V_B\)</span> is simply</p>
+<div class="math notranslate nohighlight">
+\[V_B=I_2R_4=(583.3~\text{mA})(10~\Omega)=5.833\text{V}\]</div>
+</div>
+</div>
 </section>
 <section id="mesh-analysis-with-multiple-sources">
 <h2>Mesh Analysis with Multiple Sources<a class="headerlink" href="#mesh-analysis-with-multiple-sources" title="Permalink to this headline">#</a></h2>
-<p>I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let’s look at a quick example
-\begin{example}
+<p>I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let’s look at a quick example</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-multiple-sources">
+<a class="reference internal image-reference" href="_images/mesh-multiple-sources.svg"><img alt="_images/mesh-multiple-sources.svg" height="300px" src="_images/mesh-multiple-sources.svg" /></a>
+</figure>
+<p>\begin{example}
 Find <span class="math notranslate nohighlight">\(V_A\)</span>
 \begin{center}\begin{circuitikz}\draw
 (0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_{S1}\)</span>~~12V] (0,0)
