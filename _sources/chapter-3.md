@@ -98,7 +98,7 @@ with schemdraw.Drawing(file='parallel-resistors.svg') as d:
 
 ```{figure} parallel-resistors.svg
 ---
-height: 150px
+height: 250px
 name: parallel-resistors
 ---
 $R_1$ and $R_2$ are in parallel.
@@ -117,7 +117,7 @@ with schemdraw.Drawing(file='parallel-equivalent.svg') as d:
 
 ```{figure} parallel-equivalent.svg
 ---
-height: 150px
+height: 250px
 name: parallel-resistors-equivalent
 ---
 The equivalent conductance of $G_1$ and $G_2$ in series is $G_P = G_1 + G_2$.
@@ -157,7 +157,7 @@ with schemdraw.Drawing(file='electrically-parallel-resistors.svg') as d:
 
 ```{figure} electrically-parallel-resistors.svg
 ---
-height: 150px
+height: 300px
 name: electrically-parallel-resistors
 ---
 $R_1$ and $R_2$ are still *electrically* in parallel.
@@ -179,286 +179,426 @@ with schemdraw.Drawing(file='not-electrically-parallel-resistors.svg') as d:
 
 ```{figure} not-electrically-parallel-resistors.svg
 ---
-height: 150px
+height: 300px
 name: not-electrically-parallel-resistors
 ---
 $R_1$ and $R_3$ are **not** electrically in parallel.
 ```
 
 ```{admonition} Question
+:class: tip
 $R_1$ and $R_3$ are **not** in parallel.
 How are they connected?
 ```
 
 ## More Complex Circuits
 
-\begin{example}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='complex-example-1.svg') as d:
+    d += elm.Dot().label('A')
+    d += elm.Resistor().right().label('$5\Omega$')
+    d.push()
+    d += elm.Resistor().right().label('$2\Omega$')
+    d.push()
+    d += elm.Line().right()
+    d += elm.Resistor().down().label('$4\Omega$')
+    d += elm.Line().left()
+    d += elm.Line().left()
+    d += elm.Line().left()
+    d += elm.Dot().label('B')
+    d.pop()
+    d += elm.Resistor().down().label('$4\Omega$')
+    d.pop()
+    d += elm.Resistor().down().label('$6\Omega$')
+```
+
+````{admonition} Example
+
 Find $R_{AB}$
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[R,l=5\Om] (3,3)
-(3,3) to[R,l=6\Om] (3,0)
-(3,3) to[R,l=2\Om] (6,3)
-(6,3) to[R,l=4\Om] (6,0)
-(9,3) to[R,l=4\Om] (9,0)
-(0,0) -- (9,0)
-(6,3) -- (9,3)
-(0,0) node[above]{A}
-(0,3) node[below]{B}
-;
-\end{circuitikz}\end{center}
-\Solution
-$R_{AB}$=7.4\Om
-\end{example}
 
-\begin{example}
+```{figure} complex-example-1.svg
+---
+height: 250px
+name: complex-example-1
+---
+A more complex example.
+```
+
+```{admonition} Solution
+:class: tip, dropdown
+$R_{AB}=7.4\Omega$
+```
+
+````
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='complex-example-2.svg') as d:
+    d += elm.Dot().label('A')
+    d += elm.Resistor().right().label('$10\Omega$')
+    d.push()
+    d += (R2 := elm.Resistor().right().label('$1\Omega$'))
+    d.push()
+    d += elm.Resistor().right().label('$1\Omega$')
+    d += elm.Resistor().down().label('$5\Omega$')
+    d += elm.Line().left()
+    d += (L1 := elm.Line().left())
+    d += elm.Line().left()
+    d += elm.Dot().label('B')
+    d.pop()
+    d += (R5 := elm.Resistor().down().label('$4\Omega$', loc='bottom'))
+    d.pop()
+    d.push()
+    d += elm.Resistor().down().label('$3\Omega$')
+    # d += elm.Resistor().endpoints(R2.start, L1.start).label('$6\Omega$')
+    # d += elm.Resistor().endpoints(R2.end, L1.end).label('$12\Omega$')
+    d.pop()
+    d += (R6 := elm.Resistor().theta(-60).label('$6\Omega$', halign='right', rotate=-45))
+    d += elm.Line().endpoints(R6.end, R5.end)
+    d += elm.Resistor().endpoints(R2.end, R6.end).label('$12\Omega$', halign='center', rotate=45)
+```
+
+````{admonition} Example
+
 Find $R_{AB}$
-\begin{center}\begin{circuitikz}[scale=1.5]\draw
-(0,3) to[R,l=10\Om] (3,3)
-(6,3) to[R,l=1\Om] (9,3)
-(3,3) to[R,l=1\Om] (6,3)
-(3,3) to[R,l_=3\Om] (3,0)
-(6,3) to[R,l=4\Om] (6,0)
-(9,3) to[R,l=5\Om] (9,0)
-(3,3) to[R,l=6\Om] (4.5,1.5) -- (6,0)
-(3,0) to[R,l=12\Om] (4.5,1.5) -- (6,3)
-(0,0) -- (9,0)
-(0,0) node[above]{A}
-(0,3) node[below]{B}
-;
-\end{circuitikz}\end{center}
-\Solution
-$R_{AB}$=11.2\Om
-\end{example}
 
-\begin{example}
+```{figure} complex-example-2.svg
+---
+height: 250px
+name: complex-example-2
+---
+Another complex example.
+```
+
+```{admonition} Solution
+:class: tip, dropdown
+$R_{AB}=11.2\Omega$
+```
+
+````
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='complex-example-3.svg') as d:
+    d += elm.Dot().label('A')
+    d += elm.Line().left().length(2)
+    d += elm.Resistor().label('$3k\Omega$').theta(45).length(6)
+    d += elm.Resistor().label('$5k\Omega$').length(6).theta(-45)
+    d.push()
+    d += elm.Line().left().length(2)
+    d += elm.Dot().label('B')
+    d.pop()
+    d += elm.Resistor().label('$6k\Omega$').theta(-135).length(6)
+    d += elm.Resistor().label('$2k\Omega$').theta(135).length(6)
+
+```
+
+````{admonition} Example
+
 Find $R_{AB}$
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[R,l=3k\Om] (3,3)
-(3,3) to[R,l=5k\Om] (6,0)
-(0,0) to[R,l=2k\Om] (3,-3)
-(3,-3) to[R,l=6k\Om] (6,0)
-(0,0) -- (1,0)
-(5,0) -- (6,0)
 
-    (1,0) node[right]{A}
-    (5,0) node[left]{B}
-    ;
-    \end{circuitikz}\end{center}
+```{figure} complex-example-3.svg
+---
+height: 250px
+name: complex-example-3
+---
+Yet another complex example.
+```
 
-\Solution
-$R_{AB}$=4k\Om
-\end{example}
+```{admonition} Solution
+:class: tip, dropdown
+$R_{AB}=4k\Omega$
+```
+
+````
 
 ## Series Voltage Supplies
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={$V_1$ and 6~V}] (0,0)
-(0,5) to[voltage source,lx_={$V_2$ and 12~V}] (0,2.5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={$R$ and 9~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+- Polarity matters when adding voltage supplies in series.
+- Circuit components can effectively be in series if they are both in series with another component.
 
-    ;
-    \end{circuitikz}\end{center}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={$V_1$+$V_2$ and 18~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 9~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-voltage-1.svg') as d:
+   d += elm.SourceV().up().label('$V_1$\n6V')
+   d += elm.SourceV().label('$V_2$\n12V')
+   d += elm.Line().right()
+   d += (R1 := elm.Resistor().down().label('$R$\n$9\Omega$').length(6))
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.move(6,0)
+   d += elm.SourceV().up().label('$V_1 + V_2$\n18V')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().down().label('$R$\n$9\Omega$'))
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-    ;
-    \end{circuitikz}\end{center}
+```{figure} series-voltage-1.svg
+---
+height: 350px
+name: series-voltage-1
+---
+Series voltage supplies, take one.
+```
 
-\end{minipage}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={$V_1$ and 7~V}] (0,0)
-(0,2.5) to[voltage source,lx^={$V_2$ and 14~V}] (0,5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-voltage-2.svg') as d:
+   d += elm.SourceV().up().label('$V_1$\n7V')
+   d += elm.SourceV().label('$V_2$\n14V').reverse()
+   d += elm.Line().right()
+   d += (R1 := elm.Resistor().down().label('$R$\n$21\Omega$').length(6))
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.move(6,0)
+   d += elm.SourceV().up().label('$V_1 - V_2$\n-7V')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().down().label('$R$\n$21\Omega$'))
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-    ;
-    \end{circuitikz}\end{center}
+```{figure} series-voltage-2.svg
+---
+height: 350px
+name: series-voltage-2
+---
+Series voltage supplies, take two.
+```
 
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={$V_1-V_2$ and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-    ;
-    \end{circuitikz}\end{center}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-voltage-3.svg') as d:
+   d += elm.SourceV().up().label('$V_1$\n7V')
+   d += elm.SourceV().label('$V_2$\n14V').reverse()
+   d += elm.Line().right()
+   d += (R1 := elm.Resistor().down().label('$R$\n$21\Omega$').length(6))
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.move(6,0)
+   d += elm.SourceV().up().label('$V_2 - V_1$\n7V').reverse()
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().down().label('$R$\n$21\Omega$'))
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-\end{minipage}
+```{figure} series-voltage-3.svg
+---
+height: 350px
+name: series-voltage-3
+---
+Series voltage supplies, take three.
+```
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={$V_1$ and 7~V}] (0,0)
-(0,2.5) to[voltage source,lx^={14~V and $V_2$}] (0,5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-    ;
-    \end{circuitikz}\end{center}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-voltage-4.svg') as d:
+   d += elm.SourceV().up().label('$V_1$\n8V')
+   d += elm.Resistor().label('$R$\n$3\Omega$')
+   d += elm.SourceV().label('$V_2$\n16V').right()
+   d += (R1 := elm.Resistor().down().label('$R$\n$21\Omega$').length(6))
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.move(6,0)
+   d += elm.SourceV().up().label('$V_1 +  V_2$\n24V')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().down().label('$R$\n$24\Omega$'))
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[voltage source,lx^={7~V and $V_2-V_1$}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
+```{figure} series-voltage-4.svg
+---
+height: 350px
+name: series-voltage-4
+---
+Series voltage supplies, take four.
+```
 
-    ;
-    \end{circuitikz}\end{center}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\end{minipage}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='series-voltage-5.svg') as d:
+   d += elm.SourceV().up().label('$V_1$\n8V')
+   d += elm.Resistor().label('$R$\n$3\Omega$')
+   d += elm.SourceV().label('$V_2$\n16V').right().reverse()
+   d += (R1 := elm.Resistor().down().label('$R$\n$21\Omega$').length(6))
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.move(6,0)
+   d += elm.SourceV().up().label('$V_1 -  V_2$\n-8V')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().down().label('$R$\n$24\Omega$'))
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={$V_1$ and 8~V}] (0,0)
-(0,2.5) to[R,lx={$R$ and 3~\Om}] (0,5)
-(3,5) to[voltage source,lx_={\raisebox{1ex}{$V_2$} and \raisebox{3ex}{16~V}}] (0,5)
-(3,5) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-
-    ;
-    \end{circuitikz}\end{center}
-
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={$V_1-V_2$ and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-
-    ;
-    \end{circuitikz}\end{center}
-
-\end{minipage}
-
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={$V_1$ and 8~V}] (0,0)
-(0,2.5) to[R,lx={$R$ and 3~\Om}] (0,5)
-(0,5) to[voltage source,lx^={\raisebox{3ex}{$V_2$} and \raisebox{1ex}{16~V}}] (3,5)
-(3,5) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-
-    ;
-    \end{circuitikz}\end{center}
-
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={$V_1-V_2$ and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 21~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-
-    ;
-    \end{circuitikz}\end{center}
-
-\end{minipage}
+```{figure} series-voltage-5.svg
+---
+height: 350px
+name: series-voltage-5
+---
+Series voltage supplies, take five.
+```
 
 ## Parallel Current Supplies
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={$I_1$ and 3~A}] (0,3)
-(3,0) to[current source,lx_={$I_2$ and 2~A}] (3,3)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={$I_1$+$I_2$ and 5~A}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
+- Polarity matters when adding current supplies in parallel.
+- Circuit components can effectively be in parallel if they are both in parallel with another component.
 
-\vspace{0.5cm}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={$I_1$ and 3~A}] (0,3)
-(3,3) to[current source,lx^={$I_2$ and 2~A}] (3,0)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx^={$I_1$+$I_2$ and 5~A}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='parallel-current-1.svg') as d:
+   d += elm.SourceI().up().label('$I_1$\n3A')
+   d += elm.Line().right().length(6)
+   d += (R1 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.push()
+   d += elm.SourceI().up().label('$I_2$\n2A')
+   d.pop()
+   d += elm.Line().left()
+   d.move(9,0)
+   d += elm.SourceI().up().label('$I_1 + I_2$\n5A')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-\vspace{0.5cm}
+```{figure} parallel-current-1.svg
+---
+height: 150px
+name: parallel-current-1
+---
+Parallel current supplies, take one.
+```
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={$I_1$ and 3~A}] (0,3)
-(3,3) to[current source,lx^={$I_2$ and 2~A}] (3,0)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[current source,lx_={$I_1$+$I_2$ and 5~A}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\vspace{0.5cm}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='parallel-current-2.svg') as d:
+   d += elm.SourceI().up().label('$I_1$\n3A')
+   d += elm.Line().right().length(6)
+   d += (R1 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.push()
+   d += elm.SourceI().up().label('$I_2$\n2A').reverse()
+   d.pop()
+   d += elm.Line().left()
+   d.move(9,0)
+   d += elm.SourceI().up().label('$I_1 - I_2$\n1A')
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
 
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={$I_1$ and 3~A}] (0,3)
-(4,3) to[current source,lx^={$I_2$ and 2~A}] (4,0)
-(0,3) to[short] (6,3)
-(2,3) to[R,lx={$R$ and 10~\Om}] (2,0)
-(6,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[current source,lx_={$I_1$+$I_2$ and 5~A}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={$R$ and 10~\Om},i=$I_R$] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
+```{figure} parallel-current-2.svg
+---
+height: 150px
+name: parallel-current-2
+---
+Parallel current supplies, take two.
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='parallel-current-3.svg') as d:
+   d += elm.SourceI().up().label('$I_1$\n3A')
+   d += elm.Line().right().length(6)
+   d += (R1 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left()
+   d.push()
+   d += elm.SourceI().up().label('$I_2$\n2A').reverse()
+   d.pop()
+   d += elm.Line().left()
+   d.move(9,0)
+   d += elm.SourceI().up().label('$I_2 - I_1$\n1A').reverse()
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
+
+```{figure} parallel-current-3.svg
+---
+height: 150px
+name: parallel-current-3
+---
+Parallel current supplies, take three.
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='parallel-current-4.svg') as d:
+   d += elm.SourceI().up().label('$I_1$\n3A')
+   d += elm.Line().right().length(6)
+   d += (R1 := elm.Resistor().label('$R$\n$10\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_R$')
+   d += elm.Line().left().length(2)
+   d.push()
+   d += elm.SourceI().up().label('$I_2$\n2A').reverse()
+   d.pop()
+   d += elm.Line().left().length(2)
+   d.push()
+   d += elm.Resistor().label('$R$\n$10\Omega$').up()
+   d.pop()
+   d += elm.Line().left().length(2)
+   d.move(9,0)
+   d += elm.SourceI().up().label('$I_2 - I_1$\n1A').reverse()
+   d += elm.Line().right()
+   d += (R2 := elm.Resistor().label('$R$\n$5\Omega$').down())
+   d += elm.CurrentLabelInline(direction='in').at(R2).label('$I_R$')
+   d += elm.Line().left()
+```
+
+```{figure} parallel-current-4.svg
+---
+height: 150px
+name: parallel-current-4
+---
+Parallel current supplies, take four.
+```
 
 ## Delta-Wye Conversions
 
@@ -468,13 +608,30 @@ R_b &= \frac{R_1 R_3}{R_1 + R_2 + R_3} \\
 R_c &= \frac{R_2 R_3}{R_1 + R_2 + R_3}
 \end{align}
 
-    \begin{center}\begin{circuitikz}[scale=0.75]\draw
-    (0,0) to[R,l={$R_a$}] (-2.5,1.5)  node[circle,fill,label=above:A] {}
-    (0,0) to[R,l={$R_b$}] (2.5,1.5)  node[circle,fill,label=above:B] {}
-    (0,0) to[R,l={$R_c$}] (0,-3)  node[circle,fill,label=below:C] {}
-    ;
-    (0,0) node[above]{A};
-    \end{circuitikz}\end{center}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='wye.svg') as d:
+    d += elm.Dot().label('A')
+    d += elm.Resistor().theta(-30).label('$R_a$')
+    d.push()
+    d += elm.Resistor().theta(30).label('$R_b$')
+    d += elm.Dot().label('B')
+    d.pop()
+    d += elm.Resistor().down().label('$R_c$')
+    d += elm.Dot().label('C', loc='bot')
+
+```
+
+```{figure} wye.svg
+---
+height: 350px
+name: wye
+---
+The wye configuration.
+```
 
 \begin{align}
 R_1 &= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \\
@@ -482,9 +639,25 @@ R_2 &= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \\
 R_3 &= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
 \end{align}
 
-    \begin{center}\begin{circuitikz}[scale=0.75]\draw
-    (2.5,1.5) to[R,l={$R_1$}] (-2.5,1.5) 	node[circle,fill,label=above:A] {}
-    (-2.5,1.5) to[R,l={$R_2$}] (0,-3) node[circle,fill,label=above:C] {}
-    (0,-3) to[R,l={$R_3$}] (2.5,1.5) node[circle,fill,label=above:B] {}
-    ;
-    \end{circuitikz}\end{center}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='delta.svg') as d:
+   d += elm.Dot().label('A')
+   d += elm.Resistor().right().label('$R_1$').length(6)
+   d += elm.Dot().label('B')
+   d += elm.Resistor().theta(-120).label('$R_3$').length(6)
+   d += elm.Dot().label('C', loc='bot')
+   d += elm.Resistor().theta(120).label('$R_2$').length(6)
+
+```
+
+```{figure} delta.svg
+---
+height: 350px
+name: delta
+---
+The delta configuration.
+```

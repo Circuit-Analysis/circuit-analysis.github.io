@@ -588,7 +588,7 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="_images/parallel-resistors.svg"><img alt="_images/parallel-resistors.svg" height="150px" src="_images/parallel-resistors.svg" /></a>
+<a class="reference internal image-reference" href="_images/parallel-resistors.svg"><img alt="_images/parallel-resistors.svg" height="250px" src="_images/parallel-resistors.svg" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 21 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> are in parallel.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -597,7 +597,7 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="parallel-resistors-equivalent">
-<a class="reference internal image-reference" href="_images/parallel-equivalent.svg"><img alt="_images/parallel-equivalent.svg" height="150px" src="_images/parallel-equivalent.svg" /></a>
+<a class="reference internal image-reference" href="_images/parallel-equivalent.svg"><img alt="_images/parallel-equivalent.svg" height="250px" src="_images/parallel-equivalent.svg" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 22 </span><span class="caption-text">The equivalent conductance of <span class="math notranslate nohighlight">\(G_1\)</span> and <span class="math notranslate nohighlight">\(G_2\)</span> in series is <span class="math notranslate nohighlight">\(G_P = G_1 + G_2\)</span>.</span><a class="headerlink" href="#parallel-resistors-equivalent" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -621,7 +621,7 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="electrically-parallel-resistors">
-<a class="reference internal image-reference" href="_images/electrically-parallel-resistors.svg"><img alt="_images/electrically-parallel-resistors.svg" height="150px" src="_images/electrically-parallel-resistors.svg" /></a>
+<a class="reference internal image-reference" href="_images/electrically-parallel-resistors.svg"><img alt="_images/electrically-parallel-resistors.svg" height="300px" src="_images/electrically-parallel-resistors.svg" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 23 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> are still <em>electrically</em> in parallel.</span><a class="headerlink" href="#electrically-parallel-resistors" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -632,12 +632,12 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="not-electrically-parallel-resistors">
-<a class="reference internal image-reference" href="_images/not-electrically-parallel-resistors.svg"><img alt="_images/not-electrically-parallel-resistors.svg" height="150px" src="_images/not-electrically-parallel-resistors.svg" /></a>
+<a class="reference internal image-reference" href="_images/not-electrically-parallel-resistors.svg"><img alt="_images/not-electrically-parallel-resistors.svg" height="300px" src="_images/not-electrically-parallel-resistors.svg" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 24 </span><span class="caption-text"><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are <strong>not</strong> electrically in parallel.</span><a class="headerlink" href="#not-electrically-parallel-resistors" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="admonition-question admonition">
+<div class="tip admonition">
 <p class="admonition-title">Question</p>
 <p><span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_3\)</span> are <strong>not</strong> in parallel.
 How are they connected?</p>
@@ -646,291 +646,171 @@ How are they connected?</p>
 </section>
 <section id="more-complex-circuits">
 <h2>More Complex Circuits<a class="headerlink" href="#more-complex-circuits" title="Permalink to this headline">#</a></h2>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[R,l=5\Om] (3,3)
-(3,3) to[R,l=6\Om] (3,0)
-(3,3) to[R,l=2\Om] (6,3)
-(6,3) to[R,l=4\Om] (6,0)
-(9,3) to[R,l=4\Om] (9,0)
-(0,0) – (9,0)
-(6,3) – (9,3)
-(0,0) node[above]{A}
-(0,3) node[below]{B}
-;
-\end{circuitikz}\end{center}
-\Solution
-<span class="math notranslate nohighlight">\(R_{AB}\)</span>=7.4\Om
-\end{example}</p>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
-\begin{center}\begin{circuitikz}[scale=1.5]\draw
-(0,3) to[R,l=10\Om] (3,3)
-(6,3) to[R,l=1\Om] (9,3)
-(3,3) to[R,l=1\Om] (6,3)
-(3,3) to[R,l_=3\Om] (3,0)
-(6,3) to[R,l=4\Om] (6,0)
-(9,3) to[R,l=5\Om] (9,0)
-(3,3) to[R,l=6\Om] (4.5,1.5) – (6,0)
-(3,0) to[R,l=12\Om] (4.5,1.5) – (6,3)
-(0,0) – (9,0)
-(0,0) node[above]{A}
-(0,3) node[below]{B}
-;
-\end{circuitikz}\end{center}
-\Solution
-<span class="math notranslate nohighlight">\(R_{AB}\)</span>=11.2\Om
-\end{example}</p>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(R_{AB}\)</span>
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[R,l=3k\Om] (3,3)
-(3,3) to[R,l=5k\Om] (6,0)
-(0,0) to[R,l=2k\Om] (3,-3)
-(3,-3) to[R,l=6k\Om] (6,0)
-(0,0) – (1,0)
-(5,0) – (6,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1,0) node[right]{A}
-(5,0) node[left]{B}
-;
-\end{circuitikz}\end{center}
-</pre></div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\Solution
-<span class="math notranslate nohighlight">\(R_{AB}\)</span>=4k\Om
-\end{example}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(R_{AB}\)</span></p>
+<figure class="align-default" id="complex-example-1">
+<a class="reference internal image-reference" href="_images/complex-example-1.svg"><img alt="_images/complex-example-1.svg" height="250px" src="_images/complex-example-1.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">A more complex example.</span><a class="headerlink" href="#complex-example-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\(R_{AB}=7.4\Omega\)</span></p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(R_{AB}\)</span></p>
+<figure class="align-default" id="complex-example-2">
+<a class="reference internal image-reference" href="_images/complex-example-2.svg"><img alt="_images/complex-example-2.svg" height="250px" src="_images/complex-example-2.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Another complex example.</span><a class="headerlink" href="#complex-example-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\(R_{AB}=11.2\Omega\)</span></p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(R_{AB}\)</span></p>
+<figure class="align-default" id="complex-example-3">
+<a class="reference internal image-reference" href="_images/complex-example-3.svg"><img alt="_images/complex-example-3.svg" height="250px" src="_images/complex-example-3.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Yet another complex example.</span><a class="headerlink" href="#complex-example-3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\(R_{AB}=4k\Omega\)</span></p>
+</div>
+</div>
 </section>
 <section id="series-voltage-supplies">
 <h2>Series Voltage Supplies<a class="headerlink" href="#series-voltage-supplies" title="Permalink to this headline">#</a></h2>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 6~V}] (0,0)
-(0,5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_2\)</span> and 12~V}] (0,2.5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 9~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
+<ul class="simple">
+<li><p>Polarity matters when adding voltage supplies in series.</p></li>
+<li><p>Circuit components can effectively be in series if they are both in series with another component.</p></li>
+</ul>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span>+<span class="math notranslate nohighlight">\(V_2\)</span> and 18~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 9~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
+<figure class="align-default" id="series-voltage-1">
+<a class="reference internal image-reference" href="_images/series-voltage-1.svg"><img alt="_images/series-voltage-1.svg" height="350px" src="_images/series-voltage-1.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Series voltage supplies, take one.</span><a class="headerlink" href="#series-voltage-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\end{minipage}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 7~V}] (0,0)
-(0,2.5) to[voltage source,lx^={<span class="math notranslate nohighlight">\(V_2\)</span> and 14~V}] (0,5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
+<figure class="align-default" id="series-voltage-2">
+<a class="reference internal image-reference" href="_images/series-voltage-2.svg"><img alt="_images/series-voltage-2.svg" height="350px" src="_images/series-voltage-2.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Series voltage supplies, take two.</span><a class="headerlink" href="#series-voltage-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
+<figure class="align-default" id="series-voltage-3">
+<a class="reference internal image-reference" href="_images/series-voltage-3.svg"><img alt="_images/series-voltage-3.svg" height="350px" src="_images/series-voltage-3.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Series voltage supplies, take three.</span><a class="headerlink" href="#series-voltage-3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\end{minipage}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 7~V}] (0,0)
-(0,2.5) to[voltage source,lx^={14~V and <span class="math notranslate nohighlight">\(V_2\)</span>}] (0,5)
-(0,5) to[short] (3,5)
-(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
+<figure class="align-default" id="series-voltage-4">
+<a class="reference internal image-reference" href="_images/series-voltage-4.svg"><img alt="_images/series-voltage-4.svg" height="350px" src="_images/series-voltage-4.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Series voltage supplies, take four.</span><a class="headerlink" href="#series-voltage-4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[voltage source,lx^={7~V and <span class="math notranslate nohighlight">\(V_2-V_1\)</span>}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
-</div>
-<p>\end{minipage}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 8~V}] (0,0)
-(0,2.5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 3~\Om}] (0,5)
-(3,5) to[voltage source,lx_={\raisebox{1ex}{<span class="math notranslate nohighlight">\(V_2\)</span>} and \raisebox{3ex}{16~V}}] (0,5)
-(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
-</div>
-<p>\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
-</div>
-<p>\end{minipage}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,2.5) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1\)</span> and 8~V}] (0,0)
-(0,2.5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 3~\Om}] (0,5)
-(0,5) to[voltage source,lx^={\raisebox{3ex}{<span class="math notranslate nohighlight">\(V_2\)</span>} and \raisebox{1ex}{16~V}}] (3,5)
-(3,5) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
-</div>
-<p>\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_1-V_2\)</span> and -7~V}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 21~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>;
-\end{circuitikz}\end{center}
-</pre></div>
-</div>
-<p>\end{minipage}</p>
+<figure class="align-default" id="series-voltage-5">
+<a class="reference internal image-reference" href="_images/series-voltage-5.svg"><img alt="_images/series-voltage-5.svg" height="350px" src="_images/series-voltage-5.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Series voltage supplies, take five.</span><a class="headerlink" href="#series-voltage-5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="parallel-current-supplies">
 <h2>Parallel Current Supplies<a class="headerlink" href="#parallel-current-supplies" title="Permalink to this headline">#</a></h2>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
-(3,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,3)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}</p>
-<p>\vspace{0.5cm}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
-(3,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,0)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx^={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,3)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}</p>
-<p>\vspace{0.5cm}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
-(3,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (3,0)
-(0,3) to[short] (6,3)
-(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}</p>
-<p>\vspace{0.5cm}</p>
-<p>\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span> and 3~A}] (0,3)
-(4,3) to[current source,lx^={<span class="math notranslate nohighlight">\(I_2\)</span> and 2~A}] (4,0)
-(0,3) to[short] (6,3)
-(2,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om}] (2,0)
-(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (6,0)
-(0,0) to[short] (6,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}
-\begin{minipage}{0.48\textwidth}
-\begin{center}\begin{circuitikz}[scale=1]\draw
-(0,3) to[current source,lx_={<span class="math notranslate nohighlight">\(I_1\)</span>+<span class="math notranslate nohighlight">\(I_2\)</span> and 5~A}] (0,0)
-(0,3) to[short] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R\)</span> and 10~\Om},i=<span class="math notranslate nohighlight">\(I_R\)</span>] (3,0)
-(0,0) to[short] (3,0)
-;
-\end{circuitikz}\end{center}
-\end{minipage}</p>
+<ul class="simple">
+<li><p>Polarity matters when adding current supplies in parallel.</p></li>
+<li><p>Circuit components can effectively be in parallel if they are both in parallel with another component.</p></li>
+</ul>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="parallel-current-1">
+<a class="reference internal image-reference" href="_images/parallel-current-1.svg"><img alt="_images/parallel-current-1.svg" height="150px" src="_images/parallel-current-1.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Parallel current supplies, take one.</span><a class="headerlink" href="#parallel-current-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="parallel-current-2">
+<a class="reference internal image-reference" href="_images/parallel-current-2.svg"><img alt="_images/parallel-current-2.svg" height="150px" src="_images/parallel-current-2.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Parallel current supplies, take two.</span><a class="headerlink" href="#parallel-current-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="parallel-current-3">
+<a class="reference internal image-reference" href="_images/parallel-current-3.svg"><img alt="_images/parallel-current-3.svg" height="150px" src="_images/parallel-current-3.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Parallel current supplies, take three.</span><a class="headerlink" href="#parallel-current-3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="parallel-current-4">
+<a class="reference internal image-reference" href="_images/parallel-current-4.svg"><img alt="_images/parallel-current-4.svg" height="150px" src="_images/parallel-current-4.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Parallel current supplies, take four.</span><a class="headerlink" href="#parallel-current-4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="delta-wye-conversions">
 <h2>Delta-Wye Conversions<a class="headerlink" href="#delta-wye-conversions" title="Permalink to this headline">#</a></h2>
-<p>\begin{align}
-R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \
-R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \
+<div class="amsmath math notranslate nohighlight" id="equation-bb982a27-dd37-482a-9d08-18fdaed54465">
+<span class="eqno">(1)<a class="headerlink" href="#equation-bb982a27-dd37-482a-9d08-18fdaed54465" title="Permalink to this equation">#</a></span>\[\begin{align}
+R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \\
+R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \\
 R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
-\end{align}</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}[scale=0.75]\draw
-(0,0) to[R,l={$R_a$}] (-2.5,1.5)  node[circle,fill,label=above:A] {}
-(0,0) to[R,l={$R_b$}] (2.5,1.5)  node[circle,fill,label=above:B] {}
-(0,0) to[R,l={$R_c$}] (0,-3)  node[circle,fill,label=below:C] {}
-;
-(0,0) node[above]{A};
-\end{circuitikz}\end{center}
-</pre></div>
+\end{align}\]</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>\begin{align}
-R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \
-R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \
+<figure class="align-default" id="wye">
+<a class="reference internal image-reference" href="_images/wye.svg"><img alt="_images/wye.svg" height="350px" src="_images/wye.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">The wye configuration.</span><a class="headerlink" href="#wye" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="amsmath math notranslate nohighlight" id="equation-0d915239-6ecd-42e3-a864-3f3e994bcdfd">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0d915239-6ecd-42e3-a864-3f3e994bcdfd" title="Permalink to this equation">#</a></span>\[\begin{align}
+R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \\
+R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \\
 R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
-\end{align}</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\begin{center}\begin{circuitikz}[scale=0.75]\draw
-(2.5,1.5) to[R,l={$R_1$}] (-2.5,1.5) 	node[circle,fill,label=above:A] {}
-(-2.5,1.5) to[R,l={$R_2$}] (0,-3) node[circle,fill,label=above:C] {}
-(0,-3) to[R,l={$R_3$}] (2.5,1.5) node[circle,fill,label=above:B] {}
-;
-\end{circuitikz}\end{center}
-</pre></div>
+\end{align}\]</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
+<figure class="align-default" id="delta">
+<a class="reference internal image-reference" href="_images/delta.svg"><img alt="_images/delta.svg" height="350px" src="_images/delta.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">The delta configuration.</span><a class="headerlink" href="#delta" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
