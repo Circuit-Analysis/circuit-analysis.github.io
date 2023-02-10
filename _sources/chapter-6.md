@@ -18,6 +18,10 @@ kernelspec:
 
 ```
 
+$\newcommand{\green}[1]{{\color{green} #1}}$
+$\newcommand{\blue}[1]{{\color{blue} #1}}$
+$\newcommand{\red}[1]{{\color{red} #1}}$
+
 ## What is a linear system?
 
 In this book, a linear system is a series of equations. The equations have one or more unknowns (AKA variables). Each unknown probably has a scaling factor (coefficient). And each equation also probably has a constant associated with it.
@@ -25,23 +29,19 @@ In this book, a linear system is a series of equations. The equations have one o
 ```{admonition} Example
 For example, the equations:
 
-$$
+
 \begin{align*}
 \green{x} + \green{y} + \green{z} &= \blue{1}\\
 2\green{x} + 3\green{y} + 4\green{z} &= \blue{2}\\
 6\green{x} + 7\green{y} + 8\green{z} &= \blue{3}\tag{LIN1}\label{eq:lin1}
 \end{align*}
-$$
 
 have
-\begin{itemize}
-\item three unknowns: $\green{x}$, $\green{y}$, and $\green{z}$,
-\item several constants: \blue{1}, \blue{2}, \blue{3}, and
-\item nine coefficients: 1, 1, 1, 2, 3, 4, 6, 7, 8.
-\begin{itemize}
-\item The first equation is really $ 1\cdot\green{x} + 1\cdot\green{y} +1\cdot\green{z} = \blue{1} $
-\end{itemize}
-\end{itemize}
+
+- three unknowns: $\green{x}$, $\green{y}$, and $\green{z}$,
+- several constants: $\blue{1}$, $\blue{2}$, $\blue{3}$, and
+- nine coefficients: 1, 1, 1, 2, 3, 4, 6, 7, 8.
+    - The first equation is really $ 1\cdot\green{x} + 1\cdot\green{y} +1\cdot\green{z} = \blue{1} $
 
 ```
 
@@ -84,11 +84,13 @@ However, now we have different constraints:
 
 This word problem now needs to be expressed in several equations:
 $$
+
 \begin{align*}
 \green{x} + \green{y} + \green{z} &= \blue{15}\\
 \green{y} &= \green{x} \blue{- 1}\\
 \green{z} &= 3\green{x} \blue{-1}
 \end{align*}
+
 $$
 This problem is not as easy to solve as the previous one. In the next section, we'll look at how to solve them.
 
@@ -116,40 +118,51 @@ Substitution involves manipulating one of the equations so that a single unknown
  \label{ex:subst}
 Let's revisit the equations we had in Example~\ref{ex:lumber2}.
 
+
 $$
+
 \begin{align*}
 \green{x} + \green{y} + \green{z} &= \blue{15}\\
 \green{y} &= \green{x} \blue{- 1}\\
 \green{z} &= 3\green{x} \blue{-1}
 \end{align*}
+
 $$
 
 These are already written out in a way that makes substitution easy: the second and third equations already have $\green{y}$ or $\green{z}$ on one side.
 Let's substite these two equations into the first one:
 $$
+
 \begin{align*}
 \green{x} + \green{x} \blue{- 1} + 3\green{x} \blue{-1} &= \blue{15}\\
 (1 + 1 + 3) \green{x} &= \blue{15} + \blue{1} + \blue{1}\\
 5 \green{x} &= \blue{17}\\
 \green{x} &= \red{17/5} = \red{3.4}
 \end{align*}
+
 $$
 
 Now that we have $\green{x}$, we can substitute its value back into the other two equations to get $\green{y}$ and $\green{z}$.
 
+
 $$
+
 \begin{align*}
 \green{y} &= \red{3.4} \blue{- 1} = \red{2.4}\\
 \green{z} &= 3\times \red{3.4} \blue{-1} = \red{9.2}
 \end{align*}
+
 $$
 
 And to check that our first equation is satisfied, we can substitute all values into it:
 
+
 $$
+
 \begin{align*}
 \green{x} + \green{y} + \green{z} &= 3.4 + 2.4 + 9.2 = \blue{15}\\
 \end{align*}
+
 $$
 
 ```
@@ -163,15 +176,19 @@ Let's revisit the equations we had in Example~\ref{ex:lumber2}.
 
 To apply elimination, we need to get all equations into a similar form with all the unknowns on the left and the constants on the right.
 $$
+
 \begin{align}
 \green{x} + \green{y} + \green{z} = \blue{15} &\rightarrow \green{x} + \green{y} + \green{z} = \blue{15}\label{eq:elim1}\\
 \green{y} = \green{x} \blue{- 1}&\rightarrow -\green{x} + \green{y} = \blue{-1}\label{eq:elim2}\\
 \green{z} = 3\green{x} \blue{-1}&\rightarrow - 3\green{x} + \green{z} = \blue{-1}\label{eq:elim3}
 \end{align}
+
 $$
 Now we can use (\ref{eq:elim2}) to remove instances of $\green{x}$ from the other two equations by adding it to (\ref{eq:elim1}) and subtracting three times it from (\ref{eq:elim3}).
 
+
 $$
+
 \begin{align}
 (\ref{eq:elim1}) + (\ref{eq:elim2}) &\Rightarrow
 \left.
@@ -179,18 +196,18 @@ $$
 & \green{x} + \green{y} + \green{z} &= \blue{15}\\
 
 - & -\green{x} + \green{y} &= \blue{-1}
-\end{array}
-\right\} \Rightarrow 2 \green{y} + \green{z} = \blue{14}\label{eq:elim4}\\
-(\ref{eq:elim3}) - 3\times (\ref{eq:elim2}) &\Rightarrow
-\left.
-\begin{array}{lcc}
-& - 3\green{x} + \green{z} &= \blue{-1}\\
+  \end{array}
+  \right\} \Rightarrow 2 \green{y} + \green{z} = \blue{14}\label{eq:elim4}\\
+  (\ref{eq:elim3}) - 3\times (\ref{eq:elim2}) &\Rightarrow
+  \left.
+  \begin{array}{lcc}
+  & - 3\green{x} + \green{z} &= \blue{-1}\\
 
 * & 3\times(-\green{x} + \green{y} &= \blue{-1})
-\end{array}
-\right\} \Rightarrow -3 \green{y} + \green{z} = \blue{2}\label{eq:elim5}
-\end{align}
-$$
+  \end{array}
+  \right\} \Rightarrow -3 \green{y} + \green{z} = \blue{2}\label{eq:elim5}
+  \end{align}
+  $$
 
 Now we have to subtract (\ref{eq:elim5}) from (\ref{eq:elim4}) to find $\green{y}$.
 
@@ -206,12 +223,14 @@ $$
 \right\} \Rightarrow 5 \green{y} = \blue{12}\\
 \end{align*}
 $$
+
 This gives
+
 $$
 \green{y} = \red{2.4}
 $$
-as in Example~\ref{ex:subst}, and we can back substitute into the other equations to find $\green{x}$ and $\green{z}$.
 
+as in Example~\ref{ex:subst}, and we can back substitute into the other equations to find $\green{x}$ and $\green{z}$.
 
 ```
 
@@ -270,11 +289,11 @@ Now we have several ways we can solve this equation:
 * By using the various options available in Matlab$^\text{TM}$.
 
 ```{index} Matlab$^\text{TM}$
-```
+````
 
 We will exam these in the next few examples.
 
-````
+`````
 
 %%%%
 \pagebreak
@@ -425,7 +444,7 @@ The function {\tt rref} stands for {\bf reduced row echelon form.}.
 ```
 This means that the result will have the unit matrix in the first part and the answer we are looking for in the rest (provided the problem is well-posed).
 
-````
+`````
 
 ````{admonition} Example
 To solve
