@@ -810,7 +810,7 @@ with schemdraw.Drawing(file='ohms-law-example-2.svg') as d:
 # 
 # ```
 # 
-# Always answers the question: "How much power is begin dissipated?" Negative sign tells you whether it is supplied or absorbed.
+# Always answers the question: "How much power is being dissipated" Negative sign tells you whether it is supplied or absorbed.
 # 
 # ### Conservation of power
 
