@@ -6,11 +6,11 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-02-10T11:22:53.462191</dc:date>
+    <dc:date>2023-02-10T11:29:46.859864</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.5.2, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.6.2, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -40,7 +40,7 @@ L 63.81 35.08
 L 68.91 50.38 
 L 71.46 42.73 
 L 102.06 42.73 
-" clip-path="url(#pe014ddf41c)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#peb2849f55b)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_2">
     <path d="M 10.26 42.73 
@@ -53,12 +53,12 @@ L 63.81 35.08
 L 68.91 50.38 
 L 71.46 42.73 
 L 102.06 42.73 
-" clip-path="url(#pe014ddf41c)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#peb2849f55b)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="text_1">
-    <g clip-path="url(#pe014ddf41c)">
+    <g clip-path="url(#peb2849f55b)">
      <!-- $R_S = R_1 + R_2$ -->
-     <g transform="translate(25.0975 29.420391)scale(0.125 -0.125)">
+     <g transform="translate(25.0975 29.420391) scale(0.125 -0.125)">
       <defs>
        <path id="STIXGeneral-Italic-52" d="M 845 4179 
 L 2458 4179 
@@ -210,35 +210,35 @@ z
 " transform="scale(0.015625)"/>
       </defs>
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525) scale(0.7)"/>
       <use xlink:href="#STIXGeneral-Regular-3d" transform="translate(114.949352 0.703125)"/>
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(197.889333 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Regular-31" transform="translate(258.989323 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Regular-31" transform="translate(258.989323 -12.525) scale(0.7)"/>
       <use xlink:href="#STIXGeneral-Regular-2b" transform="translate(312.838684 0.703125)"/>
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(395.778665 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Regular-32" transform="translate(456.878656 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Regular-32" transform="translate(456.878656 -12.525) scale(0.7)"/>
      </g>
     </g>
    </g>
    <g id="text_2">
-    <g clip-path="url(#pe014ddf41c)">
+    <g clip-path="url(#peb2849f55b)">
      <!-- $R_S = R_1 + R_2$ -->
-     <g transform="translate(25.0975 29.420391)scale(0.125 -0.125)">
+     <g transform="translate(25.0975 29.420391) scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525) scale(0.7)"/>
       <use xlink:href="#STIXGeneral-Regular-3d" transform="translate(114.949352 0.703125)"/>
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(197.889333 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Regular-31" transform="translate(258.989323 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Regular-31" transform="translate(258.989323 -12.525) scale(0.7)"/>
       <use xlink:href="#STIXGeneral-Regular-2b" transform="translate(312.838684 0.703125)"/>
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(395.778665 0.703125)"/>
-      <use xlink:href="#STIXGeneral-Regular-32" transform="translate(456.878656 -12.525)scale(0.7)"/>
+      <use xlink:href="#STIXGeneral-Regular-32" transform="translate(456.878656 -12.525) scale(0.7)"/>
      </g>
     </g>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pe014ddf41c">
+  <clipPath id="peb2849f55b">
    <rect x="7.2" y="7.2" width="100.317" height="46.24"/>
   </clipPath>
  </defs>
