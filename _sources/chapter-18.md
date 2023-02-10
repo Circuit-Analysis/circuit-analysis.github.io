@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:stepbystep)=
+
 # More Complex Circuits using the ``Step-by-step Method''
 
 \begin{framed}

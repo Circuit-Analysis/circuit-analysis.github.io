@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:transients)=
+
 # Transients in Capacitors and Inductors
 
 ## Capacitors: A First Step

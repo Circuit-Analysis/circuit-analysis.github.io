@@ -584,7 +584,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="nodal-analysis">
-<h1>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-nodal"></span><h1>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h1>
 <p>\label{ch:nodal}
 Nodal Analysis is another methodical application of KVL, KCL, and Ohm’s law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.</p>
 <section id="locating-non-reference-nodes">
@@ -792,8 +792,8 @@ and plugging in values
 And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p>\paragraph{Solving the system of equations}
 We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e686591-9711-4c89-9d27-db4d3ff2e965">
-<span class="eqno">(5)<a class="headerlink" href="#equation-8e686591-9711-4c89-9d27-db4d3ff2e965" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-1f41714f-4728-43ea-9936-cdc643d95450">
+<span class="eqno">(5)<a class="headerlink" href="#equation-1f41714f-4728-43ea-9936-cdc643d95450" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -867,8 +867,8 @@ Substituting values leads to an equation suitable for inclusion in the system of
 [\frac{1}{4k}V_B-\frac{1}{4k}V_C=6~\text{mA}]</p>
 <p>\paragraph{Solve the System of Equations}
 Let’s gather the results of the three KCLs written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59f93add-2584-4544-859e-b61ed356e6ca">
-<span class="eqno">(6)<a class="headerlink" href="#equation-59f93add-2584-4544-859e-b61ed356e6ca" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-452d5f6a-bfdc-4ca1-9836-49ec9309e256">
+<span class="eqno">(6)<a class="headerlink" href="#equation-452d5f6a-bfdc-4ca1-9836-49ec9309e256" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\\
 \frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\\
 &amp;\frac{1}{4k}V_B-\frac{1}{4k}V_C&amp;&amp;=6~\text{mA}\nonumber
@@ -955,8 +955,8 @@ Substituting values leads to an equation suitable for inclusion in the system of
 [\frac{1}{6}V_A-\frac{1}{3}V_B+\frac{1}{12}V_C=0]</p>
 <p>\paragraph{Solve the System of Equations}
 Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-06584557-4094-46a8-9a5b-ebf7b19c556c">
-<span class="eqno">(7)<a class="headerlink" href="#equation-06584557-4094-46a8-9a5b-ebf7b19c556c" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-607b4ec5-fe3c-4206-b4e6-1d7e53297f24">
+<span class="eqno">(7)<a class="headerlink" href="#equation-607b4ec5-fe3c-4206-b4e6-1d7e53297f24" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
 -\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\sfrac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1062,8 +1062,8 @@ or with values
 [\frac{1}{8}V_C-\frac{13}{40}V_D=0]</p>
 <p>\paragraph{Solve the System of Equations}
 Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3d1a4d0-1432-42d8-a734-e7a939258771">
-<span class="eqno">(8)<a class="headerlink" href="#equation-a3d1a4d0-1432-42d8-a734-e7a939258771" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-93e2604d-6fe1-4f31-83cd-01b70f01fbae">
+<span class="eqno">(8)<a class="headerlink" href="#equation-93e2604d-6fe1-4f31-83cd-01b70f01fbae" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1170,8 +1170,8 @@ or with values
 [\frac{1}{8}V_C-\frac{13}{40}V_D=0]</p>
 <p>\paragraph{Solve the System of Equations}
 Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a58a001-fcc5-43fc-8250-da73d4b6af8e">
-<span class="eqno">(9)<a class="headerlink" href="#equation-2a58a001-fcc5-43fc-8250-da73d4b6af8e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-5ea8f6dd-8a49-419d-9a1a-53fd1abbe00c">
+<span class="eqno">(9)<a class="headerlink" href="#equation-5ea8f6dd-8a49-419d-9a1a-53fd1abbe00c" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1270,8 +1270,8 @@ and substitute values
 [\frac{5}{4}V_A-\frac{5}{4}V_C=0]</p>
 <p>\paragraph{Solve the System of Equations}
 Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ffe4ecb-6130-489e-a23c-23d0e1f905bc">
-<span class="eqno">(10)<a class="headerlink" href="#equation-3ffe4ecb-6130-489e-a23c-23d0e1f905bc" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-1b86cf63-18e9-440f-a30f-fb4cd474f018">
+<span class="eqno">(10)<a class="headerlink" href="#equation-1b86cf63-18e9-440f-a30f-fb4cd474f018" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -1349,8 +1349,8 @@ Find <span class="math notranslate nohighlight">\(V_O\)</span> using nodal analy
 [\frac{1}{2}V_B-\frac{1}{2}V_C=-6]
 \paragraph{Solve the System of Equations}
 Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b85c896-43f9-44b6-acf5-9eb61f5de17d">
-<span class="eqno">(11)<a class="headerlink" href="#equation-5b85c896-43f9-44b6-acf5-9eb61f5de17d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-f556326c-2376-4041-b983-8e74d9d65e8c">
+<span class="eqno">(11)<a class="headerlink" href="#equation-f556326c-2376-4041-b983-8e74d9d65e8c" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -1503,8 +1503,8 @@ The circuit has three non-reference nodes which I will label below. Just as befo
 [\frac{1}{3k}V_A+\left[-\frac{1}{3k}-\frac{1}{15k}\right]V_B+\frac{1}{15k}V_C=0]</p>
 <p>\paragraph{Solve the System}
 Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00bc5541-fcbf-4978-84b5-a5b081e4ea6f">
-<span class="eqno">(12)<a class="headerlink" href="#equation-00bc5541-fcbf-4978-84b5-a5b081e4ea6f" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-64046fbc-2282-4deb-8be9-9a774b5c79f7">
+<span class="eqno">(12)<a class="headerlink" href="#equation-64046fbc-2282-4deb-8be9-9a774b5c79f7" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 ~&amp;~~~~~~~\text{V}\_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
@@ -1560,8 +1560,8 @@ V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 [\left[-\frac{1}{4}-\frac{1}{12}\right]V_B+\frac{1}{12}V_C=0~\text{A}]</p>
 <p>\paragraph{Solve the System}~
 Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6debcee1-e27a-4c23-947c-4c4c10ed82d8">
-<span class="eqno">(13)<a class="headerlink" href="#equation-6debcee1-e27a-4c23-947c-4c4c10ed82d8" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-578ebe1f-f12a-4e4b-91d1-e32c76c40542">
+<span class="eqno">(13)<a class="headerlink" href="#equation-578ebe1f-f12a-4e4b-91d1-e32c76c40542" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1630,8 +1630,8 @@ V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way t
 [V_C-V_D=0]</p>
 <p>\paragraph{Solve the System}~
 Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04e891d5-77d8-4ca4-9279-2790ace0f9c8">
-<span class="eqno">(14)<a class="headerlink" href="#equation-04e891d5-77d8-4ca4-9279-2790ace0f9c8" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-ee285be1-dabe-4002-bc33-7e6bc57a43ec">
+<span class="eqno">(14)<a class="headerlink" href="#equation-ee285be1-dabe-4002-bc33-7e6bc57a43ec" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -1705,8 +1705,8 @@ Find <span class="math notranslate nohighlight">\(I_O\)</span>
 [\frac{1}{18}V_B-\frac{5}{72}V_C+\frac{1}{72}V_D=0~\text{A}]</p>
 <p>\paragraph{Solve the system}
 Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-012f6116-14a9-4b90-bf2b-97f6f85b2582">
-<span class="eqno">(15)<a class="headerlink" href="#equation-012f6116-14a9-4b90-bf2b-97f6f85b2582" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-cca7dc7a-14c0-46c8-bdf3-40ba1b128393">
+<span class="eqno">(15)<a class="headerlink" href="#equation-cca7dc7a-14c0-46c8-bdf3-40ba1b128393" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\

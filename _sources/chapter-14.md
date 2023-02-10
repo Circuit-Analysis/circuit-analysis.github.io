@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:powerinaccircuits)=
+
 # Power in Alternating Current Circuits
 
 In the early chapters of this book the calculation of power dissipated or supplied by components was simple enough to be embedded within chapters covering the fundamental calculations of circuit analysis.
