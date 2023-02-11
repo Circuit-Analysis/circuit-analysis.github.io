@@ -741,7 +741,7 @@ title="Print to PDF"
 <p>Now we have several ways we can solve this equation:</p>
 <ul class="simple">
 <li><p>By using the inverse function (<span class="math notranslate nohighlight">\(x^{-1}\)</span>) on a calculator but with <span class="math notranslate nohighlight">\(x\)</span> as a matrix.</p></li>
-<li><p>By using the <code class="docutils literal notranslate"><span class="pre">rref</span></code> matrix function on a calculator.</p></li>
+<li><p>By using the <span class="math notranslate nohighlight">\(\tt rref\)</span> matrix function on a calculator.</p></li>
 <li><p>By using the various options available in Matlab<span class="math notranslate nohighlight">\(^\text{TM}\)</span>.</p></li>
 </ul>
 </div>
@@ -838,7 +838,7 @@ title="Print to PDF"
 \end{array}
 \right]
 \end{align*}\]</div>
-<p>using the <code class="docutils literal notranslate"><span class="pre">rref</span></code> function on a calculator, we first need to create a <span class="math notranslate nohighlight">\(3 \times {\large 4}\)</span> matrix, <span class="math notranslate nohighlight">\(\tt A\)</span>. Enter the values so that</p>
+<p>using the <span class="math notranslate nohighlight">\(\tt rref\)</span> function on a calculator, we first need to create a <span class="math notranslate nohighlight">\(3 \times {\large 4}\)</span> matrix, <span class="math notranslate nohighlight">\(\tt A\)</span>. Enter the values so that</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 {\tt A} &amp;=
@@ -866,7 +866,7 @@ title="Print to PDF"
 \end{array}
 \right]
 \end{split}\]</div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">rref</span></code> stands for <strong>reduced row echelon form.</strong>.</p>
+<p>The function <span class="math notranslate nohighlight">\(\tt rref\)</span> stands for <strong>reduced row echelon form.</strong>.</p>
 <span class="target" id="index-3"></span><p id="index-4">This means that the result will have the unit matrix in the first part and the answer we are looking for in the rest (provided the problem is well-posed).</p>
 </div>
 <div class="admonition-example admonition">
@@ -924,14 +924,14 @@ a + \jmath b \rightarrow \left[ \begin{array}{cc} a &amp; -b \\ b &amp; a\end{ar
 \end{split}\]</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<p>For example, let’s find the <code class="docutils literal notranslate"><span class="pre">rref</span></code> of the following complex-valued matrix equation:</p>
+<p>For example, let’s find the <span class="math notranslate nohighlight">\(\tt rref\)</span> of the following complex-valued matrix equation:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     \left [ \begin{array}{cc} 7-\jmath10 &amp; -7 \\ -7 &amp; 10+\jmath6
     \end{array} \right]
     \left[ \begin{array}{c} I_1 \\ I_2 \end{array} \right] &amp;= \left[ \begin{array}{c} -8 \angle{55^\circ} \\ 0 \end{array} \right] \\ &amp;= \left[ \begin{array}{c} -4.5886 -\jmath 6.5532 \\ 0 \end{array} \right]
 \end{align*}\]</div>
-<p>To use <code class="docutils literal notranslate"><span class="pre">rref</span></code> we need to augment the square matrix on the left with the vector on the left.</p>
+<p>To use <span class="math notranslate nohighlight">\(\tt rref\)</span> we need to augment the square matrix on the left with the vector on the left.</p>
 <p><span class="math notranslate nohighlight">\(
 \left[ \begin{array}{ccc} 7-\jmath10 &amp; -7 &amp; -4.5886 -\jmath 6.5532 \\ -7 &amp; 10+\jmath6 &amp; 0 \end{array} \right]
 \)</span></p>
@@ -943,7 +943,7 @@ a + \jmath b \rightarrow \left[ \begin{array}{cc} a &amp; -b \\ b &amp; a\end{ar
 0 &amp; -7 &amp; 6 &amp; 10 &amp; 0 &amp; 0
 \end{array} \right]
 \)</span></p>
-<p>The result of the <code class="docutils literal notranslate"><span class="pre">rref</span></code> of this matrix is then:</p>
+<p>The result of the <span class="math notranslate nohighlight">\(\tt rref\)</span> of this matrix is then:</p>
 <p><span class="math notranslate nohighlight">\(
 \left[
 \begin{array}{cccccc}

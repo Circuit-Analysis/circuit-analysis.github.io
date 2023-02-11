@@ -860,53 +860,41 @@ R_2I_1+(-R_2-R_3-R_4)I_2=0
 <p>I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let’s look at a quick example</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_A\)</span></p>
 <figure class="align-default" id="mesh-multiple-sources">
 <a class="reference internal image-reference" href="_images/mesh-multiple-sources.svg"><img alt="_images/mesh-multiple-sources.svg" height="300px" src="_images/mesh-multiple-sources.svg" /></a>
 </figure>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(V_A\)</span>
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_{S1}\)</span>~~12V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~6~\Om] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~12\Om] (6,3)
-(6,3) to[battery,l^=<span class="math notranslate nohighlight">\(V_{S2}\)</span>~~8V] (6,0)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{<span class="math notranslate nohighlight">\(V_A\)</span>}
-(3.6,.9) node[above]{12\Om}
-;</p>
-<p>(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};</p>
-<p>(4,3) node[below]{-}
-(5.25,3) node[below]{+}
-(3.25,2.5) node[below]{+}
-(3.25,1) node[below]{-};
-\end{circuitikz}\end{center}</p>
-<p>\Solution
-Step 1 was already taken care of above. Notice that here the first mesh current is flowing CW and the second is flowing counter-clockwise (CCW). In this case the currents through <span class="math notranslate nohighlight">\(R_2\)</span> are flowing in the same direction and therefore the polarities are identical. This will result in <span class="math notranslate nohighlight">\(V_{R2}\)</span> having the same sign regardless of which mesh is being analyzed.</p>
-<p>The polarities are also already marked for Step 2. The KVL equations are</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Let’s start by annotating the schematic with mesh currents and passive polarities. Notice that here the first mesh current is flowing CW and the second is flowing counter-clockwise (CCW).  I have a sick sense of fun.</p>
+<figure class="align-default" id="mesh-multiple-sources-annotated">
+<a class="reference internal image-reference" href="_images/mesh-multiple-sources-annotated.svg"><img alt="_images/mesh-multiple-sources-annotated.svg" height="300px" src="_images/mesh-multiple-sources-annotated.svg" /></a>
+</figure>
+<p>Because of the current directions, the currents through <span class="math notranslate nohighlight">\(R_2\)</span> are flowing in the same direction and therefore the polarities are identical. This will result in <span class="math notranslate nohighlight">\(V_{R2}\)</span> having the same sign regardless of which mesh is being analyzed.</p>
+<p>The KVL equations (step 2) are</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-V*{S1}-V*{R1}-V*{R2}=0\\
+V_{S1}-V_{R1}-V_{R2}=0\\
 \color{blue}
-V*{S2}-V*{R2}-V*{R3}=0
+V_{S2}-V_{R2}-V_{R3}=0
 \end{eqnarray*}\]</div>
-<p>Using Ohm’s Law for Step 3 give us:</p>
+<p>Using Ohm’s Law (step 3) gives us:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-V*{S1}-I_1R_1-(I_1+I_2)R_2=0\\
+V_{S1}-I_1R_1-(I_1+I_2)R_2=0\\
 \color{blue}
-V*{S2}-(I_1+I_2)R_2-I_2R_3=0
+V_{S2}-(I_1+I_2)R_2-I_2R_3=0
 \end{eqnarray*}\]</div>
 <p>Distributing and grouping terms as prescribed in Step 4 results in</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-(R*1+R_2)I_1+R_2I_2=V*{S1}\\
+(R_1+R_2)I_1+R_2I_2=V_{S1}\\
 \color{blue}
-R*2I_1+(R_2+R_3)I_2=V*{S2}
+R_2I_1+(R_2+R_3)I_2=V_{S2}
 \end{eqnarray*}\]</div>
 <p>and after substituting values</p>
 <div class="amsmath math notranslate nohighlight">
@@ -915,65 +903,56 @@ R*2I_1+(R_2+R_3)I_2=V*{S2}
 \color{blue}
 12\Omega I_1+24\Omega I_2=8~\text{V}
 \end{eqnarray*}\]</div>
-<p>Solving this linear system using matrices gives us the two mesh currents
-[ \left[ \begin{array}{cc}
-18\Omega&amp;12\Omega\
-12\Omega&amp;24\Omega\
-\end{array} \right]^{-1}\left[\begin{array}{c}12V\8V\end{array}\right]=\left[\begin{array}{c}I_1\I_2\end{array}\right]=\left[\begin{array}{c}\sfrac{2}{3}~\text{A}\0~\text{A}\end{array}\right]]
-Finally solving for <span class="math notranslate nohighlight">\(V_A\)</span>
-[V_A=(I_1+I_2)R_2=(\sfrac{2}{3}~\text{A})(12\Omega)=8~\text{V}]
-Again, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span> have a positive direction that agrees with the polarity of <span class="math notranslate nohighlight">\(V_A\)</span> as dictated by the passive sign convention. This can be seen mathematically in the equation directly above in the signs of the two currents, both positive.
-\end{example}</p>
-<p>A quick side note: Ohm’s law can be seen if we examine the contents of the linear system in matrix form. The 2x2 matrix contains only resistances. The vector of unknowns contains currents. The vector of constants contains voltages. Considering that the matrix is inverted we can see that
-[ \underbrace{\left[ \begin{array}{cc}
-18\Omega&amp;12\Omega\
-12\Omega&amp;24\Omega\
-\end{array} \right]^{-1}}<em>{\boldsymbol{R}^{-1}}\underbrace{\left[\begin{array}{c}12~\text{V}\8~\text{V}\end{array}\right]}</em>{\boldsymbol{V}}=\underbrace{\left[\begin{array}{c}I_1\I_2\end{array}\right]}_{\boldsymbol{I}}=\left[\begin{array}{c}\sfrac{2}{3}~\text{A}\0~\text{A}\end{array}\right]]
-or simply a matrix form of Ohm’s Law
-[\boldsymbol{VR}^{-1}=\frac{\boldsymbol{V}}{\boldsymbol{R}}=\boldsymbol{I}]</p>
-<p>More complex circuits might have additional meshes. Mesh analysis can be applied in these cases simply by adding additional mesh currents and additional corresponding KVL equations.
-\begin{example}
-Find <span class="math notranslate nohighlight">\(V_{O}\)</span> using mesh analysis.
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~9k\Om] (0,3)
-(3,3) to[battery,l_=<span class="math notranslate nohighlight">\(V_{1}\)</span>~~6V] (0,3)
-(0,6) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~4k\Om] (6,6)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>] (3,0)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_4\)</span>~~6k\Om] (6,3)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_5\)</span>~~12k\Om] (6,0)
-(6,0) – (0,0)
-(0,3) – (0,6)
-(6,6) – (6,3)
-(3.6,1.4) node[below]{6k\Om}
-(4,4) node[below]{-}
-(5.25,4) node[below]{+}
-(4.6,4.25) node[below]{<span class="math notranslate nohighlight">\(V_{O}\)</span>}
-;</p>
-<p>(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-}
-(.25,2.5) node[below]{-}
-(.25,1) node[below]{+};</p>
-<p>(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-(5.75,2.5) node[below]{+}
-(5.75,1) node[below]{-};</p>
-<p>(2.5,5.75) node[below]{+}
-(3.75,5.75) node[below]{-};
-\end{circuitikz}\end{center}</p>
-<p>\Solution
-\vspace{2mm}
-\textbf{KVL Equations:}</p>
+<p>Solving this linear system using matrices gives us the two mesh currents</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{cc}
+18\Omega&amp;12\Omega\\
+12\Omega&amp;24\Omega\\
+\end{array} \right]^{-1}\left[\begin{array}{c}12V\\8V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2/3~\text{A}\\0~\text{A}\end{array}\right]\end{split}\]</div>
+<p>Finally solving for <span class="math notranslate nohighlight">\(V_A\)</span></p>
+<div class="math notranslate nohighlight">
+\[V_A=(I_1+I_2)R_2=(2/3~\text{A})(12\Omega)=8~\text{V}\]</div>
+<p>Again, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span> have a positive direction that agrees with the polarity of <span class="math notranslate nohighlight">\(V_A\)</span> as dictated by the passive sign convention. This can be seen mathematically in the equation directly above in the signs of the two currents, both positive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A quick side note: Ohm’s law can be seen if we examine the contents of the linear system in matrix form. The 2x2 matrix contains only resistances. The vector of unknowns contains currents. The vector of constants contains voltages. Considering that the matrix is inverted we can see that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underbrace{\left[ \begin{array}{cc}
+18\Omega&amp;12\Omega\\
+12\Omega&amp;24\Omega\\
+\end{array} \right]^{-1}}_{\boldsymbol{R}^{-1}}\underbrace{\left[\begin{array}{c}12~\text{V}\\8~\text{V}\end{array}\right]}_{\boldsymbol{V}}=\underbrace{\left[\begin{array}{c}I_1\\I_2\end{array}\right]}_{\boldsymbol{I}}=\left[\begin{array}{c}2/3~\text{A}\\0~\text{A}\end{array}\right]\end{split}\]</div>
+<p>or simply a matrix form of Ohm’s Law</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol{VR}^{-1}=\frac{\boldsymbol{V}}{\boldsymbol{R}}=\boldsymbol{I}\]</div>
+<p>More complex circuits might have additional meshes. Mesh analysis can be applied in these cases simply by adding additional mesh currents and additional corresponding KVL equations.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_O\)</span></p>
+<figure class="align-default" id="mesh-3-meshes">
+<a class="reference internal image-reference" href="_images/mesh-3-meshes.svg"><img alt="_images/mesh-3-meshes.svg" height="300px" src="_images/mesh-3-meshes.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/mesh-3-meshes-annotated.svg"><img alt="_images/mesh-3-meshes-annotated.svg" height="300px" src="_images/mesh-3-meshes-annotated.svg" /></a>
+</figure>
+<p><strong>KVL Equations:</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
--V*{R1}+V*1-V*{R3}=0\\
+-V_{R1}+V_1-V_{R3}=0\\
 \color{blue}
--V*{R3}-V*{R4}-V*{R5}=0\\
+-V_{R3}-V_{R4}-V_{R5}=0\\
 \color{orange}
--V*{R2}-V\_{R4}-V_1=0
+-V_{R2}-V_{R4}-V_1=0
 \end{eqnarray*}\]</div>
-<p>\textbf{Substituting with Ohm’s Law}</p>
+<p><strong>Substituting with Ohm’s Law</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
 -I_1R_1+V_1-(I_1-I_2)R_3=0\\
@@ -982,7 +961,7 @@ Find <span class="math notranslate nohighlight">\(V_{O}\)</span> using mesh anal
 \color{orange}
 -I_3R_2-(I_3-I_2)R_4-V_1=0
 \end{eqnarray*}\]</div>
-<p>\textbf{Grouping Like-terms}</p>
+<p><strong>Grouping Like-terms</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
 (-R_1-R_3)I_1+R_3I_2=-V_1\\
@@ -991,7 +970,7 @@ R_3I_1+(-R_3-R_4-R_5)I_2+R_4I_3=0\\
 \color{orange}
 R_4I_2+(-R_2-R_4)I_3=V_1
 \end{eqnarray*}\]</div>
-<p>\textbf{Substituting and Solving}</p>
+<p><strong>Substituting and Solving</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
 -15k\Omega I_1+6k\Omega I_2=-6~\text{V}\\
@@ -1000,15 +979,18 @@ R_4I_2+(-R_2-R_4)I_3=V_1
 \color{orange}
 6k\Omega I_2-10k\Omega I_3=6~\text{V}
 \end{eqnarray*}\]</div>
-<p>Solve using matrices:
-[ \left[ \begin{array}{ccc}
--15~\text{k}\Omega&amp;6~\text{k}\Omega&amp;0~\Omega\
-6~\text{k}\Omega&amp;-24~\text{k}\Omega&amp;6~\text{k}\Omega\
-0~\Omega&amp;6~\text{k}\Omega&amp;-10~\text{k}\Omega\
-\end{array} \right]^{-1}\left[\begin{array}{c}-6~\text{V}\0~\text{V}\6~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\I_2\I_3\end{array}\right]=\left[\begin{array}{c}373.33~\mu\text{A}-66.67~\mu\text{A}-640.00~\mu\text{A}\end{array}\right]]
-Finally solving for <span class="math notranslate nohighlight">\(V*{O}\)</span>
-[V_O=(I_3-I_2)R_4=(-640.00~\mu\text{A}+66.67~\mu\text{A})6~\text{k}\Omega=-3.44\text{V}]</p>
-<p>\end{example}</p>
+<p><strong>Solve using matrices:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{ccc}
+-15~\text{k}\Omega&amp;6~\text{k}\Omega&amp;0~\Omega\\
+6~\text{k}\Omega&amp;-24~\text{k}\Omega&amp;6~\text{k}\Omega\\
+0~\Omega&amp;6~\text{k}\Omega&amp;-10~\text{k}\Omega\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-6~\text{V}\\0~\text{V}\\6~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}373.33~\mu\text{A}\\-66.67~\mu\text{A}\\-640.00~\mu\text{A}\end{array}\right]\end{split}\]</div>
+<p><strong>Finally solving for <span class="math notranslate nohighlight">\(V_{O}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[V_O=(I_3-I_2)R_4=(-640.00~\mu\text{A}+66.67~\mu\text{A})6~\text{k}\Omega=-3.44\text{V}\]</div>
+</div>
+</div>
 </section>
 <section id="current-sources-in-mesh-current">
 <h2>Current Sources in Mesh Current<a class="headerlink" href="#current-sources-in-mesh-current" title="Permalink to this headline">#</a></h2>

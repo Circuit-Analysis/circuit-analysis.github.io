@@ -262,7 +262,7 @@ Note that the second equation does not refer to $\green{z}$, but we still need t
 Now we have several ways we can solve this equation:
 
 * By using the inverse function ($x^{-1}$) on a calculator but with $x$ as a matrix.
-* By using the `rref` matrix function on a calculator.
+* By using the $\tt rref$ matrix function on a calculator.
 * By using the various options available in Matlab$^\text{TM}$.
 
 ```{index} Matlab$^\text{TM}$
@@ -371,7 +371,7 @@ To solve
 \end{align*}
 
 
-using the `rref` function on a calculator, we first need to create a $3 \times {\large 4}$ matrix, $\tt A$. Enter the values so that
+using the $\tt rref$ function on a calculator, we first need to create a $3 \times {\large 4}$ matrix, $\tt A$. Enter the values so that
 
 
 \begin{align*}
@@ -406,7 +406,7 @@ $$
 \right]
 $$
 
-The function `rref` stands for **reduced row echelon form.**.
+The function $\tt rref$ stands for **reduced row echelon form.**.
 ```{index} rref
 ```
 ```{index} reduced row echelon form
@@ -476,7 +476,7 @@ a + \jmath b \rightarrow \left[ \begin{array}{cc} a & -b \\ b & a\end{array} \ri
 $$
 
 ```{admonition} Example
-For example, let's find the `rref` of the following complex-valued matrix equation:
+For example, let's find the $\tt rref$ of the following complex-valued matrix equation:
 
 \begin{align*}
     \left [ \begin{array}{cc} 7-\jmath10 & -7 \\ -7 & 10+\jmath6
@@ -484,7 +484,7 @@ For example, let's find the `rref` of the following complex-valued matrix equati
     \left[ \begin{array}{c} I_1 \\ I_2 \end{array} \right] &= \left[ \begin{array}{c} -8 \angle{55^\circ} \\ 0 \end{array} \right] \\ &= \left[ \begin{array}{c} -4.5886 -\jmath 6.5532 \\ 0 \end{array} \right]
 \end{align*}
 
-To use `rref` we need to augment the square matrix on the left with the vector on the left.
+To use $\tt rref$ we need to augment the square matrix on the left with the vector on the left.
 
 $
 \left[ \begin{array}{ccc} 7-\jmath10 & -7 & -4.5886 -\jmath 6.5532 \\ -7 & 10+\jmath6 & 0 \end{array} \right]
@@ -500,7 +500,7 @@ $
 \end{array} \right]
 $
 
-The result of the `rref` of this matrix is then:
+The result of the $\tt rref$ of this matrix is then:
 
 $
 \left[
