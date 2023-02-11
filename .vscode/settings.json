@@ -9,6 +9,7 @@
     "manim",
     "milliamp",
     "milliamps",
+    "Mobject",
     "wirecutter"
-]
+  ]
 }
