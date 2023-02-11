@@ -563,77 +563,77 @@ import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
     d.config(unit=4)
-    d += (Vs := elm.SourceV().up().label('$V_S$\n10 V'))
-    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
-    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω'))
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
-    d += (R4 := elm.SourceI().at(R3.end).down().label('$I_S$\n5A'))
+    d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n12Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down())
+    d += (R4 := elm.SourceV().at(R3.end).down().label('$I_S$\n8V').reverse())
     d += elm.Line().left().tox(R1.start)
     d += elm.GroundSignal()
     d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
-    d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
-    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
-    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75).label('$I_2$').color('blue')
+    
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources-annotated.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='red'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n12Ω').label(('-','','+'),loc='bottom',color='blue'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n12Ω').label(('+','','-'),loc='top',color='red').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R4 := elm.SourceV().at(R3.end).down().label('$I_S$\n8V').reverse())
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75,direction='ccw').label('$I_2$').color('blue')
+    
+```
+
+`````{admonition} Example
+Find $V_A$
 ```{figure} mesh-multiple-sources.svg
 ---
 height: 300px
 name: mesh-multiple-sources
 ---
 ```
+`````{admonition} Solution
+:class: tip, dropdown
+Let's start by annotating the schematic with mesh currents and passive polarities. Notice that here the first mesh current is flowing CW and the second is flowing counter-clockwise (CCW).  I have a sick sense of fun.
+````{figure} mesh-multiple-sources-annotated.svg
+---
+height: 300px
+name: mesh-multiple-sources-annotated
+---
+````
+Because of the current directions, the currents through $R_2$ are flowing in the same direction and therefore the polarities are identical. This will result in $V_{R2}$ having the same sign regardless of which mesh is being analyzed.
 
-
-
-
-
-\begin{example}
-Find $V_A$
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_{S1}$~~12V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~12\Om] (6,3)
-(6,3) to[battery,l^=$V_{S2}$~~8V] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{12\Om}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};
-%\centerarc[blue,<-,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{-}
-(5.25,3) node[below]{+}
-(3.25,2.5) node[below]{+}
-(3.25,1) node[below]{-};
-\end{circuitikz}\end{center}
-
-\Solution
-Step 1 was already taken care of above. Notice that here the first mesh current is flowing CW and the second is flowing counter-clockwise (CCW). In this case the currents through $R_2$ are flowing in the same direction and therefore the polarities are identical. This will result in $V_{R2}$ having the same sign regardless of which mesh is being analyzed.
-
-The polarities are also already marked for Step 2. The KVL equations are
+The KVL equations (step 2) are
 \begin{eqnarray*}\color{red}
-V*{S1}-V*{R1}-V*{R2}=0\\
+V_{S1}-V_{R1}-V_{R2}=0\\
 \color{blue}
-V*{S2}-V*{R2}-V*{R3}=0
+V_{S2}-V_{R2}-V_{R3}=0
 \end{eqnarray*}
-Using Ohm's Law for Step 3 give us:
+Using Ohm's Law (step 3) gives us:
 \begin{eqnarray*}\color{red}
-V*{S1}-I_1R_1-(I_1+I_2)R_2=0\\
+V_{S1}-I_1R_1-(I_1+I_2)R_2=0\\
 \color{blue}
-V*{S2}-(I_1+I_2)R_2-I_2R_3=0
+V_{S2}-(I_1+I_2)R_2-I_2R_3=0
 \end{eqnarray*}
 Distributing and grouping terms as prescribed in Step 4 results in
 \begin{eqnarray*}\color{red}
-(R*1+R_2)I_1+R_2I_2=V*{S1}\\
+(R_1+R_2)I_1+R_2I_2=V_{S1}\\
 \color{blue}
-R*2I_1+(R_2+R_3)I_2=V*{S2}
+R_2I_1+(R_2+R_3)I_2=V_{S2}
 \end{eqnarray*}
 and after substituting values
 \begin{eqnarray*}\color{red}
@@ -642,22 +642,30 @@ and after substituting values
 12\Omega I_1+24\Omega I_2=8~\text{V}
 \end{eqnarray*}
 Solving this linear system using matrices gives us the two mesh currents
-\[ \left[ \begin{array}{cc}
+
+$$\left[ \begin{array}{cc}
 18\Omega&12\Omega\\
 12\Omega&24\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12V\\8V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}\sfrac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12V\\8V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2/3~\text{A}\\0~\text{A}\end{array}\right]$$
+
 Finally solving for $V_A$
-\[V_A=(I_1+I_2)R_2=(\sfrac{2}{3}~\text{A})(12\Omega)=8~\text{V}\]
+
+$$V_A=(I_1+I_2)R_2=(2/3~\text{A})(12\Omega)=8~\text{V}$$
+
 Again, $I_1$ and $I_2$ have a positive direction that agrees with the polarity of $V_A$ as dictated by the passive sign convention. This can be seen mathematically in the equation directly above in the signs of the two currents, both positive.
-\end{example}
+````
+`````
 
 A quick side note: Ohm's law can be seen if we examine the contents of the linear system in matrix form. The 2x2 matrix contains only resistances. The vector of unknowns contains currents. The vector of constants contains voltages. Considering that the matrix is inverted we can see that
-\[ \underbrace{\left[ \begin{array}{cc}
+
+$$\underbrace{\left[ \begin{array}{cc}
 18\Omega&12\Omega\\
 12\Omega&24\Omega\\
-\end{array} \right]^{-1}}_{\boldsymbol{R}^{-1}}\underbrace{\left[\begin{array}{c}12~\text{V}\\8~\text{V}\end{array}\right]}_{\boldsymbol{V}}=\underbrace{\left[\begin{array}{c}I_1\\I_2\end{array}\right]}\_{\boldsymbol{I}}=\left[\begin{array}{c}\sfrac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}}_{\boldsymbol{R}^{-1}}\underbrace{\left[\begin{array}{c}12~\text{V}\\8~\text{V}\end{array}\right]}_{\boldsymbol{V}}=\underbrace{\left[\begin{array}{c}I_1\\I_2\end{array}\right]}_{\boldsymbol{I}}=\left[\begin{array}{c}2/3~\text{A}\\0~\text{A}\end{array}\right]$$
+
 or simply a matrix form of Ohm's Law
-\[\boldsymbol{VR}^{-1}=\frac{\boldsymbol{V}}{\boldsymbol{R}}=\boldsymbol{I}\]
+
+$$\boldsymbol{VR}^{-1}=\frac{\boldsymbol{V}}{\boldsymbol{R}}=\boldsymbol{I}$$
 
 More complex circuits might have additional meshes. Mesh analysis can be applied in these cases simply by adding additional mesh currents and additional corresponding KVL equations.
 \begin{example}
