@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:phasors)=
+
 # Alternating Current: Phasors
 
 \index{Phasors}

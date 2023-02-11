@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:superposition)=
+
 # Superposition
 
 \index{Superposition}

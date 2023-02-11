@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:nodal)=
+
 # Nodal Analysis
 
 \label{ch:nodal}

@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+(content:chapter:complexpower)=
+
 # A Simpler Approach: Complex Power
 
 \section{Apparent Power}
