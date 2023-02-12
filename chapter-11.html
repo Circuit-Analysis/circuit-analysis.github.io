@@ -276,7 +276,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/docs/chapter-11.md"
+        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/./chapter-11.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -613,8 +613,8 @@ title="Print to PDF"
 <h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
 <section id="physical-characteristics">
 <h3>Physical Characteristics<a class="headerlink" href="#physical-characteristics" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-0e66c6c5-0993-4306-84fb-24ff6a593407">
-<span class="eqno">(16)<a class="headerlink" href="#equation-0e66c6c5-0993-4306-84fb-24ff6a593407" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac90df76-1276-4556-a3b2-398ce069f695">
+<span class="eqno">(16)<a class="headerlink" href="#equation-ac90df76-1276-4556-a3b2-398ce069f695" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q=VC
 \end{equation}\]</div>
 <p>Elastance (D=1/C) unit: Daraf <span class="math notranslate nohighlight">\(F^{-1}\)</span></p>
@@ -661,23 +661,23 @@ The value of two capacitors in series is commonly expressed as
 <h3>Voltage/Current Relationship<a class="headerlink" href="#voltage-current-relationship" title="Permalink to this headline">#</a></h3>
 <p>All of circuit analysis can be related back to the three fundamental laws: KVL, KCL, and Ohm’s Law. As new passive components are introduced we must reconsider the relationship between voltage and current. The capacitor equation takes the place of Ohm’s law.</p>
 <p>We can start with the charge equation introduced earlier and restated here as a time-domain function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b2c0403-eaf4-4236-b83a-3ba43ff4c87b">
-<span class="eqno">(17)<a class="headerlink" href="#equation-1b2c0403-eaf4-4236-b83a-3ba43ff4c87b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2131b820-42ee-47c5-a082-fe227b556bdc">
+<span class="eqno">(17)<a class="headerlink" href="#equation-2131b820-42ee-47c5-a082-fe227b556bdc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q(t)=Cv(t)
 \end{equation}\]</div>
 <p>taking the derivative of both sides leads to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c56f26b-037c-4d28-b38b-7bcca05d2506">
-<span class="eqno">(18)<a class="headerlink" href="#equation-0c56f26b-037c-4d28-b38b-7bcca05d2506" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acaa5ab3-e207-4359-93e7-8bd861aa164a">
+<span class="eqno">(18)<a class="headerlink" href="#equation-acaa5ab3-e207-4359-93e7-8bd861aa164a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\sfrac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e426dd23-4383-4ada-b7e7-4e48aec953a0">
-<span class="eqno">(19)<a class="headerlink" href="#equation-e426dd23-4383-4ada-b7e7-4e48aec953a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a62b24e5-a8b0-4c63-bf8f-41da94ade6e9">
+<span class="eqno">(19)<a class="headerlink" href="#equation-a62b24e5-a8b0-4c63-bf8f-41da94ade6e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9459f2ab-4ce9-4dd8-8dab-adae320d61bd">
-<span class="eqno">(20)<a class="headerlink" href="#equation-9459f2ab-4ce9-4dd8-8dab-adae320d61bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e3e49f82-def5-4d29-bd08-0b6db5e4aef2">
+<span class="eqno">(20)<a class="headerlink" href="#equation-e3e49f82-def5-4d29-bd08-0b6db5e4aef2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 \end{equation}\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -735,13 +735,13 @@ The value of two inductors in parallel is commonly expressed as
 <section id="id2">
 <h3>Voltage/Current Relationship<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>The derivative form of the inductor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1fbc809e-ec41-49ef-9826-bbc62c000d25">
-<span class="eqno">(21)<a class="headerlink" href="#equation-1fbc809e-ec41-49ef-9826-bbc62c000d25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6b65fae-13df-47e0-8dfe-b964bc4cabec">
+<span class="eqno">(21)<a class="headerlink" href="#equation-a6b65fae-13df-47e0-8dfe-b964bc4cabec" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=L\frac{di(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9ee25c5-e0f1-4f84-8778-93b5e72e99fe">
-<span class="eqno">(22)<a class="headerlink" href="#equation-f9ee25c5-e0f1-4f84-8778-93b5e72e99fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a9d8a97-470c-4b20-922c-5f4f3ea7a9e3">
+<span class="eqno">(22)<a class="headerlink" href="#equation-7a9d8a97-470c-4b20-922c-5f4f3ea7a9e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
 \end{equation}\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -806,7 +806,7 @@ i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
   
     By David J. Broderick &amp; Peter J. Kootsookos<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2023.<br/>
     <div class="extra_footer">
       <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://circuit-analysis.github.io">Circuit Analysis</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/djbrod">David J. Broderick</a> and <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kootsoop">Peter J. Kootsookos</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
 
