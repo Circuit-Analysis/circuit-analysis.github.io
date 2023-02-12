@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Alternating Current: Differential Equation Approach" href="chapter-12.html" />
@@ -613,8 +613,8 @@ title="Print to PDF"
 <h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
 <section id="physical-characteristics">
 <h3>Physical Characteristics<a class="headerlink" href="#physical-characteristics" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-91c16ea7-9bc2-4874-adea-b54639995955">
-<span class="eqno">(16)<a class="headerlink" href="#equation-91c16ea7-9bc2-4874-adea-b54639995955" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0e66c6c5-0993-4306-84fb-24ff6a593407">
+<span class="eqno">(16)<a class="headerlink" href="#equation-0e66c6c5-0993-4306-84fb-24ff6a593407" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q=VC
 \end{equation}\]</div>
 <p>Elastance (D=1/C) unit: Daraf <span class="math notranslate nohighlight">\(F^{-1}\)</span></p>
@@ -661,23 +661,23 @@ The value of two capacitors in series is commonly expressed as
 <h3>Voltage/Current Relationship<a class="headerlink" href="#voltage-current-relationship" title="Permalink to this headline">#</a></h3>
 <p>All of circuit analysis can be related back to the three fundamental laws: KVL, KCL, and Ohm’s Law. As new passive components are introduced we must reconsider the relationship between voltage and current. The capacitor equation takes the place of Ohm’s law.</p>
 <p>We can start with the charge equation introduced earlier and restated here as a time-domain function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7097c56-7099-4a53-846f-d651ec46bafb">
-<span class="eqno">(17)<a class="headerlink" href="#equation-a7097c56-7099-4a53-846f-d651ec46bafb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1b2c0403-eaf4-4236-b83a-3ba43ff4c87b">
+<span class="eqno">(17)<a class="headerlink" href="#equation-1b2c0403-eaf4-4236-b83a-3ba43ff4c87b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q(t)=Cv(t)
 \end{equation}\]</div>
 <p>taking the derivative of both sides leads to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba8fa051-cbed-4534-bba5-7954c0442764">
-<span class="eqno">(18)<a class="headerlink" href="#equation-ba8fa051-cbed-4534-bba5-7954c0442764" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c56f26b-037c-4d28-b38b-7bcca05d2506">
+<span class="eqno">(18)<a class="headerlink" href="#equation-0c56f26b-037c-4d28-b38b-7bcca05d2506" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\sfrac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd436324-743d-47dc-b01b-a20b9539b645">
-<span class="eqno">(19)<a class="headerlink" href="#equation-bd436324-743d-47dc-b01b-a20b9539b645" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e426dd23-4383-4ada-b7e7-4e48aec953a0">
+<span class="eqno">(19)<a class="headerlink" href="#equation-e426dd23-4383-4ada-b7e7-4e48aec953a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-faed3a15-fab4-4edb-9975-e0308683099b">
-<span class="eqno">(20)<a class="headerlink" href="#equation-faed3a15-fab4-4edb-9975-e0308683099b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9459f2ab-4ce9-4dd8-8dab-adae320d61bd">
+<span class="eqno">(20)<a class="headerlink" href="#equation-9459f2ab-4ce9-4dd8-8dab-adae320d61bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 \end{equation}\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -735,13 +735,13 @@ The value of two inductors in parallel is commonly expressed as
 <section id="id2">
 <h3>Voltage/Current Relationship<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>The derivative form of the inductor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96fcffcd-d5aa-4849-8154-7861d345bac1">
-<span class="eqno">(21)<a class="headerlink" href="#equation-96fcffcd-d5aa-4849-8154-7861d345bac1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1fbc809e-ec41-49ef-9826-bbc62c000d25">
+<span class="eqno">(21)<a class="headerlink" href="#equation-1fbc809e-ec41-49ef-9826-bbc62c000d25" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=L\frac{di(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46c1a8fa-cbe0-415e-b00d-adc22f12cbe3">
-<span class="eqno">(22)<a class="headerlink" href="#equation-46c1a8fa-cbe0-415e-b00d-adc22f12cbe3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f9ee25c5-e0f1-4f84-8778-93b5e72e99fe">
+<span class="eqno">(22)<a class="headerlink" href="#equation-f9ee25c5-e0f1-4f84-8778-93b5e72e99fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
 \end{equation}\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
