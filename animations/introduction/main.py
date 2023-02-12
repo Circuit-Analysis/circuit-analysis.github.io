@@ -87,7 +87,39 @@ class Grounds(SVGMobject):
         super().__init__('grounds.svg')
 
 
-class DefaultTemplate(Scene):
+keep_color = ['logo.png']
+keep_scale = []
+
+
+class CircuitAnalysisBase(Scene):
+    def construct(self):
+        raise Exception("Do not instantiate this class")
+
+    def fly_in(self, in_object, out_object, duration):
+        self.play(FadeIn(in_object, shift=DOWN, scale=0.5),
+                  run_time=duration/5)
+        self.play(ReplacementTransform(in_object, out_object),
+                  run_time=3.0*duration/5)
+        self.play(FadeOut(out_object, shift=DOWN *
+                  2, scale=2), run_time=duration/5)
+
+    def define_objects(self, fly_in_type, fly_out_type, name, scale=2):
+        fly_in = fly_in_type(name)
+        if os.path.basename(name) not in keep_color:
+            fly_in.set_color(WHITE)
+        if os.path.basename(name) not in keep_scale:
+            fly_in.scale(scale)
+
+        fly_out = fly_out_type(name)
+        if os.path.basename(name) not in keep_color:
+            fly_out.set_color(DARK_BLUE)
+        if os.path.basename(name) not in keep_scale:
+            fly_out.scale(scale)
+
+        return fly_in, fly_out
+
+
+class DefaultTemplate(CircuitAnalysisBase):
     def construct(self):
 
         resistor = Resistor()
@@ -138,7 +170,40 @@ class DefaultTemplate(Scene):
 
         self.fly_in(grounds, grounds2)
 
-    def fly_in(self, in_object, out_object):
-        self.play(FadeIn(in_object, shift=DOWN, scale=0.5), run_time=2)
-        self.play(ReplacementTransform(in_object, out_object), run_time=2)
-        self.play(FadeOut(out_object, shift=DOWN * 2, scale=2), run_time=2)
+
+class Introduction(CircuitAnalysisBase):
+    def construct(self):
+        self.fly_in_object('Welcome to Circuit Analysis', 1, 8)
+
+        self.fly_in_object('What is Circuit Analysis?', 1, 2)
+        self.fly_in_object("Ohm's Law", 2, 2.25)
+        self.fly_in_object("Kirchhoff's Voltage Law (KVL)", 1, 2.25)
+        self.fly_in_object("Kirchhoff's Current Law (KCL)", 1, 2.25)
+        self.fly_in_object("Thevenin and Norton's Theorems", 1, 2.25)  # 20
+
+        self.fly_in_object("Current", 2, 8.5)
+        self.fly_in_object("Voltage", 2, 9.5)
+        self.fly_in_object("Ohm's Law --> Resistance", 1, 4)
+        self.fly_in_object("\Omega", 4, 4, MathTex)  # 46
+
+        self.fly_in_object("resistor.svg", 2, 11, SVGMobject)
+        self.fly_in_object("inductor.svg", 2, 13, SVGMobject)
+        self.fly_in_object("capacitor.svg", 2, 11, SVGMobject)
+
+        self.fly_in_object("opamp.svg", 2, 9, SVGMobject)
+
+        self.fly_in_object("mesh.svg", 3, 26, SVGMobject)
+        self.fly_in_object("nodal.svg", 3, 15, SVGMobject)
+        self.fly_in_object("super.svg", 3, 9, SVGMobject)
+
+        self.fly_in_object('THAT is Circuit Analysis!', 1, 6)
+
+        self.fly_in_object('STRAP IN!', 4, 2)
+
+        self.fly_in_object('logo.png', 1.5, 10, ImageMobject)
+
+    def fly_in_object(self, text, scale, duration, type=Text):
+        text_object, text_object2 = self.define_objects(
+            type, type, text, scale)
+
+        self.fly_in(text_object, text_object2, duration)
