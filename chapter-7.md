@@ -729,7 +729,7 @@ name: mesh-3-meshes
 ```{figure} mesh-3-meshes-annotated.svg
 ---
 height: 300px
-name: mesh-3-meshes
+name: mesh-3-meshes-annotated
 ---
 ```
 **KVL Equations:**
@@ -782,7 +782,7 @@ $$V_O=(I_3-I_2)R_4=(-640.00~\mu\text{A}+66.67~\mu\text{A})6~\text{k}\Omega=-3.44
 `````
 
 
-## Current Sources in Mesh Current
+## Current Sources in Mesh Analysis
 
 KVL equations are the default when performing Mesh analysis. There are cases where you are unable to write enough KVL equations to form a fully-determined system of equations. Those cases can be easily recognized if we look for current supplies.
 
@@ -796,85 +796,96 @@ Let's examine two cases of circuits that have current supplies and perform Mesh 
 
 The first case is a current supply that is only affected by a single mesh current. But before we write the KCL for that current supply consider the types and quantities of equations that you will write to find the unknown mesh currents. For each current supply write a KCL equation, only one in the case if the next example. A total of 2 equations are required since we have two unknown mesh currents. That leaves 1 KVL to have a fully-determined system.
 
-\begin{example}
-Determine the mesh currents.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,lx_={$V_S$ and 10~V}] (0,0)
-(0,3) to[resistor,lx={$R_1$ and \raisebox{1ex}{4~\Om}}] (3,3)
-(3,3) to[resistor,lx={$R_2$ and 6~\Om}] (3,0)
-(3,3) to[resistor,lx={$R_3$ and \raisebox{1ex}{3~\Om}}] (6,3)
-(6,0) to[current source,lx_={$I_S$ and 5~A}] (6,3)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\Solution
+Let's find the mesh currents in this example circuit:
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-current-supply.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω'))
+    d += (Is := elm.SourceI().down().label('$I_S$\n5A',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
+```
+```{figure} mesh-current-supply.svg
+---
+height: 300px
+name: mesh-current-supply
+---
+```
+
+**Solution**
 Before we begin the analysis let's summarize what equations we'll be writing:
-\begin{center}
-\begin{tabular}{rrc}
-&1&KCL\\
-+&1&KVL\\
-\hline
-&2&Unknowns\\
-\end{tabular}
-\end{center}
+
+$$1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}$$
+
 Now let's follow the steps.
 Label Mesh currents and polarities of passive components:
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,lx_={$V_S$ and 10~V}] (0,0)
-(0,3) to[resistor,lx={$R_1$ and \raisebox{1ex}{4~\Om}}] (3,3)
-(3,3) to[resistor,lx={$R_2$ and 6~\Om}] (3,0)
-(3,3) to[resistor,lx={$R_3$ and \raisebox{1ex}{3~\Om}}] (6,3)
-(6,0) to[current source,lx_={$I_S$ and 5~A}] (6,3)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(1.5,1.5) node[red,thick]{$I_1$}
-(4.7,1.5) node[blue,thick]{$I_2$}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%%\centerarc[blue,->,thick](4.7,1.5)(225:-45:5mm)
-%%\draw[red,thick] (2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-}
-%(.25,2.5) node[below]{-}
-%(.25,1) node[below]{+}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-;
-%\draw[blue,thick] (4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-% (5.75,2.5) node[below]{+}
-% (5.75,1) node[below]{-}
-;
-\end{circuitikz}\end{center}
-Now let's set about writing the equations. Let's consider which mesh currents flow through the current supply in order to write the KCL equation. In this case the 5~A supply is only part of the second mesh and therefore is only affected by $I_2$. The direction of the mesh current must also be considered. Since $I_2$ opposes the direction of the 5~A supply (they flow in opposite directions) one will be the negative of the other. We describe this as:
-\[\color{blue} I_2=-5~\text{A}\]
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-current-supply-annotated.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω').label(('+','','-'),loc='bottom',color='red'))
+    d += (Is := elm.SourceI().down().label('$I_S$\n5A',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω').label(('+','','-'),loc='top',color='blue').label(('-','','+'),loc='bottom',color='red'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R3,Is,LineB,R2],pad=0.5).label('$I_2$').color('red')
+```
+```{figure} mesh-current-supply-annotated.svg
+---
+height: 300px
+name: mesh-current-supply-annotated
+---
+```
+Now let's set about writing the equations. Let's consider which mesh currents flow through the current supply in order to write the KCL equation. In this case the 5A supply is only part of the second mesh and therefore is only affected by $I_2$. The direction of the mesh current must also be considered. Since $I_2$ opposes the direction of the 5A supply (they flow in opposite directions) one will be the negative of the other. We describe this as:
+
+$$\color{blue} I_2=-5~\text{A}$$
+
 or its mathematical equivalent:
-\[\color{blue} -I_2=5~\text{A}\color{black}\]%Attempt to stop the example box being blue seems to work.
+
+$$\color{blue} -I_2=5~\text{A}\color{black}$$
+
 Either of these is suitable to be included in the system of equations that describe this circuit.
 
 The second equation is a KVL. The only suitable mesh for a KVL equation is the left mesh ($I_1$).
+
 \begin{eqnarray*}\color{red}
-\color{red} V*S-V*{R1}-V*{R2}=0\\
-\color{red} V*{R1}+V\_{R2}=V_S\\
+\color{red} V_S-V_{R1}-V_{R2}=0\\
+\color{red} V_{R1}+V_{R2}=V_S\\
 \color{red} I_1R_1+(I_1-I_2)R_2=V_S\\
 \color{red} (R_1+R_2)I_1-R_2I_2=V_S
 \end{eqnarray*}
-The last equation in the sequence above is suitable for inclusion in the system of equations that describe this circuit.
+
+The last equation in the sequence above is suitable for inclusion in the system of equations that describe this circuit.  Substituting the values in gives us:
 
 \begin{eqnarray*}\color{red}
 10~\Omega I_1-6~\Omega I_2=10~\text{V}\\
 \color{blue}
 -I_2=5~\text{A}\\
 \end{eqnarray*}
-Solve using matrices:
-\[ \left[ \begin{array}{cc}
+Solve using matrices to find the mesh currents:
+
+$$\left[ \begin{array}{cc}
 10&-6\\
 0&-1\\
-\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]$$
 
-\end{example}
 
 ### Current Sources with Multiple Mesh Currents
 
