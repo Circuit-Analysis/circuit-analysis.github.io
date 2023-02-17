@@ -889,68 +889,68 @@ $$\left[ \begin{array}{cc}
 
 ### Current Sources with Multiple Mesh Currents
 
-The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a \textbf{\underline{loop}} is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.
+The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a **loop** is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.
 
-\begin{example}
-Determine the mesh currents
-\begin{center}\begin{circuitikz}\draw
-(0,4) to[voltage source,lx={$V_S$ and 20~V}] (0,0)
-(0,4) to[resistor,lx={$R_1$ and \raisebox{1ex}{6~\Om}}] (3,4)
-(3,4) to[resistor,lx={$R_2$ and 2~\Om}] (3,2)
-(3,0) to[current source,lx={$I_S$ and 6~A}] (3,2)
-(3,4) to[resistor,lx={$R_3$ and \raisebox{1ex}{10~\Om}}] (6,4)
-(6,0) to[R,lx_={$R_4$ and 4~\Om}] (6,4)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(1.8,2.5) node[red,thick]{$I_1$}
-(4.7,1) node[blue,thick]{$I_2$}
-;
-%%\centerarc[red,->,thick](1.8,2.5)(225:-45:5mm)
-%%\centerarc[blue,->,thick](4.7,1)(225:-45:5mm)
+Let's look at an example.  Determine the mesh currents.
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-    %\draw[red,thick] 	 (2.75,3.8) node[below]{+}
-    							 (2.75,2.3) node[below]{-}
-    							 (1,4) node[below]{+}
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-(2.25,4) node[below]{-}
-;
-%\draw[blue,thick] (4,4) node[below]{+}
-(5.25,4) node[below]{-}
-(3.25,3.8) node[below]{-}
-(3.25,2.3) node[below]{+}
-(5.75,3) node[below]{+}
-(5.75,1.4) node[below]{-}
-;
-\end{circuitikz}\end{center}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n10Ω').label(('+','','-'),loc='bottom',color='red'))
+    d += (R4 := elm.Resistor().down().label('$R_4$\n4Ω',loc='bottom').label(('+','','-'),loc='top',color='red').length(4))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n2Ω').label(('+','','-'),loc='top',color='blue').label(('-','','+'),loc='bottom',color='red').length(2))
+    d += (Is := elm.SourceI().down().label('$I_S$\n6A').length(2).reverse())
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=0.5).label('$I_2$').color('red')
+```
+```{figure} mesh-super.svg
+---
+height: 300px
+name: mesh-super
+---
+```
+
 \Solution
 Considering the number and types of equations to be written given the one current supply and two meshes:
-\begin{center}
-\begin{tabular}{rrc}
-&1&KCL\\
-+&1&KVL\\
-\hline
-&2&Unknowns\\
-\end{tabular}
-\end{center}
-Two meshes contain the current supply, $I_1$ and $I_2$. Each is considered in turn with respect to the current direction. $I_1$ flows against the supply and will therefore be negative. $I_2$ flows with the current supply and therefore will be positive.
-\[-I*1+I_2=6~\text{A}\]
+
+$$1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}$$
+
+Two meshes contain the current supply, $I_1$ and $I_2$. We consider each in turn with respect to the current direction. $I_1$ flows against the supply and will therefore will be negative. $I_2$ flows with the current supply and therefore will be positive.
+
+$$-I_1+I_2=6\text{A}$$
+
 The KVL is then written using the loop around both meshes
-\begin{eqnarray\*}
-V_S-V*{R1}-V*{R3}-V*{R4}=0\\
+
+\begin{eqnarray*}
+V_S-V_{R1}-V_{R3}-V_{R4}=0\\
 V_S-I_1R_1-I_2R_3-I_2R_4=0\\
 -R_1I_1-R_3I_2-R_4I_2=-V_S\\
 -R_1I_1+(-R_3-R_4)I_2=-V_S\\
 \end{eqnarray*}
+
 Plug in values:
+
 \begin{eqnarray*}
 -6I_1-14I_2=-20~\text{V}\\
-\end{eqnarray\*}
+\end{eqnarray*}
+
 Solve using matrices:
-\[ \left[ \begin{array}{cc}
+
+$$\left[ \begin{array}{cc}
 -1&1\\
 -6&-14\\
-\end{array} \right]^{-1}\left[\begin{array}{c}6\\-20\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]\]
-\end{example}
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\-20\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]$$
+
+
 
 \begin{example}
 Determine the mesh currents:
