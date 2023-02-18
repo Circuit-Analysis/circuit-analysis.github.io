@@ -238,20 +238,31 @@ import schemdraw.elements as elm
 with schemdraw.Drawing(file='voltage-divider-power-1.svg') as d:
     d += elm.Battery().label('$V_S$\n15 V').down().length(6)
     d += elm.Line().right()
+    d += elm.Resistor().up().label('$P_{R_{1+2}}$', loc='top').label('$R_{1+2}$\n$30 k\Omega$', loc='bot').length(6)
+    d += (L1 := elm.Line().left())
+    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
+    d += elm.CurrentLabelInline(direction='out').label('I')
+
+    # Move it across to show the second diagram
+    d.move_from(L1.end, 6, 0)
+    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
+    d += elm.Line().right()
     d += elm.Resistor().up().label('$P_{R_2}$', loc='top').label('$R_2$\n$20 k\Omega$', loc='bot')
     d += elm.Resistor().up().label('$P_{R_1}$', loc='top').label('$R_1$\n$10 k\Omega$', loc='bot')
     d += (L1 := elm.Line().left())
     d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
     d += elm.CurrentLabelInline(direction='out').label('I')
-    # Move it across to show the second diagram
-    d.move_from(L1.end, 6, 0)
-    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
-    d += elm.Line().right()
-    d += elm.Resistor().up().label('$P_{R_{1+2}}$', loc='top').label('$R_{1+2}$\n$30 k\Omega$', loc='bot').length(6)
-    d += (L1 := elm.Line().left())
-    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
-    d += elm.CurrentLabelInline(direction='out').label('I')
 ```
+
+Let's look at the power dissipated in the case of a voltage divider.
+
+````{admonition} Example
+
+Find $P_{R_{1+2}}$, $P_{R_1}$, and $P_{R_2}$ and show that
+
+$$
+P_{R_{1+2}} = P_{R_1} + P_{R_2}.
+$$
 
 ```{figure} voltage-divider-power-1.svg
 ---
@@ -261,6 +272,138 @@ name: voltage-divider-power-1
 The two circuits used above in the voltage divider example.
 ```
 
+```{admonition} Solution
+:class: tip, dropdown
+
+For the equivalent circuit, we saw that
+
+$$
+I=\frac{V_S}{R_1+R_2}=\frac{15~\text{V}}{30~\text{k}\Omega}=500~\mu\text{A}
+$$
+
+That means that
+
+$$
+P_{R_{1+2}} = V I = (15~\text{V})(500~\mu\text{A}) = 7.5~\text{mW}
+$$
+
+For the original circuit, we have the same value of $I$, but now
+
+$$
+P = P_{R_1} + P_{R_2}
+$$
+
+where
+
+$$
+\begin{align*}
+P_{R_1} &= (15~\text{V})\left(\frac{R_1}{R_1+R_2} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&= (15~\text{V}) \left(\frac{10,000}{10,000+20,000} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&= 2.5~\text{mW}
+\end{align*}
+$$
+
+and
+
+$$
+\begin{align*}
+P_{R_2} &= (15~\text{V})\left(\frac{R_2}{R_1+R_2} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&= (15~\text{V}) \left(\frac{20,000}{10,000+20,000} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&= 5.0~\text{mW}
+\end{align*}
+$$
+
+So we can see that the amount of power dissipated does not change, even when we use the equivalent resistance.
+```
+````
+
+### Power in Current Dividers
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='current-divider-power-1.svg') as d:
+    d += elm.SourceI().label('$I_S$\n3 mA').label(['-','V','+'], loc='bot').up().length(4)
+    d += elm.Line().right()
+    d.push()
+    d += elm.Resistor().down().label('$R_1$\n$5 k\Omega$', loc='bot').length(4).label('$P_{R_{1}}$')
+    d += elm.CurrentLabelInline(direction='in').label('$I_{R_1}$')
+    d.pop()
+    d += elm.Line().right()
+    d += elm.Resistor().down().label('$R_2$\n$10 k\Omega$', loc='bot').length(4).label('$P_{R_{2}}$')
+    d += elm.CurrentLabelInline(direction='in').label('$I_{R_2}$')
+    d += elm.Line().left()
+    d += (L1 := elm.Line().left())
+
+    # Move it across to show the second diagram
+    d.move_from(L1.end, 0, 5)
+
+    d += elm.SourceI().label('$I_S$\n3 mA').label(['-','V','+'], loc='bot').up().length(4)
+    d += elm.Line().right()
+    d += elm.Line().right()
+    d += elm.Resistor().down().label('$R_{1\parallel 2}$\n$3.33 k\Omega$', loc='bot').length(4).label('$P_{R_{1\parallel 2}}$')
+    d += elm.Line().left()
+    d += elm.Line().left()
+
+```
+
+Let's look at the power dissipated in the case of a current divider.
+
+````{admonition} Example
+
+Find $P_{R_{1\parallel 2}}$, $P_{R_1}$, and $P_{R_2}$ and show that
+
+$$
+P_{R_{1\parallel 2}} = P_{R_1} + P_{R_2}
+$$
+
+```{figure} current-divider-power-1.svg
+---
+height: 500px
+name: current-divider-power-1
+---
+The two circuits used above in the current divider example.
+```
+
+```{admonition} Solution
+:class: tip, dropdown
+
+For the equivalent circuit, we saw that
+
+$$V=I_SR_{1\parallel 2}=(3~\text{mA})(3.33~\text{k}\Omega)=10~\text{V}$$
+
+so that
+
+$$P_{R_{1\parallel 2}} = V I = (10~\text{V}) ( 3 \text{mA}) = 30~\text{mW}$$
+
+For the original circuit, we saw that
+
+$$I_{R_1}=\frac{V}{R_1}=\frac{10~\text{V}}{5~\text{k}\Omega}=2~\text{mA}$$
+
+and
+
+$$I_{R_2}=\frac{V}{R_2}=\frac{10~\text{V}}{10~\text{k}\Omega}=1~\text{mA}$$
+
+so that
+
+$$P_{R_1}= V I_{R_1} = (10~\text{V})(2~\text{mA}) = 20~\text{mW}$$
+
+and
+
+$$P_{R_2}= V I_{R_2} =(10~\text{V})(1~\text{mA}) = 10~\text{mW}$$
+
+so that
+
+$$
+P_{1+2} = P_{R_1} + P_{R_2} = 30~\text{mW}.
+$$
+
+So again we can see that the amount of power dissipated does not change, even the equivalent resistance is used.
+```
+````
+
 ## Kirchhoff's Laws
 
 ### Kirchhoff's Voltage Law
@@ -269,18 +412,22 @@ The two circuits used above in the voltage divider example.
 :tags: [remove-input, remove-output]
 
 import schemdraw
+from schemdraw import flow
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='kvl-1.svg') as d:
     d += elm.Dot().label('E', loc='bot')
     d += elm.ResistorIEC().up().length(6).label(['-', '$V_{AE}$', '+'])
-    d += elm.Dot().label('A', loc='top')
+    d += (AA := elm.Dot().label('A', loc='top'))
     d += elm.ResistorIEC().right().length(6).label(['+', '$V_{AB}$', '-'])
     d += elm.Dot().label('B', loc='top')
     d += elm.ResistorIEC().down().label(['+', '$V_{BC}$', '-'])
     d += elm.Dot().label('C', loc='right')
     d += elm.ResistorIEC().down().label(['+', '$V_{CD}$', '-'])
-    d += elm.Dot().label('D', loc='bot')
+    d += (DD := elm.Dot().label('D', loc='bot'))
     d += elm.ResistorIEC().left().length(6).label(['+', '$V_{DE}$', '-'])
+    d.move_from(DD.end, -0.25, 0.25)
+    d += flow.Arrow().label(['-','$V_{AD}$','+']).color('lightgray').theta(135).length(8)
+
 ```
 
 The algebraic sum of voltages around a loop in a circuit is zero. **Pay attention to the polarities.**
@@ -304,6 +451,39 @@ $$V_{AD}-V_{AB}-V_{BC}-V_{CD}=0$$
 and rearrange it to find $V_{AD}$:
 
 $$V_{AD}=V_{AB}+V_{BC}+V_{CD}$$
+
+```{figure} kvl-2.svg
+---
+height: 500px
+name: kvl-2
+---
+Showing how $V_{AD}$ is composed.
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+from schemdraw import flow
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='kvl-2.svg') as d:
+    d += elm.Dot().label('E', loc='bot')
+    d += elm.ResistorIEC().up().length(6).label(['-', '$V_{AE}$', '+'])
+    d += (AA := elm.Dot().label('A', loc='top'))
+    d += elm.ResistorIEC().right().length(6).label(['+', '$V_{AB}$', '-'])
+    d += elm.Dot().label('B', loc='top')
+    d += elm.ResistorIEC().down().label(['+', '$V_{BC}$', '-'])
+    d += elm.Dot().label('C', loc='right')
+    d += elm.ResistorIEC().down().label(['+', '$V_{CD}$', '-'])
+    d += (DD := elm.Dot().label('D', loc='bot'))
+    d += elm.ResistorIEC().left().length(6).label(['+', '$V_{DE}$', '-'])
+    d.move_from(DD.end, -0.25, 0.25)
+    d += flow.Arrow().label(['-','$V_{AD}$','+']).color('lightgray').theta(135).length(8)
+    d.move_from(DD.end, +0.75, 0)
+    d += flow.Arrow().label('$V_{CD}$',loc='bot').color('lightgreen').theta(90).length(3)
+    d += (VBC := flow.Arrow().label('$V_{BC}$',loc='bot').color('lightblue').theta(90).length(3))
+    d += flow.Arc2(k=-0.5, arrow='->').label('$V_{AB}$',loc='top', ofst=-1).color('lightpink').at(VBC.end).to(AA.end)
+```
 
 ### Kirchhoff's Current Law
 
@@ -341,3 +521,14 @@ If we consider the currents flowing **into** the central node we can write a KCL
 $$I_1 + I_2 + I_3 + I_4 - I_5 =0$$
 
 Note that $I_5$ is flowing _out_ of the node, so its sign is negative.
+
+$$
+$$
+
+```
+
+```
+
+```
+
+```

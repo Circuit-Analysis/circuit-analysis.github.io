@@ -474,6 +474,11 @@ title="Print to PDF"
      Power in Voltage Dividers
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-in-current-dividers">
+     Power in Current Dividers
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -544,6 +549,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#power-in-voltage-dividers">
      Power in Voltage Dividers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-in-current-dividers">
+     Power in Current Dividers
     </a>
    </li>
   </ul>
@@ -695,12 +705,105 @@ title="Print to PDF"
 <h3>Power in Voltage Dividers<a class="headerlink" href="#power-in-voltage-dividers" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
+<p>Let’s look at the power dissipated in the case of a voltage divider.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(P_{R_{1+2}}\)</span>, <span class="math notranslate nohighlight">\(P_{R_1}\)</span>, and <span class="math notranslate nohighlight">\(P_{R_2}\)</span> and show that</p>
+<div class="math notranslate nohighlight">
+\[
+P_{R_{1+2}} = P_{R_1} + P_{R_2}.
+\]</div>
 <figure class="align-default" id="voltage-divider-power-1">
 <a class="reference internal image-reference" href="_images/voltage-divider-power-1.svg"><img alt="_images/voltage-divider-power-1.svg" height="250px" src="_images/voltage-divider-power-1.svg" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 43 </span><span class="caption-text">The two circuits used above in the voltage divider example.</span><a class="headerlink" href="#voltage-divider-power-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>For the equivalent circuit, we saw that</p>
+<div class="math notranslate nohighlight">
+\[
+I=\frac{V_S}{R_1+R_2}=\frac{15~\text{V}}{30~\text{k}\Omega}=500~\mu\text{A}
+\]</div>
+<p>That means that</p>
+<div class="math notranslate nohighlight">
+\[
+P_{R_{1+2}} = V I = (15~\text{V})(500~\mu\text{A}) = 7.5~\text{mW}
+\]</div>
+<p>For the original circuit, we have the same value of <span class="math notranslate nohighlight">\(I\)</span>, but now</p>
+<div class="math notranslate nohighlight">
+\[
+P = P_{R_1} + P_{R_2}
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P_{R_1} &amp;= (15~\text{V})\left(\frac{R_1}{R_1+R_2} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&amp;= (15~\text{V}) \left(\frac{10,000}{10,000+20,000} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&amp;= 2.5~\text{mW}
+\end{align*}
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P_{R_2} &amp;= (15~\text{V})\left(\frac{R_2}{R_1+R_2} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&amp;= (15~\text{V}) \left(\frac{20,000}{10,000+20,000} \frac{\Omega}{\Omega} \right) (500~\mu\text{A}) \\
+&amp;= 5.0~\text{mW}
+\end{align*}
+\end{split}\]</div>
+<p>So we can see that the amount of power dissipated does not change, even when we use the equivalent resistance.</p>
+</div>
+</div>
+</section>
+<section id="power-in-current-dividers">
+<h3>Power in Current Dividers<a class="headerlink" href="#power-in-current-dividers" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<p>Let’s look at the power dissipated in the case of a current divider.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(P_{R_{1\parallel 2}}\)</span>, <span class="math notranslate nohighlight">\(P_{R_1}\)</span>, and <span class="math notranslate nohighlight">\(P_{R_2}\)</span> and show that</p>
+<div class="math notranslate nohighlight">
+\[
+P_{R_{1\parallel 2}} = P_{R_1} + P_{R_2}
+\]</div>
+<figure class="align-default" id="current-divider-power-1">
+<a class="reference internal image-reference" href="_images/current-divider-power-1.svg"><img alt="_images/current-divider-power-1.svg" height="500px" src="_images/current-divider-power-1.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">The two circuits used above in the current divider example.</span><a class="headerlink" href="#current-divider-power-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>For the equivalent circuit, we saw that</p>
+<div class="math notranslate nohighlight">
+\[V=I_SR_{1\parallel 2}=(3~\text{mA})(3.33~\text{k}\Omega)=10~\text{V}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[P_{R_{1\parallel 2}} = V I = (10~\text{V}) ( 3 \text{mA}) = 30~\text{mW}\]</div>
+<p>For the original circuit, we saw that</p>
+<div class="math notranslate nohighlight">
+\[I_{R_1}=\frac{V}{R_1}=\frac{10~\text{V}}{5~\text{k}\Omega}=2~\text{mA}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[I_{R_2}=\frac{V}{R_2}=\frac{10~\text{V}}{10~\text{k}\Omega}=1~\text{mA}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[P_{R_1}= V I_{R_1} = (10~\text{V})(2~\text{mA}) = 20~\text{mW}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[P_{R_2}= V I_{R_2} =(10~\text{V})(1~\text{mA}) = 10~\text{mW}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+P_{1+2} = P_{R_1} + P_{R_2} = 30~\text{mW}.
+\]</div>
+<p>So again we can see that the amount of power dissipated does not change, even the equivalent resistance is used.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="kirchhoff-s-laws">
@@ -713,7 +816,7 @@ title="Print to PDF"
 <figure class="align-default" id="kvl-1">
 <a class="reference internal image-reference" href="_images/kvl-1.svg"><img alt="_images/kvl-1.svg" height="500px" src="_images/kvl-1.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Kirchhoff’s Voltage Law circuit.</span><a class="headerlink" href="#kvl-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Kirchhoff’s Voltage Law circuit.</span><a class="headerlink" href="#kvl-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we consider the voltages around the loop starting and ending at node E we can write a KVL equation for the loop:</p>
@@ -725,6 +828,14 @@ title="Print to PDF"
 <p>and rearrange it to find <span class="math notranslate nohighlight">\(V_{AD}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[V_{AD}=V_{AB}+V_{BC}+V_{CD}\]</div>
+<figure class="align-default" id="kvl-2">
+<a class="reference internal image-reference" href="_images/kvl-2.svg"><img alt="_images/kvl-2.svg" height="500px" src="_images/kvl-2.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Showing how <span class="math notranslate nohighlight">\(V_{AD}\)</span> is composed.</span><a class="headerlink" href="#kvl-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 </section>
 <section id="kirchhoff-s-current-law">
 <h3>Kirchhoff’s Current Law<a class="headerlink" href="#kirchhoff-s-current-law" title="Permalink to this headline">#</a></h3>
@@ -734,13 +845,21 @@ title="Print to PDF"
 <figure class="align-default" id="kcl-1">
 <a class="reference internal image-reference" href="_images/kcl-1.svg"><img alt="_images/kcl-1.svg" height="500px" src="_images/kcl-1.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Kirchhoff’s Current Law, illustrated.</span><a class="headerlink" href="#kcl-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Kirchhoff’s Current Law, illustrated.</span><a class="headerlink" href="#kcl-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we consider the currents flowing <strong>into</strong> the central node we can write a KCL equation for that node:</p>
 <div class="math notranslate nohighlight">
 \[I_1 + I_2 + I_3 + I_4 - I_5 =0\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(I_5\)</span> is flowing <em>out</em> of the node, so its sign is negative.</p>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
