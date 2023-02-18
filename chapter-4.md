@@ -226,6 +226,84 @@ Before you commit to using the current divider formula, ask yourself these quest
 - Do I really know the current flowing into the nodes where they connect?
 - Am I really dividing a current, not a voltage?
 
+## A Look at Power
+
+### Power in Voltage Dividers
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='voltage-divider-power-1.svg') as d:
+    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
+    d += elm.Line().right()
+    d += elm.Resistor().up().label('$P_{R_{1+2}}$', loc='top').label('$R_{1+2}$\n$30 k\Omega$', loc='bot').length(6)
+    d += (L1 := elm.Line().left())
+    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
+    d += elm.CurrentLabelInline(direction='out').label('I')
+
+    # Move it across to show the second diagram
+    d.move_from(L1.end, 6, 0)
+    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
+    d += elm.Line().right()
+    d += elm.Resistor().up().label('$P_{R_2}$', loc='top').label('$R_2$\n$20 k\Omega$', loc='bot')
+    d += elm.Resistor().up().label('$P_{R_1}$', loc='top').label('$R_1$\n$10 k\Omega$', loc='bot')
+    d += (L1 := elm.Line().left())
+    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
+    d += elm.CurrentLabelInline(direction='out').label('I')
+```
+
+Let's look at the power dissipated in the case of a voltage divider.
+
+```{figure} voltage-divider-power-1.svg
+---
+height: 250px
+name: voltage-divider-power-1
+---
+The two circuits used above in the voltage divider example.
+```
+
+For the equivalent circuit, we saw that
+
+$$
+I=\frac{V_S}{R_1+R_2}=\frac{15~\text{V}}{30~\text{k}\Omega}=500~\mu\text{A}
+$$
+
+That means that
+
+$$
+P_{R_{1+2}} = V I = 15 \times 500 \times 10^{-6} = 7.5~\text{mW}
+$$
+
+For the original circuit, we have the same value of $I$, but now
+
+$$
+P = P_{R_1} + P_{R_2}
+$$
+
+where
+
+$$
+\begin{align*}
+P_{R_1} &= 15 \times \frac{R_1}{R_1+R_2} \times 500 \times 10^{-6}\\
+&= 15 \times \frac{10,000}{10,000+20,000} \times 500 \times 10^{-6}\\
+&= 2.5~\text{mW}
+\end{align*}
+$$
+
+and
+
+$$
+\begin{align*}
+P_{R_2} &= 15 \times \frac{R_2}{R_1+R_2} \times 500 \times 10^{-6}\\
+&= 15 \times \frac{20,000}{10,000+20,000} \times 500 \times 10^{-6}\\
+&= 5.0~\text{mW}
+\end{align*}
+$$
+
+So we can see that the amount of power dissipated does not change, even when we use the equivalent resistance.
+
 ## Kirchhoff's Laws
 
 ### Kirchhoff's Voltage Law
@@ -306,3 +384,6 @@ If we consider the currents flowing **into** the central node we can write a KCL
 $$I_1 + I_2 + I_3 + I_4 - I_5 =0$$
 
 Note that $I_5$ is flowing _out_ of the node, so its sign is negative.
+
+$$
+$$
