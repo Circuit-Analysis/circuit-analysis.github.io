@@ -226,6 +226,41 @@ Before you commit to using the current divider formula, ask yourself these quest
 - Do I really know the current flowing into the nodes where they connect?
 - Am I really dividing a current, not a voltage?
 
+## A Look at Power
+
+### Power in Voltage Dividers
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='voltage-divider-power-1.svg') as d:
+    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
+    d += elm.Line().right()
+    d += elm.Resistor().up().label('$P_{R_2}$', loc='top').label('$R_2$\n$20 k\Omega$', loc='bot')
+    d += elm.Resistor().up().label('$P_{R_1}$', loc='top').label('$R_1$\n$10 k\Omega$', loc='bot')
+    d += (L1 := elm.Line().left())
+    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
+    d += elm.CurrentLabelInline(direction='out').label('I')
+    # Move it across to show the second diagram
+    d.move_from(L1.end, 6, 0)
+    d += elm.Battery().label('$V_S$\n15 V').down().length(6)
+    d += elm.Line().right()
+    d += elm.Resistor().up().label('$P_{R_{1+2}}$', loc='top').label('$R_{1+2}$\n$30 k\Omega$', loc='bot').length(6)
+    d += (L1 := elm.Line().left())
+    d.move_from(L1.end,0.6,0) # To get arrow closer to the middle
+    d += elm.CurrentLabelInline(direction='out').label('I')
+```
+
+```{figure} voltage-divider-power-1.svg
+---
+height: 250px
+name: voltage-divider-power-1
+---
+The two circuits used above in the voltage divider example.
+```
+
 ## Kirchhoff's Laws
 
 ### Kirchhoff's Voltage Law
