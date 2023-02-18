@@ -524,11 +524,3 @@ Note that $I_5$ is flowing _out_ of the node, so its sign is negative.
 
 $$
 $$
-
-```
-
-```
-
-```
-
-```
