@@ -468,8 +468,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#current-sources-in-mesh-current">
-   Current Sources in Mesh Current
+  <a class="reference internal nav-link" href="#current-sources-in-mesh-analysis">
+   Current Sources in Mesh Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -553,8 +553,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#current-sources-in-mesh-current">
-   Current Sources in Mesh Current
+  <a class="reference internal nav-link" href="#current-sources-in-mesh-analysis">
+   Current Sources in Mesh Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -940,7 +940,7 @@ R_2I_1+(R_2+R_3)I_2=V_{S2}
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
-<figure class="align-default" id="id1">
+<figure class="align-default" id="mesh-3-meshes-annotated">
 <a class="reference internal image-reference" href="_images/mesh-3-meshes-annotated.svg"><img alt="_images/mesh-3-meshes-annotated.svg" height="300px" src="_images/mesh-3-meshes-annotated.svg" /></a>
 </figure>
 <p><strong>KVL Equations:</strong></p>
@@ -992,8 +992,8 @@ R_4I_2+(-R_2-R_4)I_3=V_1
 </div>
 </div>
 </section>
-<section id="current-sources-in-mesh-current">
-<h2>Current Sources in Mesh Current<a class="headerlink" href="#current-sources-in-mesh-current" title="Permalink to this headline">#</a></h2>
+<section id="current-sources-in-mesh-analysis">
+<h2>Current Sources in Mesh Analysis<a class="headerlink" href="#current-sources-in-mesh-analysis" title="Permalink to this headline">#</a></h2>
 <p>KVL equations are the default when performing Mesh analysis. There are cases where you are unable to write enough KVL equations to form a fully-determined system of equations. Those cases can be easily recognized if we look for current supplies.</p>
 <p>Each term in a KVL must be a voltage. Those voltages must be rewritten to be in terms of the unknown mesh currents. This is possible with resistors using Ohm’s law. When current supplies are present we cannot readily represent the voltage across that current supply in terms of the unknown mesh currents. So how do we approach current supplies when performing Mesh analysis?</p>
 <p>Since we cannot write a KVL for a mesh when it contains a current supply, we must write a KCL instead. The goal remains to write the same number of equations as we have unknowns in order to find a unique solution for those unknowns. So, for each current supply (dependent or independent) we write a KCL. The remainder of the equations we need to equal the number of unknowns are then KVL equations written in the usual way.</p>
@@ -1001,212 +1001,146 @@ R_4I_2+(-R_2-R_4)I_3=V_1
 <section id="current-sources-with-a-single-mesh-current">
 <h3>Current Sources with a Single Mesh Current<a class="headerlink" href="#current-sources-with-a-single-mesh-current" title="Permalink to this headline">#</a></h3>
 <p>The first case is a current supply that is only affected by a single mesh current. But before we write the KCL for that current supply consider the types and quantities of equations that you will write to find the unknown mesh currents. For each current supply write a KCL equation, only one in the case if the next example. A total of 2 equations are required since we have two unknown mesh currents. That leaves 1 KVL to have a fully-determined system.</p>
-<p>\begin{example}
-Determine the mesh currents.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_S\)</span> and 10~V}] (0,0)
-(0,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_1\)</span> and \raisebox{1ex}{4~\Om}}] (3,3)
-(3,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_2\)</span> and 6~\Om}] (3,0)
-(3,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_3\)</span> and \raisebox{1ex}{3~\Om}}] (6,3)
-(6,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_S\)</span> and 5~A}] (6,3)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\Solution
-Before we begin the analysis let’s summarize what equations we’ll be writing:
-\begin{center}
-\begin{tabular}{rrc}
-&amp;1&amp;KCL\
-+&amp;1&amp;KVL\
-\hline
-&amp;2&amp;Unknowns\
-\end{tabular}
-\end{center}
-Now let’s follow the steps.
-Label Mesh currents and polarities of passive components:
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,lx_={<span class="math notranslate nohighlight">\(V_S\)</span> and 10~V}] (0,0)
-(0,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_1\)</span> and \raisebox{1ex}{4~\Om}}] (3,3)
-(3,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_2\)</span> and 6~\Om}] (3,0)
-(3,3) to[resistor,lx={<span class="math notranslate nohighlight">\(R_3\)</span> and \raisebox{1ex}{3~\Om}}] (6,3)
-(6,0) to[current source,lx_={<span class="math notranslate nohighlight">\(I_S\)</span> and 5~A}] (6,3)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(1.5,1.5) node[red,thick]{<span class="math notranslate nohighlight">\(I_1\)</span>}
-(4.7,1.5) node[blue,thick]{<span class="math notranslate nohighlight">\(I_2\)</span>}
-;</p>
-<p>(2.75,1) node[below]{-}</p>
-<p>(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-;</p>
-<p>(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}</p>
-<p>;
-\end{circuitikz}\end{center}
-Now let’s set about writing the equations. Let’s consider which mesh currents flow through the current supply in order to write the KCL equation. In this case the 5~A supply is only part of the second mesh and therefore is only affected by <span class="math notranslate nohighlight">\(I_2\)</span>. The direction of the mesh current must also be considered. Since <span class="math notranslate nohighlight">\(I_2\)</span> opposes the direction of the 5~A supply (they flow in opposite directions) one will be the negative of the other. We describe this as:
-[\color{blue} I_2=-5~\text{A}]
-or its mathematical equivalent:
-[\color{blue} -I_2=5~\text{A}\color{black}]%Attempt to stop the example box being blue seems to work.
-Either of these is suitable to be included in the system of equations that describe this circuit.</p>
+<p>Let’s find the mesh currents in this example circuit:</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-current-supply">
+<a class="reference internal image-reference" href="_images/mesh-current-supply.svg"><img alt="_images/mesh-current-supply.svg" height="300px" src="_images/mesh-current-supply.svg" /></a>
+</figure>
+<p><strong>Solution</strong>
+Before we begin the analysis let’s summarize what equations we’ll be writing:</p>
+<div class="math notranslate nohighlight">
+\[1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}\]</div>
+<p>Now let’s follow the steps.
+Label Mesh currents and polarities of passive components:</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-current-supply-annotated">
+<a class="reference internal image-reference" href="_images/mesh-current-supply-annotated.svg"><img alt="_images/mesh-current-supply-annotated.svg" height="300px" src="_images/mesh-current-supply-annotated.svg" /></a>
+</figure>
+<p>Now let’s set about writing the equations. Let’s consider which mesh currents flow through the current supply in order to write the KCL equation. In this case the 5A supply is only part of the second mesh and therefore is only affected by <span class="math notranslate nohighlight">\(I_2\)</span>. The direction of the mesh current must also be considered. Since <span class="math notranslate nohighlight">\(I_2\)</span> opposes the direction of the 5A supply (they flow in opposite directions) one will be the negative of the other. We describe this as:</p>
+<div class="math notranslate nohighlight">
+\[\color{blue} I_2=-5~\text{A}\]</div>
+<p>or its mathematical equivalent:</p>
+<div class="math notranslate nohighlight">
+\[\color{blue} -I_2=5~\text{A}\color{black}\]</div>
+<p>Either of these is suitable to be included in the system of equations that describe this circuit.</p>
 <p>The second equation is a KVL. The only suitable mesh for a KVL equation is the left mesh (<span class="math notranslate nohighlight">\(I_1\)</span>).</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
-\color{red} V*S-V*{R1}-V*{R2}=0\\
-\color{red} V*{R1}+V\_{R2}=V_S\\
+\color{red} V_S-V_{R1}-V_{R2}=0\\
+\color{red} V_{R1}+V_{R2}=V_S\\
 \color{red} I_1R_1+(I_1-I_2)R_2=V_S\\
 \color{red} (R_1+R_2)I_1-R_2I_2=V_S
 \end{eqnarray*}\]</div>
-<p>The last equation in the sequence above is suitable for inclusion in the system of equations that describe this circuit.</p>
+<p>The last equation in the sequence above is suitable for inclusion in the system of equations that describe this circuit.  Substituting the values in gives us:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}\color{red}
 10~\Omega I_1-6~\Omega I_2=10~\text{V}\\
 \color{blue}
 -I_2=5~\text{A}\\
 \end{eqnarray*}\]</div>
-<p>Solve using matrices:
-[ \left[ \begin{array}{cc}
-10&amp;-6\
-0&amp;-1\
-\end{array} \right]^{-1}\left[\begin{array}{c}10\5\end{array}\right]=\left[\begin{array}{c}I_1\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}-5~\text{A}\end{array}\right]]</p>
-<p>\end{example}</p>
+<p>Solve using matrices to find the mesh currents:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{cc}
+10&amp;-6\\
+0&amp;-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]\end{split}\]</div>
 </section>
 <section id="current-sources-with-multiple-mesh-currents">
 <h3>Current Sources with Multiple Mesh Currents<a class="headerlink" href="#current-sources-with-multiple-mesh-currents" title="Permalink to this headline">#</a></h3>
-<p>The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a \textbf{\underline{loop}} is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.</p>
-<p>\begin{example}
-Determine the mesh currents
-\begin{center}\begin{circuitikz}\draw
-(0,4) to[voltage source,lx={<span class="math notranslate nohighlight">\(V_S\)</span> and 20~V}] (0,0)
-(0,4) to[resistor,lx={<span class="math notranslate nohighlight">\(R_1\)</span> and \raisebox{1ex}{6~\Om}}] (3,4)
-(3,4) to[resistor,lx={<span class="math notranslate nohighlight">\(R_2\)</span> and 2~\Om}] (3,2)
-(3,0) to[current source,lx={<span class="math notranslate nohighlight">\(I_S\)</span> and 6~A}] (3,2)
-(3,4) to[resistor,lx={<span class="math notranslate nohighlight">\(R_3\)</span> and \raisebox{1ex}{10~\Om}}] (6,4)
-(6,0) to[R,lx_={<span class="math notranslate nohighlight">\(R_4\)</span> and 4~\Om}] (6,4)
-(6,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-(1.8,2.5) node[red,thick]{<span class="math notranslate nohighlight">\(I_1\)</span>}
-(4.7,1) node[blue,thick]{<span class="math notranslate nohighlight">\(I_2\)</span>}
-;</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%\draw[red,thick] 	 (2.75,3.8) node[below]{+}
-							 (2.75,2.3) node[below]{-}
-							 (1,4) node[below]{+}
-</pre></div>
+<p>The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a <strong>loop</strong> is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.</p>
+<p>Let’s look at an example.  Determine the mesh currents.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>(2.25,4) node[below]{-}
-;</p>
-<p>(5.25,4) node[below]{-}
-(3.25,3.8) node[below]{-}
-(3.25,2.3) node[below]{+}
-(5.75,3) node[below]{+}
-(5.75,1.4) node[below]{-}
-;
-\end{circuitikz}\end{center}
-\Solution
-Considering the number and types of equations to be written given the one current supply and two meshes:
-\begin{center}
-\begin{tabular}{rrc}
-&amp;1&amp;KCL\
-+&amp;1&amp;KVL\
-\hline
-&amp;2&amp;Unknowns\
-\end{tabular}
-\end{center}
-Two meshes contain the current supply, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span>. Each is considered in turn with respect to the current direction. <span class="math notranslate nohighlight">\(I_1\)</span> flows against the supply and will therefore be negative. <span class="math notranslate nohighlight">\(I_2\)</span> flows with the current supply and therefore will be positive.
-[-I<em>1+I_2=6~\text{A}]
-The KVL is then written using the loop around both meshes
-\begin{eqnarray*}
-V_S-V</em>{R1}-V*{R3}-V*{R4}=0\
-V_S-I_1R_1-I_2R_3-I_2R_4=0\
--R_1I_1-R_3I_2-R_4I_2=-V_S\
--R_1I_1+(-R_3-R_4)I_2=-V_S\
-\end{eqnarray*}
-Plug in values:</p>
+<figure class="align-default" id="mesh-super">
+<a class="reference internal image-reference" href="_images/mesh-super.svg"><img alt="_images/mesh-super.svg" height="300px" src="_images/mesh-super.svg" /></a>
+</figure>
+<p>\Solution
+Considering the number and types of equations to be written given the one current supply and two meshes:</p>
+<div class="math notranslate nohighlight">
+\[1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}\]</div>
+<p>Two meshes contain the current supply, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span>. We consider each in turn with respect to the current direction. <span class="math notranslate nohighlight">\(I_1\)</span> flows against the supply and will therefore will be negative. <span class="math notranslate nohighlight">\(I_2\)</span> flows with the current supply and therefore will be positive.</p>
+<div class="math notranslate nohighlight">
+\[-I_1+I_2=6\text{A}\]</div>
+<p>The KVL is then written using the loop around both meshes</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
--6I_1-14I_2=-20~\text{V}\\
-\end{eqnarray\*}
-Solve using matrices:
-\[ \left[ \begin{array}{cc}
--1&amp;1\\
--6&amp;-14\\
-\end{array} \right]^{-1}\left[\begin{array}{c}6\\-20\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]\]
-\end{example}
-
-\begin{example}
-Determine the mesh currents:
-\begin{center}\begin{circuitikz}\draw
-(0,6) to[voltage source,lx_={$V_S$ and 6~V}] (0,-1)
-(0,6) -- (3,6)
-(3,6) to[resistor,lx_={$R_1$ and 2~\Om}] (3,3)
-(3,3) to[current source,lx_={$I_S$ and 6~A}] (3,1)
-(3,1) to[R,lx={$R_4$ and 1~\Om}] (3,-1)
-(3,6) -- (6,6)
-(6,3) to[R,lx_={$R_2$ and 2~\Om}] (6,6)
-(3,3) to[R,lx_={$R_3$ and 4~\Om}] (6,3)
-(6,-1) to[R,lx_={$R_5$ and 8~\Om}] (6,3)
-(6,-1) -- ((0,-1)
-(0,-1) -- (0,-1.25) node[sground,scale=0.5]{}
-(1.5,3) node[red,thick]{$I_1$}
-(4.7,4.5) node[blue,thick]{$I_2$}
-(4.7,1) node[orange,thick]{$I_{3}$}
-;
-%%\centerarc[red,-&gt;,thick](1.5,3)(225:-45:5mm)
-%%\centerarc[blue,-&gt;,thick](4.7,4.5)(225:-45:5mm)
-%%\centerarc[orange,-&gt;,thick](4.7,1)(225:-45:5mm)
-\end{circuitikz}\end{center}
-\Solution
-Considering the number and types of equations to be written given the one current supply and two meshes:
-\begin{center}
-\begin{tabular}{rrc}
-&amp;1&amp;KCL\\
-+&amp;2&amp;KVL\\
-\hline
-&amp;3&amp;Unknowns\\
-\end{tabular}
-\end{center}
-
-    Two meshes contain the current supply, $I_1$ and $I_2$.  Each is considered in turn with respect to the current direction.  $I_1$ flows with the supply and will therefore be positive.  $I_{3}$ flows against the current supply and therefore will be negative.
-    \[I_1+I_3=6~\text{A}\]
-    The KVL is then written using the loop around both meshes.  Note the loop through the circuit by examining which components are included in the KVL
-    \begin{eqnarray*}
-    	 V_S-V_{R1}-V_{R3}-V_{R4}=0\\
-
+V_S-V_{R1}-V_{R3}-V_{R4}=0\\
 V_S-I_1R_1-I_2R_3-I_2R_4=0\\
 -R_1I_1-R_3I_2-R_4I_2=-V_S\\
 -R_1I_1+(-R_3-R_4)I_2=-V_S\\
 \end{eqnarray*}\]</div>
-<p>Plug in values:
-\begin{eqnarray*}
--6I_1-14I_2=-20~\text{V}\
-\end{eqnarray*}
-Solve using matrices:
-[ \left[ \begin{array}{cc}
--1&amp;1\
--6&amp;-14\
-\end{array} \right]^{-1}\left[\begin{array}{c}6-20\end{array}\right]=\left[\begin{array}{c}I_1\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\2.8~\text{A}\end{array}\right]]</p>
-<p>\end{example}</p>
+<p>Plug in values:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+-6I_1-14I_2=-20~\text{V}\\
+\end{eqnarray*}\]</div>
+<p>Solve using matrices:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{cc}
+-1&amp;1\\
+-6&amp;-14\\
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\-20\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]\end{split}\]</div>
+<p>Let’s consider another example.  In the previous example the KVL was written around the outside of the circuit.  This may not always be possible.  It is a better habit to write the KVL around the two meshes that are shared by the current supply as we will for this circuit:</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-super-3">
+<a class="reference internal image-reference" href="_images/mesh-super-3.svg"><img alt="_images/mesh-super-3.svg" height="300px" src="_images/mesh-super-3.svg" /></a>
+</figure>
+<p>Considering the number and types of equations to be written given the one current supply and &amp;</p>
+<div class="math notranslate nohighlight">
+\[1\text{ KCL}+2\text{ KVL}=3\text{ Unknowns}\]</div>
+<p>Two meshes contain the current supply, <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_3\)</span>.  Each is considered in turn with respect to the current direction.  <span class="math notranslate nohighlight">\(I_1\)</span> flows with the supply and will therefore be positive.  <span class="math notranslate nohighlight">\(I_{3}\)</span> flows against the current supply and therefore will be negative.</p>
+<div class="math notranslate nohighlight">
+\[\color{green}I_1-I_3=6~\text{A}\]</div>
+<p>The KVL is then written using the loop around both meshes that flow through the current supply.  The path the KVL takes is shown here:</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-super-3-super-loop">
+<a class="reference internal image-reference" href="_images/mesh-super-3-super-loop.svg"><img alt="_images/mesh-super-3-super-loop.svg" height="300px" src="_images/mesh-super-3-super-loop.svg" /></a>
+</figure>
+<p>The signs of the terms come from the polarities marked for the two mesh currents that flow through the current supply.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\color{green}V_S-V_{R1}-V_{R3}-V_{R5}=0\\
+\color{green}V_S-(I_1-I_2)R_1-(I_3-I_2)R_3-I_3R_5=0\\
+\color{green}-R_1I_1+R_1I_2-R_3I_3+R_3I_2-R_5I_3=-V_S\\
+\color{green}-R_1I_1+(R_1+R_3)I_2+(-R_3-R_5)I_3=-V_S\\
+\end{eqnarray*}\]</div>
+<p>Plug in values:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\color{green}-2I_1+6I_2-12I_3=-6\text{V}\\
+\end{eqnarray*}\]</div>
+<p>The other KVL is more typical.  We’ll write this one around <span class="math notranslate nohighlight">\(I_2\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\color{red}-R_1(I_2-I_1)-R_2I_2-R_3(I_2-I_3)=0\\
+\color{red}-R_1I_2+R_1I_1-R_2I_2-R_3I_2+R_3I_3=0\\
+\color{red}R_1I_1+(-R_1-R_2-R_3)I_2+R_3I_3=0\\
+\end{eqnarray*}\]</div>
+<p>Plug in values:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\color{red}2I_1-8I_2+4I_3=0\\
+\end{eqnarray*}\]</div>
+<p>Solve using matrices:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ \begin{array}{ccc}
+1&amp;0&amp;-1\\
+-2&amp;6&amp;-12\\
+2&amp;-8&amp;4\\
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\-6\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}6.316\text{A}\\1.737\text{A}\\315.8\text{mA}\end{array}\right]\end{split}\]</div>
 </section>
 </section>
 <section id="mesh-analysis-with-dependent-supplies">
 <h2>Mesh Analysis with Dependent Supplies<a class="headerlink" href="#mesh-analysis-with-dependent-supplies" title="Permalink to this headline">#</a></h2>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(V_{O}\)</span> using mesh analysis
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,lx={<span class="math notranslate nohighlight">\(R_1\)</span> and 6~\Om}] (0,4)
-(0,4) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~2~\Om,v=<span class="math notranslate nohighlight">\(V_{x}\)</span>] (3,4)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(3,4) to[resistor,lx={$R_3$ and 4~\Om}] (3,2)
-(3,2) to[voltage source,lx={$V_{S1}$ and 12~V}] (3,0)
-(3,4) to[resistor,l=$R_4$~~8~\Om] (6,4)
-(6,2) to[R,lx_={$R_5$ and 4~\Om},v^&lt;=$V_{O}$] (6,4)
-(6,0) to[controlled voltage source,lx_={$V_{S2}$ and 3$V_{x}$}] (6,2)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-</pre></div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-<p>;
-\end{circuitikz}\end{center}</p>
+<figure class="align-default" id="mesh-dependent">
+<a class="reference internal image-reference" href="_images/mesh-dependent.svg"><img alt="_images/mesh-dependent.svg" height="300px" src="_images/mesh-dependent.svg" /></a>
+</figure>
 <p>\Solution
 The goal, as always with mesh analysis, is to write enough equations in terms of the unknown mesh currents to result in a solvable system of equations. The presence of the dependent supply does not change our approach to determining the number and types of equations we will write. We count the number of current supplies, dependent or independent, and write a KCL for each. Then we fill in the rest of the system with KVL equations. For this circuit this results in:
 \begin{center}
@@ -1247,20 +1181,11 @@ If you haven’t noticed yet this circuit has a dependent supply. In this case i
 Notice that the current is positive as it matches the positive direction with regards to the passive sign convention and the polarity as labeled in the original problem.</p>
 <p>We can now focus on writing the two KVL equations for this circuit
 \end{example}</p>
-<p>\begin{example}
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,l_=<span class="math notranslate nohighlight">\(V_{S1}\)</span>~~100~V] (0,0)
-(0,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_1\)</span>~~4~k\Om] (3,3)
-(3,0) to[current source,l=I\tss{S1}~~4~mA] (3,3)
-(3,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_2\)</span>~~8~k\Om] (6,3)
-(6,3) to[controlled current source,l_=I\tss{S2}~~2<span class="math notranslate nohighlight">\(I_1\)</span>] (6,0)
-(6,3) to[resistor,l=<span class="math notranslate nohighlight">\(R_3\)</span>~~2~k\Om] (9,3)
-(9,3) to[voltage source,l^=<span class="math notranslate nohighlight">\(V_{S2}\)</span>~~40~V] (9,0)
-(9,0) – ((0,0)
-(0,0) – (0,-.25) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\end{example}</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="mesh-dependent-supers">
+<a class="reference internal image-reference" href="_images/mesh-dependent-supers.svg"><img alt="_images/mesh-dependent-supers.svg" height="300px" src="_images/mesh-dependent-supers.svg" /></a>
+</figure>
 </section>
 <section id="the-shortcut">
 <h2>The Shortcut<a class="headerlink" href="#the-shortcut" title="Permalink to this headline">#</a></h2>
