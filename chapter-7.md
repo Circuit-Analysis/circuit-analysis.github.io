@@ -1074,23 +1074,35 @@ $$\left[ \begin{array}{ccc}
 \end{array} \right]^{-1}\left[\begin{array}{c}6\\-6\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}6.316\text{A}\\1.737\text{A}\\315.8\text{mA}\end{array}\right]$$
 
 ## Mesh Analysis with Dependent Supplies
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\begin{example}
-Find $V_{O}$ using mesh analysis
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,lx={$R_1$ and 6~\Om}] (0,4)
-(0,4) to[resistor,l=$R_2$~~2~\Om,v=$V_{x}$] (3,4)
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-    (3,4) to[resistor,lx={$R_3$ and 4~\Om}] (3,2)
-    (3,2) to[voltage source,lx={$V_{S1}$ and 12~V}] (3,0)
-    (3,4) to[resistor,l=$R_4$~~8~\Om] (6,4)
-    (6,2) to[R,lx_={$R_5$ and 4~\Om},v^<=$V_{O}$] (6,4)
-    (6,0) to[controlled voltage source,lx_={$V_{S2}$ and 3$V_{x}$}] (6,2)
-    (6,0) -- ((0,0)
-    (0,0) -- (0,-.25) node[sground,scale=0.5]{}
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent.svg') as d:
+    d.config(unit=4)
+    d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω'))
+    d += (R2 := elm.Resistor().right().label('$R_2$\n2Ω').label(('+','$V_x$','-'),loc='bottom'))
+    d += (R4 := elm.Resistor().right().label('$R_4$\n8Ω'))
+    d += (R5 := elm.Resistor().down().length(2).label('$R_5$\n4Ω',loc='bottom').label(('+','$V_O$','-'),loc='top'))
+    d += (Vs2 := elm.SourceControlledV().down().length(2).label('$V_{S2}$\n3$V_x$',loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R3 := elm.Resistor().at(R2.end).down().length(2).label('$R_3$\n4Ω',loc='bottom'))
+    d += (Vs2 := elm.SourceV().down().length(2).label('$V_{S1}$\n12V',loc='bottom').reverse())
+```
+```{figure} mesh-dependent.svg
+---
+height: 300px
+name: mesh-dependent
+---
+```
 
-;
-\end{circuitikz}\end{center}
+
 
 \Solution
 The goal, as always with mesh analysis, is to write enough equations in terms of the unknown mesh currents to result in a solvable system of equations. The presence of the dependent supply does not change our approach to determining the number and types of equations we will write. We count the number of current supplies, dependent or independent, and write a KCL for each. Then we fill in the rest of the system with KVL equations. For this circuit this results in:
@@ -1138,20 +1150,38 @@ Notice that the current is positive as it matches the positive direction with re
 We can now focus on writing the two KVL equations for this circuit
 \end{example}
 
-\begin{example}
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,l_=$V_{S1}$~~100~V] (0,0)
-(0,3) to[resistor,l=$R_1$~~4~k\Om] (3,3)
-(3,0) to[current source,l=I\tss{S1}~~4~mA] (3,3)
-(3,3) to[resistor,l=$R_2$~~8~k\Om] (6,3)
-(6,3) to[controlled current source,l_=I\tss{S2}~~2$I_1$] (6,0)
-(6,3) to[resistor,l=$R_3$~~2~k\Om] (9,3)
-(9,3) to[voltage source,l^=$V_{S2}$~~40~V] (9,0)
-(9,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\end{example}
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
+    d.config(unit=4)
+    d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ'))
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8kΩ'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n2kΩ'))
+    d += (Vs2 := elm.SourceV().down().label('$V_{S2}$\n40V',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (Is1 := elm.SourceI().at(R1.end).down().label('$I_{S1}$\n4mA').reverse())
+    d += (Is2 := elm.SourceControlledI().at(R2.end).down().label('$I_{S2}$\n2$I_x$'))
+    d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
+```
+```{figure} mesh-dependent-supers.svg
+---
+height: 300px
+name: mesh-dependent-supers
+---
+```
+
+
+
 
 ## The Shortcut
 
