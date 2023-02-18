@@ -256,6 +256,14 @@ with schemdraw.Drawing(file='voltage-divider-power-1.svg') as d:
 
 Let's look at the power dissipated in the case of a voltage divider.
 
+````{admonition} Example
+
+Find $P_{R_{1+2}}$, $P_{R_1}$, and $P_{R_2}$ and show that
+
+$$
+P_{R_{1+2}} = P_{R_1} + P_{R_2}.
+$$
+
 ```{figure} voltage-divider-power-1.svg
 ---
 height: 250px
@@ -263,6 +271,9 @@ name: voltage-divider-power-1
 ---
 The two circuits used above in the voltage divider example.
 ```
+
+```{admonition} Solution
+:class: tip, dropdown
 
 For the equivalent circuit, we saw that
 
@@ -303,6 +314,8 @@ P_{R_2} &= (15~\text{V})\left(\frac{R_2}{R_1+R_2} \frac{\Omega}{\Omega} \right) 
 $$
 
 So we can see that the amount of power dissipated does not change, even when we use the equivalent resistance.
+```
+````
 
 ### Power in Current Dividers
 
@@ -338,6 +351,14 @@ with schemdraw.Drawing(file='current-divider-power-1.svg') as d:
 
 Let's look at the power dissipated in the case of a current divider.
 
+````{admonition} Example
+
+Find $P_{R_{1\parallel 2}}$, $P_{R_1}$, and $P_{R_2}$ and show that
+
+$$
+P_{R_{1\parallel 2}} = P_{R_1} + P_{R_2}
+$$
+
 ```{figure} current-divider-power-1.svg
 ---
 height: 500px
@@ -346,13 +367,16 @@ name: current-divider-power-1
 The two circuits used above in the current divider example.
 ```
 
+```{admonition} Solution
+:class: tip, dropdown
+
 For the equivalent circuit, we saw that
 
 $$V=I_SR_{1\parallel 2}=(3~\text{mA})(3.33~\text{k}\Omega)=10~\text{V}$$
 
 so that
 
-$$P = V I = (10~\text{V}) ( 3 \text{mA}) = 30~\text{mW}$$
+$$P_{R_{1\parallel 2}} = V I = (10~\text{V}) ( 3 \text{mA}) = 30~\text{mW}$$
 
 For the original circuit, we saw that
 
@@ -377,6 +401,8 @@ P_{1+2} = P_{R_1} + P_{R_2} = 30~\text{mW}.
 $$
 
 So again we can see that the amount of power dissipated does not change, even the equivalent resistance is used.
+```
+````
 
 ## Kirchhoff's Laws
 
@@ -498,3 +524,11 @@ Note that $I_5$ is flowing _out_ of the node, so its sign is negative.
 
 $$
 $$
+
+```
+
+```
+
+```
+
+```
