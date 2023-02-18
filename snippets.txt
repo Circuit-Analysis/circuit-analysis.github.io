@@ -13,3 +13,7 @@ REPLACE: ````{admonition} Example\n $1\n```
 
 \\\[(.*?(.|[\n])*?)\\\]
 $$$$ $1 $$$$
+
+\\Solution
+````{admonition} Solution
+:class: tip, dropdown

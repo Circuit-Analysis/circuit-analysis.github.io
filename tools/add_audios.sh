@@ -1,0 +1,1 @@
+ffmpeg -i circuit_analysis_1.mp3 -i circuit_analysis_2.mp3 -i circuit_analysis_3.mp3 -i circuit_analysis_4.mp3 -i circuit_analysis_5.mp3 -i circuit_analysis_6.mp3 -filter_complex amix=inputs=6:duration=longest output.mp3
