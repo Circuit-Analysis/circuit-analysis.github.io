@@ -1165,6 +1165,12 @@ $$\left[ \begin{array}{ccc}
 
 
 ## Mesh Analysis with Dependent Supplies
+
+I often describe dependent supplies as the one component we've covered thus far that I cannot pull out of a draw and put in your hands.  Nevertheless, dependent supplies play an important role in analysis of modern electronics.  Every transistor is modeled with a dependent supply during analysis.  If you have a smart phone in your pocket right now, you have between one billion and two billion dependent supplies with you right now.  Maybe you're even using them to read this!
+
+Mesh analysis does not change much from what we have done so far.  The only change is the need to write an expression for the control variable of the dependent supply, and then substitute it into the system of equations.
+
+Here's an example
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -1186,6 +1192,34 @@ with schemdraw.Drawing(file='mesh-dependent.svg') as d:
     d += (R3 := elm.Resistor().at(R2.end).down().length(2).label('$R_3$\n4Ω',loc='bottom'))
     d += (Vs2 := elm.SourceV().down().length(2).label('$V_{S1}$\n12V',loc='bottom').reverse())
 ```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-annotated.svg') as d:
+    d.config(unit=4)
+    d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R2 := elm.Resistor().right().label('$R_2$\n2Ω').label(('+','$V_x$','-'),loc='bottom'))
+    d += (R4 := elm.Resistor().right().label('$R_4$\n8Ω').label(('+','','-'),loc='bottom',color='red'))
+    d += (R5 := elm.Resistor().down().length(2).label('$R_5$\n4Ω',loc='bottom').label(('+','$V_O$','-'),loc='top'))
+    d += (Vs2 := elm.SourceControlledV().down().length(2).label('$V_{S2}$\n3$V_x$',loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R3 := elm.Resistor().at(R2.end).down().length(2).label('$R_3$\n4Ω',loc='bottom').label(('+','','-'),loc='top',color='blue').label(('-','','+'),loc='bottom',color='red'))
+    d += (Vs2 := elm.SourceV().down().length(2).label('$V_{S1}$\n12V',loc='bottom').reverse())
+    d += elm.LoopCurrent([R2,R3,LineB,R1],pad=1).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R4,R5,LineB,R3],pad=1).label('$I_2$').color('red')
+    
+```
+
+`````{admonition} Example
+
 ```{figure} mesh-dependent.svg
 ---
 height: 300px
@@ -1193,53 +1227,69 @@ name: mesh-dependent
 ---
 ```
 
-
-
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 The goal, as always with mesh analysis, is to write enough equations in terms of the unknown mesh currents to result in a solvable system of equations. The presence of the dependent supply does not change our approach to determining the number and types of equations we will write. We count the number of current supplies, dependent or independent, and write a KCL for each. Then we fill in the rest of the system with KVL equations. For this circuit this results in:
-\begin{center}
-\begin{tabular}{rrc}
-&0&KCL\\
-+&2&KVL\\
-\hline
-&2&Unknowns\\
-\end{tabular}
-\end{center}
+
+$$0\text{ KCL}+2\text{ KVL}=2\text{ Unknowns}$$
+
 We can label our mesh currents and passive polarities as we did before
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,lx={$R_1$ and 6~\Om}] (0,4)
-(0,4) to[resistor,l=$R_2$~~2~\Om,v=$V_{x}$] (3,4)
 
-    (3,4) to[resistor,lx={$R_3$ and 4~\Om}] (3,2)
-    (3,2) to[voltage source,lx={$V_{S1}$ and 12~V}] (3,0)
-    (3,4) to[resistor,l=$R_4$~~8~\Om] (6,4)
-    (6,2) to[R,lx_={$R_5$ and 4~\Om},v^<=$V_{O}$] (6,4)
-    (6,0) to[controlled voltage source,lx_={$V_{S2}$ and 3$V_{x}$}] (6,2)
-    (6,0) -- ((0,0)
-    (0,0) -- (0,-.25) node[sground,scale=0.5]{}
-    (1.5,2) node[red,thick]{$I_1$}
-    (4.5,2) node[blue,thick]{$I_2$}
+```{figure} mesh-dependent-annotated.svg
+---
+height: 300px
+name: mesh-dependent-annotated
+---
+```
 
-;
-%%\centerarc[red,->,thick](1.5,2)(225:-45:5mm)
-%%\centerarc[blue,->,thick](4.5,2)(225:-45:5mm)
-%\draw[red,thick] (2.75,3.8) node[below]{+}
-(2.75,2.3) node[below]{-}
-(.25,3) node[below]{+}
-(.25,1.5) node[below]{-}
-;
-%\draw[blue,thick] (4,4) node[below]{+}
-(5.25,4) node[below]{-}
-(3.25,3.8) node[below]{-}
-(3.25,2.3) node[below]{+}
-;
-\end{circuitikz}\end{center}
 If you haven't noticed yet this circuit has a dependent supply. In this case it is a voltage supply as indicated by the + and - within the diamond shape. The input in this case is the voltage $V_{x}$. We need to write an expression for $V_{x}$ in terms of the unknowns of the system. We do this as if we know the mesh currents and want to find $V_{x}$ as if it were an output of the circuit.
-\[V_x=I_1R_2=2I_1\]
+
+$$V_x=I_1R_2=2I_1$$
+
 Notice that the current is positive as it matches the positive direction with regards to the passive sign convention and the polarity as labeled in the original problem.
 
-We can now focus on writing the two KVL equations for this circuit
-\end{example}
+We can now focus on writing the two KVL equations for this circuit.  There is no dependent supply in this mesh therefore the KVL around $I_1$ looks like the KVL's we've written before.  
+
+\begin{eqnarray*}
+\color{blue}-V_{R1}-V_{R2}-V_{R3}-V_{S1}=0\\
+\color{blue}-I_1R_1-I_1R_2-(I_1-I_2)R_3-V_{S1}=0\\
+\color{blue}-R_1I_1-R_2I_1-R_3I_1+R_3I_2=V_{S1}\\
+\color{blue}(-R_1-R_2-R_3)I_1+R_3I_2=V_{S1}\\
+\color{blue}-12I_1+4I_2=12\\
+\end{eqnarray*}
+
+The KVL around the $I_2$ mesh does involve the dependent supply and thus we need to perform one additional substitution.
+
+\begin{eqnarray*}
+\color{red}V_{S1}-V_{R3}-V_{R4}-V_{R5}+V_{S2}=0\\
+\color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3V_{x}=0\\
+\end{eqnarray*}
+
+I will substitute the value of $V_x$ into the system now.  This way I can expand that term at the same time I expand the others.  Ultimately, the equation must only contain the unknown variables and constants. 
+
+\begin{eqnarray*}
+\color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3(2I_1)=0\\
+\color{red}V_{S1}-I_2R_3+I_1R_3-I_2R_4-I_2R_5+6I_1=0\\
+\color{red}(R_3+6)I_1+(-R_3-R_4-R_5)I_2=-V_{S1}\\
+\color{red}10I_1-16I_2=-12\\
+\end{eqnarray*}
+
+These two KVLs form the system of equations :
+
+\begin{eqnarray*}
+\color{blue}-12I_1+4I_2=12\\
+\color{red}10I_1-16I_2=-12\\
+\end{eqnarray*}
+
+Solve using matrices to find the mesh currents:
+
+$$\left[ \begin{array}{cc}
+-12&4\\
+10&-16\\
+\end{array} \right]^{-1}\left[\begin{array}{c}12\\-12\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-947.4\text{mA}\\157.9\text{mA}\end{array}\right]$$
+
+````
+`````
 
 
 ```{code-cell} ipython3
@@ -1264,13 +1314,21 @@ with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
     d += (Is2 := elm.SourceControlledI().at(R2.end).down().label('$I_{S2}$\n2$I_x$'))
     d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
 ```
+
+
+
+`````{admonition} Example
 ```{figure} mesh-dependent-supers.svg
 ---
 height: 300px
 name: mesh-dependent-supers
 ---
 ```
-
+````{admonition} Solution
+:class: tip, dropdown
+derp
+````
+`````
 
 
 
