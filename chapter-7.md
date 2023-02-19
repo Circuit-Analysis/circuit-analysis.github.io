@@ -329,8 +329,42 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 5. Plug in values and solve the system.
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-Let's apply these steps to our toy problem.  Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-mesh.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    
+```
+
+Let's apply these steps to our toy problem.
+`````{admonition} Example
+Find $V_A$ in this circuit 
+
+````{figure} mesh-toy-problem-mesh.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh
+---
+````
+
+````{admonition} Solution using Mesh Analysis
+:class: tip, dropdown
+Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -363,6 +397,7 @@ name: mesh-toy-problem-mesh1
 ---
 ```
 
+
 In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I'm currently working on. It is possible, as we see here with $R_2$, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the **passive** (resistors here) components.  The voltage supply is active and therefore its polarity is unaffected by our choice of mesh current direction.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -394,6 +429,7 @@ height: 300px
 name: mesh-toy-problem-mesh2
 ---
 ```
+
 
 Following the colors of the mesh currents in the schematics the two KVL equations are
 \begin{eqnarray*}\color{red}
@@ -467,6 +503,8 @@ $$\left[ \begin{array}{cc}
 Even after all of this we still haven't found what we were asked to, $V_A$. We can do that using the expression for $V_{R2}$ discussed in this example, but which one? $V_A$ is the voltage at node A with reference to ground. Following the passive sign convention in this case the positive current direction is down through the resistor. Therefore, the voltage, $V_A$ is found with
 
 $$V_A=(I_1-I_2)R_2=(1.167~\text{A}-583.3~\text{mA})24~\Omega=14~\text{V}$$
+````
+`````
 
 
 Why on earth would we go through all of that when we have already solved this problem in a simpler manner?
@@ -494,7 +532,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-other-value.svg') as d:
     d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
     d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
-    d += elm.Line().left().tox(R1.start)
+    d += (LineB := elm.Line().left().tox(R1.start))
     d += elm.GroundSignal()
     d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
     d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
@@ -517,7 +555,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-other-value-solution.svg') as d:
     d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω'))
     d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω').label(('+','$V_B$','-'),loc='bottom'))
-    d += elm.Line().left().tox(R1.start)
+    d += (LineB := elm.Line().left().tox(R1.start))
     d += elm.GroundSignal()
     d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
     d += (nodeB := elm.Dot().at(R3.end).label('B',loc='top'))
@@ -814,14 +852,19 @@ with schemdraw.Drawing(file='mesh-current-supply.svg') as d:
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
 ```
-```{figure} mesh-current-supply.svg
+
+`````{admonition} Example
+Find the mesh currents in this circuit
+
+````{figure} mesh-current-supply.svg
 ---
 height: 300px
 name: mesh-current-supply
 ---
-```
+````
 
-**Solution**
+````{admonition} Solution
+:class: tip, dropdown
 Before we begin the analysis let's summarize what equations we'll be writing:
 
 $$1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}$$
@@ -855,17 +898,17 @@ name: mesh-current-supply-annotated
 ```
 Now let's set about writing the equations. Let's consider which mesh currents flow through the current supply in order to write the KCL equation. In this case the 5A supply is only part of the second mesh and therefore is only affected by $I_2$. The direction of the mesh current must also be considered. Since $I_2$ opposes the direction of the 5A supply (they flow in opposite directions) one will be the negative of the other. We describe this as:
 
-$$\color{blue} I_2=-5~\text{A}$$
+$$\color{red} I_2=-5~\text{A}$$
 
 or its mathematical equivalent:
 
-$$\color{blue} -I_2=5~\text{A}\color{black}$$
+$$\color{red} -I_2=5~\text{A}\color{black}$$
 
 Either of these is suitable to be included in the system of equations that describe this circuit.
 
 The second equation is a KVL. The only suitable mesh for a KVL equation is the left mesh ($I_1$).
 
-\begin{eqnarray*}\color{red}
+\begin{eqnarray*}\color{blue}
 \color{red} V_S-V_{R1}-V_{R2}=0\\
 \color{red} V_{R1}+V_{R2}=V_S\\
 \color{red} I_1R_1+(I_1-I_2)R_2=V_S\\
@@ -874,9 +917,9 @@ The second equation is a KVL. The only suitable mesh for a KVL equation is the l
 
 The last equation in the sequence above is suitable for inclusion in the system of equations that describe this circuit.  Substituting the values in gives us:
 
-\begin{eqnarray*}\color{red}
+\begin{eqnarray*}\color{blue}
 10~\Omega I_1-6~\Omega I_2=10~\text{V}\\
-\color{blue}
+\color{red}
 -I_2=5~\text{A}\\
 \end{eqnarray*}
 Solve using matrices to find the mesh currents:
@@ -885,13 +928,14 @@ $$\left[ \begin{array}{cc}
 10&-6\\
 0&-1\\
 \end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]$$
-
+````
+`````
 
 ### Current Sources with Multiple Mesh Currents
 
 The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a **loop** is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.
 
-Let's look at an example.  Determine the mesh currents.
+Let's look at an example.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -903,6 +947,25 @@ import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='mesh-super.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n10Ω'))
+    d += (R4 := elm.Resistor().down().label('$R_4$\n4Ω',loc='bottom').length(4))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n2Ω').length(2))
+    d += (Is := elm.SourceI().down().label('$I_S$\n6A').length(2).reverse())
+    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super-annotated.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='blue'))
     d += (R3 := elm.Resistor().right().label('$R_3$\n10Ω').label(('+','','-'),loc='bottom',color='red'))
     d += (R4 := elm.Resistor().down().label('$R_4$\n4Ω',loc='bottom').label(('+','','-'),loc='top',color='red').length(4))
@@ -912,6 +975,11 @@ with schemdraw.Drawing(file='mesh-super.svg') as d:
     d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
     d += elm.LoopCurrent([R3,R4,LineB,R2],pad=0.5).label('$I_2$').color('red')
 ```
+
+
+
+`````{admonition} Example
+Determine the mesh currents.
 ```{figure} mesh-super.svg
 ---
 height: 300px
@@ -919,10 +987,20 @@ name: mesh-super
 ---
 ```
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 Considering the number and types of equations to be written given the one current supply and two meshes:
 
 $$1\text{ KCL}+1\text{ KVL}=2\text{ Unknowns}$$
+
+Let's start by labeling the mesh currents and polarities for the passive circuit elements
+
+```{figure} mesh-super-annotated.svg
+---
+height: 300px
+name: mesh-super-annotated
+---
+```
 
 Two meshes contain the current supply, $I_1$ and $I_2$. We consider each in turn with respect to the current direction. $I_1$ flows against the supply and will therefore will be negative. $I_2$ flows with the current supply and therefore will be positive.
 
@@ -949,8 +1027,10 @@ $$\left[ \begin{array}{cc}
 -1&1\\
 -6&-14\\
 \end{array} \right]^{-1}\left[\begin{array}{c}6\\-20\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]$$
+````
+`````
 
-Let's consider another example.  In the previous example the KVL was written around the outside of the circuit.  This may not always be possible.  It is a better habit to write the KVL around the two meshes that are shared by the current supply as we will for this circuit:
+Let's consider another example.  In the previous example the KVL was written around the outside of the circuit.  This may not always be possible.  It is a better habit to write the KVL around the two meshes that are shared by the current supply as we will for the following example:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -979,13 +1059,20 @@ with schemdraw.Drawing(file='mesh-super-3.svg') as d:
     d += elm.LoopCurrent([R3,R5,LineB,R4],pad=1).label('$I_3$').color('orange')
 
 ```
+
+`````{admonition} Example
+Find the mesh currents.
 ```{figure} mesh-super-3.svg
 ---
 height: 300px
 name: mesh-super-3
 ---
 ```
-Considering the number and types of equations to be written given the one current supply and &
+I've already labeled the mesh currents and polarities to save time.
+
+````{admonition} Solution
+:class: tip, dropdown
+We consider the number and types of equations to be written given the one current supply and three mesh currents
 
 $$1\text{ KCL}+2\text{ KVL}=3\text{ Unknowns}$$
 
@@ -1072,6 +1159,10 @@ $$\left[ \begin{array}{ccc}
 -2&6&-12\\
 2&-8&4\\
 \end{array} \right]^{-1}\left[\begin{array}{c}6\\-6\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}6.316\text{A}\\1.737\text{A}\\315.8\text{mA}\end{array}\right]$$
+````
+`````
+
+
 
 ## Mesh Analysis with Dependent Supplies
 ```{code-cell} ipython3
