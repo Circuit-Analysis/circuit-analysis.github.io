@@ -1888,103 +1888,129 @@ $$\begin{array}{c}
 ````
 
 
-
-
-
-
-
 If current supplies are present in a circuit it is possible they create a super-loop. In the next example I'll use the shortcut on a circuit with a current supply. The current supply will have two mesh currents flowing through it leading to a super-loop.
 
-\begin{example}
-Find the mesh currents.
-\begin{center}\begin{circuitikz}\draw
-(0,4) to[voltage source,lx={$V_S$ and 20~V}] (0,0)
-(0,4) to[resistor,lx={$R_1$ and \raisebox{1ex}{6~\Om}}] (3,4)
-(3,4) to[resistor,lx={$R_2$ and 2~\Om}] (3,2)
-(3,0) to[current source,lx={$I_S$ and 6~A}] (3,2)
-(3,4) to[resistor,lx={$R_3$ and \raisebox{1ex}{10~\Om}}] (6,4)
-(6,0) to[R,lx_={$R_4$ and 4~\Om}] (6,4)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(1.8,2.5) node[red,thick]{$I_1$}
-(4.7,1) node[blue,thick]{$I_2$}
-;
-%\centerarc[red,->,thick](1.8,2.5)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.7,1)(225:-45:5mm)
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-    \end{circuitikz}\end{center}
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-    \Solution
-    We make the plan for this circuit.  One current supply and two meshes leads to
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super-shortcut.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n10Ω'))
+    d += (R4 := elm.Resistor().down().label('$R_4$\n4Ω',loc='bottom').length(4))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n2Ω').length(2))
+    d += (Is := elm.SourceI().down().label('$I_S$\n6A').length(2).reverse())
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=0.5).label('$I_2$').color('red')
+```
 
-    \[ \begin{array}{c}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\text{Super~KVL}\\
-\text{Super~KCL}\\
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super-shortcut1.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n10Ω'))
+    d += (R4 := elm.Resistor().down().label('$R_4$\n4Ω',loc='bottom').length(4))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n2Ω').length(2))
+    d += (Is := elm.SourceI().down().label('$I_S$\n6A').length(2).reverse())
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=0.5).label('$I_2$').color('red')
+
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.6,dy=0.3).up().color('green').toy(3.6)
+    d += elm.Line().linestyle('--').right().color('green').tox(5.5)
+    d += elm.Line().linestyle('--').down().color('green').toy(0.3)
+    d += elm.Line(arrow='->').linestyle('--').left().color('green').tox(1)
+
+```
+
+
+`````{admonition} Example
+Find the mesh currents
+```{figure} mesh-super-shortcut.svg
+---
+height: 300px
+name: mesh-super-shortcut
+---
+```
+````{admonition} Solution
+We make the plan for this circuit.  One current supply and two meshes leads to
+
+$$\begin{array}{c}
+\text{Super KVL}\\
+\text{Super KCL}\\
 \end{array}\left[ \begin{array}{cc}
 ~&~\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
 
 In order the complete the row for the super-loop KVL we have to be clear on what components we will cross as we move around the loop. To makes this easier for now I've marked the super-loop with a the dotted path shown here:
-\begin{center}\begin{circuitikz}\draw
-(0,4) to[voltage source,lx={$V_S$ and 20~V}] (0,0)
-(0,4) to[resistor,lx={$R_1$ and \raisebox{1ex}{6~\Om}}] (3,4)
-(3,4) to[resistor,lx={$R_2$ and 2~\Om}] (3,2)
-(3,0) to[current source,lx={$I_S$ and 6~A}] (3,2)
-(3,4) to[resistor,lx={$R_3$ and \raisebox{1ex}{10~\Om}}] (6,4)
-(6,0) to[R,lx_={$R_4$ and 4~\Om}] (6,4)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(1.8,2.5) node[red,thick]{$I_1$}
-(4.7,1) node[blue,thick]{$I_2$}
-;
-%\centerarc[red,->,thick](1.8,2.5)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.7,1)(225:-45:5mm)
-%\draw[green,dashed,thick,-latex]
-(.5,.5) to[short] (.5,3.75) to[short] (5.5,3.75) to[short] (5.5,.25) to[short,->] (.75,.25)
-;
-\end{circuitikz}\end{center}
-As we fill in the super~KVL rwo we only consider components on this path. The KVL questions change form slightly to take into consideration the super-loop.
-\begin{enumerate}
-\item \textbf{What passive components does the dotted path cross that have $I_1$ flowing through them? } For this circuit the answer $R_1$. We add the values of the resistors (on in this case) and put the sum in the matrix. Since we are considering the super-KVL and $I_1$ is part of the super-loop we enter it as a positive number. Here we will enter 6.  
- \item \textbf{What passive components does the dotted path cross that have $I_2$ flowing through them?} For this circuit $R_3$ and $R_4$ meet this criterion. We again add the values and enter it in the matrix. Since we are considering the super-KVL and $I_2$ is part of the super-loop we enter it as a positive number. Here we will enter 14.
-\item \textbf{Do we cross any voltage supplies?} There are no voltage supplies on this mesh. Therefore we enter a +20 in the 2x1 vector.
-\end{enumerate}
-\[ \begin{array}{c}
+
+```{figure} mesh-super-shortcut1.svg
+---
+height: 300px
+name: mesh-super-shortcut1
+---
+```
+
+As we fill in the super KVL rwo we only consider components on this path. The KVL questions change form slightly to take into consideration the super-loop.
+
+1. **What passive components does the dotted path cross that have $I_1$ flowing through them?** For this circuit the answer $R_1$. We add the values of the resistors (on in this case) and put the sum in the matrix. Since we are considering the super-KVL and $I_1$ is part of the super-loop we enter it as a positive number. Here we will enter 6.  
+2. **What passive components does the dotted path cross that have $I_2$ flowing through them?** For this circuit $R_3$ and $R_4$ meet this criterion. We again add the values and enter it in the matrix. Since we are considering the super-KVL and $I_2$ is part of the super-loop we enter it as a positive number. Here we will enter 14.
+3. **Do we cross any voltage supplies?** } There are no voltage supplies on this mesh. Therefore we enter a +20 in the 2x1 vector.
+
+$$\begin{array}{c}
 \text{Super~KVL}\\
 \text{Super~KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}20\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}20\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
 
 We ask identical questions to fill in the super-KCL. Look back at the KCL questions from the previous examples to convince yourself.
-\begin{enumerate}
-\item \textbf{Does $I_1$ flow through the current supply?} For this circuit the answer is yes which leads to a follow-up question: \textbf{Does the mesh current flow with or against the direction of the current supply?} In this circuit $I_1$ flows against the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows against the supply current it will be negative. We enter -1 for this entry.  
- \item \textbf{Does $I_2$ flow through the current supply?} For this circuit the answer is yes which leads to a follow-up question: \textbf{Does the mesh current flow with or against the direction of the current supply?} In this circuit $I_2$ flows with the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows with the supply current it will be positive. We enter +1 for this entry.
-\end{enumerate}
+
+1. Does $I_1$ flow through the current supply?} For this circuit the answer is yes which leads to a follow-up question: **Does the mesh current flow with or against the direction of the current supply?** In this circuit $I_1$ flows against the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows against the supply current it will be negative. We enter -1 for this entry.  
+2. **Does $I_2$ flow through the current supply?** For this circuit the answer is yes which leads to a follow-up question: **Does the mesh current flow with or against the direction of the current supply?** In this circuit $I_2$ flows with the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows with the supply current it will be positive. We enter +1 for this entry.
+
 The right hand side of the KCL is simply the value of the regulated current. Here is the system filled in and ready to solve:
-\[ \begin{array}{c}
+
+$$\begin{array}{c}
 \text{Super~KVL}\\
 \text{Super~KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 -1&1\\
-\end{array} \right]^{-1}\left[\begin{array}{c}20\\6\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}20\\6\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
+
 Now we can solve for the mesh currents
-\[ \begin{array}{c}
+
+$$\begin{array}{c}
 \text{Super~KVL}\\
 \text{Super~KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 -1&1\\
-\end{array} \right]^{-1}\left[\begin{array}{c}20\\6\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}20\\6\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-3.2~\text{A}\\2.8~\text{A}\end{array}\right]$$
 
-\end{example}
-%%
+````
+`````
 
-%%
+
+
 
 \begin{example}
 Find the mesh currents.
