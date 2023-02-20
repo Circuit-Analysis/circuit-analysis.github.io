@@ -1815,75 +1815,83 @@ $$ \begin{array}{c}
 ```
 ````
 
+We can handle circuits that have current supplies using a similar approach.  let's take the first example as a circuit with a current supply that is **not** a super-mesh.
 
-\begin{example}
-Find the mesh currents.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,lx_={$V_S$ and 10~V}] (0,0)
-(0,3) to[resistor,lx={$R_1$ and \raisebox{1ex}{4~\Om}}] (3,3)
-(3,3) to[resistor,lx={$R_2$ and 6~\Om}] (3,0)
-(3,3) to[resistor,lx={$R_3$ and \raisebox{1ex}{3~\Om}}] (6,3)
-(6,0) to[current source,lx_={$I_S$ and 5~A}] (6,3)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(1.5,1.5) node[red,thick]{$I_1$}
-(4.7,1.5) node[blue,thick]{$I_2$}
-;
-%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.7,1.5)(225:-45:5mm)
-%\draw[red,thick] (2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-}
-%(.25,2.5) node[below]{-}
-%(.25,1) node[below]{+}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-;
-%\draw[blue,thick] (4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-% (5.75,2.5) node[below]{+}
-% (5.75,1) node[below]{-}
-;
-\end{circuitikz}\end{center}
-\Solution
-We can use the shortcut to analyze circuit with current supplies. We have to make our plan just as before and the questions for the KCL equations are different.
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-current-supply-shortcut.svg') as d:
+    d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n3Ω'))
+    d += (Is := elm.SourceI().down().label('$I_S$\n5A',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n6Ω'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R3,Is,LineB,R2],pad=0.5).label('$I_2$').color('red')
+```
+````{admonition} Example
+Find the mesh currents
+```{figure} mesh-current-supply-shortcut.svg
+---
+height: 300px
+name: mesh-current-supply-shortcut
+---
+```
+```{admonition} Solution
+:class: tip, dropdown
+We have to make our plan just as before and the questions for the KCL equations are different.
 We'll write a KCL for the $I_2$ mesh current since it has a current supply. We will also write a KVL around the $I_1$ mesh to complete the system of equations.
+
 The row for the KVL is filled just as we did before. Here is is filled in:
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KCL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KCL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 10&-6\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}10\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}10\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
+
 To fill in a row for a KCL I ask a question for each mesh current:
-\begin{enumerate}
-\item \textbf{Does $I_1$ flow through the current supply?} For this circuit the answer no. Therefore, $I_1$ does not appear in the KCL equation. The coefficient is therefore 0.  
- \item \textbf{Does $I_2$ flow through the current supply?} For this circuit the answer is yes which leads to a follow-up question: \textbf{Does the mesh current flow with or against the direction of the current supply?} In this circuit $I_2$ flows against the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows against the supply current it will be negative. We enter -1 for this entry.
-\end{enumerate}
+
+1. **Does $I_1$ flow through the current supply?** For this circuit the answer no. Therefore, $I_1$ does not appear in the KCL equation. The coefficient is therefore 0.  
+2. **Does $I_2$ flow through the current supply?** For this circuit the answer is yes which leads to a follow-up question: **Does the mesh current flow with or against the direction of the current supply?** In this circuit $I_2$ flows against the flow of $I_S$. Since is in the KCL equation the coefficient will have a magnitude of 1. Since it flows against the supply current it will be negative. We enter -1 for this entry.
+
 The right hand side of the KCL is simply the value of the regulated current. Here is the system filled in and ready to solve:
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KCL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KCL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 10&-6\\
 0&-1\\
-\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
+
 Now we can solve for the mesh currents
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KCL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KCL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 10&-6\\
 0&-1\\
-\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}10\\5\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-2~\text{A}\\-5~\text{A}\end{array}\right]$$
 
-\end{example}
+```
+````
 
-%%
 
-%%
+
+
+
+
 
 If current supplies are present in a circuit it is possible they create a super-loop. In the next example I'll use the shortcut on a circuit with a current supply. The current supply will have two mesh currents flowing through it leading to a super-loop.
 
