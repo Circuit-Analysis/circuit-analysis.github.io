@@ -1948,6 +1948,7 @@ name: mesh-super-shortcut
 ---
 ```
 ````{admonition} Solution
+:class: tip, dropdown
 We make the plan for this circuit.  One current supply and two meshes leads to
 
 $$\begin{array}{c}
