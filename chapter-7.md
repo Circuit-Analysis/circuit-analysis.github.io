@@ -1610,129 +1610,162 @@ If you look back at the first time we analyzed this circuit you'll notice that t
 ````
 `````
 
+I'm not going to explicitly state the questions for the next example. Try to use the previous example to anticipate how I will fill up the matrices for this analysis.
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n12Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n12Ω'))
+    d += (R4 := elm.SourceV().at(R3.end).down().label('$I_S$\n8V').reverse())
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=.75,direction='cw').label('$I_2$').color('blue')
+    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources-shortcut1.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n12Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n12Ω',loc='bottom'))
+    d += (R4 := elm.SourceV().at(R3.end).down().label('$I_S$\n8V').reverse())
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=1,direction='cw').label('$I_2$').color('blue')
+
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.7,dy=0.7).up().color('red').toy(3.3)
+    d += elm.Line().linestyle('--').right().color('red').tox(3.3)
+    d += elm.Line().linestyle('--').down().color('red').toy(0.7)
+    d += elm.Line(arrow='->').linestyle('--').left().color('red').tox(1.5)
+
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-multiple-sources-shortcut2.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n12Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n12Ω',loc='top'))
+    d += (R4 := elm.SourceV().at(R3.end).down().label('$I_S$\n8V',loc='bottom').reverse())
+    d += elm.Line().left().tox(R1.start)
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=1,direction='cw').label('$I_2$').color('blue')
+
+    d += elm.Line().linestyle('--').at(Vs.start,dx=4.7,dy=0.7).up().color('blue').toy(3.3)
+    d += elm.Line().linestyle('--').right().color('blue').tox(7.3)
+    d += elm.Line().linestyle('--').down().color('blue').toy(0.7)
+    d += elm.Line(arrow='->').linestyle('--').left().color('blue').tox(5.5)
+
+```
 
 
 
-%%
+`````{admonition} Example
 
-%%
+```{figure} mesh-multiple-sources-shortcut.svg
+---
+height: 300px
+name: mesh-multiple-sources-shortcut
+---
+```
 
-\begin{example}
-I'm not going to explicitly state the questions for this example. Try to use the previous example to anticipate how I will fill up the matrices for this analysis.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_{S1}$~~12V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~12\Om] (6,3)
-(6,3) to[battery,l^=$V_{S2}$~~8V] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{12\Om}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+};
-\end{circuitikz}\end{center}
+````{admonition} Solution
+:class: tip, dropdown
 This circuit also has 2 meshes so the blank system will be setup in the same way as the previous example. Also, the plan does not change since there are no current supplies in the circuit. We will write two KVL equations again.
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 ~&~\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]$$
+
 We'll still proceed row by row beginning with the KVL for the $I_1$ mesh current in the first row.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_{S1}$~~12V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~12\Om] (6,3)
-(6,3) to[battery,l^=$V_{S2}$~~8V] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{12\Om}
-;
-%%\draw[red,dashed,thick,-latex]
-(.5,.75) to[short] (.5,2.5) to[short] (2.5,2.5) to[short] (2.5,.5) to[short,->] (.75,.5)
-;
-%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};
-%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+};
-\end{circuitikz}\end{center}
+
+```{figure} mesh-multiple-sources-shortcut1.svg
+---
+height: 300px
+name: mesh-multiple-sources-shortcut1
+---
+```
 Follow the dotted path and see if you can ask yourself the correct questions to fill in the first row.
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 18&-12\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]$$
+
 We now move on the the KVL for the $I_2$ mesh. Let's move the dotted line to that mesh.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_{S1}$~~12V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l_=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~12\Om] (6,3)
-(6,3) to[battery,l^=$V_{S2}$~~8V] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(2.4,.9) node[above]{12\Om}
-;
-%\draw[blue,dashed,thick,-latex]
-(3.5,.75) to[short] (3.5,2.5) to[short] (5.5,2.5) to[short] (5.5,.5) to[short,->] (3.75,.5)
-;
-%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(1,3) node[below]{+}
-(2.25,3) node[below]{-}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-};
-%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+};
-\end{circuitikz}\end{center}
+
+```{figure} mesh-multiple-sources-shortcut2.svg
+---
+height: 300px
+name: mesh-multiple-sources-shortcut2
+---
+```
 Again, follow the dotted path and see if you can ask yourself the correct questions to fill in the second row.
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 18&-12\\
 -12&24\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12\\-8\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12\\-8\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}~\\~\end{array}\right]$$
+
 Finally, solve the system.
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 18&-12\\
 -12&24\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12\\-8\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}666.7~\text{mA}\\0~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12\\-8\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]= \left[\begin{array}{c}666.7~\text{mA}\\0~\text{A}\end{array}\right]$$
+
 Once again, the mesh currents found using this method are the same as those previous found.
-\end{example}
+````
+`````
+
 
 \begin{example}
 Now the gloves are really off. I'll fill out the matrices in a single line. Makes sure you can replicate the result.
