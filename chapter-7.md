@@ -2081,3 +2081,37 @@ I want you to read the word ``Advanced'' and think to yourself: I could very wel
 ;
 \end{circuitikz}\end{center}
 \end{example}
+
+## Strategy for Mesh Analysis
+The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis.  If you master these you will be able to analyze most linear electric circuits.  I've also shown you how to use the "shortcut" to perform mesh analysis quickly.  With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.
+
+Not all circuits require you to use the techniques introduced here.  When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them.  I will do my best to summarize the strategy I use when analyzing a circuit.
+
+1. **How many meshes?** The number of meshes define how many unknowns will be part of the system and, therefore, how many equations you will have to write.
+
+2. **Are there current supplies?** Each current supply means you will write a KCL equation instead of a KVL.  Also notice I say "current supply".  I don't say "dependent supply" or "independent supply" since the type of current supply does not matter.
+
+    a. **Does the current supply touch a single mesh current?** This is the simpler of the two conditions created by current supplies in the circuit.  Just write a KCL for the current supply and skip the KVL for the mesh current that flows through the current supply.
+
+    b. **Does the current supply touch two mesh currents?**  This condition creates a "super-loop" or "super-mesh".  The KCL is written in the same way as the previous case.  The difference here is found in how you will write one of the KVLs. Rather than writing a KVL around a single mesh you will write a KVL around two or more meshes.  It is best if you write the KVL around the two meshes that flow through the current supply.
+
+3. **Are there any dependent supplies?** Look for diamond shaped supplies.  It does not matter whether they are voltage or current supplies.  Locate the control variable on the schematic and write an expression for it in terms of the unknown mesh currents.  This expression is written in a similar manner to finding the output values of the analysis.  You should use this expression anytime the control variable shows up in the system of equations.  
+
+4. **Write the equations**  If you've answered the questions above you should know which equations you will include in the system.  Write them carefully and use good practice with regards to the signs and order of coefficients.  
+
+5. **Solve the system** Matrix inversion works.  So does row-reduced echelon form.  If you'd like use software like MATLAB to solve the system.  Just find the answer.  
+
+6. **Find output of analysis** Once you know the mesh current you can find any other value in the circuit.  The output of the analysis may take a few different forms.  
+
+    a. **Is the value a current?** If the value is a current you can write a KCL equation to find the output.  Pay attention to the direction of the current as labeled on the schematic and which mesh currents touch that arrow.
+
+    b. **Is the value a voltage across a single passive component?** If the value is a voltage across a passive component use a combination of KCL and Ohm's law to find that voltage.  Find the current as you did for the previous output type respecting passive sign convention for the labeled voltage polarity.  Use that current and the resistance (or impedance in later chapters) to find the voltage.  This is useful for finding voltages that are outputs of the analysis as well as finding voltages that are intermediate values for the next type of output value.
+
+    c. **Is the value a voltage across multiple components or a current supply?** If the value is a voltage measured across multiple components or a component with an unknown resistance you will have to use a KVL.  This means you have to find other voltages using the previous method.  Write a KVL around a loop that includes the unknown voltage.  Find all of the other voltages in the loop.  Solve for the unknown voltage.
+	
+	
+
+
+
+
+
