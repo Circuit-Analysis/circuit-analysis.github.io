@@ -1315,18 +1315,143 @@ with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
     d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-supers-annotated.svg') as d:
+    d.config(unit=4)
+    d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8kΩ').label(('+','','-'),loc='bottom',color='red'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n2kΩ').label(('+','','-'),loc='bottom',color='orange'))
+    d += (Vs2 := elm.SourceV().down().label('$V_{S2}$\n40V',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (Is1 := elm.SourceI().at(R1.end).down().label('$I_{S1}$\n4mA').reverse())
+    d += (Is2 := elm.SourceControlledI().at(R2.end).down().label('$I_{S2}$\n2$I_x$'))
+    d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
+    d += elm.LoopCurrent([R1,Is1,LineB,Vs1],pad=0.7).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R2,Is2,LineB,Is1],pad=0.7).label('$I_2$').color('red')
+    d += elm.LoopCurrent([R3,Vs2,LineB,Is2],pad=0.7).label('$I_3$').color('orange')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-supers-annotated-supermesh.svg') as d:
+    d.config(unit=4)
+    d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ').label(('+','','-'),loc='bottom',color='blue'))
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8kΩ').label(('+','','-'),loc='bottom',color='red'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n2kΩ').label(('+','','-'),loc='bottom',color='orange'))
+    d += (Vs2 := elm.SourceV().down().label('$V_{S2}$\n40V',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (Is1 := elm.SourceI().at(R1.end).down().label('$I_{S1}$\n4mA').reverse())
+    d += (Is2 := elm.SourceControlledI().at(R2.end).down().label('$I_{S2}$\n2$I_x$'))
+    d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
+    d += elm.LoopCurrent([R1,Is1,LineB,Vs1],pad=0.7).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R2,Is2,LineB,Is1],pad=0.7).label('$I_2$').color('red')
+    d += elm.LoopCurrent([R3,Vs2,LineB,Is2],pad=0.7).label('$I_3$').color('orange')
+    
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.6,dy=0.5).up().color('green').toy(3.65)
+    d += elm.Line().linestyle('--').right().color('green').tox(11.25)
+    d += elm.Line().linestyle('--').down().color('green').toy(0.25)
+    d += elm.Line(arrow='->').linestyle('--').left().color('green').tox(1)
+```
+Dependent supplies can also affect the KCL equations.  Here is an example of that case:
 
 `````{admonition} Example
+Find the mesh currents
+
 ```{figure} mesh-dependent-supers.svg
 ---
 height: 300px
 name: mesh-dependent-supers
 ---
 ```
+
 ````{admonition} Solution
 :class: tip, dropdown
-derp
+Let's mark up the schematic in the usual manner:
+```{figure} mesh-dependent-supers-annotated.svg
+---
+height: 300px
+name: mesh-dependent-supers-annotated
+---
+```
+Since there are two current supplies in the circuit we will write 2 KCL equations.  That leaves one equation as a KVL, but where?
+
+$$2\text{ KCL}+1\text{ KVL}=3\text{ Unknowns}$$
+
+I like this problem as it combines concepts and even pushes one step further.  The KVL we need to write cannot cross a current supply without adding another unknown.  Take a moment and look for and super-meshes in the circuit.  $I_{S1}$ has $I_1$ and $I_2$ flowing through it implying the two meshes form a super loop.  However, if we try to write a KVL around those two meshes we encounter $I_{S2}$.
+
+We must also notice that $I_{S2}$ has $I_2$ and $I_3$ flowing through it implying the two meshes form another super loop.  However, if we try to write a KVL around those two meshes we encounter $I_{S1}$.
+
+This gives rise to what some of my students have deemed a "super-duper loop".  It's really just one larger super loop but that's not nearly as fun to say.  The KVL we will write is around all three meshes together.  In this circuit that is around the outer loop though other circuits with more meshes might see this loop pass through the interior of the circuit.  Here is the super loop marked with a dashed green line
+
+```{figure} mesh-dependent-supers-annotated-supermesh.svg
+---
+height: 300px
+name: mesh-dependent-supers-annotated-supermesh
+---
+```
+We start by writing the KCLs for each current supply.  The KCL for $I_{S1}$ is a typical KCL as it is an independent supply.
+
+\begin{eqnarray*}
+\color{green}-I_1+I_2=I_{S1}
+\color{green}-I_1+I_2=4\text{mA}
+\end{eqnarray*}
+
+The KCL for $I_{S2}$ involves the dependent supply for we need to perform the substitution for the control variable.  $I_x$ in terms of the mesh currents is
+
+$$\color{green}I_x=I_1$$
+
+which we substitute into the KCL for $I_{S2}$.
+
+\begin{eqnarray*}
+\color{green}I_2-I_3=2I_x\\
+\color{green}I_2-I_3=2I_1\\
+\color{green}-2I_1+I_2-I_3=0\\
+\end{eqnarray*}
+
+The KVL then follows the dotted green line
+
+\begin{eqnarray*}
+\color{green}V_{S1}-V_{R1}-V_{R2}-V_{R3}-V_{S2}=0\\
+\color{green}V_{S1}-I_1R_1-I_2R_2-I_3R_3-V_{S2}=0\\
+\color{green}-R_1I_1-R_2I_2-R_3I_3=-V_{S1}+V_{S2}\\
+\color{green}-4\text{k}I_1-8\text{k}I_2-2\text{k}I_3=-60\\
+\end{eqnarray*}
+
+Gathering the equations that will be included in the system:
+
+\begin{eqnarray*}
+\color{green}-I_1+I_2=4\text{mA}\\
+\color{green}-2I_1+I_2-I_3=0\\
+\color{green}-4\text{k}I_1-8\text{k}I_2-2\text{k}I_3=-60\\
+\end{eqnarray*}
+
+We'll solve these using matrices but be weary of the missing term in the first equation.  Look for the 0 entry for this missing term.
+
+$$\left[ \begin{array}{ccc}
+-1&1&0\\
+-2&1&-1\\
+-4\text{k}&-8\text{k}&-2\text{k}\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\0\\-60\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}2\text{mA}\\6\text{mA}\\2\text{mA}\end{array}\right]$$
+
+
 ````
 `````
 
