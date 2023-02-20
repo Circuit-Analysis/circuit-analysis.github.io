@@ -1455,8 +1455,6 @@ $$\left[ \begin{array}{ccc}
 ````
 `````
 
-
-
 ## The Shortcut
 
 Mesh Analysis can be performed quickly in some cases. I am not inviting you to forget everything we just did. When I do things quickly I'm less confident in the result. However, with practice you can solve many circuit analysis problems using Mesh analysis in about a minute.
@@ -1465,124 +1463,155 @@ We can use mesh analysis on some problems by writing values directly into the ma
 
 ### Basic Shortcut
 
-I'm comfortable using the shortcut on problems without dependent supplies. It is not impossible to use the shortcut on circuits with dependent supplies but I tend to slow down and make sure everything ends up in the right place for those circuits. I'll address use of the shortcut in the next section. Here we'll limit the discussion to those circuits without dependent supplies.
+I'm comfortable using the shortcut on problems without dependent supplies. It is not impossible to use the shortcut on circuits with dependent supplies but I tend to slow down and make sure everything ends up in the right place for those circuits. I'll address use of the shortcut for those problems in the next section. Here we'll limit the discussion to those circuits without dependent supplies.
 
 We begin by setting up a matrix and vector appropriate for the circuit being analyzed. In the case of the first problem we solved using Mesh analysis, we used a 2x2 matrix and a 2x1 vector. Let revisit that problem
 
-\begin{example}
-Find $V_A$.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{24\Om}
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$};
-\end{circuitikz}\end{center}
-\Solution
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut1.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω',loc='bottom'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=1).label('$I_2$').color('blue')
+    
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.7,dy=0.7).up().color('red').toy(3.3)
+    d += elm.Line().linestyle('--').right().color('red').tox(3.3)
+    d += elm.Line().linestyle('--').down().color('red').toy(0.7)
+    d += elm.Line(arrow='->').linestyle('--').left().color('red').tox(1.5)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut2.svg') as d:
+    d.config(unit=4)
+    d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n14Ω'))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_2$\n24Ω',loc='top'))
+    d += (R4 := elm.Resistor().at(R3.end).down().label('$R_4$\n10Ω',loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += elm.GroundSignal()
+    d += (nodeA := elm.Dot().at(R1.end).label('A',loc='top'))
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,R4,LineB,R2],pad=1).label('$I_2$').color('blue')
+    
+    d += elm.Line().linestyle('--').at(Vs.start,dx=4.7,dy=0.7).up().color('blue').toy(3.3)
+    d += elm.Line().linestyle('--').right().color('blue').tox(7.3)
+    d += elm.Line().linestyle('--').down().color('blue').toy(0.7)
+    d += elm.Line(arrow='->').linestyle('--').left().color('blue').tox(5.5)
+```
+
+
+`````{admonition} Example
+```{figure} mesh-toy-problem-mesh1.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh1
+---
+```
+
+````{admonition} Solution
+:class: tip, dropdown
 We begin with an empty matrix and vector as described above, and a plan. For this circuit we will write two KVL equations. One for the $I_1$ mesh and one for the $I_2$ mesh. A single row of the matrix will be dedicated to each.
 
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+$$ \begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 ~&~\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
 
 We now fill in each row according to our plan. We start with the KVL for the $I_1$ mesh. It is helpful in the case of KVL equations to indicate the path we are taking around the circuit. This path is shown as a doted line in the figure below
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(3.6,.9) node[above]{24\Om}
-;
-%\draw[red,dashed,thick,-latex]
-(.5,.75) to[short] (.5,2.5) to[short] (2.5,2.5) to[short] (2.5,.5) to[short,->] (.75,.5)
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$};
-\end{circuitikz}\end{center}
+
+```{figure} mesh-toy-problem-mesh-shortcut1.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh-shortcut1
+---
+```
 We will follow this dotted line for each entry in the matrix regarding the KVL for the $I_1$ mesh. If we follow the dotted line we cross three components: $V_S$, $R_1$, and $R_2$. Keep this in mind as we fill the entries of the first matrix row. To fill in this row I ask three questions:
-\begin{enumerate}
-\item \textbf{What passive components does the dotted path cross that have $I_1$ flowing through them? } For this circuit the answer is $R_1$ and $R_2$. We add the values of those resistors and put them in the matrix. Since we are considering the KVL for the $I_1$ mesh and we are asking about which components carry $I_1$ we make this value positive in the matrix. Here we will enter +30.
-\item \textbf{What passive components does the dotted path cross that have $I_2$ flowing through them?} For this circuit only $R_2$ meets this criterion. We again add the values (only one in this case) and enter it in the matrix. Since we are considering the KVL for the $I_1$ mesh and we are considering which components carry $I_2$ we enter it as a negative number. Here we will enter -24.
-\item \textbf{Do we cross any voltage supplies?} We do, namely $V_S$. We also consider which direction we cross $V_S$ as we travel clockwise. Here we start at the negative terminal and cross to the positive terminal so there is a voltage rise. Since it is a rise we enter it as a positive value in the 2x1 vector. Here we will enter +21.
-\end{enumerate}
+
+1. **What passive components does the dotted path cross that have $I_1$ flowing through them?** For this circuit the answer is $R_1$ and $R_2$. We add the values of those resistors and put them in the matrix. Since we are considering the KVL for the $I_1$ mesh and we are asking about which components carry $I_1$ we make this value positive in the matrix. Here we will enter +30.
+2. **What passive components does the dotted path cross that have $I_2$ flowing through them?** For this circuit only $R_2$ meets this criterion. We again add the values (only one in this case) and enter it in the matrix. Since we are considering the KVL for the $I_1$ mesh and we are considering which components carry $I_2$ we enter it as a negative number. Here we will enter -24.
+3. **Do we cross any voltage supplies?** We do, namely $V_S$. We also consider which direction we cross $V_S$ as we travel clockwise. Here we start at the negative terminal and cross to the positive terminal so there is a voltage rise. Since it is a rise we enter it as a positive value in the 2x1 vector. Here we will enter +21.
 
 Let's pause and look at what the system looks like:
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 +30&-24\\
 ~&~\\
-\end{array} \right]^{-1}\left[\begin{array}{c}+21\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}+21\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
 
 We cannot find a solution until have the same number of equations as unknowns (two here). I ask similar questions when considering the KVL for the $I_2$ mesh.
 
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=$V_S$~~21V] (0,0)
-(0,3) to[resistor,l=$R_1$~~6~\Om] (3,3)
-(3,3) to[resistor,l_=$R_2$] (3,0)
-(3,3) to[resistor,l=$R_3$~~14~\Om] (6,3)
-(6,3) to[resistor,l=$R_4$~~10~\Om] (6,0)
-(6,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-(3,3) node[above]{$V_A$}
-(2.4,.9) node[above]{24\Om}
-;
-%\draw[blue,dashed,thick,-latex]
-(3.5,.75) to[short] (3.5,2.5) to[short] (5.5,2.5) to[short] (5.5,.5) to[short,->] (3.75,.5)
-;
-%%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$};
-%%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$};
-\end{circuitikz}\end{center}
+```{figure} mesh-toy-problem-mesh-shortcut2.svg
+---
+height: 300px
+name: mesh-toy-problem-mesh-shortcut2
+---
+```
+
 We will follow the new dotted line for each entry in the matrix regarding the KVL for the $I_2$ mesh. If we follow the dotted line we cross three components: $R_2$, $R_3$, and $R_4$. Keep this in mind as we fill the entries of the second matrix row. To fill in this row I ask three questions:
-\begin{enumerate}
-\item \textbf{What passive components does the dotted path cross that have $I_1$ flowing through them? } For this circuit the answer $R_2$. We add the values of those resistors and put them in the matrix. Since we are considering the KVL for the $I_2$ mesh and we are considering which components carry $I_1$ we enter it as a negative number. Here we will enter -24.  
- \item \textbf{What passive components does the dotted path cross that have $I_2$ flowing through them?} For this circuit $R_2$, $R_3$, and $R_4$ meet this criterion. We again add the values and enter it in the matrix. Since we are considering the KVL for the $I_2$ mesh and we are asking about which components carry $I_2$ we make this value positive in the matrix. Here we will enter +48.
-\item \textbf{Do we cross any voltage supplies?} There are no voltage supplies on this mesh. Therefore we enter a 0 in the 2x1 vector.
-\end{enumerate}
+
+
+1. **What passive components does the dotted path cross that have $I_1$ flowing through them?** For this circuit the answer $R_2$. We add the values of those resistors and put them in the matrix. Since we are considering the KVL for the $I_2$ mesh and we are considering which components carry $I_1$ we enter it as a negative number. Here we will enter -24.  
+2. **What passive components does the dotted path cross that have $I_2$ flowing through them?** For this circuit $R_2$, $R_3$, and $R_4$ meet this criterion. We again add the values and enter it in the matrix. Since we are considering the KVL for the $I_2$ mesh and we are asking about which components carry $I_2$ we make this value positive in the matrix. Here we will enter +48.  
+3. **Do we cross any voltage supplies?** There are no voltage supplies on this mesh. Therefore we enter a 0 in the 2x1 vector.
+
 
 Let's pause again and look at what the system looks like:
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+
+$$ \begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 +30&-24\\
 -24&+48\\
-\end{array} \right]^{-1}\left[\begin{array}{c}+21\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}+21\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
 
 Once the 2x2 matrix and 2x1 vector are completed we can solve the system.
 
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
+$$\begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
 \end{array}\left[ \begin{array}{cc}
 +30&-24\\
 -24&+48\\
-\end{array} \right]^{-1}\left[\begin{array}{c}+21\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\\583.3~\text{mA}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}+21\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}1.167~\text{A}\\583.3~\text{mA}\end{array}\right]$$
 
 If you look back at the first time we analyzed this circuit you'll notice that the matrices appear similar but have some differences. The two systems may be different but are mathematically equivalent. Solving either system leads to the same mesh currents.
-\end{example}
+
+````
+`````
+
+
+
 
 %%
 
