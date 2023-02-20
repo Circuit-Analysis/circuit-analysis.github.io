@@ -1766,57 +1766,55 @@ Once again, the mesh currents found using this method are the same as those prev
 ````
 `````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-\begin{example}
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-3-meshes-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (R1 := elm.Resistor().up().label('$R_1$\n9kΩ'))
+    d += (V1 := elm.SourceV().right().label('$V_1$\n6V'))
+    d += (R4 := elm.Resistor().right().label('$R_4$\n6kΩ',loc='bottom').label(('','$V_O$',''),loc='top',color='black'))
+    d += (R5 := elm.Resistor().down().label('$R_5$\n12kΩ',loc='bottom'))
+    d += (LineB := elm.Line().left().tox(V1.start))
+    d += (R3 := elm.Resistor().at(V1.end).down().label('$R_3$\n6kΩ',loc='bottom'))
+    d += (LineL := elm.Line().at(V1.start).up().length(4))
+    d += (R2 := elm.Resistor().right().tox(R4.end).label('$R_2$\n4kΩ'))
+    d += (LineR := elm.Line().down().length(4))
+    d += elm.LoopCurrent([V1,R3,LineB,R1],pad=1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R4,R5,LineB,R3],pad=1).label('$I_2$').color('blue')
+    d += elm.LoopCurrent([R2,LineR,R4,LineL],pad=1.25).label('$I_3$').color('orange')
+```
 Now the gloves are really off. I'll fill out the matrices in a single line. Makes sure you can replicate the result.
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[resistor,l=$R_1$~~9~k\Om] (0,3)
-(3,3) to[battery,l_=$V_{1}$~~6~V] (0,3)
-(0,6) to[resistor,l=$R_2$~~4~k\Om] (6,6)
-(3,3) to[resistor,l=$R_3$] (3,0)
-(3,3) to[resistor,l=$R_4$~~6~k\Om] (6,3)
-(6,3) to[resistor,l=$R_5$~~12~k\Om] (6,0)
-(6,0) -- (0,0)
-(0,3) -- (0,6)
-(6,6) -- (6,3)
-(3.6,1.4) node[below]{6~k\Om}
-%(4,4) node[below]{-}
-%(5.25,4) node[below]{+}
-%(4.6,4.25) node[below]{$V_{O}$}
-;
-%\centerarc[red,->,thick](1.5,1.5)(225:-45:5mm)
-%\draw[red,thick] (1.5,1.5) node{$I_1$}
-(2.75,2.5) node[below]{+}
-(2.75,1) node[below]{-}
-(.25,2.5) node[below]{-}
-(.25,1) node[below]{+};
-%\centerarc[blue,->,thick](4.5,1.5)(225:-45:5mm)
-%\draw[blue,thick] (4.5,1.5) node{$I_2$}
-(4,3) node[below]{+}
-(5.25,3) node[below]{-}
-(3.25,2.5) node[below]{-}
-(3.25,1) node[below]{+}
-(5.75,2.5) node[below]{+}
-(5.75,1) node[below]{-};
-%\centerarc[orange,->,thick](3,4.5)(225:-45:5mm)
-%\draw[orange,thick] (3,4.5) node{$I_{3}$}
-(2.5,5.75) node[below]{+}
-(3.75,5.75) node[below]{-};
-\end{circuitikz}\end{center}
-\[ \begin{array}{c}
-\text{KVL}~I*{1}\\
-\text{KVL}~I*{2}\\
-\text{KVL}~I\_{3}\\
+
+````{admonition} Example
+Find the mesh currents
+```{figure} mesh-3-meshes-shortcut.svg
+---
+height: 300px
+name: mesh-3-meshes-shortcut
+---
+```
+```{admonition} Solution
+:class: tip, dropdown
+
+$$ \begin{array}{c}
+\text{KVL}~I_{1}\\
+\text{KVL}~I_{2}\\
+\text{KVL}~I_{3}\\
 \end{array}\left[ \begin{array}{ccc}
-15~\text{k}\Omega&-6~\text{k}\Omega&0~\text{k}\Omega\\
--6~\text{k}\Omega&24~\text{k}\Omega&-6~\text{k}\Omega\\
-0~\text{k}\Omega&-6~\text{k}\Omega&10~\text{k}\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}6~\text{V}\\0~\text{V}\\-6~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]= \left[\begin{array}{c}373.33~\mu\text{A}\\-66.67~\mu\text{A}\\-640.00~\mu\text{A}\end{array}\right]\]
-\end{example}
+15\text{k}&-6\text{k}&0\\
+-6\text{k}&24\text{k}&-6\text{k}\\
+0&-6\text{k}&10\text{k}\\
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\0\\-6\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]= \left[\begin{array}{c}373.33~\mu\text{A}\\-66.67~\mu\text{A}\\-640.00~\mu\text{A}\end{array}\right]$$
+```
+````
 
-%%
-
-%%
 
 \begin{example}
 Find the mesh currents.
