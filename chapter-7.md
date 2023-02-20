@@ -322,7 +322,7 @@ Seat of the pants analysis tells us that $V_A$ is 14 V.  Let's keep this result 
 I'm going to list the steps here as reference. Use these steps as we walk through the next example.  A more complete summary is included at the endof the chapter.  ADD LINK HERE
 
 ```{admonition} Steps for Mesh Analysis
-1. Assign mesh currents. Identify any ``Super-meshes'' (We'll discuss what a super-mesh is later).
+1. Assign mesh currents. Identify any "Super-meshes" (We'll discuss what a super-mesh is later).
 2. Use KVL on each mesh current.
 3. Use Ohm's law to express the resistor voltages in terms of mesh currents.
 4. Distribute and group like terms.
@@ -1975,8 +1975,8 @@ As we fill in the super KVL rwo we only consider components on this path. The KV
 3. **Do we cross any voltage supplies?** } There are no voltage supplies on this mesh. Therefore we enter a +20 in the 2x1 vector.
 
 $$\begin{array}{c}
-\text{Super~KVL}\\
-\text{Super~KCL}\\
+\text{Super KVL}\\
+\text{Super KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 ~&~\\
@@ -1990,8 +1990,8 @@ We ask identical questions to fill in the super-KCL. Look back at the KCL questi
 The right hand side of the KCL is simply the value of the regulated current. Here is the system filled in and ready to solve:
 
 $$\begin{array}{c}
-\text{Super~KVL}\\
-\text{Super~KCL}\\
+\text{Super KVL}\\
+\text{Super KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 -1&1\\
@@ -2000,8 +2000,8 @@ $$\begin{array}{c}
 Now we can solve for the mesh currents
 
 $$\begin{array}{c}
-\text{Super~KVL}\\
-\text{Super~KCL}\\
+\text{Super KVL}\\
+\text{Super KCL}\\
 \end{array}\left[ \begin{array}{cc}
 6&14\\
 -1&1\\
@@ -2009,65 +2009,132 @@ $$\begin{array}{c}
 
 ````
 `````
+Let's try a circuit with a super-mesh that cuts through the intermediate branches
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super-3-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
+    d += (LineT1 := elm.Line().right().length(4))
+    d += (LineT2 := elm.Line().right().length(4))
+    d += (R2 := elm.Resistor().down().label('$R_2$\n2Ω',loc='bottom'))
+    d += (R5 := elm.Resistor().down().length(4).label('$R_5$\n8Ω',loc='bottom'))
+    d += (LineB := elm.Line().left().length(8))
+    d += (GndSig := elm.GroundSignal())
+    d += (R1 := elm.Resistor().at(LineT1.end).down().label('$R_1$\n2Ω',loc='top'))
+    d += (Is := elm.SourceI().down().length(2).label('$I_S$\n6A',loc='top'))
+    d += (R4 := elm.Resistor().down().length(2).label('$R_4$\n1Ω',loc='bottom'))
+    d += (R3 := elm.Resistor().at(R1.end).right().label('$R_3$\n4Ω',loc='bottom'))
+    d += elm.LoopCurrent([LineT1,R1,LineB,Vs],pad=1).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([LineT2,R2,R3,R1],pad=0.5).label('$I_2$').color('red')
+    d += elm.LoopCurrent([R3,R5,LineB,R4],pad=1).label('$I_3$').color('orange')
 
-\begin{example}
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-super-3-super-loop-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
+    d += (LineT1 := elm.Line().right().length(4))
+    d += (LineT2 := elm.Line().right().length(4))
+    d += (R2 := elm.Resistor().down().label('$R_2$\n2Ω',loc='bottom'))
+    d += (R5 := elm.Resistor().down().length(4).label('$R_5$\n8Ω',loc='bottom'))
+    d += (LineB := elm.Line().left().length(8))
+    d += (GndSig := elm.GroundSignal())
+    d += (R1 := elm.Resistor().at(LineT1.end).down().label('$R_1$\n2Ω',loc='top'))
+    d += (Is := elm.SourceI().down().length(2).label('$I_S$\n6A',loc='top'))
+    d += (R4 := elm.Resistor().down().length(2).label('$R_4$\n1Ω',loc='bottom'))
+    d += (R3 := elm.Resistor().at(R1.end).right().label('$R_3$\n4Ω',loc='bottom'))
+    d += elm.LoopCurrent([LineT1,R1,LineB,Vs],pad=1).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([LineT2,R2,R3,R1],pad=0.5).label('$I_2$').color('red')
+    d += elm.LoopCurrent([R3,R5,LineB,R4],pad=1).label('$I_3$').color('orange')
+        
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.5,dy=0.5).up().color('green').toy(7.5)
+    d += elm.Line().linestyle('--').right().color('green').tox(3)
+    d += elm.Line().linestyle('--').down().color('green').toy(3.75)
+    d += elm.Line().linestyle('--').right().color('green').tox(7.75)
+    d += elm.Line().linestyle('--').down().color('green').toy(0.25)
+    d += elm.Line(arrow='->').linestyle('--').left().color('green').tox(1.5)
+
+```
+
+`````{admonition} Example
 Find the mesh currents.
-\begin{center}\begin{circuitikz}\draw
-(0,6) to[voltage source,lx_={$V_S$ and 6~V}] (0,-1)
-(0,6) -- (3,6)
-(3,6) to[resistor,lx_={$R_1$ and 2~\Om}] (3,3)
-(3,3) to[current source,lx_={$I_S$ and 6~A}] (3,1)
-(3,1) to[R,lx={$R_4$ and 1~\Om}] (3,-1)
-(3,6) -- (6,6)
-(6,3) to[R,lx_={$R_2$ and 2~\Om}] (6,6)
-(3,3) to[R,lx_={$R_3$ and 4~\Om}] (6,3)
-(6,-1) to[R,lx_={$R_5$ and 8~\Om}] (6,3)
-(6,-1) -- ((0,-1)
-(0,-1) -- (0,-1.25) node[sground,scale=0.5]{}
-(1.5,3) node[red,thick]{$I_1$}
-(4.7,4.5) node[blue,thick]{$I_2$}
-(4.7,1) node[orange,thick]{$I_{3}$}
-;
-%\centerarc[red,->,thick](1.5,3)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.7,4.5)(225:-45:5mm)
-%\centerarc[orange,->,thick](4.7,1)(225:-45:5mm)
-\end{circuitikz}\end{center}
-\Solution
-\begin{center}\begin{circuitikz}\draw
-(0,6) to[voltage source,lx_={$V_S$ and 6~V}] (0,-1)
-(0,6) -- (3,6)
-(3,6) to[resistor,lx_={$R_1$ and 2~\Om}] (3,3)
-(3,3) to[current source,lx_={$I_S$ and 6~A}] (3,1)
-(3,1) to[R,lx={$R_4$ and 1~\Om}] (3,-1)
-(3,6) -- (6,6)
-(6,3) to[R,lx_={$R_2$ and 2~\Om}] (6,6)
-(3,3) to[R,lx_={$R_3$ and 4~\Om}] (6,3)
-(6,-1) to[R,lx_={$R_5$ and 8~\Om}] (6,3)
-(6,-1) -- ((0,-1)
-(0,-1) -- (0,-1.25) node[sground,scale=0.5]{}
-(1.5,3) node[red,thick]{$I_1$}
-(4.7,4.5) node[blue,thick]{$I_2$}
-(4.7,1) node[orange,thick]{$I_{3}$}
-;
-%\centerarc[red,->,thick](1.5,3)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.7,4.5)(225:-45:5mm)
-%\centerarc[orange,->,thick](4.7,1)(225:-45:5mm)
-%\draw[green,dashed,thick,-latex]
-(.5,-.5) to[short] (.5,5.75) to[short] (2.75,5.75) to[short] (2.75,2.5) to[short] (5.75,2.5) to[short] (5.75,-.75) to[short,->] (.75,-.75)
-;
-\end{circuitikz}\end{center}
-\end{example}
+```{figure} mesh-super-3-shortcut.svg
+---
+height: 300px
+name: mesh-super-3-shortcut
+---
+```
 
-%%
+````{admonition} Solution
+:class: tip, dropdown
+Let's start by setting up the empty matrices for the system of equations
 
-%%
+$$\begin{array}{c}
+\text{Super KCL}(I_1,I_3)\\
+\text{Super KVL}(I_1,I_3)\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{ccc}
+~&~&~\\
+~&~&~\\
+~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}~\\~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+and marking the path of the super mesh KVL
+
+```{figure} mesh-super-3-super-loop-shortcut.svg
+---
+height: 300px
+name: mesh-super-3-super-loop-shortcut
+---
+```
+
+See if you can fill in the matrices yourself.  Pay close attention to what components are on the individual mesh currents **and** the super mesh path.  Some components will not be included in the solution.  When you are done it should be equivalent to 
+
+$$\begin{array}{c}
+\text{Super KCL}(I_1,I_3)\\
+\text{Super KVL}(I_1,I_3)\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{ccc}
+1&0&-1\\
+2&-6&12\\
+-2&8&-4\\
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\6\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+Now we can solve for the mesh currents
+
+$$\begin{array}{c}
+\text{Super KCL}(I_1,I_3)\\
+\text{Super KVL}(I_1,I_3)\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{ccc}
+1&0&-1\\
+2&-6&12\\
+-2&8&-4\\
+\end{array} \right]^{-1}\left[\begin{array}{c}6\\6\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}6.316A\\1.737A\\315.8mA\end{array}\right]$$
+
+````
+`````
 
 ### Advanced Shortcut
 
-I want you to read the word ``Advanced'' and think to yourself: I could very well screw this up. Our primary goal is to analyze the circuit correctly. Speed is only a secondary goal.
+I want you to read the word "Advanced" and think to yourself: I could very well screw this up. Our primary goal is to analyze the circuit correctly. Speed is only a secondary goal.
 
 \begin{example}
 \begin{center}\begin{circuitikz}\draw
