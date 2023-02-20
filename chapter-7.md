@@ -1528,7 +1528,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut2.svg') as d:
 ```{figure} mesh-toy-problem-mesh1.svg
 ---
 height: 300px
-name: mesh-toy-problem-mesh1
+name: mesh-toy-problem-mesh1-shortcut
 ---
 ```
 
@@ -2136,51 +2136,318 @@ $$\begin{array}{c}
 
 I want you to read the word "Advanced" and think to yourself: I could very well screw this up. Our primary goal is to analyze the circuit correctly. Speed is only a secondary goal.
 
-\begin{example}
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,lx={$R_1$ and 6~\Om}] (0,4)
-(0,4) to[resistor,l=$R_2$~~2~\Om,v=$V_{x}$] (3,4)
+I am going to include two solutions for each of these problems.  We can try to be true to the spirit of the "shortcut" and do everything simply by looking at the circuit and entering numbers into the matrices.  This may be good to impress your friends but then we have to consider the type of friends you have.
 
-    (3,4) to[resistor,lx={$R_3$ and 4~\Om}] (3,2)
-    (3,2) to[voltage source,lx={$V_{S1}$ and 12~V}] (3,0)
-    (3,4) to[resistor,l=$R_4$~~8~\Om] (6,4)
-    (6,2) to[R,lx_={$R_5$ and 4~\Om},v^<=$V_{O}$] (6,4)
-    (6,0) to[controlled voltage source,lx_={$V_{S2}$ and 3$V_{x}$}] (6,2)
-    (6,0) -- ((0,0)
-    (0,0) -- (0,-.25) node[sground,scale=0.5]{}
-    (1.5,2) node[red,thick]{$I_1$}
-    (4.5,2) node[blue,thick]{$I_2$}
+This pure shortcut approach is error prone even for experienced circuit analyzers.  I take a hybrid approach when analyzing circuits with dependent supplies.  I use the shortcut for all of the equations that do not involve the dependent supply.  Then I finish the problem by writing out the equation(s) that do involve the dependent supply and entering them in the matrices after a bit of algebra.
 
-;
-%\centerarc[red,->,thick](1.5,2)(225:-45:5mm)
-%\centerarc[blue,->,thick](4.5,2)(225:-45:5mm)
-%\draw[red,thick] (2.75,3.8) node[below]{+}
-(2.75,2.3) node[below]{-}
-(.25,3) node[below]{+}
-(.25,1.5) node[below]{-}
-;
-%\draw[blue,thick] (4,4) node[below]{+}
-(5.25,4) node[below]{-}
-(3.25,3.8) node[below]{-}
-(3.25,2.3) node[below]{+}
-;
-\end{circuitikz}\end{center}
-\end{example}
+Like I said, I'll show you both for the examples in this section.
 
-\begin{example}
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[voltage source,l_=$V_{S1}$~~100~V] (0,0)
-(0,3) to[resistor,l=$R_1$~~4~k\Om] (3,3)
-(3,0) to[current source,l=I\tss{S1}~~4~mA] (3,3)
-(3,3) to[resistor,l=$R_2$~~8~k\Om] (6,3)
-(6,3) to[controlled current source,l_=I\tss{S2}~~2$I_1$] (6,0)
-(6,3) to[resistor,l=$R_3$~~2~k\Om] (9,3)
-(9,3) to[voltage source,l^=$V_{S2}$~~40~V] (9,0)
-(9,0) -- ((0,0)
-(0,0) -- (0,-.25) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\end{example}
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω'))
+    d += (R2 := elm.Resistor().right().label('$R_2$\n2Ω').label(('+','$V_x$','-'),loc='bottom'))
+    d += (R4 := elm.Resistor().right().label('$R_4$\n8Ω'))
+    d += (R5 := elm.Resistor().down().length(2).label('$R_5$\n4Ω',loc='bottom').label(('+','$V_O$','-'),loc='top'))
+    d += (Vs2 := elm.SourceControlledV().down().length(2).label('$V_{S2}$\n3$V_x$',loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R3 := elm.Resistor().at(R2.end).down().length(2).label('$R_3$\n4Ω',loc='bottom'))
+    d += (Vs2 := elm.SourceV().down().length(2).label('$V_{S1}$\n12V',loc='bottom').reverse())
+    d += elm.LoopCurrent([R2,R3,LineB,R1],pad=1).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R4,R5,LineB,R3],pad=1).label('$I_2$').color('red')
+    
+```
+
+`````{admonition} Example
+Find the mesh currents
+```{figure} mesh-dependent-shortcut.svg
+---
+height: 300px
+name: mesh-dependent-shortcut
+---
+```
+````{admonition} Solution - Pure shortcut
+:class: tip, dropdown
+To pull this off, I add the control variable as an additional unknown.  For his circuit the unknowns are $I_1$, $I_2$, and $V_x$.
+
+The KVL around $I_1$ is typical so I will include that in the first writing of the system 
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+V_x\text{ expression}\\
+\end{array}\left[ \begin{array}{ccc}
+12&-4&0\\
+~&~&~\\
+~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+The KVL around $I_2$ includes the dependent supply.  We can include this in the system by writing the gain, with the correct sign, in the column that corresponds to the control variable.
+
+$I_1$ and $I_2$ share $R_3$ so -4 is the entry in the first column.  $I_2$ touches $R_3$, $R_4$, and $R_5$ on this mesh so their sum, +16, is the entry in the second column.  The dependent supply causes a rise as we move clockwise around the mesh.  We're acustom to a rise being positive as we include it on the right-hand side of the equation.  In this case this entry in on the left-hand side of the equation so it is negative.  The gain is 3 making the entry in the third column -3.  The right-hand side of the equation is the rise across $V_{S1}$ making it +12.
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+V_x\text{ expression}\\
+\end{array}\left[ \begin{array}{ccc}
+12&-4&0\\
+-4&16&-3\\
+~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\+12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+Finally we need the expression for the contorl variable.  Let's stop and think about what the equation is and how we can get that equation simply by looking at the circuit.  The equation is
+
+$$V_x=2I_1$$
+
+to include in the system we need to treat $V_x$ as an unknown.  Let's move all of the unknowns to the left side of the expression
+
+$$0=2I_1-V_x$$
+ 
+ or 
+
+$$2I_1-V_x=0$$
+
+When I enter these values directly in the matrix I start with a -1 in the column that corresponds with the control variable.  I then ask which mesh currents flow through the resistor and in which direction.  In this case only $I_1$ flows through $R_2$ and it flows in the positive direction according to the passive sign convention.  That leads to a +2 as the entry in the first column.  $I_2$ does not flow through $R_2$ therfore there is a 0 in the second column.
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+V_x\text{ expression}\\
+\end{array}\left[ \begin{array}{ccc}
+12&-4&0\\
+-4&16&-3\\
+2&0&-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\+12\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+We can then solve the system
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+V_x\text{ expression}\\
+\end{array}\left[ \begin{array}{ccc}
+12&-4&0\\
+-4&16&-3\\
+2&0&-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\+12\\0\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}-947.4\text{mA}\\157.9\text{mA}\\-1.895V\end{array}\right]$$
+
+Take a moment to compare these result against our earlier result.  You will find they are consistent.
+
+````
+
+````{admonition} Solution - Hybrid
+:class: tip, dropdown
+For this circuit one equation can be written with the shortcut.  The other cannot.  My habit is to not force the issue of using the shortcut in absolutely every situation.  I write as much of the system as a I can with out involving the dependent supply.  In this case that is only the KVL around $I_1$.
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{cc}
+12&-4\\
+~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
+
+I then write the equation(s) the include the dependent supply in the usual manner.
+
+\begin{eqnarray*}
+\color{red}V_{S1}-V_{R3}-V_{R4}-V_{R5}+3V_x=0\\
+\color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3V_x=0\\
+\end{eqnarray*}
+
+The expression for the control variable is 
+
+$$V_x=2I_1$$
+
+which is subtituted into the equation
+
+\begin{eqnarray*}
+\color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3(2I_1)=0\\
+\color{red}-R_3I_2+R_3I_1-R_4I_2-R_5I_2+6I_1=-V_{S1}\\
+\color{red}(6+R_3)I_1+(-R_3-R_4-R_5)I_2=-V_{S1}\\
+\color{red}10I_1-16I_2=-12\\
+\end{eqnarray*}
+
+Entering the equation into the system give us
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{cc}
+12&-4\\
+10&-16\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\-12\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}~\\~\end{array}\right]$$
+
+which is solved as 
+
+$$\begin{array}{c}
+\text{KVL $I_1$}\\
+\text{KVL $I_2$}\\
+\end{array}\left[ \begin{array}{cc}
+12&-4\\
+10&-16\\
+\end{array} \right]^{-1}\left[\begin{array}{c}-12\\-12\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-947.4\text{mA}\\157.9\text{mA}\end{array}\right]$$
+
+The mesh currents match our previous two solutions for this circuit.  I take this route since I have more confidence in the outcome.  Speed is good.  Accuracy is better.
+
+````
+`````
+
+The shortcut can be used with a dependent curent supply as well.  Here is another example.
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='mesh-dependent-supers-annotated-supermesh-shortcut.svg') as d:
+    d.config(unit=4)
+    d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ'))
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8kΩ'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n2kΩ'))
+    d += (Vs2 := elm.SourceV().down().label('$V_{S2}$\n40V',loc='bottom').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (Is1 := elm.SourceI().at(R1.end).down().label('$I_{S1}$\n4mA').reverse())
+    d += (Is2 := elm.SourceControlledI().at(R2.end).down().label('$I_{S2}$\n2$I_x$'))
+    d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_x$')
+    d += elm.LoopCurrent([R1,Is1,LineB,Vs1],pad=0.7).label('$I_1$').color('blue')
+    d += elm.LoopCurrent([R2,Is2,LineB,Is1],pad=0.7).label('$I_2$').color('red')
+    d += elm.LoopCurrent([R3,Vs2,LineB,Is2],pad=0.7).label('$I_3$').color('orange')
+    
+    d += elm.Line().linestyle('--').at(Vs.start,dx=0.6,dy=0.5).up().color('green').toy(3.65)
+    d += elm.Line().linestyle('--').right().color('green').tox(11.25)
+    d += elm.Line().linestyle('--').down().color('green').toy(0.25)
+    d += elm.Line(arrow='->').linestyle('--').left().color('green').tox(1)
+```
+
+`````{admonition} Example
+Find the mesh currents
+```{figure} mesh-dependent-supers-annotated-supermesh-shortcut.svg
+---
+height: 300px
+name: mesh-dependent-supers-annotated-supermesh-shortcut
+---
+```
+````{admonition} Solution - Pure shortcut
+:class: tip, dropdown
+In this case we have four unknowns, $I_1$, $I_2$, $I_3$, and $I_x$.  The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them enetered already.
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+I_x\text{ expression}\\
+\end{array}\left[ \begin{array}{cccc}
+-1&1&0&0\\
+4\text{k}&8\text{k}&2\text{k}&0\\
+~&~&~&~\\
+~&~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\\~\end{array}\right]$$
+
+Now for the equations involved with the dependent supply, the KCL for $I_{S2}$ and the expression for the control variable, $I_x$.  The currents are entered in the usual way, +1 for the $I_2$ column and -1 for the $I_3$ column.  Again, the gain is moved from the right side of the equation to the left with the other unknowns.  the gain will be negated and entered in the column corresponding to $I_x$, -2 in this case.
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+I_x\text{ expression}\\
+\end{array}\left[ \begin{array}{cccc}
+-1&1&0&0\\
+4\text{k}&8\text{k}&2\text{k}&0\\
+0&1&-1&-2\\
+~&~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\0A\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\\~\end{array}\right]$$
+
+Finally we fill in the row for the control variable.  In this case it is a current.  Only $I_1$ touches $I_x$ and it flows in the same direction making the corresponding entry +1.  the other mesh currents do not touch $I_x$ so their entries are 0. $I_x$ would typically be on the other side of the equation but we move it to the side with the unknowns making it's entry -1.
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+I_x\text{ expression}\\
+\end{array}\left[ \begin{array}{cccc}
+-1&1&0&0\\
+4\text{k}&8\text{k}&2\text{k}&0\\
+0&1&-1&-2\\
+1&0&0&-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\0A\\0A\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\\~\end{array}\right]$$
+
+Solving the system gives us
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+I_x\text{ expression}\\
+\end{array}\left[ \begin{array}{cccc}
+-1&1&0&0\\
+4\text{k}&8\text{k}&2\text{k}&0\\
+0&1&-1&-2\\
+1&0&0&-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\0A\\0A\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_x\end{array}\right]=\left[\begin{array}{c}2\text{mA}\\6\text{mA}\\2\text{mA}\\2\text{mA}\end{array}\right]$$
+
+Compare this result to our earlier analysis and you'll find it is consistent.
+
+````
+````{admonition} Solution - Hybrid
+:class: tip, dropdown
+I am more likely to take the hybrid approach.  Part shortcut, part normal.  This is personal preference. Just get the right answer.
+
+The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them enetered already.
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+\end{array}\left[ \begin{array}{ccc}
+-1&1&0\\
+4\text{k}&8\text{k}&2\text{k}\\
+~&~&~\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
+
+I then write the KCL for $I_{S2}$ in the usual manner
+The KCL for $I_{S2}$ involves the dependent supply for we need to perform the substitution for the control variable.  $I_x$ in terms of the mesh currents is
+
+$$I_x=I_1$$
+
+which we substitute into the KCL for $I_{S2}$.
+
+\begin{eqnarray*}
+I_2-I_3=2I_x\\
+I_2-I_3=2I_1\\
+-2I_1+I_2-I_3=0\\
+\end{eqnarray*}
+
+and then enter the equation into the system
+
+$$\begin{array}{c}
+\text{KCL Super($I_1$,$I_2$)}\\
+\text{KVL Super($I_1$,$I_2$,$I_3$)}\\
+\text{KCL Super($I_2$,$I_3$)}\\
+\end{array}\left[ \begin{array}{ccc}
+-1&1&0\\
+4\text{k}&8\text{k}&2\text{k}\\
+-2&1&-1\\
+\end{array} \right]^{-1}\left[\begin{array}{c}4\text{mA}\\60\text{V}\\0\text{A}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\end{array}\right]=\left[\begin{array}{c}2\text{mA}\\6\text{mA}\\2\text{mA}\end{array}\right]$$
+
+More consistent results!  Check against the previous to examples of analyzing this circuit.
+````
+`````
 
 ## Strategy for Mesh Analysis
 The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis.  If you master these you will be able to analyze most linear electric circuits.  I've also shown you how to use the "shortcut" to perform mesh analysis quickly.  With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.
