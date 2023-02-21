@@ -124,16 +124,16 @@ Each term in a KCL must be a current. In the case of node A there will be two te
 The second term takes the form that we practice in the earlier section of this chapter. This term will be the current through $R_1$. And of course, we set it equal to zero and Kirchhoff instructed.
 
 $$
- I*S-I_{R1}=0
+ I_S-I_{R1}=0
 $$
 
 
 Notice the sign of each term. The $I_S$ term is positive since the current is entering node A. This arrow was not our choice. It is simply taken from the direction of the arrow with in the current supply symbol.
 
-The second term is negative. The arrow we drew for I\tss{R1} is leaving node A leading to the negative sign. This is the term that we will need to rewrite to be in terms of the unknown node voltages. Stop and look at the schematic to figure out which node is at the tail of the arrow. Now find the node connected to the tip of the arrow. I'm hope you identified Node A at the tail and Node B at the tip. Using the voltages at the nodes with respect to ground we can write an expression for the current through $R_1$
+The second term is negative. The arrow we drew for $I_{R1}$ is leaving node A leading to the negative sign. This is the term that we will need to rewrite to be in terms of the unknown node voltages. Stop and look at the schematic to figure out which node is at the tail of the arrow. Now find the node connected to the tip of the arrow. I'm hope you identified Node A at the tail and Node B at the tip. Using the voltages at the nodes with respect to ground we can write an expression for the current through $R_1$
 
 $$
-I\_{R1}=\frac{V_A-V_B}{R_1}
+I_{R1}=\frac{V_A-V_B}{R_1}
 $$
 
 We then substitute this expression into the KCL we wrote above.
@@ -173,12 +173,12 @@ in a form we can use in the system of equations. We have constants and the unkno
 We follow the same process for node B. Node B has three elements connected to it. Therefore the KCL for this node will have three terms.
 
 $$
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 $$
 
-I\tss{R1} is the only current out of the three that is entering the node and therefore is the only positive term in this KCL. The other two currents are leaving node B and the corresponding terms are both negative.
+$I_{R1}$ is the only current out of the three that is entering the node and therefore is the only positive term in this KCL. The other two currents are leaving node B and the corresponding terms are both negative.
 
-All three currents follow the usual format, voltage at the tail minus voltage at the tip over the resistance. I\tss{R1} and I\tss{R3} will look similar to the term we substituted in the previous KCL equation.
+All three currents follow the usual format, voltage at the tail minus voltage at the tip over the resistance. $I_{R1}$ and $I_{R3}$ will look similar to the term we substituted in the previous KCL equation.
 
 $$
 I_{R1}=\frac{V_A-V_B}{R_1}
@@ -186,13 +186,13 @@ $$
 
 
 $$
-I_{R3}=\frac{V*B-V_C}{R_3}
+I_{R3}=\frac{V_B-V_C}{R_3}
 $$
 
-In fact, the expression for I\tss{R1} is identical to then one we wrote previously. The expression for I\tss{R2} will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for I\tss{R2}. The voltage at the tail is $V_B$. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression
+In fact, the expression for $I_{R1}$ is identical to then one we wrote previously. The expression for $I_{R2}$ will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for $I_{R2}$. The voltage at the tail is $V_B$. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression
 
 $$
-I_{R2}=\frac{V*B-0}{R_2}
+I_{R2}=\frac{V_B-0}{R_2}
 $$
 
 but more often than not we exclude it as it is simply a subtraction by zero
@@ -229,16 +229,16 @@ We're finally done with this one. We're left with an equation with constants and
 
 **KCL for Node C**
 
-The last KCL we will write is for node C. Two elements are connected to node C, both resistors in this circuit. I\tss{R3} is entering node C and therefore the term will be positive. I\tss{R4} is leaving node C and therefore the term will be negative.
+The last KCL we will write is for node C. Two elements are connected to node C, both resistors in this circuit. $I_{R3}$ is entering node C and therefore the term will be positive. $I_{R4}$ is leaving node C and therefore the term will be negative.
 
 $$
 I_{R3}-I_{R4}=0
 $$
 
-The expression for I\tss{R3} matches what we wrote previously. I\tss{R4} again has the tip of the arrow pointing at ground giving us the expression
+The expression for $I_{R3}$ matches what we wrote previously. $I_{R4}$ again has the tip of the arrow pointing at ground giving us the expression
 
 $$
-I\_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
+I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 $$
 
 Substituting the two expressions into the KCL gives us
@@ -348,7 +348,7 @@ $$
 
 
 $$
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 $$
 
 and use Ohm's law where we can to rewrite the currents in terms of the node voltages
@@ -386,13 +386,13 @@ $$
 and use Ohm's law where we can to rewrite the currents in terms of the node voltages
 
 $$
-\frac{V*B-V_C}{R_3}-I_{S2}=0
+\frac{V_B-V_C}{R_3}-I_{S2}=0
 $$
 
 breaking up the fractions gives us
 
 $$
-\frac{V*B}{R_3}-\frac{V_C}{R_3}=I_{S2}
+\frac{V_B}{R_3}-\frac{V_C}{R_3}=I_{S2}
 $$
 
 Substituting values leads to an equation suitable for inclusion in the system of equations
@@ -426,7 +426,7 @@ $$
 Using the node voltages we can now find other values in the circuit. In this case $V_O$ is found with
 
 $$
-V\_{O}=V_B-V_C=-8-(-32)=24~\text{V}
+V_{O}=V_B-V_C=-8-(-32)=24~\text{V}
 $$
 
 ````
@@ -523,7 +523,7 @@ $$
 
 
 $$
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 $$
 
 and use Ohm's law where we can to rewrite the currents in terms of the node voltages
@@ -556,7 +556,7 @@ $$
 Let's gather the results of the three equations written above
 \begin{alignat}{3}
 &&V_C&=8~\text{V}\nonumber\\
--\frac{1}{6}V_A+&\frac{1}{6}V_B&&=-\sfrac{2}{3}~\text{A}\nonumber\\
+-\frac{1}{6}V_A+&\frac{1}{6}V_B&&=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&\frac{1}{3}V_B+&\frac{1}{12}V_C&=0~\text{A}\nonumber
 \end{alignat}
 and put them in matrix form
@@ -566,7 +566,7 @@ $$
 0&0&1\\
 -\frac{1}{6}&\frac{1}{6}&0\\
 \frac{1}{6}&-\frac{1}{3}&\frac{1}{12}
-\end{array} \right]^{-1}\left[\begin{array}{r}8~\text{V}\\-\sfrac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]=\left[\begin{array}{c}V_A\\V_B\\V_C\end{array}\right]=\left[\begin{array}{r}12~\text{V}\\8~\text{V}\\8~\text{V}\end{array}\right]
+\end{array} \right]^{-1}\left[\begin{array}{r}8~\text{V}\\-\frac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]=\left[\begin{array}{c}V_A\\V_B\\V_C\end{array}\right]=\left[\begin{array}{r}12~\text{V}\\8~\text{V}\\8~\text{V}\end{array}\right]
 $$
 
 
@@ -581,7 +581,7 @@ $$
 and $I_O$ is found with
 
 $$
-I_{O}=\frac{V_B-0}{12}=\sfrac{2}{3}~\text{A}
+I_{O}=\frac{V_B-0}{12}=\frac{2}{3}~\text{A}
 $$
 
 ````
@@ -619,7 +619,7 @@ Let's start with the KVL equation. We write this KVL in a similar manner to the 
 
  * Which node is connected to the **positive** side of the source? **Node B**
  * Which node is connected to the **negative** side of the source? **Node C**
- * What is the voltage source value? **8~\text{V**}
+ * What is the voltage source value? $8~\text{V}$
 
 The answers given are specific to this example but the questions are common for all KVLs written during nodal analysis. This leads to the KVL equation
 
@@ -719,7 +719,7 @@ $$
 
 Let's gather the results of the four equations written above
 \begin{alignat}{4}
-~&~~\text{V}\_B-&~\text{V}\_C~~&~&=8\nonumber\\
+~&~~\text{V}_B-&~\text{V}_C~~&~&=8\nonumber\\
 \frac{1}{6}V_A-&\frac{1}{4}V_B-&\frac{3}{8}V_C+&\frac{1}{8}V_D&=0\nonumber\\
 -\frac{1}{2}V_A+&\frac{1}{6}V_B&~&~&=0\nonumber\\
 &&\frac{1}{8}V_C-&\frac{13}{40}V_D&=0\nonumber
@@ -741,7 +741,7 @@ $$
 Now that we have the node voltages we can go find other values in the circuit. I chose $I_O$ through the voltage supply as we have not treated this type of value yet. The typical approach of using Ohm's law by finding the difference in node voltages and dividing by the resistance will not work here since we don't know the resistance of the voltage source. Since ohm's law will not work to find a current we'll rely on the other fundamental law that involves currents, KCL. We'll pick a node adjacent to $I_O$. We'll use node C, but node B would work just as well. Here is the KCL at node C including the term for $I_O$.
 
 $$
-I*O-I_{R4}-I\_{R5}=0
+I_O-I_{R4}-I_{R5}=0
 $$
 
 Now we use Ohm's law in a similar manner as previously, however, the node voltages are no longer unknowns.
@@ -789,7 +789,7 @@ Here are the questions I ask myself when writing a KVL in this context:
 
  * Which node is connected to the **positive** side of the source? **Node B**
  * Which node is connected to the **negative** side of the source? **Node C**
- * What is the voltage source value? **8~\text{V**}
+ * What is the voltage source value? $8~\text{V}$
 
 The answers given are specific to this example but the questions are common for all KVLs written during nodal analysis. This leads to the KVL equation
 
@@ -803,7 +803,7 @@ $$
 Look at the bounded region in the annotated schematic above. How many currents flow in or out of that region? All three currents will be included in the KCL
 
 $$
-I_{R2}-I_{R3}-I\_{R4}=0
+I_{R2}-I_{R3}-I_{R4}=0
 $$
 
 and use Ohm's law where we can to rewrite the currents in terms of the node voltages
@@ -889,7 +889,7 @@ $$
 
 Let's gather the results of the four equations written above
 \begin{alignat}{4}
-~&~~\text{V}\_B-&~\text{V}\_C~~&~&=8\nonumber\\
+~&~~\text{V}_B-&~\text{V}_C~~&~&=8\nonumber\\
 \frac{1}{6}V_A-&\frac{1}{4}V_B-&\frac{1}{8}V_C+&\frac{1}{8}V_D&=0\nonumber\\
 -\frac{1}{2}V_A+&\frac{1}{6}V_B&~&~&=0\nonumber\\
 &&\frac{1}{8}V_C-&\frac{13}{40}V_D&=0\nonumber
@@ -964,7 +964,7 @@ $$
 Use KVL and Ohm's law to rewrite the equation in terms of the unknown node voltages
 
 $$
--\frac{V_A-0}{R_1}-I_{S1}-\frac{V*A-V_C}{R_4}=0
+-\frac{V_A-0}{R_1}-I_{S1}-\frac{V_A-V_C}{R_4}=0
 $$
 
 A bit of algebra give us an equation with values and unknown know voltages; suitable for inclusion in the system of equations
@@ -1024,7 +1024,7 @@ $$
 Use KVL and Ohm's law to rewrite the equation in terms of the unknown node voltages. I've also replaced $I_{S2}$ with the gain and control variable for that supply
 
 $$
-\frac{V*A-V_C}{R_4}+2I_{O}-\frac{V_C-0}{R_3}=0
+\frac{V_A-V_C}{R_4}+2I_{O}-\frac{V_C-0}{R_3}=0
 $$
 
 We need to get rid of the control variable. To do so, we substitute the expression for the control variable in terms of the unknown node voltages
@@ -1099,7 +1099,7 @@ name: LABEL_FOR_THIS_IMAGE17
 
 
 $$
-V*O=V_C-V_B
+V_O=V_C-V_B
 $$
 
 **KCL for node A**
@@ -1116,7 +1116,7 @@ $$
 
 
 $$
-3\left(V*C-V_B\right)-\frac{V_A}{10}-\frac{V_A-V_B}{4}-2=0
+3\left(V_C-V_B\right)-\frac{V_A}{10}-\frac{V_A-V_B}{4}-2=0
 $$
 
 
@@ -1138,7 +1138,7 @@ $$
 
 
 $$
-\frac{V*A-V_B}{R_2}-\frac{V_B-0}{R_3}+\frac{V_C-V_B}{R_4}=0
+\frac{V_A-V_B}{R_2}-\frac{V_B-0}{R_3}+\frac{V_C-V_B}{R_4}=0
 $$
 
 
@@ -1353,8 +1353,8 @@ name: LABEL_FOR_THIS_IMAGE20
 
 **Assumptions about an ideal op-amp:**
 
-- The voltage at the input nodes are equal (V\tss{+}=V\tss{-})
-- No current enters or leaves the inputs (I\tss{+}=I\tss{-}=0)
+- The voltage at the input nodes are equal ($V_+ = V_-$)
+- No current enters or leaves the inputs ($I_+ = I_- = 0$)
 
 `````{admonition} Example
 
@@ -1422,7 +1422,7 @@ $$
 Let's gather the results of the three equations written above
 \begin{alignat}{3}
 V_A&&&=10~\text{V}\nonumber\\
-~&~~~~~~~\text{V}\_B&~&=0~\text{V}\nonumber\\%there has got to be a better way to align this
+~&~~~~~~~\text{V}_B&~&=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&-\frac{6}{15k}&V_B+\frac{1}{15k}V_C&=0~\text{A}\nonumber
 \end{alignat}
 and put them in matrix form
@@ -1648,12 +1648,12 @@ $$
 
 
 $$
-I*O-I_{R4}-0=0
+I_O-I_{R4}-0=0
 $$
 
 
 $$
-I*O=I_{R4}=\frac{V_D-V_B}{5k}=\frac{751.9~\text{mV}-1.278~\text{V}}{5k}=-105.3~\mu A
+I_O=I_{R4}=\frac{V_D-V_B}{5k}=\frac{751.9~\text{mV}-1.278~\text{V}}{5k}=-105.3~\mu A
 $$
 
 How will this change if we connect a load resistor to the output?
