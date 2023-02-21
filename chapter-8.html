@@ -654,13 +654,13 @@ title="Print to PDF"
 <p>The second term takes the form that we practice in the earlier section of this chapter. This term will be the current through <span class="math notranslate nohighlight">\(R_1\)</span>. And of course, we set it equal to zero and Kirchhoff instructed.</p>
 <div class="math notranslate nohighlight">
 \[
- I*S-I_{R1}=0
+ I_S-I_{R1}=0
 \]</div>
 <p>Notice the sign of each term. The <span class="math notranslate nohighlight">\(I_S\)</span> term is positive since the current is entering node A. This arrow was not our choice. It is simply taken from the direction of the arrow with in the current supply symbol.</p>
-<p>The second term is negative. The arrow we drew for I\tss{R1} is leaving node A leading to the negative sign. This is the term that we will need to rewrite to be in terms of the unknown node voltages. Stop and look at the schematic to figure out which node is at the tail of the arrow. Now find the node connected to the tip of the arrow. I’m hope you identified Node A at the tail and Node B at the tip. Using the voltages at the nodes with respect to ground we can write an expression for the current through <span class="math notranslate nohighlight">\(R_1\)</span></p>
+<p>The second term is negative. The arrow we drew for <span class="math notranslate nohighlight">\(I_{R1}\)</span> is leaving node A leading to the negative sign. This is the term that we will need to rewrite to be in terms of the unknown node voltages. Stop and look at the schematic to figure out which node is at the tail of the arrow. Now find the node connected to the tip of the arrow. I’m hope you identified Node A at the tail and Node B at the tip. Using the voltages at the nodes with respect to ground we can write an expression for the current through <span class="math notranslate nohighlight">\(R_1\)</span></p>
 <div class="math notranslate nohighlight">
 \[
-I\_{R1}=\frac{V_A-V_B}{R_1}
+I_{R1}=\frac{V_A-V_B}{R_1}
 \]</div>
 <p>We then substitute this expression into the KCL we wrote above.</p>
 <div class="math notranslate nohighlight">
@@ -692,22 +692,22 @@ I\_{R1}=\frac{V_A-V_B}{R_1}
 <p>We follow the same process for node B. Node B has three elements connected to it. Therefore the KCL for this node will have three terms.</p>
 <div class="math notranslate nohighlight">
 \[
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
-<p>I\tss{R1} is the only current out of the three that is entering the node and therefore is the only positive term in this KCL. The other two currents are leaving node B and the corresponding terms are both negative.</p>
-<p>All three currents follow the usual format, voltage at the tail minus voltage at the tip over the resistance. I\tss{R1} and I\tss{R3} will look similar to the term we substituted in the previous KCL equation.</p>
+<p><span class="math notranslate nohighlight">\(I_{R1}\)</span> is the only current out of the three that is entering the node and therefore is the only positive term in this KCL. The other two currents are leaving node B and the corresponding terms are both negative.</p>
+<p>All three currents follow the usual format, voltage at the tail minus voltage at the tip over the resistance. <span class="math notranslate nohighlight">\(I_{R1}\)</span> and <span class="math notranslate nohighlight">\(I_{R3}\)</span> will look similar to the term we substituted in the previous KCL equation.</p>
 <div class="math notranslate nohighlight">
 \[
 I_{R1}=\frac{V_A-V_B}{R_1}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-I_{R3}=\frac{V*B-V_C}{R_3}
+I_{R3}=\frac{V_B-V_C}{R_3}
 \]</div>
-<p>In fact, the expression for I\tss{R1} is identical to then one we wrote previously. The expression for I\tss{R2} will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for I\tss{R2}. The voltage at the tail is <span class="math notranslate nohighlight">\(V_B\)</span>. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression</p>
+<p>In fact, the expression for <span class="math notranslate nohighlight">\(I_{R1}\)</span> is identical to then one we wrote previously. The expression for <span class="math notranslate nohighlight">\(I_{R2}\)</span> will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for <span class="math notranslate nohighlight">\(I_{R2}\)</span>. The voltage at the tail is <span class="math notranslate nohighlight">\(V_B\)</span>. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression</p>
 <div class="math notranslate nohighlight">
 \[
-I_{R2}=\frac{V*B-0}{R_2}
+I_{R2}=\frac{V_B-0}{R_2}
 \]</div>
 <p>but more often than not we exclude it as it is simply a subtraction by zero</p>
 <div class="math notranslate nohighlight">
@@ -736,15 +736,15 @@ I_{R2}=\frac{V_B}{R_2}
 \]</div>
 <p>We’re finally done with this one. We’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>KCL for Node C</strong></p>
-<p>The last KCL we will write is for node C. Two elements are connected to node C, both resistors in this circuit. I\tss{R3} is entering node C and therefore the term will be positive. I\tss{R4} is leaving node C and therefore the term will be negative.</p>
+<p>The last KCL we will write is for node C. Two elements are connected to node C, both resistors in this circuit. <span class="math notranslate nohighlight">\(I_{R3}\)</span> is entering node C and therefore the term will be positive. <span class="math notranslate nohighlight">\(I_{R4}\)</span> is leaving node C and therefore the term will be negative.</p>
 <div class="math notranslate nohighlight">
 \[
 I_{R3}-I_{R4}=0
 \]</div>
-<p>The expression for I\tss{R3} matches what we wrote previously. I\tss{R4} again has the tip of the arrow pointing at ground giving us the expression</p>
+<p>The expression for <span class="math notranslate nohighlight">\(I_{R3}\)</span> matches what we wrote previously. <span class="math notranslate nohighlight">\(I_{R4}\)</span> again has the tip of the arrow pointing at ground giving us the expression</p>
 <div class="math notranslate nohighlight">
 \[
-I\_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
+I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 \]</div>
 <p>Substituting the two expressions into the KCL gives us</p>
 <div class="math notranslate nohighlight">
@@ -769,8 +769,8 @@ I\_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 <p>And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>Solving the system of equations</strong></p>
 <p>We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f05e6a7c-a1a4-4886-ac09-369c89a56431">
-<span class="eqno">(5)<a class="headerlink" href="#equation-f05e6a7c-a1a4-4886-ac09-369c89a56431" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-66dae98e-0920-4cbf-903f-0b89a5c3d63d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-66dae98e-0920-4cbf-903f-0b89a5c3d63d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -828,7 +828,7 @@ I_{S1}-\frac{V_A-V_B}{R_1}=0
 <p><strong>KCL for Node B</strong></p>
 <div class="math notranslate nohighlight">
 \[
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p>and use Ohm’s law where we can to rewrite the currents in terms of the node voltages</p>
 <div class="math notranslate nohighlight">
@@ -858,12 +858,12 @@ I_{R3}-I_{S2}=0
 <p>and use Ohm’s law where we can to rewrite the currents in terms of the node voltages</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{V*B-V_C}{R_3}-I_{S2}=0
+\frac{V_B-V_C}{R_3}-I_{S2}=0
 \]</div>
 <p>breaking up the fractions gives us</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{V*B}{R_3}-\frac{V_C}{R_3}=I_{S2}
+\frac{V_B}{R_3}-\frac{V_C}{R_3}=I_{S2}
 \]</div>
 <p>Substituting values leads to an equation suitable for inclusion in the system of equations</p>
 <div class="math notranslate nohighlight">
@@ -872,8 +872,8 @@ I_{R3}-I_{S2}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three KCLs written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88b13190-854d-4787-8875-354018ac6200">
-<span class="eqno">(6)<a class="headerlink" href="#equation-88b13190-854d-4787-8875-354018ac6200" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-f09e5826-8b9e-45d6-b0af-274686bce6a6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-f09e5826-8b9e-45d6-b0af-274686bce6a6" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\\
 \frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\\
 &amp;\frac{1}{4k}V_B-\frac{1}{4k}V_C&amp;&amp;=6~\text{mA}\nonumber
@@ -891,7 +891,7 @@ I_{R3}-I_{S2}=0
 <p>Using the node voltages we can now find other values in the circuit. In this case <span class="math notranslate nohighlight">\(V_O\)</span> is found with</p>
 <div class="math notranslate nohighlight">
 \[
-V\_{O}=V_B-V_C=-8-(-32)=24~\text{V}
+V_{O}=V_B-V_C=-8-(-32)=24~\text{V}
 \]</div>
 </div>
 </div>
@@ -963,7 +963,7 @@ I_{S1}-\frac{V_A-V_B}{R_1}=0
 <p><strong>KCL for Node B</strong></p>
 <div class="math notranslate nohighlight">
 \[
-I_{R1}-I_{R2}-I\_{R3}=0
+I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p>and use Ohm’s law where we can to rewrite the currents in terms of the node voltages</p>
 <div class="math notranslate nohighlight">
@@ -987,10 +987,10 @@ I_{R1}-I_{R2}-I\_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cd97dfd-0f67-4393-ae26-d50a93c8a693">
-<span class="eqno">(7)<a class="headerlink" href="#equation-0cd97dfd-0f67-4393-ae26-d50a93c8a693" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-6fa44964-c468-4491-9c86-0ff0f922f88f">
+<span class="eqno">(7)<a class="headerlink" href="#equation-6fa44964-c468-4491-9c86-0ff0f922f88f" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
--\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\sfrac{2}{3}~\text{A}\nonumber\\
+-\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
 \end{alignat}\]</div>
 <p>and put them in matrix form</p>
@@ -1000,7 +1000,7 @@ I_{R1}-I_{R2}-I\_{R3}=0
 0&amp;0&amp;1\\
 -\frac{1}{6}&amp;\frac{1}{6}&amp;0\\
 \frac{1}{6}&amp;-\frac{1}{3}&amp;\frac{1}{12}
-\end{array} \right]^{-1}\left[\begin{array}{r}8~\text{V}\\-\sfrac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]=\left[\begin{array}{c}V_A\\V_B\\V_C\end{array}\right]=\left[\begin{array}{r}12~\text{V}\\8~\text{V}\\8~\text{V}\end{array}\right]
+\end{array} \right]^{-1}\left[\begin{array}{r}8~\text{V}\\-\frac{2}{3}~\text{A}\\0~\text{A}\end{array}\right]=\left[\begin{array}{c}V_A\\V_B\\V_C\end{array}\right]=\left[\begin{array}{r}12~\text{V}\\8~\text{V}\\8~\text{V}\end{array}\right]
 \end{split}\]</div>
 <p><strong>Find Other Values</strong></p>
 <p>Using the node voltages we can now find other values in the circuit. In this case <span class="math notranslate nohighlight">\(V_O\)</span> is found with</p>
@@ -1011,7 +1011,7 @@ V_{O}=V_B-V_C=8-8=0~\text{V}
 <p>and <span class="math notranslate nohighlight">\(I_O\)</span> is found with</p>
 <div class="math notranslate nohighlight">
 \[
-I_{O}=\frac{V_B-0}{12}=\sfrac{2}{3}~\text{A}
+I_{O}=\frac{V_B-0}{12}=\frac{2}{3}~\text{A}
 \]</div>
 </div>
 </div>
@@ -1037,7 +1037,7 @@ I_{O}=\frac{V_B-0}{12}=\sfrac{2}{3}~\text{A}
 <ul class="simple">
 <li><p>Which node is connected to the <strong>positive</strong> side of the source? <strong>Node B</strong></p></li>
 <li><p>Which node is connected to the <strong>negative</strong> side of the source? <strong>Node C</strong></p></li>
-<li><p>What is the voltage source value? <strong>8~\text{V</strong>}</p></li>
+<li><p>What is the voltage source value? <span class="math notranslate nohighlight">\(8~\text{V}\)</span></p></li>
 </ul>
 <p>The answers given are specific to this example but the questions are common for all KVLs written during nodal analysis. This leads to the KVL equation</p>
 <div class="math notranslate nohighlight">
@@ -1114,9 +1114,9 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca42d064-215c-4830-a611-9ed523d68fc7">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ca42d064-215c-4830-a611-9ed523d68fc7" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
-~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
+<div class="amsmath math notranslate nohighlight" id="equation-4f61b47c-9164-4d33-b10e-7d41548d74d8">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4f61b47c-9164-4d33-b10e-7d41548d74d8" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
 &amp;&amp;\frac{1}{8}V_C-&amp;\frac{13}{40}V_D&amp;=0\nonumber
@@ -1135,7 +1135,7 @@ I_{R5}-I_{R6}=0
 <p>Now that we have the node voltages we can go find other values in the circuit. I chose <span class="math notranslate nohighlight">\(I_O\)</span> through the voltage supply as we have not treated this type of value yet. The typical approach of using Ohm’s law by finding the difference in node voltages and dividing by the resistance will not work here since we don’t know the resistance of the voltage source. Since ohm’s law will not work to find a current we’ll rely on the other fundamental law that involves currents, KCL. We’ll pick a node adjacent to <span class="math notranslate nohighlight">\(I_O\)</span>. We’ll use node C, but node B would work just as well. Here is the KCL at node C including the term for <span class="math notranslate nohighlight">\(I_O\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
-I*O-I_{R4}-I\_{R5}=0
+I_O-I_{R4}-I_{R5}=0
 \]</div>
 <p>Now we use Ohm’s law in a similar manner as previously, however, the node voltages are no longer unknowns.</p>
 <div class="math notranslate nohighlight">
@@ -1168,7 +1168,7 @@ a KCL. Lastly, that voltage supply connects two non-reference nodes forming a su
 <ul class="simple">
 <li><p>Which node is connected to the <strong>positive</strong> side of the source? <strong>Node B</strong></p></li>
 <li><p>Which node is connected to the <strong>negative</strong> side of the source? <strong>Node C</strong></p></li>
-<li><p>What is the voltage source value? <strong>8~\text{V</strong>}</p></li>
+<li><p>What is the voltage source value? <span class="math notranslate nohighlight">\(8~\text{V}\)</span></p></li>
 </ul>
 <p>The answers given are specific to this example but the questions are common for all KVLs written during nodal analysis. This leads to the KVL equation</p>
 <div class="math notranslate nohighlight">
@@ -1179,7 +1179,7 @@ V_B-V_C=8
 <p>Look at the bounded region in the annotated schematic above. How many currents flow in or out of that region? All three currents will be included in the KCL</p>
 <div class="math notranslate nohighlight">
 \[
-I_{R2}-I_{R3}-I\_{R4}=0
+I_{R2}-I_{R3}-I_{R4}=0
 \]</div>
 <p>and use Ohm’s law where we can to rewrite the currents in terms of the node voltages</p>
 <div class="math notranslate nohighlight">
@@ -1245,9 +1245,9 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b80e805-e746-475b-a126-15ef8c7a7bae">
-<span class="eqno">(9)<a class="headerlink" href="#equation-7b80e805-e746-475b-a126-15ef8c7a7bae" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
-~&amp;~~\text{V}\_B-&amp;~\text{V}\_C~~&amp;~&amp;=8\nonumber\\
+<div class="amsmath math notranslate nohighlight" id="equation-6086f649-18bb-4e83-975a-070750e287d9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-6086f649-18bb-4e83-975a-070750e287d9" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
 &amp;&amp;\frac{1}{8}V_C-&amp;\frac{13}{40}V_D&amp;=0\nonumber
@@ -1302,7 +1302,7 @@ I_O=\frac{V_A-0}{R_1}=\frac{V_A}{R_1}
 <p>Use KVL and Ohm’s law to rewrite the equation in terms of the unknown node voltages</p>
 <div class="math notranslate nohighlight">
 \[
--\frac{V_A-0}{R_1}-I_{S1}-\frac{V*A-V_C}{R_4}=0
+-\frac{V_A-0}{R_1}-I_{S1}-\frac{V_A-V_C}{R_4}=0
 \]</div>
 <p>A bit of algebra give us an equation with values and unknown know voltages; suitable for inclusion in the system of equations</p>
 <div class="math notranslate nohighlight">
@@ -1349,7 +1349,7 @@ I_{R4}+I_{S2}-I_{R3}=0
 <p>Use KVL and Ohm’s law to rewrite the equation in terms of the unknown node voltages. I’ve also replaced <span class="math notranslate nohighlight">\(I_{S2}\)</span> with the gain and control variable for that supply</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{V*A-V_C}{R_4}+2I_{O}-\frac{V_C-0}{R_3}=0
+\frac{V_A-V_C}{R_4}+2I_{O}-\frac{V_C-0}{R_3}=0
 \]</div>
 <p>We need to get rid of the control variable. To do so, we substitute the expression for the control variable in terms of the unknown node voltages</p>
 <div class="math notranslate nohighlight">
@@ -1368,8 +1368,8 @@ I_{R4}+I_{S2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92bea787-3b68-47be-995b-5aac9c83fe98">
-<span class="eqno">(10)<a class="headerlink" href="#equation-92bea787-3b68-47be-995b-5aac9c83fe98" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-9903b2d8-25ba-4d21-851d-53babdda87b0">
+<span class="eqno">(10)<a class="headerlink" href="#equation-9903b2d8-25ba-4d21-851d-53babdda87b0" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -1405,7 +1405,7 @@ I_O=\frac{V_A-0}{R_1}=\frac{-32~\text{V}}{8~\Omega}=-4~\text{A}
 <p><strong>Control Variable Expression</strong></p>
 <div class="math notranslate nohighlight">
 \[
-V*O=V_C-V_B
+V_O=V_C-V_B
 \]</div>
 <p><strong>KCL for node A</strong></p>
 <div class="math notranslate nohighlight">
@@ -1418,7 +1418,7 @@ I_{S1}-I_{R1}-I_{R2}-I_{S2}=0
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-3\left(V*C-V_B\right)-\frac{V_A}{10}-\frac{V_A-V_B}{4}-2=0
+3\left(V_C-V_B\right)-\frac{V_A}{10}-\frac{V_A-V_B}{4}-2=0
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -1435,7 +1435,7 @@ I_{R2}-I_{R3}+I_{R4}=0
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\frac{V*A-V_B}{R_2}-\frac{V_B-0}{R_3}+\frac{V_C-V_B}{R_4}=0
+\frac{V_A-V_B}{R_2}-\frac{V_B-0}{R_3}+\frac{V_C-V_B}{R_4}=0
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -1472,8 +1472,8 @@ I_{S2}-\frac{V_C-V_B}{R_4}+I_{S3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ad6ec94-5c32-4206-80cd-b05cc3324d8d">
-<span class="eqno">(11)<a class="headerlink" href="#equation-0ad6ec94-5c32-4206-80cd-b05cc3324d8d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-19d02b61-0e38-46ec-944f-59361bad8a68">
+<span class="eqno">(11)<a class="headerlink" href="#equation-19d02b61-0e38-46ec-944f-59361bad8a68" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -1598,8 +1598,8 @@ I_x=\frac{16.5-15}{12}=125~\text{mA}
 </figure>
 <p><strong>Assumptions about an ideal op-amp:</strong></p>
 <ul class="simple">
-<li><p>The voltage at the input nodes are equal (V\tss{+}=V\tss{-})</p></li>
-<li><p>No current enters or leaves the inputs (I\tss{+}=I\tss{-}=0)</p></li>
+<li><p>The voltage at the input nodes are equal (<span class="math notranslate nohighlight">\(V_+ = V_-\)</span>)</p></li>
+<li><p>No current enters or leaves the inputs (<span class="math notranslate nohighlight">\(I_+ = I_- = 0\)</span>)</p></li>
 </ul>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
@@ -1640,10 +1640,10 @@ V_B=0~\text{V}
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-393b77ed-7817-40d2-bd3b-cd42fdd62695">
-<span class="eqno">(12)<a class="headerlink" href="#equation-393b77ed-7817-40d2-bd3b-cd42fdd62695" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-86619abb-384b-482f-a116-73182eed4186">
+<span class="eqno">(12)<a class="headerlink" href="#equation-86619abb-384b-482f-a116-73182eed4186" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
-~&amp;~~~~~~~\text{V}\_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
+~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
 \end{alignat}\]</div>
 <p>and put them in matrix form</p>
@@ -1701,8 +1701,8 @@ V_A-V_B=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9fe89694-d51f-49eb-a074-a26cd05d63e1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-9fe89694-d51f-49eb-a074-a26cd05d63e1" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-c82d5f60-5aa1-433b-a25c-1d17173f27ee">
+<span class="eqno">(13)<a class="headerlink" href="#equation-c82d5f60-5aa1-433b-a25c-1d17173f27ee" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1779,8 +1779,8 @@ V_C-V_D=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4e07a8c-2985-4350-a036-1dd0e78f5fc9">
-<span class="eqno">(14)<a class="headerlink" href="#equation-e4e07a8c-2985-4350-a036-1dd0e78f5fc9" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-b3ff121d-5751-4be0-9891-befad62e276b">
+<span class="eqno">(14)<a class="headerlink" href="#equation-b3ff121d-5751-4be0-9891-befad62e276b" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -1799,11 +1799,11 @@ V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 <p><strong>Find other values</strong></p>
 <div class="math notranslate nohighlight">
 \[
-I*O-I_{R4}-0=0
+I_O-I_{R4}-0=0
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-I*O=I_{R4}=\frac{V_D-V_B}{5k}=\frac{751.9~\text{mV}-1.278~\text{V}}{5k}=-105.3~\mu A
+I_O=I_{R4}=\frac{V_D-V_B}{5k}=\frac{751.9~\text{mV}-1.278~\text{V}}{5k}=-105.3~\mu A
 \]</div>
 <p>How will this change if we connect a load resistor to the output?</p>
 </div>
@@ -1857,8 +1857,8 @@ V_C=0~\text{V}
 \]</div>
 <p><strong>Solve the system</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-789efe31-422d-47ed-b265-0909204da1a7">
-<span class="eqno">(15)<a class="headerlink" href="#equation-789efe31-422d-47ed-b265-0909204da1a7" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-25c8e28a-a3ca-47d4-a591-6df0bda304ce">
+<span class="eqno">(15)<a class="headerlink" href="#equation-25c8e28a-a3ca-47d4-a591-6df0bda304ce" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
