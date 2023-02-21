@@ -16,7 +16,6 @@ kernelspec:
 
 # Nodal Analysis
 
-\label{ch:nodal}
 Nodal Analysis is another methodical application of KVL, KCL, and Ohm's law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.
 
 ## Locating Non-reference Nodes
@@ -25,8 +24,6 @@ if you don't need to cross a component between two of your labeled nodes than th
 
 ## Relating Circuit Values to Node Voltages
 
-\begin{minipage}{1.0\textwidth}
-\begin{center}
 \begin{circuitikz}[american]\draw
 (0,0) to[european resistor,v^>=$V_1$] (0,3)
 (0,3) to[european resistor,v=$V_2$,*-*] (3,3)
@@ -44,26 +41,18 @@ if you don't need to cross a component between two of your labeled nodes than th
 ;
 \end{circuitikz}
 
-\vspace{3mm}
-
 $V_1$=\underline{~~~~~~~~~~~~~~~~~~}
-\vspace{3mm}
 
 $V_2$=\underline{~~~~~~~~~~~~~~~~~~}
-\vspace{3mm}
 
 $V_3$=\underline{~~~~~~~~~~~~~~~~~~}
-\vspace{3mm}
 
 $V_4$=\underline{~~~~~~~~~~~~~~~~~~}
-\vspace{3mm}
 
 $V_5$=\underline{~~~~~~~~~~~~~~~~~~}
-\vspace{3mm}
 
 $V_6$=\underline{~~~~~~~~~~~~~~~~~~}
-\end{center}
-\end{minipage}
+
 \begin{minipage}{0.5\textwidth}
 \begin{center}
 \begin{circuitikz}[american]\draw
@@ -146,21 +135,21 @@ $I_f$=\underline{~~~~~~~~~~~~~~~~~~}
 ## The Steps
 
 I'm going to list the steps here as reference. Use these steps as we walk through the next example.
-\begin{framed}
-\Large\textbf{Steps for Nodal Analysis}\normalsize
-\begin{enumerate}
-\item Label the non-reference nodes and a current direction for each passive circuit element.  
- \item Use KCL on each non-reference node.
-\item Use Ohm's law to express the resistor currents in terms of node voltages.
-\item Distribute and group like terms.
-\item Plug in values and solve the system.
-\end{enumerate}
-\end{framed}
+
+```{admonition} Steps for Nodal Analysis
+1. Label the non-reference nodes and a current direction for each passive circuit element.
+1. Use KCL on each non-reference node.
+1. Use Ohm's law to express the resistor currents in terms of node voltages.
+1. Distribute and group like terms.
+1. Plug in values and solve the system.
+```
+
 These steps give us a starting point for the first example. We'll develop what to do with special circumstances in more complex circuits.
 
 ## Our First Toy Problem
 
-\begin{example}
+`````{admonition} Example
+
 Find $I_O$ using Nodal Analysis.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[current source,lx={$I_S$ and 6~\text{A}}] (0,3)
@@ -173,7 +162,8 @@ Find $I_O$ using Nodal Analysis.
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 Start by labeling the non-reference nodes as shown below. Pick a current direction for each passive component. For this problem that means the resistors. In future problems we'll also label current directions for the other passive elements, the capacitors and inductors. These current arrows will help us keep the signs consistent in the system of equations we're about to develop to find the unknowns.
 
 \begin{center}\begin{circuitikz}\draw
@@ -270,9 +260,11 @@ Be very careful transferring the coefficients to matrices as some terms have coe
 Once you know the node voltage you can find any other value in the circuit. Let's find $I_O$ for this example. $I_O$ is the current flowing down through $R_2$. The voltage across $R_2$ is the voltage at the tail of the current arrow, $V_B$ for this circuit, minus the voltage at the tip of the current arrow, ground (0~\text{V}) for this circuit. To find the current through the resistor we simply divide this voltage by the resistance.
 \[I_O=\frac{V_B-0}{R_2}=\frac{V_B}{R_2}=\frac{14.4~\text{V}}{4~\Omega}=3.6~\text{A}\]
 
-\end{example}
+````
+`````
 
-\begin{example}
+`````{admonition} Example
+
 Find $V_O$ using Nodal Analysis.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[current source,lx={$I_{S1}$ and 2~\text{mA}}] (0,3)
@@ -285,7 +277,8 @@ Find $V_O$ using Nodal Analysis.
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 Begin by locating the non-reference nodes and labeling the current directions through the passive components.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[current source,lx={$I_{S1}$ and 2~\text{mA}}] (0,3)
@@ -350,7 +343,8 @@ and put them in matrix form
 \paragraph{Find Other Values}
 Using the node voltages we can now find other values in the circuit. In this case $V_O$ is found with
 \[V\_{O}=V_B-V_C=-8-(-32)=24~\text{V}\]
-\end{example}
+````
+`````
 
 ## Nodal with Voltage Sources
 
@@ -358,7 +352,8 @@ Just as current sources create special cases for mesh analysis, voltage sources 
 
 ### Voltage Sources Connected to Ground
 
-\begin{example}
+`````{admonition} Example
+
 Find $V_O$ and $I_O$ using Nodal Analysis.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[current source,lx={$I_S$ and 2/3~\text{A}}] (0,3)
@@ -370,7 +365,8 @@ Find $V_O$ and $I_O$ using Nodal Analysis.
 (0,0) -- (0,-.25) node[sground,scale=0.5]{}
 ;
 \end{circuitikz}\end{center}
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 Begin by locating the non-reference nodes and labeling the current directions through the passive components. This step does not change due to the presence of the voltage supply.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[current source,lx={$I_S$ and 2/3~\text{A}}] (0,3)
@@ -448,13 +444,15 @@ Using the node voltages we can now find other values in the circuit. In this cas
 \[V*{O}=V_B-V_C=8-8=0~\text{V}\]
 and $I_O$ is found with
 \[I*{O}=\frac{V_B-0}{12}=\sfrac{2}{3}~\text{A}\]
-\end{example}
+````
+`````
 
 ### Voltage Sources Connected to Two Non-ground Nodes
 
-When a voltage supply connects two non-reference nodes we call it a `supernode''. We treat the voltage supply in a similar manner as the previous example. We write a KVL that includes that voltage supply. The problem we face is then writing a sufficient number of KCL equations to complete the system. Kirchhoff's Current law can be stated more broadly to address this problem. Rather than stating that the algebraic sum of current entering a \textbf{node} is zero, we say that the algebraic sum of currents entering a \textbf{bounded region} is zero. Therefore, we can draw the bounded region around the voltage supply including the two nodes it connects to and write a KCL for this `super node''. Let's look at an example.
+When a voltage supply connects two non-reference nodes we call it a "supernode". We treat the voltage supply in a similar manner as the previous example. We write a KVL that includes that voltage supply. The problem we face is then writing a sufficient number of KCL equations to complete the system. Kirchhoff's Current law can be stated more broadly to address this problem. Rather than stating that the algebraic sum of current entering a \textbf{node} is zero, we say that the algebraic sum of currents entering a \textbf{bounded region} is zero. Therefore, we can draw the bounded region around the voltage supply including the two nodes it connects to and write a KCL for this `super node''. Let's look at an example.
 
-\begin{example}
+`````{admonition} Example
+
 Find $I_O$ using nodal analysis
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 3~\Om}] (0,3)
@@ -471,7 +469,8 @@ Find $I_O$ using nodal analysis
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 We start by looking for non-reference nodes and labeling current directions as before. I'll also draw the bounded region that forms the super node.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 3~\Om}] (0,3)
@@ -570,9 +569,11 @@ Now we use Ohm's law in a similar manner as previously, however, the node voltag
 Now we solve for $I_O$ and substitute the known values
 \[I_O=\frac{-2.98}{4}+\frac{-2.98-(-1.15)}{8}=-975.4~\text{mA}\]
 
-\end{example}
+````
+`````
 
-\begin{example}
+`````{admonition} Example
+
 Find $V_O$ using nodal analysis
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 3~\Om}] (0,3)
@@ -589,7 +590,8 @@ Find $V_O$ using nodal analysis
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 When I us this example in class there is a gotcha moment for about half the students. Count how many non-reference nodes before I label them in the next figure. If you said three, you're not alone. Many students miss the node in between $V_S$ and $R_4$. There are, in fact, four non-reference nodes. I'll label them below along with the usual notations. There is also a voltage supply leading us to write a KVL for one equation instead of
 a KCL. Lastly, that voltage supply connects two non-reference nodes forming a super-node. One of the KCL equations will be written for the bounded region that encloses the two nodes connect to the voltage supply.
 
@@ -687,11 +689,13 @@ Now that we have the node voltages we can go find other values in the circuit. I
 \[V_O=V_C-0=-5.732-0=-5.732~\text{V}\]
 The negative side won't always be connected to ground as it is here. In that case the second term will be non-zero but the form of the equation does not change.
 
-\end{example}
+````
+`````
 
 ### Nodal Analysis with Dependent Supplies
 
-\begin{example}
+`````{admonition} Example
+
 Find $I_O$ using nodal analysis.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 8~\Om},i^<=$I_O$] (0,3)
@@ -709,7 +713,8 @@ Find $I_O$ using nodal analysis.
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 There are no voltage supplies in this circuit so all of the equations will be KCL equations. There are three non-reference nodes so there will be three KCL equations. The difference in this problem is the presence of the dependent current source $I_{S2}$. We'll write an expression for the control variable, $I_O$ in this case. Here is the annotated schematic:
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 8~\Om},i^<=$I_O$] (0,3)
@@ -792,12 +797,15 @@ and put them in matrix form
 Since we're looking for $I_O$, an expression we've already used in this analysis, we simply use the node voltage values we just calculated in that same expression.
 \[I_O=\frac{V_A-0}{R_1}=\frac{-32~\text{V}}{8~\Omega}=-4~\text{A}\]
 
-\end{example}
+````
+`````
 
 %%%
 \pagebreak
 %%%
-\begin{example}
+
+`````{admonition} Example
+
 Find $V_O$ using nodal analysis
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 10~\Om}] (0,3)
@@ -815,7 +823,8 @@ Find $V_O$ using nodal analysis
 ;
 \end{circuitikz}\end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_1$ and 10~\Om}] (0,3)
 (0,3) to[R,lx={$R_2$ and 4~\Om}] (3,3)
@@ -874,12 +883,15 @@ and put them in matrix form
 \paragraph{Find Other Values}
 \[V_O=V_C-V_B=123.58-111.58=12~\text{V}\]
 
-\end{example}
+````
+`````
 
 %%%
 \pagebreak
 %%%
-\begin{example}
+
+`````{admonition} Example
+
 Find $I_x$ using nodal analysis.
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_3$ and 24~\Om}] (0,3) to[R,lx={$R_1$ and 8~\Om}] (0,6)
@@ -891,7 +903,8 @@ Find $I_x$ using nodal analysis.
 (0,6) to[short] (6,6)
 ;
 \end{circuitikz}\end{center}
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 \begin{center}\begin{circuitikz}\draw
 (0,0) to[R,lx={$R_3$ and 24~\Om}] (0,3) to[R,lx={$R_1$ and 8~\Om}] (0,6)
 (3,0) to[R,lx={$R_4$ and 6~\Om}] (3,3) to[R,lx={$R_2$ and 12~\Om},i>=$I_x$] (3,6)
@@ -952,7 +965,8 @@ Find $I_x$ using nodal analysis.
     \paragraph{Find Other Values}
     \[I_x=\frac{16.5-15}{12}=125~\text{mA}\]
 
-\end{example}
+````
+`````
 
 ### Nodal Analysis with an Ideal Operational Amplifier
 
@@ -972,7 +986,8 @@ Find $I_x$ using nodal analysis.
 \end{enumerate}
 \end{framed}
 
-\begin{example}
+`````{admonition} Example
+
 Find $V_O$ using nodal analysis
 \begin{center}
 \begin{circuitikz}[american]\draw
@@ -988,7 +1003,8 @@ Find $V_O$ using nodal analysis
 \end{center}
 This is a circuit that you could easily look up in a book, apply the given equations, and find whatever value you seek. However, if you don't know where to find such a reference, or if the circuit is altered even slightly, this approach will fail. Instead, we can use the assumptions stated above and our knowledge of nodal analysis to develop a system of equations. We can then solve that system as we have previously to find the node voltages and any other values we need.
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 The circuit has three non-reference nodes which I will label below. Just as before, the voltage supply leads us to write a KVL equation in place of one of the KCL equations. In a circuit with op-amps we also replace a KCL equation with a KVL for each op-amp. That KVL will reflect the first assumption stated above. Therefore, the system of equations for this analysis will consist of a KVL for the voltage supply, a KVL for the op-amp, and another KCL for one of the nodes.
 
 Let's start by annotating the circuit just as before. The op-amp is not a passive component and therefore we do not assign it a current direction.%START EDITING HERE
@@ -1039,9 +1055,11 @@ and put them in matrix form
 \paragraph{Find other values}
 \[V_O=V_C-0=-50-0=-50~\text{V}\]
 
-\end{example}
+````
+`````
 
-\begin{example}
+`````{admonition} Example
+
 \begin{center}
 \begin{circuitikz}[american]\draw
 (0,0) node[op amp,yscale=-1](opamp){}
@@ -1052,7 +1070,8 @@ and put them in matrix form
 ;
 \end{circuitikz}
 \end{center}
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 
     \begin{center}
     	\begin{circuitikz}[american]\draw
@@ -1100,9 +1119,12 @@ and put them in matrix form
 
 \paragraph{Find other values}
 \[I_O=\frac{V_C-0}{8}=\frac{40-0}{8}=5~\text{A}\]
-\end{example}
+````
 
-\begin{example}
+`````
+
+`````{admonition} Example
+
 \begin{center}
 \begin{circuitikz}[american]\draw
 (0,0) node[op amp,yscale=-1](opamp){}
@@ -1117,7 +1139,8 @@ and put them in matrix form
 \end{circuitikz}
 \end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 
     \begin{center}
     	\begin{circuitikz}[american]\draw
@@ -1180,9 +1203,11 @@ and put them in matrix form
 \[I*O-I*{R4}-0=0\]
 \[I*O=I*{R4}=\frac{V_D-V_B}{5k}=\frac{751.9~\text{mV}-1.278~\text{V}}{5k}=-105.3~\mu A\]
 How will this change if we connect a load resistor to the output?
-\end{example}
+````
+`````
 
-\begin{example}
+`````{admonition} Example
+
 Find $I_O$
 \begin{center}
 \begin{circuitikz}[american]\draw
@@ -1197,7 +1222,8 @@ Find $I_O$
 \end{circuitikz}
 \end{center}
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 
     \begin{center}
     	\begin{circuitikz}[american]\draw
@@ -1261,7 +1287,8 @@ and put them in matrix form
 \[\frac{V_C-V_D}{72}+I_O-\frac{V_D-0}{12}=0\]
 \[I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}\]
 
-\end{example}
+````
+`````
 
 ## The Shortcut
 
@@ -1422,7 +1449,7 @@ Not all circuits require you to use the techniques introduced here. When I first
 
 \begin{enumerate}
 \item \textbf{How many non-reference nodes?} Non-reference nodes are any nodes that are not the ground node. The number of non-reference nodes define how many unknowns will be part of the system and, therefore, how many equations you will have to write.
-\item \textbf{Are there voltage supplies?} Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say `voltage supply''. I don't say `dependent supply'' or `independent supply'' since the type of voltage supply does not matter. \begin{enumerate} \item \textbf{Is the voltage supply grounded on one side?} This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply. \item \textbf{Does the voltage supply connected to two non-reference nodes?} This condition creates a `super-node''. The KVL is written in the same way as the previous case. The difference here is found in how you will write one of the KCLs. Rather than writing a KCL for a single node you will write a KCL for the region that bounds the two nodes on either side of the voltage supply.
+\item \textbf{Are there voltage supplies?} Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say "voltage supply". I don't say `dependent supply'' or `independent supply'' since the type of voltage supply does not matter. \begin{enumerate} \item \textbf{Is the voltage supply grounded on one side?} This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply. \item \textbf{Does the voltage supply connected to two non-reference nodes?} This condition creates a `super-node''. The KVL is written in the same way as the previous case. The difference here is found in how you will write one of the KCLs. Rather than writing a KCL for a single node you will write a KCL for the region that bounds the two nodes on either side of the voltage supply.
 \end{enumerate}
 \item \textbf{Are there any operational amplifiers?} We use the two assumptions about ideal op-amps to complete the system of equations in this case. The first is that the voltages on the \textbf{inputs} of the op-amp are equal. This is included in the system as a KVL equation. This KVL replaces one of the KCL equations needed to complete the system. You'll still need to write enough KCL equations to complete the system. Find nodes that are not connected to 1) voltage supplies and 2) the \textbf{output} of the op-amp. Nodes connected to the inputs of the op-amp are fair game since we assume no current enters or leaves those inputs.
 \item \textbf{Are there any dependent supplies?} Look for diamond shaped supplies. It does not matter whether they are voltage or current supplies. Locate the control variable on the schematic and write an expression for it in terms of the unknown mesh currents. This expression is written in a similar manner to finding the output values of the analysis. You should use this expression anytime the control variable shows up in the system of equations.
