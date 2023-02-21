@@ -1,6 +1,8 @@
 SEARCH: \\begin\{example\}(.*?(.|[\n])*?)\\end\{example\}
 REPLACE: ````{admonition} Example\n $1\n````
 
+\\begin\{enumerate\}(.*?(.|[\n])*?)\\end\{enumerate\}
+$1
 
 \\index\{(.*?(.|[\n])*?)\}
 \n```{index} $1\n```
@@ -11,9 +13,22 @@ REPLACE: ````{admonition} Example\n $1\n````
 \\paragraph\{(.*?(.|[\n])*?)\}
 ### $1
 
+\\paragraph\{(.*?(.|[\n])*?)\}
+
+
 \\\[(.*?(.|[\n])*?)\\\]
 $$$$ $1 $$$$
 
 \\Solution
 ````{admonition} Solution
 :class: tip, dropdown
+
+\\textbf\{(.*?(.|[\n])*?)\}
+**$1**
+
+\\begin\{circuitikz\}(.*?(.|[\n])*?)\\end\{circuitikz\}
+```{figure} IMAGE_FILE_NAME\n---\nheight: 300px\nname: LABEL_FOR_THIS_IMAGE\n---\n```
+
+\\underline{
+\\underline\{(.*?(.|[\n])*?)\}
+### $1
