@@ -288,7 +288,7 @@ $$
 
 **Using the Node Voltages to Find Other Values**
 
-Once you know the node voltage you can find any other value in the circuit. Let's find $I_O$ for this example. $I_O$ is the current flowing down through $R_2$. The voltage across $R_2$ is the voltage at the tail of the current arrow, $V_B$ for this circuit, minus the voltage at the tip of the current arrow, ground (0~\text{V}) for this circuit. To find the current through the resistor we simply divide this voltage by the resistance.
+Once you know the node voltage you can find any other value in the circuit. Let's find $I_O$ for this example. $I_O$ is the current flowing down through $R_2$. The voltage across $R_2$ is the voltage at the tail of the current arrow, $V_B$ for this circuit, minus the voltage at the tip of the current arrow, ground ($0~\text{V}$) for this circuit. To find the current through the resistor we simply divide this voltage by the resistance.
 
 $$
 I_O=\frac{V_B-0}{R_2}=\frac{V_B}{R_2}=\frac{14.4~\text{V}}{4~\Omega}=3.6~\text{A}
@@ -946,7 +946,7 @@ name: LABEL_FOR_THIS_IMAGE15
 
 We'll need this expression to relate the control variable to the unknown node voltages. Our goal when writing the system equations is to have equations that are comprised of constants and the unknown variables. The presence of a control variable in the system is address by substituting with this expression.
 
-This expression is always written using the direction indicated on the schematic, not with your chosen direction during annotation of the schematic. In this case, $V_A$ is at the tail of the arrow, ground (0~\text{V}) is at the tip, and the current flows through $R_1$.
+This expression is always written using the direction indicated on the schematic, not with your chosen direction during annotation of the schematic. In this case, $V_A$ is at the tail of the arrow, ground ($0~\text{V}$) is at the tip, and the current flows through $R_1$.
 
 $$
 I_O=\frac{V_A-0}{R_1}=\frac{V_A}{R_1}
