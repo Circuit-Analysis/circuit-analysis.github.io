@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-02-20T18:42:25.750126</dc:date>
+    <dc:date>2023-02-21T21:30:39.583742</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -42,7 +42,7 @@ C 43.6446 122.267607 45.256705 126.159572 48.125866 129.028734
 C 50.995028 131.897895 54.886993 133.51 58.9446 133.51 
 L 58.9446 133.51 
 z
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 147.483638 105.570293 
@@ -62,7 +62,7 @@ C 120.226103 156.332978 123.19096 156.654571 126.13644 156.347085
 C 129.08192 156.039599 131.967589 155.107256 134.676214 153.587933 
 C 137.384838 152.068611 139.879234 149.983165 142.058063 147.41632 
 C 144.236892 144.849475 146.070245 141.836468 147.483638 138.499707 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #ff0000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #ff0000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 151.288815 112.557322 
@@ -73,7 +73,7 @@ L 147.497075 105.562976
 L 147.643428 105.831708 
 L 149.64548 104.741378 
 z
-" clip-path="url(#pdf9055e146)" style="fill: #ff0000; stroke: #ff0000; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: #ff0000; stroke: #ff0000; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 268.523582 103.844321 
@@ -93,7 +93,7 @@ C 237.311885 156.155853 240.613687 156.59174 243.91323 156.42555
 C 247.212773 156.25936 250.466741 155.493273 253.548639 154.157072 
 C 256.630537 152.820871 259.499905 150.932097 262.045202 148.564173 
 C 264.590499 146.196249 266.778308 143.380261 268.523582 140.225679 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #0000ff; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #0000ff; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 272.72765 110.598856 
@@ -104,7 +104,7 @@ L 268.536572 103.836236
 L 268.698267 104.096026 
 L 270.633701 102.891399 
 z
-" clip-path="url(#pdf9055e146)" style="fill: #0000ff; stroke: #0000ff; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: #0000ff; stroke: #0000ff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 58.9446 133.51 
@@ -118,7 +118,7 @@ C 43.6446 122.267607 45.256705 126.159572 48.125866 129.028734
 C 50.995028 131.897895 54.886993 133.51 58.9446 133.51 
 L 58.9446 133.51 
 z
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 147.483638 105.570293 
@@ -138,7 +138,7 @@ C 120.226103 156.332978 123.19096 156.654571 126.13644 156.347085
 C 129.08192 156.039599 131.967589 155.107256 134.676214 153.587933 
 C 137.384838 152.068611 139.879234 149.983165 142.058063 147.41632 
 C 144.236892 144.849475 146.070245 141.836468 147.483638 138.499707 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #ff0000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #ff0000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 151.288815 112.557322 
@@ -149,7 +149,7 @@ L 147.497075 105.562976
 L 147.643428 105.831708 
 L 149.64548 104.741378 
 z
-" clip-path="url(#pdf9055e146)" style="fill: #ff0000; stroke: #ff0000; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: #ff0000; stroke: #ff0000; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 268.523582 103.844321 
@@ -169,7 +169,7 @@ C 237.311885 156.155853 240.613687 156.59174 243.91323 156.42555
 C 247.212773 156.25936 250.466741 155.493273 253.548639 154.157072 
 C 256.630537 152.820871 259.499905 150.932097 262.045202 148.564173 
 C 264.590499 146.196249 266.778308 143.380261 268.523582 140.225679 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #0000ff; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #0000ff; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 272.72765 110.598856 
@@ -180,7 +180,7 @@ L 268.536572 103.836236
 L 268.698267 104.096026 
 L 270.633701 102.891399 
 z
-" clip-path="url(#pdf9055e146)" style="fill: #0000ff; stroke: #0000ff; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: #0000ff; stroke: #0000ff; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
     <path d="M 58.9446 179.41 
@@ -189,22 +189,22 @@ L 58.9446 133.51
 M 58.9446 102.91 
 L 58.9446 102.91 
 L 58.9446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_2">
     <path d="M 62.0046 125.86 
 L 55.8846 125.86 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_3">
     <path d="M 58.9446 113.62 
 L 58.9446 107.5 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_4">
     <path d="M 62.0046 110.56 
 L 55.8846 110.56 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_5">
     <path d="M 58.9446 57.01 
@@ -217,7 +217,7 @@ L 127.7946 49.36
 L 132.8946 64.66 
 L 135.4446 57.01 
 L 181.3446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_6">
     <path d="M 181.3446 57.01 
@@ -230,7 +230,7 @@ L 250.1946 49.36
 L 255.2946 64.66 
 L 257.8446 57.01 
 L 303.7446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_7">
     <path d="M 181.3446 57.01 
@@ -243,7 +243,7 @@ L 188.9946 125.86
 L 173.6946 130.96 
 L 181.3446 133.51 
 L 181.3446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_8">
     <path d="M 303.7446 57.01 
@@ -256,13 +256,13 @@ L 311.3946 125.86
 L 296.0946 130.96 
 L 303.7446 133.51 
 L 303.7446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_9">
     <path d="M 303.7446 179.41 
 L 181.3446 179.41 
 L 58.9446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_10">
     <path d="M 58.9446 179.41 
@@ -271,7 +271,7 @@ L 51.2946 191.65
 L 58.9446 199.3 
 L 66.5946 191.65 
 L 58.9446 191.65 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_11">
     <path d="M 58.9446 179.41 
@@ -280,22 +280,22 @@ L 58.9446 133.51
 M 58.9446 102.91 
 L 58.9446 102.91 
 L 58.9446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_12">
     <path d="M 62.0046 125.86 
 L 55.8846 125.86 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_13">
     <path d="M 58.9446 113.62 
 L 58.9446 107.5 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_14">
     <path d="M 62.0046 110.56 
 L 55.8846 110.56 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_15">
     <path d="M 58.9446 57.01 
@@ -308,7 +308,7 @@ L 127.7946 49.36
 L 132.8946 64.66 
 L 135.4446 57.01 
 L 181.3446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_16">
     <path d="M 181.3446 57.01 
@@ -321,7 +321,7 @@ L 250.1946 49.36
 L 255.2946 64.66 
 L 257.8446 57.01 
 L 303.7446 57.01 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_17">
     <path d="M 181.3446 57.01 
@@ -334,7 +334,7 @@ L 188.9946 125.86
 L 173.6946 130.96 
 L 181.3446 133.51 
 L 181.3446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_18">
     <path d="M 303.7446 57.01 
@@ -347,13 +347,13 @@ L 311.3946 125.86
 L 296.0946 130.96 
 L 303.7446 133.51 
 L 303.7446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_19">
     <path d="M 303.7446 179.41 
 L 181.3446 179.41 
 L 58.9446 179.41 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_20">
     <path d="M 58.9446 179.41 
@@ -362,10 +362,10 @@ L 51.2946 191.65
 L 58.9446 199.3 
 L 66.5946 191.65 
 L 58.9446 191.65 
-" clip-path="url(#pdf9055e146)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pac9c59ba4a)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="text_1">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $V_S$ -->
      <g transform="translate(27.9596 114.660586)scale(0.125 -0.125)">
       <defs>
@@ -436,7 +436,7 @@ z
       <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 21 V -->
      <g transform="translate(12.154913 128.657852)scale(0.125 -0.125)">
       <defs>
@@ -498,7 +498,7 @@ z
     </g>
    </g>
    <g id="text_2">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_1$ -->
      <g transform="translate(113.8321 29.703125)scale(0.125 -0.125)">
       <defs>
@@ -563,7 +563,7 @@ z
       <use xlink:href="#STIXGeneral-Regular-31" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 6Ω -->
      <g transform="translate(111.39167 43.700391)scale(0.125 -0.125)">
       <defs>
@@ -631,7 +631,7 @@ z
     </g>
    </g>
    <g id="text_3">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #ff0000" transform="translate(84.307295 77.218047)scale(0.125 -0.125)">
       <defs>
@@ -656,7 +656,7 @@ z
     </g>
    </g>
    <g id="text_4">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #ff0000" transform="translate(148.489717 77.218047)scale(0.125 -0.125)">
       <defs>
@@ -673,7 +673,7 @@ z
     </g>
    </g>
    <g id="text_5">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_3$ -->
      <g transform="translate(236.2321 29.703125)scale(0.125 -0.125)">
       <defs>
@@ -711,7 +711,7 @@ z
       <use xlink:href="#STIXGeneral-Regular-33" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 14Ω -->
      <g transform="translate(229.815108 43.700391)scale(0.125 -0.125)">
       <defs>
@@ -742,7 +742,7 @@ z
     </g>
    </g>
    <g id="text_6">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #0000ff" transform="translate(206.707295 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -750,7 +750,7 @@ z
     </g>
    </g>
    <g id="text_7">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #0000ff" transform="translate(270.889717 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -758,7 +758,7 @@ z
     </g>
    </g>
    <g id="text_8">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_2$ -->
      <g transform="translate(158.0096 114.660586)scale(0.125 -0.125)">
       <defs>
@@ -791,7 +791,7 @@ z
       <use xlink:href="#STIXGeneral-Regular-32" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 24Ω -->
      <g transform="translate(145.175616 128.657852)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-32"/>
@@ -801,7 +801,7 @@ z
     </g>
    </g>
    <g id="text_9">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #ff0000" transform="translate(160.159991 91.059219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -809,7 +809,7 @@ z
     </g>
    </g>
    <g id="text_10">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #ff0000" transform="translate(166.124834 152.259219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -817,7 +817,7 @@ z
     </g>
    </g>
    <g id="text_11">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_4$ -->
      <g transform="translate(280.4096 114.660586)scale(0.125 -0.125)">
       <defs>
@@ -845,7 +845,7 @@ z
       <use xlink:href="#STIXGeneral-Regular-34" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 10Ω -->
      <g transform="translate(267.575616 128.657852)scale(0.125 -0.125)">
       <defs>
@@ -878,7 +878,7 @@ z
     </g>
    </g>
    <g id="text_12">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #0000ff" transform="translate(282.559991 91.059219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -886,7 +886,7 @@ z
     </g>
    </g>
    <g id="text_13">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #0000ff" transform="translate(288.524834 152.259219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -894,7 +894,7 @@ z
     </g>
    </g>
    <g id="text_14">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $I_1$ -->
      <g style="fill: #ff0000" transform="translate(119.4071 125.484219)scale(0.125 -0.125)">
       <defs>
@@ -926,7 +926,7 @@ z
     </g>
    </g>
    <g id="text_15">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $I_2$ -->
      <g style="fill: #0000ff" transform="translate(237.9821 125.484219)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-49" transform="translate(0 0.703125)"/>
@@ -935,14 +935,14 @@ z
     </g>
    </g>
    <g id="text_16">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $V_S$ -->
      <g transform="translate(27.9596 114.660586)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-56" transform="translate(0 0.703125)"/>
       <use xlink:href="#STIXGeneral-Italic-53" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 21 V -->
      <g transform="translate(12.154913 128.657852)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-32"/>
@@ -953,14 +953,14 @@ z
     </g>
    </g>
    <g id="text_17">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_1$ -->
      <g transform="translate(113.8321 29.703125)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
       <use xlink:href="#STIXGeneral-Regular-31" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 6Ω -->
      <g transform="translate(111.39167 43.700391)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-36"/>
@@ -969,7 +969,7 @@ z
     </g>
    </g>
    <g id="text_18">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #ff0000" transform="translate(84.307295 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -977,7 +977,7 @@ z
     </g>
    </g>
    <g id="text_19">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #ff0000" transform="translate(148.489717 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -985,14 +985,14 @@ z
     </g>
    </g>
    <g id="text_20">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_3$ -->
      <g transform="translate(236.2321 29.703125)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
       <use xlink:href="#STIXGeneral-Regular-33" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 14Ω -->
      <g transform="translate(229.815108 43.700391)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-31"/>
@@ -1002,7 +1002,7 @@ z
     </g>
    </g>
    <g id="text_21">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #0000ff" transform="translate(206.707295 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -1010,7 +1010,7 @@ z
     </g>
    </g>
    <g id="text_22">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #0000ff" transform="translate(270.889717 77.218047)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -1018,14 +1018,14 @@ z
     </g>
    </g>
    <g id="text_23">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_2$ -->
      <g transform="translate(158.0096 114.660586)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
       <use xlink:href="#STIXGeneral-Regular-32" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 24Ω -->
      <g transform="translate(145.175616 128.657852)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-32"/>
@@ -1035,7 +1035,7 @@ z
     </g>
    </g>
    <g id="text_24">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #ff0000" transform="translate(160.159991 91.059219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -1043,7 +1043,7 @@ z
     </g>
    </g>
    <g id="text_25">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #ff0000" transform="translate(166.124834 152.259219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -1051,14 +1051,14 @@ z
     </g>
    </g>
    <g id="text_26">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $R_4$ -->
      <g transform="translate(280.4096 114.660586)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-52" transform="translate(0 0.703125)"/>
       <use xlink:href="#STIXGeneral-Regular-34" transform="translate(61.099991 -12.525)scale(0.7)"/>
      </g>
     </g>
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- 10Ω -->
      <g transform="translate(267.575616 128.657852)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-31"/>
@@ -1068,7 +1068,7 @@ z
     </g>
    </g>
    <g id="text_27">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- + -->
      <g style="fill: #0000ff" transform="translate(282.559991 91.059219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2b"/>
@@ -1076,7 +1076,7 @@ z
     </g>
    </g>
    <g id="text_28">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- - -->
      <g style="fill: #0000ff" transform="translate(288.524834 152.259219)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-2d"/>
@@ -1084,7 +1084,7 @@ z
     </g>
    </g>
    <g id="text_29">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $I_1$ -->
      <g style="fill: #ff0000" transform="translate(119.4071 125.484219)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-49" transform="translate(0 0.703125)"/>
@@ -1093,7 +1093,7 @@ z
     </g>
    </g>
    <g id="text_30">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- $I_2$ -->
      <g style="fill: #0000ff" transform="translate(237.9821 125.484219)scale(0.125 -0.125)">
       <use xlink:href="#STIXGeneral-Italic-49" transform="translate(0 0.703125)"/>
@@ -1112,10 +1112,10 @@ C 179.291416 55.817564 179.0496 56.401359 179.0496 57.01
 C 179.0496 57.618641 179.291416 58.202436 179.72179 58.63281 
 C 180.152164 59.063184 180.735959 59.305 181.3446 59.305 
 z
-" clip-path="url(#pdf9055e146)" style="stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="text_31">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- A -->
      <g transform="translate(177.069209 49.055391)scale(0.125 -0.125)">
       <defs>
@@ -1151,10 +1151,10 @@ C 179.291416 55.817564 179.0496 56.401359 179.0496 57.01
 C 179.0496 57.618641 179.291416 58.202436 179.72179 58.63281 
 C 180.152164 59.063184 180.735959 59.305 181.3446 59.305 
 z
-" clip-path="url(#pdf9055e146)" style="stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pac9c59ba4a)" style="stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="text_32">
-    <g clip-path="url(#pdf9055e146)">
+    <g clip-path="url(#pac9c59ba4a)">
      <!-- A -->
      <g transform="translate(177.069209 49.055391)scale(0.125 -0.125)">
       <use xlink:href="#DejaVuSans-41"/>
@@ -1164,7 +1164,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pdf9055e146">
+  <clipPath id="pac9c59ba4a">
    <rect x="7.2" y="7.2" width="307.2546" height="195.16"/>
   </clipPath>
  </defs>
