@@ -16,7 +16,7 @@ kernelspec:
 
 # Mesh Analysis
 
-We ofter refer to mesh analysis as a _method_ of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.
+We often refer to mesh analysis as a _method_ of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.
 
 ## Relating Circuit Values to Mesh Currents
 
