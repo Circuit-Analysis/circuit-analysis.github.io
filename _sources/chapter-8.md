@@ -39,9 +39,25 @@ if you don't need to cross a component between two of your labeled nodes than th
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-example-1.svg') as d:
-    d += elm.Battery().label('Battery').label('12V', loc="bottom").down()
-    d.move(6, 0)
-    d += elm.SourceV().label('Voltage').label('12V', loc="bottom")
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.ResistorIEC().up().label(['+', '$V_1$', '-'])
+    d += (A := elm.Dot().label('A', loc='left'))
+    d += elm.ResistorIEC().right().label(['+','$V_2$', '-'])
+    d += (B := elm.Dot().label('B'))
+    d += elm.ResistorIEC().right().label(['-','$V_3$', '+'])
+    d += (C := elm.Dot().label('C', loc='right'))
+    d += elm.ResistorIEC().down().label(['+','$V_4$', '-'])
+    d += elm.Line().left()
+    d.push()
+    d += elm.ResistorIEC().up().label(['-','$V_5$', '+'])
+    d.pop()
+    d += elm.Line().left()
+    d.move_from(A.end, 0, 0)
+    d += elm.Line().up()
+    d += elm.ResistorIEC().right().label(['+','$V_6$', '-']).length(6)
+    d += elm.Line().down()
 ```
 
 ```{figure} nodal-example-1.svg
@@ -51,8 +67,7 @@ name: nodal-example-1
 ---
 ```
 
-```
-{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-input]
 
 from jupyterquiz import display_quiz

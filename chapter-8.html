@@ -599,13 +599,945 @@ title="Print to PDF"
 <figure class="align-default" id="nodal-example-1">
 <a class="reference internal image-reference" href="_images/nodal-example-1.svg"><img alt="_images/nodal-example-1.svg" height="300px" src="_images/nodal-example-1.svg" /></a>
 </figure>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">code</span><span class="o">-</span><span class="n">cell</span><span class="p">}</span> <span class="n">ipython3</span>
-<span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="nb">input</span><span class="p">]</span>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="YQTvewuFKBaF" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
 
-<span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
 
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;questions/nodal_question_one.json&quot;</span><span class="p">)</span>
-</pre></div>
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionsYQTvewuFKBaF=[
+    {
+        "question": "What is the voltage $V_1$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_A$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$-V_A$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_C$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
+;
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionsYQTvewuFKBaF,  YQTvewuFKBaF);
+        }
+        </script></div>
 </div>
 <figure class="align-default" id="label-for-this-image2">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
@@ -775,8 +1707,8 @@ I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 <p>And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>Solving the system of equations</strong></p>
 <p>We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c698e4d7-3344-4941-a2a6-67fba0ecc3c2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-c698e4d7-3344-4941-a2a6-67fba0ecc3c2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-1134fd27-f76c-4f72-bd49-7ae99ba50fdb">
+<span class="eqno">(5)<a class="headerlink" href="#equation-1134fd27-f76c-4f72-bd49-7ae99ba50fdb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -878,8 +1810,8 @@ I_{R3}-I_{S2}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three KCLs written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b8fa162-09c2-4a08-a1c5-c22575f29860">
-<span class="eqno">(6)<a class="headerlink" href="#equation-1b8fa162-09c2-4a08-a1c5-c22575f29860" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-30e43926-a6d0-44d8-a27e-e82e4bc5cfbc">
+<span class="eqno">(6)<a class="headerlink" href="#equation-30e43926-a6d0-44d8-a27e-e82e4bc5cfbc" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\\
 \frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\\
 &amp;\frac{1}{4k}V_B-\frac{1}{4k}V_C&amp;&amp;=6~\text{mA}\nonumber
@@ -993,8 +1925,8 @@ I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4318c452-501e-4ebc-a7ea-bdce8823dd32">
-<span class="eqno">(7)<a class="headerlink" href="#equation-4318c452-501e-4ebc-a7ea-bdce8823dd32" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-889e3989-2552-4bf7-a9f7-f8453292f918">
+<span class="eqno">(7)<a class="headerlink" href="#equation-889e3989-2552-4bf7-a9f7-f8453292f918" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
 -\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1120,8 +2052,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b806198-9843-4e10-95f5-da7c8a267a49">
-<span class="eqno">(8)<a class="headerlink" href="#equation-4b806198-9843-4e10-95f5-da7c8a267a49" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-89b1a8ff-cf0c-41d4-bf36-56b5adfafe3d">
+<span class="eqno">(8)<a class="headerlink" href="#equation-89b1a8ff-cf0c-41d4-bf36-56b5adfafe3d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1251,8 +2183,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bca89f5b-c791-424b-8c99-be755d4ee67a">
-<span class="eqno">(9)<a class="headerlink" href="#equation-bca89f5b-c791-424b-8c99-be755d4ee67a" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-6eb9dbcf-615f-4e77-bf11-ece0cc943f59">
+<span class="eqno">(9)<a class="headerlink" href="#equation-6eb9dbcf-615f-4e77-bf11-ece0cc943f59" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1374,8 +2306,8 @@ I_{R4}+I_{S2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb547ee8-f622-420a-92ad-a811911eeaa3">
-<span class="eqno">(10)<a class="headerlink" href="#equation-cb547ee8-f622-420a-92ad-a811911eeaa3" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-364d3b10-1c63-408d-a4d3-6a4c8ff3ef2d">
+<span class="eqno">(10)<a class="headerlink" href="#equation-364d3b10-1c63-408d-a4d3-6a4c8ff3ef2d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -1478,8 +2410,8 @@ I_{S2}-\frac{V_C-V_B}{R_4}+I_{S3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d19f51ca-c72e-478a-9c88-5b10c79ee8a2">
-<span class="eqno">(11)<a class="headerlink" href="#equation-d19f51ca-c72e-478a-9c88-5b10c79ee8a2" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-3c419a0c-9ddb-4736-9429-7abb211538e5">
+<span class="eqno">(11)<a class="headerlink" href="#equation-3c419a0c-9ddb-4736-9429-7abb211538e5" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -1646,8 +2578,8 @@ V_B=0~\text{V}
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53996528-8ddf-48b4-9ecc-87cc72cd6ed0">
-<span class="eqno">(12)<a class="headerlink" href="#equation-53996528-8ddf-48b4-9ecc-87cc72cd6ed0" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-6ae1b583-d109-4f1d-b143-7a15c5d49b61">
+<span class="eqno">(12)<a class="headerlink" href="#equation-6ae1b583-d109-4f1d-b143-7a15c5d49b61" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 ~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
@@ -1707,8 +2639,8 @@ V_A-V_B=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a8e7501-e7c8-4d14-91d1-df7011303de1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-8a8e7501-e7c8-4d14-91d1-df7011303de1" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-8b13ab46-ea1f-4cc4-8c25-b247b4d3c1fe">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8b13ab46-ea1f-4cc4-8c25-b247b4d3c1fe" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1785,8 +2717,8 @@ V_C-V_D=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa459bad-d530-4d39-8216-087dc9ca5696">
-<span class="eqno">(14)<a class="headerlink" href="#equation-fa459bad-d530-4d39-8216-087dc9ca5696" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-3a0d9b8e-64e4-4ef5-af06-6fc78b6d74ea">
+<span class="eqno">(14)<a class="headerlink" href="#equation-3a0d9b8e-64e4-4ef5-af06-6fc78b6d74ea" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -1863,8 +2795,8 @@ V_C=0~\text{V}
 \]</div>
 <p><strong>Solve the system</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6930bd6-0956-4c4f-90b9-131d6ff90f1b">
-<span class="eqno">(15)<a class="headerlink" href="#equation-e6930bd6-0956-4c4f-90b9-131d6ff90f1b" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-ed94c0f5-d7c4-41f0-9be8-277ca6a4213d">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ed94c0f5-d7c4-41f0-9be8-277ca6a4213d" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
