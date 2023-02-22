@@ -16,6 +16,15 @@ kernelspec:
 
 # Nodal Analysis
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
+```
+
 Nodal Analysis is another methodical application of KVL, KCL, and Ohm's law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.
 
 ## Locating Non-reference Nodes
@@ -24,24 +33,33 @@ if you don't need to cross a component between two of your labeled nodes than th
 
 ## Relating Circuit Values to Node Voltages
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-example-1.svg') as d:
+    d += elm.Battery().label('Battery').label('12V', loc="bottom").down()
+    d.move(6, 0)
+    d += elm.SourceV().label('Voltage').label('12V', loc="bottom")
+```
+
+```{figure} nodal-example-1.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE1
+name: nodal-example-1
 ---
 ```
 
-$V_1 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+```
+{code-cell} ipython3
+:tags: [remove-input]
 
-$V_2 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+from jupyterquiz import display_quiz
 
-$V_3 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+display_quiz("questions/nodal_question_one.json")
+```
 
-$V_4 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
-
-$V_5 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
-
-$V_6 = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
 
 ```{figure} logo.png
 ---
