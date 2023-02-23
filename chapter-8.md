@@ -93,6 +93,8 @@ with schemdraw.Drawing(file='nodal-example-2.svg') as d:
     d += elm.Line().down()
 ```
 
+### Component Voltages and Node Voltages
+
 ```{figure} nodal-example-1.svg
 ---
 height: 300px
@@ -107,6 +109,8 @@ from jupyterquiz import display_quiz
 
 display_quiz("questions/nodal_question_one.json")
 ```
+
+### Component Currents and Node Voltages
 
 ```{figure} nodal-example-2.svg
 ---
