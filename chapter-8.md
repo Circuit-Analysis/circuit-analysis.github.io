@@ -108,7 +108,6 @@ from jupyterquiz import display_quiz
 display_quiz("questions/nodal_question_one.json")
 ```
 
-
 ```{figure} nodal-example-2.svg
 ---
 height: 300px

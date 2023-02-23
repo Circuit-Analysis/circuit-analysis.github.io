@@ -34,5 +34,185 @@
                 "feedback": "Incorrect."
             }
         ]
-    }
+    },
+    {
+        "question": "What is the voltage $V_2$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_B-V_A$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_A-V_B$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_A-V_C$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$V_C-V_A$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C-V_B$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$V_B-V_C$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the voltage $V_3$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_B-V_C$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_C-V_B$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B-V_A$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$V_A-V_B$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C-V_A$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$V_A-V_C$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the voltage $V_4$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_A$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$-V_A$",
+                "correct": false,
+                "feedback": "BAAAAAAP."
+            },
+            {
+                "answer": "$V_B$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$-V_C$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the voltage $V_5$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_A$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$-V_A$",
+                "correct": false,
+                "feedback": "BAAAAAAP."
+            },
+            {
+                "answer": "$V_B$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$-V_B$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_C$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the voltage $V_6$ using the node voltages?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$V_B-V_C$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_C-V_B$",
+                "correct": false,
+                "feedback": "BAAAAAAP."
+            },
+            {
+                "answer": "$V_B-V_A$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$V_A-V_B$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_C-V_A$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$V_A-V_C$",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    }    
 ]
