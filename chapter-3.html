@@ -63,6 +63,14 @@ const thebe_selector_output = ".output, .cell_output"
 
     <!-- Google Analytics -->
     
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-98DZSDJ29K"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-98DZSDJ29K');
+                </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -783,8 +791,8 @@ How are they connected?</p>
 </section>
 <section id="delta-wye-conversions">
 <h2>Delta-Wye Conversions<a class="headerlink" href="#delta-wye-conversions" title="Permalink to this headline">#</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-1d42889a-cfaa-4e74-89aa-3064298f767b">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1d42889a-cfaa-4e74-89aa-3064298f767b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fe670a6d-c80f-462b-88f7-5214e95b0b1a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-fe670a6d-c80f-462b-88f7-5214e95b0b1a" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \\
 R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \\
 R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
@@ -797,8 +805,8 @@ R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">The wye configuration.</span><a class="headerlink" href="#wye" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="amsmath math notranslate nohighlight" id="equation-cd745f4a-2e1a-4b78-9818-77b55a928f2e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-cd745f4a-2e1a-4b78-9818-77b55a928f2e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec6760f2-b592-4b17-b530-cbb1038cd853">
+<span class="eqno">(2)<a class="headerlink" href="#equation-ec6760f2-b592-4b17-b530-cbb1038cd853" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \\
 R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \\
 R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
@@ -826,7 +834,7 @@ R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
