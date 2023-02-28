@@ -190,13 +190,61 @@ These steps give us a starting point for the first example. We'll develop what t
 
 ## Our First Toy Problem
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$6~A$', '$I_S$'])
+    d += elm.Resistor().right().label('$R_1$\n$2\Omega$')
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$4\Omega$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
+    d.pop()
+    d += elm.Resistor().right().label('$R_3$\n$4\Omega$')
+    d += elm.Resistor().down().label('$R_4$\n$2\Omega$')
+    d += elm.Line().left().length(6)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-first-toy-problem-2.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$6~A$', '$I_S$'])
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$2\Omega$') )
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$4\Omega$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
+    d.pop()
+    d += (R3 := elm.Resistor().right().label('$R_3$\n$4\Omega$'))
+    d += (R4 := elm.Resistor().down().label('$R_4$\n$2\Omega$'))
+    d += elm.Line().left().length(6)
+    d.move_from(R1.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R2.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(R3.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R4.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+```
+
 `````{admonition} Example
 
 Find $I_O$ using Nodal Analysis.
-```{figure} logo.png
+```{figure} nodal-first-toy-problem-1.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE4
+name: nodal-first-toy-problem-1
 ---
 ```
 
@@ -204,10 +252,10 @@ name: LABEL_FOR_THIS_IMAGE4
 :class: tip, dropdown
 Start by labeling the non-reference nodes as shown below. Pick a current direction for each passive component. For this problem that means the resistors. In future problems we'll also label current directions for the other passive elements, the capacitors and inductors. These current arrows will help us keep the signs consistent in the system of equations we're about to develop to find the unknowns.
 
-```{figure} logo.png
+```{figure} nodal-first-toy-problem-2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE5
+name: nodal-first-toy-problem-2.svg
 ---
 ```
 **KCL for Node A**
@@ -282,7 +330,7 @@ $$
 I_{R3}=\frac{V_B-V_C}{R_3}
 $$
 
-In fact, the expression for $I_{R1}$ is identical to then one we wrote previously. The expression for $I_{R2}$ will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for $I_{R2}$. The voltage at the tail is $V_B$. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression
+In fact, the expression for $I_{R1}$ is identical to then one we wrote previously. The expression for $I_{R2}$ will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for $I_{R2}$. The voltage at the tail is $V_B$. The voltage at the tip is $0~\text{V}$. The tip of this arrow points to the ground node and the difference between this node and itself is $0~\text{V}$. We can include this $0~\text{V}$ in the expression
 
 $$
 I_{R2}=\frac{V_B-0}{R_2}
