@@ -1,0 +1,38 @@
+[
+    {
+        "question": "What is the current $I_a$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_A/R_1$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_A/R_1$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_1$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_1$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_2$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_2$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

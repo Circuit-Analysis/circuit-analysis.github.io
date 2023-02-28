@@ -93,6 +93,38 @@ with schemdraw.Drawing(file='nodal-example-2.svg') as d:
     d += elm.Line().down()
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-example-3.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += (R1 := elm.ResistorIEC().up().label('$R_1$'))
+    d += elm.CurrentLabelInline(direction='out', ofst=-0.6).at(R1.start).label('$I_a$')
+    d += (A := elm.Dot().label('A', loc='left'))
+    d += (R2 := elm.ResistorIEC().right().label('$R_2$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_b$')
+    d += (B := elm.Dot().label('B'))
+    d += (R3 := elm.ResistorIEC().right().label('$R_3$'))
+    d += elm.CurrentLabelInline(direction='out', ofst=-0.6).at(R3.start).label('$I_c$')
+    d += (C := elm.Dot().label('C', loc='right'))
+    d += (R4 := elm.ResistorIEC().down().label('$R_4$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R4.end).label('$I_d$')
+    d += elm.Line().left()
+    d.push()
+    d += (R5 := elm.ResistorIEC().up().label('$R_5$'))
+    d += elm.CurrentLabelInline(direction='out', ofst=-0.6).at(R5.start).label('$I_e$')
+    d.pop()
+    d += elm.Line().left()
+    d.move_from(A.end, 0, 0)
+    d += elm.Line().up()
+    d += (R6 := elm.ResistorIEC().right().label('$R_6$').length(6))
+    d += elm.CurrentLabelInline(direction='in', ofst=1.5).at(R6.end).label('$I_f$')
+    d += elm.Line().down()
+```
+
 ### Component Voltages and Node Voltages
 
 ```{figure} nodal-example-1.svg
@@ -127,24 +159,20 @@ from jupyterquiz import display_quiz
 display_quiz("questions/nodal_question_two.json")
 ```
 
-```{figure} logo.png
+```{figure} nodal-example-3.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE3
+name: nodal-example-3
 ---
 ```
 
-$I_a = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+```{code-cell} ipython3
+:tags: [remove-input]
 
-$I_b = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+from jupyterquiz import display_quiz
 
-$I_c = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
-
-$I_d = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
-
-$I_e = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
-
-$I_f = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }$
+display_quiz("questions/nodal_question_three.json")
+```
 
 ## The Steps
 
@@ -1905,6 +1933,7 @@ with schemdraw.Drawing(file='nodal-dependent-2.svg') as d:
     d += (Is2 := elm.SourceI().right().tox(Is3.start).label('$I_{S2}$\n2A',loc='top'))
     d += (LineR := elm.Line().down())
 ```
+
 ```{figure} nodal-dependent-2.svg
 ---
 height: 300px
@@ -1933,13 +1962,13 @@ with schemdraw.Drawing(file='nodal-opamp-inverting.svg') as d:
     d += (LineB := elm.Line().left().tox(Vs.end))
     d += (GndSig := elm.GroundSignal())
 ```
+
 ```{figure} nodal-opamp-inverting.svg
 ---
 height: 300px
 name: nodal-opamp-inverting
 ---
 ```
-
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -1963,8 +1992,9 @@ with schemdraw.Drawing(file='nodal-opamp-noninverting.svg') as d:
     d += (LineB := elm.Line().left().tox(Vs.end))
     d += (GndSig := elm.GroundSignal())
     d += elm.CurrentLabelInline(direction='in',ofst=-1.5).at(R3).label('$I_O$')
-    
+
 ```
+
 ```{figure} nodal-opamp-noninverting.svg
 ---
 height: 300px
@@ -1997,15 +2027,15 @@ with schemdraw.Drawing(file='nodal-opamp-shortcut.svg') as d:
     d += (LineBR := elm.Line().left().tox(LineOpIn2.end))
     d += elm.CurrentLabelInline(direction='out',ofst=-0.45).at(op.out).label('$I_O$')
     d += (LineOpOut := elm.Line().at(op.out).right().length(1))
-    d += (vo := elm.Dot(open='True').label('$V_O$',loc='right'))  
+    d += (vo := elm.Dot(open='True').label('$V_O$',loc='right'))
 ```
+
 ```{figure} nodal-opamp-shortcut.svg
 ---
 height: 300px
 name: nodal-opamp-shortcut
 ---
 ```
-
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -2031,6 +2061,7 @@ with schemdraw.Drawing(file='nodal-opamp-super-shortcut.svg') as d:
     d += (LineB := elm.Line().right().tox(R5.end))
     d += elm.CurrentLabelInline(direction='in',ofst=0.2).at(op.out).label('$I_O$')
 ```
+
 ```{figure} nodal-opamp-super-shortcut.svg
 ---
 height: 300px
@@ -2045,8 +2076,8 @@ The examples I've worked are intended to teach you how to deal with the little o
 Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.
 
 1.  **How many non-reference nodes?** Non-reference nodes are any nodes that are not the ground node. The number of non-reference nodes define how many unknowns will be part of the system and, therefore, how many equations you will have to write.
-2.  **Are there voltage supplies?** Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say "voltage supply". I don't say "dependent supply" or "independent supply" since the type of voltage supply does not matter. \begin{enumerate} 
-    1. **Is the voltage supply grounded on one side?** This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply. 
+2.  **Are there voltage supplies?** Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say "voltage supply". I don't say "dependent supply" or "independent supply" since the type of voltage supply does not matter.
+    1. **Is the voltage supply grounded on one side?** This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply.
     2. **Does the voltage supply connected to two non-reference nodes?** This condition creates a "super-node". The KVL is written in the same way as the previous case. The difference here is found in how you will write one of the KCLs. Rather than writing a KCL for a single node you will write a KCL for the region that bounds the two nodes on either side of the voltage supply.
 3.  **Are there any operational amplifiers?** We use the two assumptions about ideal op-amps to complete the system of equations in this case. The first is that the voltages on the **inputs** of the op-amp are equal. This is included in the system as a KVL equation. This KVL replaces one of the KCL equations needed to complete the system. You'll still need to write enough KCL equations to complete the system. Find nodes that are not connected to 1) voltage supplies and 2) the **output** of the op-amp. Nodes connected to the inputs of the op-amp are fair game since we assume no current enters or leaves those inputs.
 4.  **Are there any dependent supplies?** Look for diamond shaped supplies. It does not matter whether they are voltage or current supplies. Locate the control variable on the schematic and write an expression for it in terms of the unknown mesh currents. This expression is written in a similar manner to finding the output values of the analysis. You should use this expression anytime the control variable shows up in the system of equations.

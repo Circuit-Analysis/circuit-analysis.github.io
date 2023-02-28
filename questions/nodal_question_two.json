@@ -34,5 +34,185 @@
                 "feedback": "Incorrect."
             }
         ]
+    },
+    {
+        "question": "What is the current $I_b$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_B-V_A)/R_2$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_2$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_1$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_B-V_A)/R_1$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_A-V_C)/R_2$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_C-V_A)/R_2$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_c$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_B-V_C)/R_3$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_3$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_2$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_2$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_3$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_B-V_A)/R_3$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_d$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_C/R_4$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_C/R_4$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_4$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_4$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_4$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_4$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_e$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_B/R_5$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_B/R_5$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_3$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_3$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_5$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_5$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_f$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_C-V_A)/R_6$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_A-V_C)/R_6$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_6$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_6$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_5$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_5$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
     }
 ]
