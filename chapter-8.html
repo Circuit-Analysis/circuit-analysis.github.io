@@ -457,6 +457,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#relating-circuit-values-to-node-voltages">
    Relating Circuit Values to Node Voltages
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#component-voltages-and-node-voltages">
+     Component Voltages and Node Voltages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#component-currents-and-node-voltages">
+     Component Currents and Node Voltages
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-steps">
@@ -533,6 +545,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#relating-circuit-values-to-node-voltages">
    Relating Circuit Values to Node Voltages
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#component-voltages-and-node-voltages">
+     Component Voltages and Node Voltages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#component-currents-and-node-voltages">
+     Component Currents and Node Voltages
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-steps">
@@ -606,12 +630,16 @@ title="Print to PDF"
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<section id="component-voltages-and-node-voltages">
+<h3>Component Voltages and Node Voltages<a class="headerlink" href="#component-voltages-and-node-voltages" title="Permalink to this headline">#</a></h3>
 <figure class="align-default" id="nodal-example-1">
 <a class="reference internal image-reference" href="_images/nodal-example-1.svg"><img alt="_images/nodal-example-1.svg" height="300px" src="_images/nodal-example-1.svg" /></a>
 </figure>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="bAaeKGegMDkr" data-shufflequestions="False"
+<div class="output text_html"><div id="HqsRmQRhoSsR" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -773,7 +801,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style></div><script type="application/javascript">var questionsbAaeKGegMDkr=[
+}</style></div><script type="application/javascript">var questionsHqsRmQRhoSsR=[
     {
         "question": "What is the voltage $V_1$ using the node voltages?",
         "type": "many_choice",
@@ -1725,16 +1753,19 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsbAaeKGegMDkr,  bAaeKGegMDkr);
+        show_questions(questionsHqsRmQRhoSsR,  HqsRmQRhoSsR);
         }
         </script></div>
 </div>
+</section>
+<section id="component-currents-and-node-voltages">
+<h3>Component Currents and Node Voltages<a class="headerlink" href="#component-currents-and-node-voltages" title="Permalink to this headline">#</a></h3>
 <figure class="align-default" id="nodal-example-2">
 <a class="reference internal image-reference" href="_images/nodal-example-2.svg"><img alt="_images/nodal-example-2.svg" height="300px" src="_images/nodal-example-2.svg" /></a>
 </figure>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IIFULAbIbvCH" data-shufflequestions="False"
+<div class="output text_html"><div id="vjIwDuudeOkg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -1896,7 +1927,7 @@ if (typeof version == 'undefined') {
     100% {
         background-color: var(--correct-green);
     }
-}</style></div><script type="application/javascript">var questionsIIFULAbIbvCH=[
+}</style></div><script type="application/javascript">var questionsvjIwDuudeOkg=[
     {
         "question": "What is the current $I_a$ using the node voltages and resistance values?",
         "type": "many_choice",
@@ -1908,6 +1939,1129 @@ if (typeof version == 'undefined') {
             },
             {
                 "answer": "$-V_A/R_1$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_1$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_1$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_2$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_2$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_b$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_B-V_A)/R_2$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_2$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_1$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_B-V_A)/R_1$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_A-V_C)/R_2$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_C-V_A)/R_2$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_c$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_B-V_C)/R_3$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_3$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_2$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_2$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_A-V_B)/R_3$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_B-V_A)/R_3$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_d$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_C/R_4$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_C/R_4$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_4$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_4$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_4$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_4$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_e$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_B/R_5$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_B/R_5$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$V_B/R_3$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$-V_B/R_3$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$V_A/R_5$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$-V_A/R_5$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the current $I_f$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$(V_C-V_A)/R_6$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$(V_A-V_C)/R_6$",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_6$",
+                "correct": false,
+                "feedback": "Um, no."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_6$",
+                "correct": false,
+                "feedback": "Ruh-roh."
+            },
+            {
+                "answer": "$(V_B-V_C)/R_5$",
+                "correct": false,
+                "feedback": "Nope."
+            },
+            {
+                "answer": "$(V_C-V_B)/R_5$",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
+;
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionsvjIwDuudeOkg,  vjIwDuudeOkg);
+        }
+        </script></div>
+</div>
+<figure class="align-default" id="nodal-example-3">
+<a class="reference internal image-reference" href="_images/nodal-example-3.svg"><img alt="_images/nodal-example-3.svg" height="300px" src="_images/nodal-example-3.svg" /></a>
+</figure>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="KcFelGtryrBW" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionsKcFelGtryrBW=[
+    {
+        "question": "What is the current $I_a$ using the node voltages and resistance values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "$-V_A/R_1$",
+                "correct": false,
+                "feedback": "Think again."
+            },
+            {
+                "answer": "$V_A/R_1$",
                 "correct": true,
                 "feedback": "Correct."
             },
@@ -2668,19 +3822,11 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsIIFULAbIbvCH,  IIFULAbIbvCH);
+        show_questions(questionsKcFelGtryrBW,  KcFelGtryrBW);
         }
         </script></div>
 </div>
-<figure class="align-default" id="label-for-this-image3">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p><span class="math notranslate nohighlight">\(I_a = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
-<p><span class="math notranslate nohighlight">\(I_b = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
-<p><span class="math notranslate nohighlight">\(I_c = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
-<p><span class="math notranslate nohighlight">\(I_d = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
-<p><span class="math notranslate nohighlight">\(I_e = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
-<p><span class="math notranslate nohighlight">\(I_f = \underline{\ \ \ \ \ \ \ \ \ \ \ \ }\)</span></p>
+</section>
 </section>
 <section id="the-steps">
 <h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
@@ -2699,17 +3845,21 @@ if (typeof version == 'undefined') {
 </section>
 <section id="our-first-toy-problem">
 <h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find <span class="math notranslate nohighlight">\(I_O\)</span> using Nodal Analysis.</p>
-<figure class="align-default" id="label-for-this-image4">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="nodal-first-toy-problem-1">
+<a class="reference internal image-reference" href="_images/nodal-first-toy-problem-1.svg"><img alt="_images/nodal-first-toy-problem-1.svg" height="300px" src="_images/nodal-first-toy-problem-1.svg" /></a>
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>Start by labeling the non-reference nodes as shown below. Pick a current direction for each passive component. For this problem that means the resistors. In future problems we’ll also label current directions for the other passive elements, the capacitors and inductors. These current arrows will help us keep the signs consistent in the system of equations we’re about to develop to find the unknowns.</p>
-<figure class="align-default" id="label-for-this-image5">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="nodal-first-toy-problem-2-svg">
+<a class="reference internal image-reference" href="_images/nodal-first-toy-problem-2.svg"><img alt="_images/nodal-first-toy-problem-2.svg" height="300px" src="_images/nodal-first-toy-problem-2.svg" /></a>
 </figure>
 <p><strong>KCL for Node A</strong></p>
 <p>Each term in a KCL must be a current. In the case of node A there will be two terms since two circuit elements are connected to it. The first term I’ll write is the current through <span class="math notranslate nohighlight">\(I_S\)</span>. This term is a constant current and the simplest term we will encounter in Nodal Analysis.</p>
@@ -2766,7 +3916,7 @@ I_{R1}=\frac{V_A-V_B}{R_1}
 \[
 I_{R3}=\frac{V_B-V_C}{R_3}
 \]</div>
-<p>In fact, the expression for <span class="math notranslate nohighlight">\(I_{R1}\)</span> is identical to then one we wrote previously. The expression for <span class="math notranslate nohighlight">\(I_{R2}\)</span> will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for <span class="math notranslate nohighlight">\(I_{R2}\)</span>. The voltage at the tail is <span class="math notranslate nohighlight">\(V_B\)</span>. The voltage at the tip is 0~\text{V}. The tip of this arrow points to the ground node and the difference between this node and itself is 0~\text{V}. We can include this 0~\text{V} in the expression</p>
+<p>In fact, the expression for <span class="math notranslate nohighlight">\(I_{R1}\)</span> is identical to then one we wrote previously. The expression for <span class="math notranslate nohighlight">\(I_{R2}\)</span> will end up looking a little different. Stop and find the voltages at the tail and tip of the arrow for <span class="math notranslate nohighlight">\(I_{R2}\)</span>. The voltage at the tail is <span class="math notranslate nohighlight">\(V_B\)</span>. The voltage at the tip is <span class="math notranslate nohighlight">\(0~\text{V}\)</span>. The tip of this arrow points to the ground node and the difference between this node and itself is <span class="math notranslate nohighlight">\(0~\text{V}\)</span>. We can include this <span class="math notranslate nohighlight">\(0~\text{V}\)</span> in the expression</p>
 <div class="math notranslate nohighlight">
 \[
 I_{R2}=\frac{V_B-0}{R_2}
@@ -2831,8 +3981,8 @@ I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 <p>And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>Solving the system of equations</strong></p>
 <p>We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78229406-4a3a-4acc-897d-e6485beea94b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-78229406-4a3a-4acc-897d-e6485beea94b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c581f81f-e904-4628-b3af-3bb45abe7356">
+<span class="eqno">(5)<a class="headerlink" href="#equation-c581f81f-e904-4628-b3af-3bb45abe7356" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -2934,8 +4084,8 @@ I_{R3}-I_{S2}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three KCLs written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d458c407-968e-4f94-992e-775dbfd32506">
-<span class="eqno">(6)<a class="headerlink" href="#equation-d458c407-968e-4f94-992e-775dbfd32506" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-0b1938bb-106f-4989-bcbd-bbf579a1981e">
+<span class="eqno">(6)<a class="headerlink" href="#equation-0b1938bb-106f-4989-bcbd-bbf579a1981e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{1}{4k}V_A+&amp;\frac{1}{4k}V_B&amp;&amp;=-2~\text{mA}\nonumber\\
 \frac{1}{4k}V_A-&amp;\frac{1}{1k}V_B+\frac{1}{4k}V_C&amp;&amp;=0\nonumber\\
 &amp;\frac{1}{4k}V_B-\frac{1}{4k}V_C&amp;&amp;=6~\text{mA}\nonumber
@@ -3049,8 +4199,8 @@ I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-68b4171d-eedb-402f-92ed-d28613417404">
-<span class="eqno">(7)<a class="headerlink" href="#equation-68b4171d-eedb-402f-92ed-d28613417404" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-51778e9f-55e0-49ed-ac25-198493cb90ff">
+<span class="eqno">(7)<a class="headerlink" href="#equation-51778e9f-55e0-49ed-ac25-198493cb90ff" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
 -\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -3176,8 +4326,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32081348-54df-4541-a375-735fb23cd9a2">
-<span class="eqno">(8)<a class="headerlink" href="#equation-32081348-54df-4541-a375-735fb23cd9a2" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-83be8d99-3725-4b29-a9dd-6dc65e0584f4">
+<span class="eqno">(8)<a class="headerlink" href="#equation-83be8d99-3725-4b29-a9dd-6dc65e0584f4" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -3307,8 +4457,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df663587-b4c3-45ce-bcee-87e9b0b5d926">
-<span class="eqno">(9)<a class="headerlink" href="#equation-df663587-b4c3-45ce-bcee-87e9b0b5d926" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-66a6ee27-fd34-4c16-b38c-0792351d4881">
+<span class="eqno">(9)<a class="headerlink" href="#equation-66a6ee27-fd34-4c16-b38c-0792351d4881" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -3430,8 +4580,8 @@ I_{R4}+I_{S2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3e5e992-9f3f-4f62-8237-49af583c66e4">
-<span class="eqno">(10)<a class="headerlink" href="#equation-e3e5e992-9f3f-4f62-8237-49af583c66e4" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-7191922c-ac20-4886-8700-1583db01b859">
+<span class="eqno">(10)<a class="headerlink" href="#equation-7191922c-ac20-4886-8700-1583db01b859" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -3534,8 +4684,8 @@ I_{S2}-\frac{V_C-V_B}{R_4}+I_{S3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-959c2a09-da1c-479b-8135-af43e8a56777">
-<span class="eqno">(11)<a class="headerlink" href="#equation-959c2a09-da1c-479b-8135-af43e8a56777" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-f888945f-c1fc-4dff-8c16-b7324f633402">
+<span class="eqno">(11)<a class="headerlink" href="#equation-f888945f-c1fc-4dff-8c16-b7324f633402" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -3702,8 +4852,8 @@ V_B=0~\text{V}
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25f24628-2b79-4fc2-8608-c01727730579">
-<span class="eqno">(12)<a class="headerlink" href="#equation-25f24628-2b79-4fc2-8608-c01727730579" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-a5aaf1de-bc92-4893-9ea0-91ae9edd031e">
+<span class="eqno">(12)<a class="headerlink" href="#equation-a5aaf1de-bc92-4893-9ea0-91ae9edd031e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 ~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
@@ -3763,8 +4913,8 @@ V_A-V_B=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b647ec96-443e-4742-abcd-a94e1e26ba2e">
-<span class="eqno">(13)<a class="headerlink" href="#equation-b647ec96-443e-4742-abcd-a94e1e26ba2e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-376800ac-403f-48a8-bdb8-29486bd2155f">
+<span class="eqno">(13)<a class="headerlink" href="#equation-376800ac-403f-48a8-bdb8-29486bd2155f" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -3841,8 +4991,8 @@ V_C-V_D=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5005dd71-6893-40de-b78b-5208843663b8">
-<span class="eqno">(14)<a class="headerlink" href="#equation-5005dd71-6893-40de-b78b-5208843663b8" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-a201a457-c615-4268-afa9-758a220a4749">
+<span class="eqno">(14)<a class="headerlink" href="#equation-a201a457-c615-4268-afa9-758a220a4749" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -3919,8 +5069,8 @@ V_C=0~\text{V}
 \]</div>
 <p><strong>Solve the system</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bdf57b90-907d-4f30-b87d-2a5d018f29a4">
-<span class="eqno">(15)<a class="headerlink" href="#equation-bdf57b90-907d-4f30-b87d-2a5d018f29a4" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-ef812aa2-ff47-4c23-8329-8420de209c1e">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ef812aa2-ff47-4c23-8329-8420de209c1e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
@@ -3969,20 +5119,30 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 <figure class="align-default" id="label-for-this-image34">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
-<figure class="align-default" id="label-for-this-image35">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="nodal-dependent-2">
+<a class="reference internal image-reference" href="_images/nodal-dependent-2.svg"><img alt="_images/nodal-dependent-2.svg" height="300px" src="_images/nodal-dependent-2.svg" /></a>
 </figure>
-<figure class="align-default" id="label-for-this-image36">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="nodal-opamp-inverting">
+<a class="reference internal image-reference" href="_images/nodal-opamp-inverting.svg"><img alt="_images/nodal-opamp-inverting.svg" height="300px" src="_images/nodal-opamp-inverting.svg" /></a>
 </figure>
-<figure class="align-default" id="label-for-this-image37">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="nodal-opamp-noninverting">
+<a class="reference internal image-reference" href="_images/nodal-opamp-noninverting.svg"><img alt="_images/nodal-opamp-noninverting.svg" height="300px" src="_images/nodal-opamp-noninverting.svg" /></a>
 </figure>
-<figure class="align-default" id="label-for-this-image38">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="nodal-opamp-shortcut">
+<a class="reference internal image-reference" href="_images/nodal-opamp-shortcut.svg"><img alt="_images/nodal-opamp-shortcut.svg" height="300px" src="_images/nodal-opamp-shortcut.svg" /></a>
 </figure>
-<figure class="align-default" id="label-for-this-image39">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="nodal-opamp-super-shortcut">
+<a class="reference internal image-reference" href="_images/nodal-opamp-super-shortcut.svg"><img alt="_images/nodal-opamp-super-shortcut.svg" height="300px" src="_images/nodal-opamp-super-shortcut.svg" /></a>
 </figure>
 </section>
 <section id="strategy-for-nodal-analysis">
@@ -3991,15 +5151,23 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 <p>Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.</p>
 <ol class="simple">
 <li><p><strong>How many non-reference nodes?</strong> Non-reference nodes are any nodes that are not the ground node. The number of non-reference nodes define how many unknowns will be part of the system and, therefore, how many equations you will have to write.</p></li>
-<li><p><strong>Are there voltage supplies?</strong> Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say “voltage supply”. I don’t say “dependent supply” or “independent supply” since the type of voltage supply does not matter. \begin{enumerate} 1. <strong>Is the voltage supply grounded on one side?</strong> This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply. 1. <strong>Does the voltage supply connected to two non-reference nodes?</strong> This condition creates a “super-node”. The KVL is written in the same way as the previous case. The difference here is found in how you will write one of the KCLs. Rather than writing a KCL for a single node you will write a KCL for the region that bounds the two nodes on either side of the voltage supply.</p></li>
+<li><p><strong>Are there voltage supplies?</strong> Each voltage supply means you will write a KVL equation instead of a KCL. Also notice I say “voltage supply”. I don’t say “dependent supply” or “independent supply” since the type of voltage supply does not matter.</p>
+<ol class="simple">
+<li><p><strong>Is the voltage supply grounded on one side?</strong> This is the simpler of the two conditions created by voltage supplies in the circuit. Just write a KVL for the voltage supply and skip the KCL for the node connected to the other side of the voltage supply.</p></li>
+<li><p><strong>Does the voltage supply connected to two non-reference nodes?</strong> This condition creates a “super-node”. The KVL is written in the same way as the previous case. The difference here is found in how you will write one of the KCLs. Rather than writing a KCL for a single node you will write a KCL for the region that bounds the two nodes on either side of the voltage supply.</p></li>
+</ol>
+</li>
 <li><p><strong>Are there any operational amplifiers?</strong> We use the two assumptions about ideal op-amps to complete the system of equations in this case. The first is that the voltages on the <strong>inputs</strong> of the op-amp are equal. This is included in the system as a KVL equation. This KVL replaces one of the KCL equations needed to complete the system. You’ll still need to write enough KCL equations to complete the system. Find nodes that are not connected to 1) voltage supplies and 2) the <strong>output</strong> of the op-amp. Nodes connected to the inputs of the op-amp are fair game since we assume no current enters or leaves those inputs.</p></li>
 <li><p><strong>Are there any dependent supplies?</strong> Look for diamond shaped supplies. It does not matter whether they are voltage or current supplies. Locate the control variable on the schematic and write an expression for it in terms of the unknown mesh currents. This expression is written in a similar manner to finding the output values of the analysis. You should use this expression anytime the control variable shows up in the system of equations.</p></li>
 <li><p><strong>Write the equations</strong> If you’ve answered the questions above you should know which equations you will include in the system. Write them carefully and use good practice with regards to the signs and order of coefficients.</p></li>
 <li><p><strong>Solve the system</strong> Matrix inversion works. So does row-reduced echelon form. If you’d like use software like MATLAB to solve the system. Just find the answer.</p></li>
-<li><p><strong>Find output of analysis</strong> Once you know the node voltages you can find any other value in the circuit. The output of the analysis may take a few different forms.</p></li>
+<li><p><strong>Find output of analysis</strong> Once you know the node voltages you can find any other value in the circuit. The output of the analysis may take a few different forms.</p>
+<ol class="simple">
 <li><p><strong>Is the value a voltage?</strong> If the value is a voltage start with the node voltage on the positive side of the output. Subtract the node voltage on the negative side of the output.</p></li>
 <li><p><strong>Is the value a current through a single passive component?</strong> If the value is a current through a passive component use a combination of KVL and Ohm’s law to find that voltage. Find the voltage as you did for the previous output type respecting passive sign convention for the labeled current direction. Use that voltage and the resistance (or impedance in later chapters) to find the current . This is useful for finding currents that are outputs of the analysis as well as finding currents that are intermediate values for the next type of output value.</p></li>
 <li><p><strong>Is the value a current through a voltage supply or op-amp output?</strong> If the value is a current through one of these components you can find it using a KCL at a node connected to the component. This means you have to find other currents using the previous method. Write a KCL at a node that includes the unknown current. Find all of the other currents entering/leaving the node. Solve for the unknown current.</p></li>
+</ol>
+</li>
 </ol>
 </section>
 </section>
@@ -4016,7 +5184,7 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
