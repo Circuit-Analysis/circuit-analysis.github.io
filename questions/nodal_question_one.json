@@ -6,7 +6,7 @@
             {
                 "answer": "$V_A$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Look at the polarity of $V_1$."
             },
             {
                 "answer": "$-V_A$",
@@ -16,22 +16,22 @@
             {
                 "answer": "$V_B$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Look at the polarity of $V_1$ and at which node is connected to component 1."
             },
             {
                 "answer": "$-V_B$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which node is connected to component 1?"
             },
             {
                 "answer": "$V_C$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Look at the polarity of $V_1$ and at which node is connected to component 1."
             },
             {
                 "answer": "$-V_C$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which node is connected to component 1?"
             }
         ]
     },
@@ -42,7 +42,7 @@
             {
                 "answer": "$V_B-V_A$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "What is the polarity of $V_2$?"
             },
             {
                 "answer": "$V_A-V_B$",
@@ -52,22 +52,22 @@
             {
                 "answer": "$V_A-V_C$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which nodes are on either side of component 2?"
             },
             {
                 "answer": "$V_C-V_A$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which nodes are on either side of component 2? What is the polarity of $V_2$?"
             },
             {
                 "answer": "$V_C-V_B$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which nodes are on either side of component 2?"
             },
             {
                 "answer": "$V_B-V_C$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which nodes are on either side of component 2? What is the polarity of $V_2$?"
             }
         ]
     },
@@ -78,7 +78,7 @@
             {
                 "answer": "$V_B-V_C$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Look at the polarity of $V_3$."
             },
             {
                 "answer": "$V_C-V_B$",
@@ -88,22 +88,22 @@
             {
                 "answer": "$V_B-V_A$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which nodes are on either side of component 3? What is the polarity of $V_3$?"
             },
             {
                 "answer": "$V_A-V_B$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which nodes are on either side of component 3?"
             },
             {
                 "answer": "$V_C-V_A$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which nodes are on either side of component 3?"
             },
             {
                 "answer": "$V_A-V_C$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which nodes are on either side of component 3? What is the polarity of $V_3$?"
             }
         ]
     },
@@ -114,22 +114,22 @@
             {
                 "answer": "$V_A$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which node is at the top of component 4?"
             },
             {
                 "answer": "$-V_A$",
                 "correct": false,
-                "feedback": "BAAAAAAP."
+                "feedback": "Which node is at the top of component 4? Look at the polarity of $V_4$."
             },
             {
                 "answer": "$V_B$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which node is at the top of component 4?"
             },
             {
                 "answer": "$-V_B$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which node is at the top of component 4? Look at the polarity of $V_4$."
             },
             {
                 "answer": "$V_C$",
@@ -139,7 +139,7 @@
             {
                 "answer": "$-V_C$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Look at the polarity of $V_4$."
             }
         ]
     },
@@ -150,12 +150,12 @@
             {
                 "answer": "$V_A$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which node is at the top of component 5?."
             },
             {
                 "answer": "$-V_A$",
                 "correct": false,
-                "feedback": "BAAAAAAP."
+                "feedback": "Which node is at the top of component 5? Look at the polarity of $V_5$."
             },
             {
                 "answer": "$V_B$",
@@ -165,17 +165,17 @@
             {
                 "answer": "$-V_B$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Look at the polarity of $V_5$."
             },
             {
                 "answer": "$V_C$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which node is at the top of component 5?"
             },
             {
                 "answer": "$-V_C$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which node is at the top of component 5? Look at the polarity of $V_5$."
             }
         ]
     },
@@ -186,27 +186,27 @@
             {
                 "answer": "$V_B-V_C$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which nodes are on either side of component 6? Look at the polarity of $V_6$"
             },
             {
                 "answer": "$V_C-V_B$",
                 "correct": false,
-                "feedback": "BAAAAAAP."
+                "feedback": "Which nodes are on either side of component 6?"
             },
             {
                 "answer": "$V_B-V_A$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which nodes are on either side of component 6? Look at the polarity of $V_6$."
             },
             {
                 "answer": "$V_A-V_B$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which nodes are on either side of component 6?"
             },
             {
                 "answer": "$V_C-V_A$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Look at the polarity of $V_6$.."
             },
             {
                 "answer": "$V_A-V_C$",
