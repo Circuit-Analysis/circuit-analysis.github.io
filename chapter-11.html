@@ -627,7 +627,7 @@ title="Print to PDF"
 <section id="physical-characteristics">
 <h3>Physical Characteristics<a class="headerlink" href="#physical-characteristics" title="Permalink to this headline">#</a></h3>
 <div class="amsmath math notranslate nohighlight" id="equation-05127a0a-1631-4589-9974-74918b96451c">
-<span class="eqno">(16)<a class="headerlink" href="#equation-05127a0a-1631-4589-9974-74918b96451c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(15)<a class="headerlink" href="#equation-05127a0a-1631-4589-9974-74918b96451c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q=VC
 \end{equation}\]</div>
 <p>Elastance (D=1/C) unit: Daraf <span class="math notranslate nohighlight">\(F^{-1}\)</span></p>
@@ -675,22 +675,22 @@ The value of two capacitors in series is commonly expressed as
 <p>All of circuit analysis can be related back to the three fundamental laws: KVL, KCL, and Ohm’s Law. As new passive components are introduced we must reconsider the relationship between voltage and current. The capacitor equation takes the place of Ohm’s law.</p>
 <p>We can start with the charge equation introduced earlier and restated here as a time-domain function.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-cef7ed23-87f6-46dc-b2d9-ec5dc15fd058">
-<span class="eqno">(17)<a class="headerlink" href="#equation-cef7ed23-87f6-46dc-b2d9-ec5dc15fd058" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(16)<a class="headerlink" href="#equation-cef7ed23-87f6-46dc-b2d9-ec5dc15fd058" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q(t)=Cv(t)
 \end{equation}\]</div>
 <p>taking the derivative of both sides leads to</p>
 <div class="amsmath math notranslate nohighlight" id="equation-47ef29e9-74e4-4510-9c10-c25adb679c1a">
-<span class="eqno">(18)<a class="headerlink" href="#equation-47ef29e9-74e4-4510-9c10-c25adb679c1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(17)<a class="headerlink" href="#equation-47ef29e9-74e4-4510-9c10-c25adb679c1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\sfrac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
 <div class="amsmath math notranslate nohighlight" id="equation-874c2fd6-2f08-45db-bf64-c495a45ffa1a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-874c2fd6-2f08-45db-bf64-c495a45ffa1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(18)<a class="headerlink" href="#equation-874c2fd6-2f08-45db-bf64-c495a45ffa1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-c67f80a3-5d11-47ac-97d7-946c8cd0df34">
-<span class="eqno">(20)<a class="headerlink" href="#equation-c67f80a3-5d11-47ac-97d7-946c8cd0df34" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(19)<a class="headerlink" href="#equation-c67f80a3-5d11-47ac-97d7-946c8cd0df34" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 \end{equation}\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -749,12 +749,12 @@ The value of two inductors in parallel is commonly expressed as
 <h3>Voltage/Current Relationship<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>The derivative form of the inductor equation can be stated as</p>
 <div class="amsmath math notranslate nohighlight" id="equation-29fab9f7-45aa-48aa-b4cc-683de2d9333d">
-<span class="eqno">(21)<a class="headerlink" href="#equation-29fab9f7-45aa-48aa-b4cc-683de2d9333d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(20)<a class="headerlink" href="#equation-29fab9f7-45aa-48aa-b4cc-683de2d9333d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=L\frac{di(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-78eed48f-9046-450e-9a4b-d39a49646808">
-<span class="eqno">(22)<a class="headerlink" href="#equation-78eed48f-9046-450e-9a4b-d39a49646808" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(21)<a class="headerlink" href="#equation-78eed48f-9046-450e-9a4b-d39a49646808" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
 \end{equation}\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
