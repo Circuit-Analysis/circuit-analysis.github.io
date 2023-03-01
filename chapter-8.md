@@ -292,26 +292,69 @@ $$
 ````
 `````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-problem-2.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$'])
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$') )
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n2$k\Omega$'))
+    d.pop()
+    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += elm.SourceI().label(['$I_{S2}$', '$6~$mA'], loc='bot').down()
+    d += elm.Line().left().length(6)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-problem-2-current.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$'])
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$') )
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n2$k\Omega$'))
+    d.pop()
+    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += elm.SourceI().label(['$I_{S2}$', '$6~$mA'], loc='bot').down()
+    d += elm.Line().left().length(6)
+    d.move_from(R1.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R2.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(R3.start, 1, -1)
+    d += elm.Arrow().right().length(1).color('blue')
+```
+
 `````{admonition} Example
 
 Find $V_O$ using Nodal Analysis.
-```{figure} logo.png
+```{figure} nodal-problem-2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE6
+name: nodal-problem-2
 ---
 ```
 
 ````{admonition} Solution
 :class: tip, dropdown
 Begin by locating the non-reference nodes and labeling the current directions through the passive components.
-```{figure} logo.png
+```{figure} nodal-problem-2-current.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE7
+name: nodal-problem-2-current
 ---
 ```
 We will now write a KCL equation for each non-reference node.
+
 **KCL for Node A**
 
 
@@ -399,11 +442,11 @@ $$
 **Solve the System of Equations**
 
 Let's gather the results of the three KCLs written above
-\begin{alignat}{3}
--\frac{1}{4k}V_A+&\frac{1}{4k}V_B&&=-2~\text{mA}\nonumber\\
-\frac{1}{4k}V_A-&\frac{1}{1k}V_B+\frac{1}{4k}V_C&&=0\nonumber\\
-&\frac{1}{4k}V_B-\frac{1}{4k}V_C&&=6~\text{mA}\nonumber
-\end{alignat}
+\begin{alignat*}{3}
+-\frac{1}{4k}V_A+&\frac{1}{4k}V_B&&=-2~\text{mA}\\
+\frac{1}{4k}V_A-&\frac{1}{1k}V_B+\frac{1}{4k}V_C&&=0\\
+&\frac{1}{4k}V_B-\frac{1}{4k}V_C&&=6~\text{mA}
+\end{alignat*}
 and put them in matrix form
 
 $$
@@ -432,22 +475,71 @@ Just as current sources create special cases for mesh analysis, voltage sources 
 
 ### Voltage Sources Connected to Ground
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-voltage-source-connected-to-ground.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$2/3~A$', '$I_S$'])
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$6\Omega$') )
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$12\Omega$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
+    d.pop()
+    d += (R3 := elm.Resistor().right().label('$R_3$\n$12\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += elm.SourceV().label('$V_S$\n8$~V$', loc='bot').down().reverse()
+    d += elm.Line().left().length(6)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-voltage-source-connected-to-ground-nodes.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.SourceI().label(['$2/3~A$', '$I_S$'])
+    d += elm.Dot(color='red').label('A', loc='top', color='black')
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$6\Omega$') )
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$12\Omega$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
+    d.pop()
+    d += elm.Dot(color='red').label('B', loc='top', color='black')
+    d += (R3 := elm.Resistor().right().label('$R_3$\n$12\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += elm.Dot(color='red').label('C', loc='top', color='black')
+    d += elm.SourceV().label('$V_S$\n8$~V$', loc='top').down().reverse().label(['+', '$V_C$', '-'], loc='bot')
+    d += elm.Line().left().length(6)
+    d.move_from(R1.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R2.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(R3.start, 1, -1)
+    d += elm.Arrow().right().length(1).color('blue')
+```
+
 `````{admonition} Example
 
 Find $V_O$ and $I_O$ using Nodal Analysis.
-```{figure} logo.png
+```{figure} nodal-voltage-source-connected-to-ground.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE8
+name: nodal-voltage-source-connected-to-ground
 ---
 ```
 ````{admonition} Solution
 :class: tip, dropdown
 Begin by locating the non-reference nodes and labeling the current directions through the passive components. This step does not change due to the presence of the voltage supply.
-```{figure} logo.png
+```{figure} nodal-voltage-source-connected-to-ground-nodes.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE9
+name: nodal-voltage-source-connected-to-ground-nodes
 ---
 ```
 The three non-reference node voltages are the unknown and require a system of three equations to find the solution. The presence of $V_S$ in the circuit leads us to write a KVL for node C. The other two equations will be KCLs written for nodes A and B.
