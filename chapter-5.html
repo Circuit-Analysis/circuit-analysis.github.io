@@ -457,63 +457,74 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="a-sloppy-approach-to-circuit-analysis">
 <h1>A Sloppy Approach to Circuit Analysis<a class="headerlink" href="#a-sloppy-approach-to-circuit-analysis" title="Permalink to this headline">#</a></h1>
-<p>\label{sec_MacGyver}
-\begin{center}
-\textit{``Sometimes a desperate man does dumb things.’’} -Angus MacGyver
-\end{center}</p>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(V_S\)</span> if <span class="math notranslate nohighlight">\(P_{R_2}=20\)</span>~W.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_={<span class="math notranslate nohighlight">\(V_S\)</span>}] (0,0)
-(0,3) to[R,lx={\raisebox{1ex}{<span class="math notranslate nohighlight">\(R_1\)</span>} and \raisebox{2ex}{2~\Om}}] (3,3)
-(3,3) to[R,lx={<span class="math notranslate nohighlight">\(R_2\)</span> and 5~\Om}] (3,0)
-(6,3) to[R,lx={<span class="math notranslate nohighlight">\(R_3\)</span> and 4~\Om}] (6,0)
-(0,0) – (6,0)
-(3,3) – (6,3)
-;
-\end{circuitikz}\end{center}
-\end{example}</p>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(V_\text{6k}\)</span> and <span class="math notranslate nohighlight">\(V_\text{3k}\)</span>.
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[R,l=6~k\Om,v&lt;= <span class="math notranslate nohighlight">\(V_\text{6k}\)</span>] (0,3)
-(3,0) to[current source,l=1~mA] (3,3)
-(6,3) to[R,l=4~k\Om] (6,0)
-(9,3) to[R,l=8~k\Om] (9,0)
-(3,3) to[R,l=3~k\Om,v= <span class="math notranslate nohighlight">\(V_\text{3k}\)</span>] (6,3)
-(6,3) to[R,l=4~k\Om] (9,3)
-(0,0) – (9,0)
-(0,3) – (3,3)
-;
-\end{circuitikz}\end{center}
-\end{example}</p>
-<p>\pagebreak</p>
-<p>\begin{example}
-Find <span class="math notranslate nohighlight">\(I_x\)</span>.
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[current source,l=4~mA] (0,3)
-(3,3) to[R,i=<span class="math notranslate nohighlight">\(I_x\)</span>] (3,0)
-(6,3) to[controlled current source,l=3<span class="math notranslate nohighlight">\(I_x\)</span>] (6,0)
-(0,0) – (6,0)
-(0,3) – (6,3)
-;
-\end{circuitikz}\end{center}
-\end{example}</p>
-<p>\begin{example}
-Find V\tss{AB}.
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=5~V] (0,0)
-(0,3) to[R,v=4~V] (3,3)
-(6,3) to[battery,l_=3~V] (3,3)
-(6,3) to[R,v&lt;=6~V] (9,3)
-(9,3) to[R,v=10~V] (9,0)
-(9,0) – (0,0)
-(0,3) node[above]{A}
-(9,3) node [above]{B}
-(0,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}\end{center}
-\end{example}</p>
+<center>
+<i>Sometimes a desperate man does dumb things.</i>
+<p><b>Angus MacGyver</b></p>
+</center><div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_S\)</span> if <span class="math notranslate nohighlight">\(P_{R_2}=20~W\)</span>.</p>
+<figure class="align-default" id="sloppy-1">
+<a class="reference internal image-reference" href="_images/sloppy-1.svg"><img alt="_images/sloppy-1.svg" height="300px" src="_images/sloppy-1.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\(P_{R_2}\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> tells you what <span class="math notranslate nohighlight">\(V_{R_2}\)</span> is from</p>
+<div class="math notranslate nohighlight">
+\[
+P_{R_2} = (V_{R_2})^2/R_2
+\]</div>
+<p>That tells us what <span class="math notranslate nohighlight">\(I_{R_2}\)</span> and <span class="math notranslate nohighlight">\(I_{R_3}\)</span> are, which tells us what <span class="math notranslate nohighlight">\(I_{R_1}\)</span> is.</p>
+<p><span class="math notranslate nohighlight">\(I_{R_1}\)</span> and <span class="math notranslate nohighlight">\(R_1\)</span> tells us <span class="math notranslate nohighlight">\(V_{R_1}\)</span>, and KVL then tells us what <span class="math notranslate nohighlight">\(V_S\)</span> is.</p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_\text{6k}\)</span> and <span class="math notranslate nohighlight">\(V_\text{3k}\)</span>.</p>
+<figure class="align-default" id="sloppy-2">
+<a class="reference internal image-reference" href="_images/sloppy-2.svg"><img alt="_images/sloppy-2.svg" height="300px" src="_images/sloppy-2.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>First, find the equivalent resistance of all the resistors, <span class="math notranslate nohighlight">\(R_{eq}\)</span>.</p>
+<p>With the <span class="math notranslate nohighlight">\(1 mA\)</span> current supply, that tells us <span class="math notranslate nohighlight">\(V_\text{6k}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(V_\text{3k}\)</span> may then be found using <span class="math notranslate nohighlight">\(V_\text{6k}\)</span> and the voltage divider equation using the equivalent resistance of the two <span class="math notranslate nohighlight">\(4~k\Omega\)</span> resistors and the <span class="math notranslate nohighlight">\(8~k\Omega\)</span> resistor.</p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(I_x\)</span>.</p>
+<figure class="align-default" id="sloppy-3">
+<a class="reference internal image-reference" href="_images/sloppy-3.svg"><img alt="_images/sloppy-3.svg" height="300px" src="_images/sloppy-3.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The current flowing into the top node is <span class="math notranslate nohighlight">\(4~mA\)</span>.  The current flowing out of the top node is <span class="math notranslate nohighlight">\(4 I_x\)</span>.</p>
+<p>Using KCL, we can then find <span class="math notranslate nohighlight">\(I_x\)</span>.</p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Find <span class="math notranslate nohighlight">\(V_{AB}\)</span>.</p>
+<figure class="align-default" id="sloppy-4">
+<a class="reference internal image-reference" href="_images/sloppy-4.svg"><img alt="_images/sloppy-4.svg" height="300px" src="_images/sloppy-4.svg" /></a>
+</figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Assuming the current flow is counter-clockwise, the voltage at <span class="math notranslate nohighlight">\(A\)</span> with respect to <span class="math notranslate nohighlight">\(B\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
++6 +3 -4 = 5V
+\]</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
