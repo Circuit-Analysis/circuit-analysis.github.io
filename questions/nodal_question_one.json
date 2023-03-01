@@ -206,7 +206,7 @@
             {
                 "answer": "$V_C-V_A$",
                 "correct": false,
-                "feedback": "Look at the polarity of $V_6$.."
+                "feedback": "Look at the polarity of $V_6$."
             },
             {
                 "answer": "$V_A-V_C$",
