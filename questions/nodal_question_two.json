@@ -6,7 +6,7 @@
             {
                 "answer": "$V_A/R_1$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$-V_A/R_1$",
@@ -16,22 +16,22 @@
             {
                 "answer": "$V_B/R_1$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which node is above $R_1$? Which direction does the current flow?"
             },
             {
                 "answer": "$-V_B/R_1$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which node is above $R_1$? "
             },
             {
                 "answer": "$V_A/R_2$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which component is $I_a$ coming from?"
             },
             {
                 "answer": "$-V_A/R_2$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which component is $I_a$ coming from?"
             }
         ]
     },
@@ -42,7 +42,7 @@
             {
                 "answer": "$(V_B-V_A)/R_2$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$(V_A-V_B)/R_2$",
@@ -52,22 +52,22 @@
             {
                 "answer": "$(V_A-V_B)/R_1$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which component is $I_b$ coming from?"
             },
             {
                 "answer": "$(V_B-V_A)/R_1$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which component is $I_b$ coming from?"
             },
             {
                 "answer": "$(V_A-V_C)/R_2$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which nodes are on either side of $R_2$?"
             },
             {
                 "answer": "$(V_C-V_A)/R_2$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which nodes are on either side of $R_2$?"
             }
         ]
     },
@@ -78,7 +78,7 @@
             {
                 "answer": "$(V_B-V_C)/R_3$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$(V_C-V_B)/R_3$",
@@ -88,22 +88,22 @@
             {
                 "answer": "$(V_C-V_B)/R_2$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which component is $I_c$ coming from?"
             },
             {
                 "answer": "$(V_B-V_C)/R_2$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which component is $I_c$ coming from?"
             },
             {
                 "answer": "$(V_A-V_B)/R_3$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which nodes are on either side of $R_3$?"
             },
             {
                 "answer": "$(V_B-V_A)/R_3$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which nodes are on either side of $R_3$?"
             }
         ]
     },
@@ -114,7 +114,7 @@
             {
                 "answer": "$-V_C/R_4$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$V_C/R_4$",
@@ -124,22 +124,22 @@
             {
                 "answer": "$V_B/R_4$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which node is above $R_4$?"
             },
             {
                 "answer": "$-V_B/R_4$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which node is above $R_4$?"
             },
             {
                 "answer": "$V_A/R_4$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which node is above $R_4$?"
             },
             {
                 "answer": "$-V_A/R_4$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which node is above $R_4$?"
             }
         ]
     },
@@ -150,7 +150,7 @@
             {
                 "answer": "$-V_B/R_5$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$V_B/R_5$",
@@ -160,22 +160,22 @@
             {
                 "answer": "$V_B/R_3$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which component is $I_e$ coming from?"
             },
             {
                 "answer": "$-V_B/R_3$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which component is $I_e$ coming from?"
             },
             {
                 "answer": "$V_A/R_5$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which node is above $R_5$? Which direction does the current flow?"
             },
             {
                 "answer": "$-V_A/R_5$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which node is above $R_5$?"
             }
         ]
     },
@@ -186,7 +186,7 @@
             {
                 "answer": "$(V_C-V_A)/R_6$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Which direction does the current flow?"
             },
             {
                 "answer": "$(V_A-V_C)/R_6$",
@@ -196,22 +196,22 @@
             {
                 "answer": "$(V_B-V_C)/R_6$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which nodes are on either side of $R_6$?"
             },
             {
                 "answer": "$(V_C-V_B)/R_6$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Which nodes are on either side of $R_6$?"
             },
             {
-                "answer": "$(V_B-V_C)/R_5$",
+                "answer": "$(V_A-V_C)/R_5$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "Which component is $I_f$ coming from?"
             },
             {
-                "answer": "$(V_C-V_B)/R_5$",
+                "answer": "$(V_A-V_C)/R_1$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Which component is $I_f$ coming from?"
             }
         ]
     }
