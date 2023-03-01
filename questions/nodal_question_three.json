@@ -6,7 +6,7 @@
             {
                 "answer": "$-V_A/R_1$",
                 "correct": false,
-                "feedback": "Think again."
+                "feedback": "Think about the passive sign convention and which direction the voltage drops across $R_1$."
             },
             {
                 "answer": "$V_A/R_1$",
@@ -16,22 +16,22 @@
             {
                 "answer": "$V_B/R_1$",
                 "correct": false,
-                "feedback": "Um, no."
+                "feedback": "Which node is above $R_1$?"
             },
             {
                 "answer": "$-V_B/R_1$",
                 "correct": false,
-                "feedback": "Ruh-roh."
+                "feedback": "Think about the passive sign convention and which direction the voltage drops across $R_1$. Which node is above $R_1$?"
             },
             {
                 "answer": "$V_A/R_2$",
                 "correct": false,
-                "feedback": "Nope."
+                "feedback": "What is the resistance of component 1?"
             },
             {
                 "answer": "$-V_A/R_2$",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Think about the passive sign convention. What is the resistance of component 1?"
             }
         ]
     }
