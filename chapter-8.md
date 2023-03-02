@@ -65,20 +65,22 @@ with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-first-toy-problem-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += elm.SourceI().label(['$6~A$', '$I_S$'])
-    d += (R1 := elm.Resistor().right().label('$R_1$\n$2\Omega$') )
+    d += elm.SourceI().label(['$6~A$', '$I_S$']).label('A', loc='right')
+    d += elm.Dot().color('red')
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$2\Omega$').label('B', loc='right', ofst=(0,0.25)) )
+    d += elm.Dot().color('red')
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n$4\Omega$'))
     d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
     d.pop()
-    d += (R3 := elm.Resistor().right().label('$R_3$\n$4\Omega$'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n$4\Omega$').label('C', loc='right', ofst=(0,0.25)) )
+    d += elm.Dot().color('red')
     d += (R4 := elm.Resistor().down().label('$R_4$\n$2\Omega$'))
     d += elm.Line().left().length(6)
     d.move_from(R1.start, 1, -0.5)
@@ -318,12 +320,16 @@ with schemdraw.Drawing(file='nodal-problem-2-current.svg') as d:
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$'])
-    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$') )
+    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$']).label('A', loc='right')
+    d += elm.Dot().color('red')
+    
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$').label('B', loc='right', ofst=(0,0.25))  )
+    d += elm.Dot().color('red')    
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n2$k\Omega$'))
     d.pop()
-    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot').label('C', loc='right', ofst=(0,0.25)))
+    d += elm.Dot().color('red')    
     d += elm.SourceI().label(['$I_{S2}$', '$6~$mA'], loc='bot').down()
     d += elm.Line().left().length(6)
     d.move_from(R1.start, 1, -0.5)
