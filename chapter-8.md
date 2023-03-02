@@ -2248,14 +2248,82 @@ How will this change if we connect a load resistor to the output?
 ````
 `````
 
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-opamp-example-54.svg') as d:
+    d += (op := elm.Opamp(leads=True).flip())
+    d += (R1 := elm.Resistor().at(op.in2).left().label('$18~\Omega$'))
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$9~\Omega$'))
+    d.pop()
+    d += (V1 := elm.SourceV().left().label('$4~V$'))
+    d += (R3 := elm.Resistor().down().label('$6~\Omega$'))
+    d += elm.Line().length(11).right()
+    d += (R4 := elm.Resistor().up().label('$12~\Omega$').length(2.375))
+    d += elm.Line().left().length(2)
+    d += elm.CurrentLabelInline(direction='out',ofst=0.45).at(op.out).label('$I_O$')
+    d.move_from(R4.end)
+    d += elm.Line().up()
+    d += (R5 := elm.Resistor().left().label('$72~\Omega$').length(5))
+    d += elm.Line().down().length(2.3)
+    d += elm.Line().down().length(1.75).at(op.in1)
+```    
+    
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-opamp-example-54-currents.svg') as d:
+    d += (op := elm.Opamp(leads=True).flip())
+    d += (R1 := elm.Resistor().at(op.in2).left().label('$18~\Omega$'))
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$9~\Omega$'))
+    d.pop()
+    d += (V1 := elm.SourceV().left().label('$4~V$'))
+    d += (R3 := elm.Resistor().down().label('$6~\Omega$'))
+    d += elm.Line().length(11).right()
+    d += (R4 := elm.Resistor().up().label('$12~\Omega$').length(2.375))
+    d += elm.Line().left().length(2)
+    d += elm.CurrentLabelInline(direction='out',ofst=0.45).at(op.out).label('$I_O$')
+    d.move_from(R4.end)
+    d += elm.Line().up()
+    d += (R5 := elm.Resistor().left().label('$72~\Omega$').length(5))
+    d += elm.Line().down().length(2.3)
+    d += elm.Line().down().length(1.75).at(op.in1)
+    d += elm.Dot().at(op.in2).color('red')
+    d += elm.Label().at(op.in2).label('C', ofst=(-0.5,-0.5))
+    d += elm.Dot().at(V1.start).color('red')
+    d += elm.Label().at(V1.start).label('B', ofst=(-0.5,0))
+    d += elm.Dot().at(V1.end).color('red')
+    d += elm.Label().at(V1.end).label('A', ofst=(-0.5,0))
+    d += elm.Dot().at(R4.end).color('red')
+    d += elm.Label().at(R4.end).label('D', ofst=(0,0.5))
+    # Supernoe
+    d.move_from(V1.end,-0.5,1.25)
+    d += elm.Line().color('orange').length(2)
+    d += elm.Line().color('orange').length(4).right()
+    d += elm.Line().color('orange').length(2).up()
+    d += elm.Line().color('orange').length(4).left().label('Super Node')
+    # Currents
+    d += elm.Arrow().color('blue').length(1).at(R3.start, dx=0.5, dy = -1).down()
+    d += elm.Arrow().color('blue').length(1).at(R2.start, dx=0.5, dy = -1).down()
+    d += elm.Arrow().color('blue').length(1).at(R4.end, dx=0.5, dy = -0.75).down()
+    d += elm.Arrow().color('blue').length(1).at(R1.end, dx=1, dy = -0.75).right()
+    d += elm.Arrow().color('blue').length(1).at(R5.end, dx=2, dy = -0.75).right()
+```    
+
 `````{admonition} Example
 
 Find $I_O$
 
-```{figure} logo.png
+```{figure} nodal-opamp-example-54.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE27
+name: nodal-opamp-example-54
 ---
 ```
 
@@ -2264,10 +2332,10 @@ name: LABEL_FOR_THIS_IMAGE27
 :class: tip, dropdown
 
 
-```{figure} logo.png
+```{figure} nodal-opamp-example-54-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE28
+name: nodal-opamp-example-54-currents
 ---
 ```
 
