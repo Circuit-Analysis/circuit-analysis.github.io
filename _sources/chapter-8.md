@@ -1350,24 +1350,96 @@ $$
 ````
 `````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d += elm.Line().left()
+    d += elm.SourceControlledI().label('$I_{S1}$\n$3V_O$')
+    d += elm.Line().right()#.label('A', loc='right', ofst=(0,0.5))
+    d.push()
+    d.push()
+    d += elm.Resistor().down().label('$R_1$\n$10~\Omega$')
+    d.pop()
+    d += elm.Resistor().right().label('$R_2$\n$4~\Omega$')
+    d.push()
+    d += elm.Resistor().down().label('$R_3$\n$5~\Omega$')
+    d.pop()
+    d += elm.Resistor().right().label('$R_4$\n$2~\Omega$').label(['-','$V_O$','+'], loc='bot')
+    d += elm.SourceI().down().label('$I_{S3}$\n$4~A$').reverse()
+    d += elm.Line().left().length(6)
+    d.pop()
+    d += elm.Line().up().length(2)
+    d += elm.SourceI().right().label('$I_{S2}$\n$2~A$').length(6)
+    d += elm.Line().down().length(2)
+    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2-currents.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d += elm.Line().left()
+    d += elm.SourceControlledI().label('$I_{S1}$\n$3V_O$')
+    d += elm.Line().right().label('A', loc='right', ofst=(-0.5,0.5))
+    d += elm.Dot().color('red')
+    d.push()
+    d.push()
+    d += (R1 := elm.Resistor().down().label('$R_1$\n$10~\Omega$'))
+    d.pop()
+    d += (R2 := elm.Resistor().right().label('$R_2$\n$4~\Omega$').label('B', loc='right', ofst=(0,0.5)))
+    d += elm.Dot().color('red')
+    d.push()
+    d += (R3 := elm.Resistor().down().label('$R_3$\n$5~\Omega$'))
+    d.pop()
+    d += (R4 := elm.Resistor().right().label('$R_4$\n$2~\Omega$').label(['-','$V_O$','+'], loc='bot').label('C', loc='right', ofst=(0.25,0.5)))
+    d += elm.Dot().color('red')
+    d += elm.SourceI().down().label('$I_{S3}$\n$4~A$').reverse()
+    d += elm.Line().left().length(6)
+    d.pop()
+    d += elm.Line().up().length(2)
+    d += elm.SourceI().right().label('$I_{S2}$\n$2~A$').length(6)
+    d += elm.Line().down().length(2)
+    d.move_from(R1.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(R2.start, 1 , -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R3.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(R4.end, -1 , -0.9)
+    d += elm.Arrow().left().length(1).color('blue')
+
+```
+
+
 `````{admonition} Example
 
 Find $V_O$ using nodal analysis
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies-2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE16
+name: nodal-analysis-with-dependent-supplies-2
 ---
 ```
 
 ````{admonition} Solution
 :class: tip, dropdown
-```{figure} logo.png
+
+```{figure} nodal-analysis-with-dependent-supplies-2-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE17
+name: nodal-analysis-with-dependent-supplies-2-currents
 ---
 ```
+
 **Control Variable Expression**
 
 
