@@ -1361,7 +1361,6 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d:
@@ -1390,7 +1389,6 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2-currents.svg') as d:
@@ -1567,7 +1565,6 @@ $$
 `````
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d:
@@ -1591,7 +1588,6 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d
     
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3-currents.svg') as d:
@@ -1767,7 +1763,6 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='opamp.svg') as d:
@@ -1790,7 +1785,6 @@ name: opamp
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
@@ -1811,12 +1805,13 @@ with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-%reset -f
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
-    d += (O1 := elm.Opamp(leads=True))
-    d += (R1 := elm.Resistor().left().label('$3~k\Omega$', loc='bot').at(O1.in1))
+    d += (O1 := elm.Opamp(leads=True).label('B', loc='in1', ofst=(-0.25,0.5)).label('C', loc='out', ofst=(0.25,0.5)))
+    d += elm.Dot().color('red').at(O1.in1)
+    d += (R1 := elm.Resistor().left().label('$3~k\Omega$', loc='bot').at(O1.in1).label('A', loc='left', ofst=(-0.25,-0.5)))
+    d += elm.Dot().color('red')
     d += elm.SourceV().label('$10~V$').down().reverse()
     d += elm.GroundSignal()
     d += elm.Line().right()
@@ -1825,6 +1820,7 @@ with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
     d.pop()
     d += elm.Line().right().length(3.5)
     d += (R2 := elm.Resistor().up().label(['-','$V_O$','+']).label('$5~k\Omega$', loc='bot').length(2.35))
+    d += elm.Dot().color('red')
     d += elm.Line().up()
     d += (R3 := elm.Resistor().left().label('$15~k\Omega$').length(3.5))
     d += elm.Line().down().length(2.35)
@@ -1833,7 +1829,7 @@ with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
     d.move_from(R3.end, 1.25, -0.5)
     d += elm.Arrow().length(1).color('blue').right() 
     d.move_from(R2.end, -1, -0.5)
-    d += elm.Arrow().length(1).color('blue').down() 
+    d += elm.Arrow().length(1).color('blue').down()  
 ```
 
 `````{admonition} Example
