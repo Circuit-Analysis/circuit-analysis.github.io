@@ -65,20 +65,22 @@ with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
 import schemdraw
 import schemdraw.elements as elm
 with schemdraw.Drawing(file='nodal-first-toy-problem-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += elm.SourceI().label(['$6~A$', '$I_S$'])
-    d += (R1 := elm.Resistor().right().label('$R_1$\n$2\Omega$') )
+    d += elm.SourceI().label(['$6~A$', '$I_S$']).label('A', loc='right')
+    d += elm.Dot().color('red')
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$2\Omega$').label('B', loc='right', ofst=(0,0.25)) )
+    d += elm.Dot().color('red')
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n$4\Omega$'))
     d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
     d.pop()
-    d += (R3 := elm.Resistor().right().label('$R_3$\n$4\Omega$'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n$4\Omega$').label('C', loc='right', ofst=(0,0.25)) )
+    d += elm.Dot().color('red')
     d += (R4 := elm.Resistor().down().label('$R_4$\n$2\Omega$'))
     d += elm.Line().left().length(6)
     d.move_from(R1.start, 1, -0.5)
@@ -318,12 +320,16 @@ with schemdraw.Drawing(file='nodal-problem-2-current.svg') as d:
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$'])
-    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$') )
+    d += elm.SourceI().label(['$2~$mA', '$I_{S1}$']).label('A', loc='right')
+    d += elm.Dot().color('red')
+    
+    d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$').label('B', loc='right', ofst=(0,0.25))  )
+    d += elm.Dot().color('red')    
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n2$k\Omega$'))
     d.pop()
-    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot'))
+    d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot').label('C', loc='right', ofst=(0,0.25)))
+    d += elm.Dot().color('red')    
     d += elm.SourceI().label(['$I_{S2}$', '$6~$mA'], loc='bot').down()
     d += elm.Line().left().length(6)
     d.move_from(R1.start, 1, -0.5)
@@ -1171,14 +1177,17 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-currents.svg
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += (R1 := elm.Resistor().up().label('$R_1$\n 8$~\Omega$'))
+    d += (R1 := elm.Resistor().up().label('$R_1$\n 8$~\Omega$').label('A', loc='right', ofst=(0.25,0.5)))
+    d += elm.Dot().color('red')
     d += elm.CurrentLabelInline(direction='out', ofst=0.5).at(R1.end).label('$I_O$')
     d.push()
-    d += elm.SourceI().right().label('$I_{S1}$\n4$~A$')
+    d += elm.SourceI().right().label('$I_{S1}$\n4$~A$').label('B', loc='right', ofst=(0,0.5))
+    d += elm.Dot().color('red')
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n 2$~\Omega$'))
     d.pop()
-    d += elm.SourceControlledI().right().label('$I_{S2}$\n$2I_O$')
+    d += elm.SourceControlledI().right().label('$I_{S2}$\n$2I_O$').label('C', loc='right', ofst=(0.25,0.5))
+    d += elm.Dot().color('red')
     d += (R3 := elm.Resistor().down().label('$R_3$\n 4$~\Omega$'))
     d += elm.Line().left().length(6)
     d.pop()
@@ -1755,10 +1764,22 @@ $$
 
 ### Nodal Analysis with an Ideal Operational Amplifier
 
-```{figure} logo.png
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='opamp.svg') as d:
+    d += (O1 := elm.Opamp(leads=True).label('Inputs', loc='left').label('Output', loc='right').label('$V_-$', loc='in1').label('$V_+$', loc='in2'))
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in1).label('$I_-$')
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in2).label('$I_+$')    
+```
+
+```{figure} opamp.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE20
+name: opamp
 ---
 ```
 
@@ -1767,14 +1788,62 @@ name: LABEL_FOR_THIS_IMAGE20
 - The voltage at the input nodes are equal ($V_+ = V_-$)
 - No current enters or leaves the inputs ($I_+ = I_- = 0$)
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
+    d += (O1 := elm.Opamp(leads=True))
+    d += (R1 := elm.Resistor().left().label('$3~k\Omega$').at(O1.in1))
+    d += elm.SourceV().label('$10~V$').down().reverse()
+    d += elm.GroundSignal()
+    d += elm.Line().right()
+    d.push()
+    d += elm.Line().up().length(1.75)
+    d.pop()
+    d += elm.Line().right().length(3.5)
+    d += (R2 := elm.Resistor().up().label(['-','$V_O$','+']).label('$5~k\Omega$', loc='bot').length(2.35))
+    d += elm.Line().up()
+    d += (R3 := elm.Resistor().left().label('$15~k\Omega$').length(3.5))
+    d += elm.Line().down().length(2.35)
+```    
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
+    d += (O1 := elm.Opamp(leads=True))
+    d += (R1 := elm.Resistor().left().label('$3~k\Omega$', loc='bot').at(O1.in1))
+    d += elm.SourceV().label('$10~V$').down().reverse()
+    d += elm.GroundSignal()
+    d += elm.Line().right()
+    d.push()
+    d += elm.Line().up().length(1.75)
+    d.pop()
+    d += elm.Line().right().length(3.5)
+    d += (R2 := elm.Resistor().up().label(['-','$V_O$','+']).label('$5~k\Omega$', loc='bot').length(2.35))
+    d += elm.Line().up()
+    d += (R3 := elm.Resistor().left().label('$15~k\Omega$').length(3.5))
+    d += elm.Line().down().length(2.35)
+    d.move_from(R1.end, 1, 0.5)
+    d += elm.Arrow().length(1).color('blue').right()
+    d.move_from(R3.end, 1.25, -0.5)
+    d += elm.Arrow().length(1).color('blue').right() 
+    d.move_from(R2.end, -1, -0.5)
+    d += elm.Arrow().length(1).color('blue').down() 
+```
+
 `````{admonition} Example
 
 Find $V_O$ using nodal analysis
 
-```{figure} logo.png
+```{figure} opamp-dc-gain.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE21
+name: opamp-dc-gain
 ---
 ```
 
@@ -1786,10 +1855,10 @@ The circuit has three non-reference nodes which I will label below. Just as befo
 
 Let's start by annotating the circuit just as before. The op-amp is not a passive component and therefore we do not assign it a current direction.
 
-```{figure} logo.png
+```{figure} opamp-dc-gain-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE22
+name: opamp-dc-gain-currents
 ---
 ```
 
