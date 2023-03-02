@@ -50,3 +50,6 @@ parse:
     - amsmath
     - dollarmath
     - html_admonition
+
+launch_buttons:
+  binderhub_url: ""
