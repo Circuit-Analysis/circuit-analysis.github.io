@@ -1923,13 +1923,66 @@ $$
 ````
 `````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='opamp-positive.svg') as d:
+    d += (O1 := elm.Opamp(leads=True).flip())
+    d += (L1 := elm.Line().left().at(O1.in2))
+    d += elm.SourceV().label('$10~V$').down().reverse().length(6)
+    d += elm.GroundSignal()
+    d += elm.Line().right()
+    d += (R1 := elm.Resistor().up().label('$4~\Omega$'))
+    d.push()
+    d += elm.Line().up().length(1.7)
+    d.pop()
+    d += (R2:= elm.Resistor().right().label('$12~\Omega$').length(4))
+    d += elm.Line().up().length(2.4)
+    d += elm.Line().right().at(O1.out)
+    d += (R3:= elm.Resistor().down().label('$8~\Omega$').length(5.375))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.5).at(R3.end).label('$I_O$', loc='bot')
+    d += elm.Line().left().length(7)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='opamp-positive-currents.svg') as d:
+    d += (O1 := elm.Opamp(leads=True).flip())
+    d += (L1 := elm.Line().left().at(O1.in2).label('A', loc='left', ofst=(0.5,0)))
+    d += elm.Dot().color('red')    
+    d += elm.SourceV().label('$10~V$').down().reverse().length(6)
+    d += elm.GroundSignal()
+    d += elm.Line().right()
+    d += (R1 := elm.Resistor().up().label('$4~\Omega$').label('B', loc='right', ofst=(0,0.5)))
+    d += elm.Dot().color('red')    
+    d.push()
+    d += elm.Line().up().length(1.7)
+    d.pop()
+    d += (R2:= elm.Resistor().right().label('$12~\Omega$').length(4))
+    d += elm.Line().up().length(2.4)
+    d += elm.Line().right().at(O1.out).label('C', loc='right', ofst=(0.5,0))
+    d += elm.Dot().color('red')    
+    d += (R3:= elm.Resistor().down().label('$8~\Omega$').length(5.375))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.5).at(R3.end).label('$I_O$', loc='bot')
+    d += elm.Line().left().length(7)
+    d.move_from(R1.end, 0.5, -1)
+    d += elm.Arrow().color('blue').down().length(1)
+    d.move_from(R2.start, 1.5, -0.5)
+    d += elm.Arrow().color('blue').right().length(1)
+    d.move_from(R3.start, 0.5, -2.25)
+    d += elm.Arrow().color('blue').down().length(1)
+```
+
 `````{admonition} Example
 
 
-```{figure} logo.png
+```{figure} opamp-positive.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE23
+name: opamp-positive
 ---
 ```
 
@@ -1937,10 +1990,10 @@ name: LABEL_FOR_THIS_IMAGE23
 :class: tip, dropdown
 
 
-```{figure} logo.png
+```{figure} opamp-positive-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE24
+name: opamp-positive-currents
 ---
 ```
 
