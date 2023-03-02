@@ -2067,13 +2067,72 @@ $$
 
 `````
 
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-opamp-3.svg') as d:
+    d += (op := elm.Opamp(leads=True))
+    d += (LineOpIn1 := elm.Line().at(op.in1).left().length(1))
+    d += (R2 := elm.Resistor().left().label('$R_{2}$\n7kΩ'))
+    d += (R1 := elm.Resistor().left().label('$R_{1}$\n4kΩ'))
+    d += (Vs := elm.SourceV().down().label('$V_{S}$\n2V').reverse())
+    d += (GndSig := elm.GroundSignal())
+    d += (R3 := elm.Resistor().at(R2.start).down().label('$R_{3}$\n10kΩ'))
+    d += (LineBL := elm.Line().left().tox(R1.end))
+    d += (LineOpIn2 := elm.Line().at(op.in2).down().toy(Vs.end))
+    d += (R4 := elm.Resistor().at(R2.end).up().label('$R_{4}$\n5kΩ'))
+    d += (LineT := elm.Line().right().tox(op.out))
+    d += (LineR := elm.Line().down().toy(R3.end))
+    d += (LineBR := elm.Line().left().tox(LineOpIn2.end))
+    d += elm.CurrentLabelInline(direction='out',ofst=-0.45).at(op.out).label('$I_O$')
+    d += (LineOpOut := elm.Line().at(op.out).right().length(1))
+    d += (vo := elm.Dot(open='True').label('$V_O$',loc='right'))
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-opamp-3-currents.svg') as d:
+    d += (op := elm.Opamp(leads=True))
+    d += (LineOpIn1 := elm.Line().at(op.in1).left().length(1).label('C', ofst=(0.25,-0.25)))
+    d += elm.Dot().color('red')
+    d += (R2 := elm.Resistor().left().label('$R_{2}$\n7kΩ').label('B', loc='left', ofst=(0.25,-0.5)))
+    d += elm.Dot().color('red')
+    d += (R1 := elm.Resistor().left().label('$R_{1}$\n4kΩ').label('A', loc='left', ofst=(0.25,-0.5)))
+    d += elm.Dot().color('red')
+    d += (Vs := elm.SourceV().down().label('$V_{S}$\n2V').reverse())
+    d += (GndSig := elm.GroundSignal())
+    d += (R3 := elm.Resistor().at(R2.start).down().label('$R_{3}$\n10kΩ'))
+    d += (LineBL := elm.Line().left().tox(R1.end))
+    d += (LineOpIn2 := elm.Line().at(op.in2).down().toy(Vs.end))
+    d += (R4 := elm.Resistor().at(R2.end).up().label('$R_{4}$\n5kΩ'))
+    d += (LineT := elm.Line().right().tox(op.out))
+    d += (LineR := elm.Line().down().toy(R3.end))
+    d += (LineBR := elm.Line().left().tox(LineOpIn2.end))
+    d += elm.CurrentLabelInline(direction='out',ofst=-0.45).at(op.out).label('$I_O$')
+    d += (LineOpOut := elm.Line().at(op.out).right().length(1))
+    d += (vo := elm.Dot(open='True').label('$V_O$',loc='right'))
+    d += elm.Dot().color('red').at(op.out).label('D', ofst=(0.5,0.5), color='black')
+    d.move_from(R1.end, 1, -0.5)
+    d += elm.Arrow().color('blue').length(1).right()
+    d.move_from(R2.end, 1, -0.5)
+    d += elm.Arrow().color('blue').length(1).right()        
+    d.move_from(R4.end, 0.5, -1)
+    d += elm.Arrow().color('blue').length(1).down()    
+    d.move_from(R3.start, 0.5, -1)
+    d += elm.Arrow().color('blue').length(1).down()        
+```
+
 `````{admonition} Example
+Find $V_O$ and $I_O$.
 
-
-```{figure} logo.png
+```{figure} nodal-opamp-3.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE25
+name: nodal-opamp-3
 ---
 ```
 
@@ -2082,10 +2141,10 @@ name: LABEL_FOR_THIS_IMAGE25
 :class: tip, dropdown
 
 
-```{figure} logo.png
+```{figure} nodal-opamp-3-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE26
+name: nodal-opamp-3-currents
 ---
 ```
 
