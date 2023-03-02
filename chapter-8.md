@@ -926,7 +926,7 @@ with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2.svg') as d:
     d += elm.Resistor().label('$R_1$\n 3$\Omega$').up()
     d += elm.Resistor().label('$R_2$\n 6$\Omega$').right()
     d.push()
-    d += elm.Resistor().label('$R_3$\n 12$\Omega$').down().label(['+', '$V_O$', '-' ], ofst=(0,3))
+    d += elm.Resistor().label('$R_3$\n 12$\Omega$').down().label(['+', '$V_O$', '-' ], ofst=(0,3.5))
     d.pop()
     d += (VS := elm.SourceV().label('$V_S$\n8$~V$').right().reverse())
     d.push()
@@ -945,20 +945,20 @@ with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2-currents.svg'
     d.push()
     d += elm.GroundSignal()
     d.pop()
-    d += elm.Resistor().label('$R_1$\n 3$\Omega$').up()
+    d += (R1:= elm.Resistor().label('$R_1$\n 3$\Omega$').up())
     d += elm.Dot(color='red').label('A', loc='top', color='black')
-    d += elm.Resistor().label('$R_2$\n 6$\Omega$').right()
+    d += (R2:= elm.Resistor().label('$R_2$\n 6$\Omega$').right())
     d += elm.Dot(color='red').label('B', loc='top', color='black')
     d.push()
-    d += elm.Resistor().label('$R_3$\n 12$\Omega$').down().label(['+', '$V_O$', '-' ], ofst=(0,3))
+    d += (R3 := elm.Resistor().label('$R_3$\n 12$\Omega$').down().label(['+', '$V_O$', '-' ], ofst=(0,3.5)))
     d.pop()
     d += (VS := elm.SourceV().label('$V_S$\n8$~V$').right().reverse())
     d += elm.Dot(color='red').label('C', loc='top', color='black')
     d.push()
     d.pop()
-    d += elm.Resistor().label('$R_4$\n 8$\Omega$').right()
+    d += (R4 := elm.Resistor().label('$R_4$\n 8$\Omega$').right())
     d += elm.Dot(color='red').label('D', loc='top', color='black')
-    d += elm.Resistor().label('$R_5$\n 5$\Omega$').down()
+    d += (R5 := elm.Resistor().label('$R_5$\n 5$\Omega$').down())
     d += elm.Line().left().length(9)
     d.move_from(R1.end, 0.5, -1)
     d += elm.Arrow().down().length(1).color('blue')
@@ -966,16 +966,15 @@ with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2-currents.svg'
     d += elm.Arrow().right().length(1).color('blue')
     d.move_from(R3.start, 0.5, -1)
     d += elm.Arrow().down().length(1).color('blue')
-    d.move_from(R6.start, 0.5, -1)
-    d += elm.Arrow().down().length(1).color('blue')
-    d.move_from(R5.start, 1, -0.5)
+    d.move_from(R4.start, 1, -0.5)
     d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(R5.start, 0.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
     d.move_from(R2.end, -0.5, -0.6)
-    d += elm.Line().tox(R5.start + 0.5).color('orange')
+    d += elm.Line().tox(R4.start + 0.5).color('orange')
     d += elm.Line().up().color('orange').length(2.5)
     d += elm.Line().left().color('orange').length(4).label('Super Node')
     d += elm.Line().down().color('orange').length(2.5)
-
 ```
 
 `````{admonition} Example
@@ -1140,23 +1139,79 @@ The negative side won't always be connected to ground as it is here. In that cas
 
 ### Nodal Analysis with Dependent Supplies
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += elm.Resistor().up().label('$R_1$\n 8$~\Omega$')
+    d += elm.CurrentLabelInline(direction='out', ofst=0.5).at(R1.end).label('$I_O$')
+    d.push()
+    d += elm.SourceI().right().label('$I_{S1}$\n4$~A$')
+    d.push()
+    d += elm.Resistor().down().label('$R_2$\n 2$~\Omega$')
+    d.pop()
+    d += elm.SourceControlledI().right().label('$I_{S2}$\n$2I_O$')
+    d += (R3 := elm.Resistor().down().label('$R_3$\n 4$~\Omega$'))
+    d += elm.Line().left().length(6)
+    d.pop()
+    d += elm.Line().up()
+    d += elm.Resistor().right().label('$R_4$\n 1$~\Omega$').length(6)
+    d += elm.Line().down()
+```    
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-currents.svg') as d:
+    d.push()
+    d += elm.GroundSignal()
+    d.pop()
+    d += (R1 := elm.Resistor().up().label('$R_1$\n 8$~\Omega$'))
+    d += elm.CurrentLabelInline(direction='out', ofst=0.5).at(R1.end).label('$I_O$')
+    d.push()
+    d += elm.SourceI().right().label('$I_{S1}$\n4$~A$')
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n 2$~\Omega$'))
+    d.pop()
+    d += elm.SourceControlledI().right().label('$I_{S2}$\n$2I_O$')
+    d += (R3 := elm.Resistor().down().label('$R_3$\n 4$~\Omega$'))
+    d += elm.Line().left().length(6)
+    d.pop()
+    d += elm.Line().up()
+    d += (R4 := elm.Resistor().right().label('$R_4$\n 1$~\Omega$').length(6))
+    d += elm.Line().down()
+    d.move_from(R1.end, 0.5,-1)
+    d += elm.Arrow().down().color('blue').length(1)
+    d.move_from(R2.start, 0.5,-1)
+    d += elm.Arrow().down().color('blue').length(1)  
+    d.move_from(R3.start, 0.5,-1)
+    d += elm.Arrow().down().color('blue').length(1)    
+    d.move_from(R4.start, 2.5,-0.5)
+    d += elm.Arrow().right().color('blue').length(1)        
+```
+
 `````{admonition} Example
 
 Find $I_O$ using nodal analysis.
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE14
+name: nodal-analysis-with-dependent-supplies
 ---
 ```
 
 ````{admonition} Solution
 :class: tip, dropdown
 There are no voltage supplies in this circuit so all of the equations will be KCL equations. There are three non-reference nodes so there will be three KCL equations. The difference in this problem is the presence of the dependent current source $I_{S2}$. We'll write an expression for the control variable, $I_O$ in this case. Here is the annotated schematic:
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE15
+name: nodal-analysis-with-dependent-supplies-currents
 ---
 ```
 
