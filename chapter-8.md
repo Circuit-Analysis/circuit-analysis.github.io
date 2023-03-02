@@ -16,6 +16,10 @@ kernelspec:
 
 # Nodal Analysis
 
+```{index} Nodal Analysis
+
+```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -39,7 +43,7 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 1. Plug in values and solve the system.
 ```
 
-These steps give us a starting point for the first example. We'll develop what to do with special circumstances in more complex circuits.
+These steps give us a starting point for the first example. [We'll develop what to do with special circumstances in more complex circuits.](subsection-nodal-strategy)
 
 ## Our First Toy Problem
 
@@ -1760,6 +1764,13 @@ $$
 
 ### Nodal Analysis with an Ideal Operational Amplifier
 
+```{index} Opamp
+
+```
+
+```{index} Operational Amplifier
+
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -2632,6 +2643,7 @@ name: nodal-opamp-super-shortcut
 ---
 ```
 
+(subsection-nodal-strategy)=
 ## Strategy for Nodal Analysis
 
 The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing nodal analysis. If you master these you will be able to analyze any linear electric circuits. I've also shown you how to use the "shortcut" to perform nodal analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.
