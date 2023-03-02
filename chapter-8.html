@@ -578,7 +578,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="nodal-analysis">
 <span id="content-chapter-nodal"></span><h1>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h1>
-<div class="cell tag_remove-input tag_remove-output docutils container">
+<div class="cell tag_remove-input tag_remove-output docutils container" id="index-0">
 </div>
 <p>Nodal Analysis is another methodical application of KVL, KCL, and Ohm’s law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.</p>
 <section id="the-steps">
@@ -594,7 +594,7 @@ title="Print to PDF"
 <li><p>Plug in values and solve the system.</p></li>
 </ol>
 </div>
-<p>These steps give us a starting point for the first example. We’ll develop what to do with special circumstances in more complex circuits.</p>
+<p>These steps give us a starting point for the first example. <a class="reference internal" href="#subsection-nodal-strategy"><span class="std std-ref">We’ll develop what to do with special circumstances in more complex circuits.</span></a></p>
 </section>
 <section id="our-first-toy-problem">
 <h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
@@ -734,8 +734,8 @@ I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 <p>And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>Solving the system of equations</strong></p>
 <p>We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61a18f1a-a4f2-452e-bfc8-0fcdc5c08b10">
-<span class="eqno">(5)<a class="headerlink" href="#equation-61a18f1a-a4f2-452e-bfc8-0fcdc5c08b10" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e37287af-7b27-4368-a919-d2be3e4be834">
+<span class="eqno">(5)<a class="headerlink" href="#equation-e37287af-7b27-4368-a919-d2be3e4be834" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -960,8 +960,8 @@ I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cbe286ab-8a15-4a65-98f2-2f7ad5617f95">
-<span class="eqno">(6)<a class="headerlink" href="#equation-cbe286ab-8a15-4a65-98f2-2f7ad5617f95" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-cc375c7a-c378-42f7-8b3d-26112b301d87">
+<span class="eqno">(6)<a class="headerlink" href="#equation-cc375c7a-c378-42f7-8b3d-26112b301d87" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
 -\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1091,8 +1091,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e61ab97-b0a3-4d5a-94fb-fd86f560ba5b">
-<span class="eqno">(7)<a class="headerlink" href="#equation-3e61ab97-b0a3-4d5a-94fb-fd86f560ba5b" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-d55771c1-cd23-42d7-bd00-e774816fc3a7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-d55771c1-cd23-42d7-bd00-e774816fc3a7" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1226,8 +1226,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d3e17ab-49d6-4625-8317-194ce5f0b093">
-<span class="eqno">(8)<a class="headerlink" href="#equation-1d3e17ab-49d6-4625-8317-194ce5f0b093" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-9166ae96-5c7f-4078-8e3d-792b16b62341">
+<span class="eqno">(8)<a class="headerlink" href="#equation-9166ae96-5c7f-4078-8e3d-792b16b62341" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1353,8 +1353,8 @@ I_{R4}+I_{S2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fbd09cf-b8ab-4a27-84d2-a8a43defa033">
-<span class="eqno">(9)<a class="headerlink" href="#equation-0fbd09cf-b8ab-4a27-84d2-a8a43defa033" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-d5e29567-3996-42bc-97e5-0bd4b1f94f69">
+<span class="eqno">(9)<a class="headerlink" href="#equation-d5e29567-3996-42bc-97e5-0bd4b1f94f69" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -1461,8 +1461,8 @@ I_{S2}-\frac{V_C-V_B}{R_4}+I_{S3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-159419a6-107f-45ec-bcde-c646d45f7185">
-<span class="eqno">(10)<a class="headerlink" href="#equation-159419a6-107f-45ec-bcde-c646d45f7185" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-b5f42ab9-bbf3-4b8f-bbc8-c05d6c1d6e2e">
+<span class="eqno">(10)<a class="headerlink" href="#equation-b5f42ab9-bbf3-4b8f-bbc8-c05d6c1d6e2e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -1560,8 +1560,8 @@ V_C=15~\text{V}
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1187edc-5976-450d-8fe9-a188dd305ebd">
-<span class="eqno">(11)<a class="headerlink" href="#equation-a1187edc-5976-450d-8fe9-a188dd305ebd" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-7d7213d8-d66f-4e6c-b53b-cb387146e233">
+<span class="eqno">(11)<a class="headerlink" href="#equation-7d7213d8-d66f-4e6c-b53b-cb387146e233" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
   -V_A&amp;-\frac{2}{3}V_B&amp;+\frac{1}{3}V_C&amp;=0~\text{A}\nonumber\\
   -\frac{1}{6}V_A&amp;-\frac{1}{4}V_B&amp;+\frac{5}{24}V_C&amp;=0~\text{A}\nonumber\\
   &amp;&amp;V_C&amp;=15~\text{V}\nonumber%alignment
@@ -1585,7 +1585,7 @@ I_x=\frac{16.5-15}{12}=125~\text{mA}
 </section>
 <section id="nodal-analysis-with-an-ideal-operational-amplifier">
 <h3>Nodal Analysis with an Ideal Operational Amplifier<a class="headerlink" href="#nodal-analysis-with-an-ideal-operational-amplifier" title="Permalink to this headline">#</a></h3>
-<div class="cell tag_remove-input tag_remove-output docutils container">
+<span class="target" id="index-1"></span><div class="cell tag_remove-input tag_remove-output docutils container" id="index-2">
 </div>
 <figure class="align-default" id="opamp">
 <a class="reference internal image-reference" href="_images/opamp.svg"><img alt="_images/opamp.svg" height="300px" src="_images/opamp.svg" /></a>
@@ -1638,8 +1638,8 @@ V_B=0~\text{V}
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-954bebbf-58c2-4461-8bff-60dd3418fe32">
-<span class="eqno">(12)<a class="headerlink" href="#equation-954bebbf-58c2-4461-8bff-60dd3418fe32" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-8f8d1a3a-c273-4ed9-a8b3-c321a9ae56db">
+<span class="eqno">(12)<a class="headerlink" href="#equation-8f8d1a3a-c273-4ed9-a8b3-c321a9ae56db" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 ~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
@@ -1703,8 +1703,8 @@ V_A-V_B=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3a543c5-dd24-48ed-8a23-bf34275ef508">
-<span class="eqno">(13)<a class="headerlink" href="#equation-e3a543c5-dd24-48ed-8a23-bf34275ef508" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-f8f58e02-852c-4e11-b61e-b58f5640c671">
+<span class="eqno">(13)<a class="headerlink" href="#equation-f8f58e02-852c-4e11-b61e-b58f5640c671" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1786,8 +1786,8 @@ V_C-V_D=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-08b3fe3d-7812-4f50-8d95-f1575c576499">
-<span class="eqno">(14)<a class="headerlink" href="#equation-08b3fe3d-7812-4f50-8d95-f1575c576499" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-d00842ee-86c4-4f5a-b679-e3b89ea79164">
+<span class="eqno">(14)<a class="headerlink" href="#equation-d00842ee-86c4-4f5a-b679-e3b89ea79164" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -1868,8 +1868,8 @@ V_C=0~\text{V}
 \]</div>
 <p><strong>Solve the system</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-588c592b-387a-4f6d-8450-2a7ce846ac3a">
-<span class="eqno">(15)<a class="headerlink" href="#equation-588c592b-387a-4f6d-8450-2a7ce846ac3a" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-83206fb1-1f46-4695-90b5-ad6896a4d7d9">
+<span class="eqno">(15)<a class="headerlink" href="#equation-83206fb1-1f46-4695-90b5-ad6896a4d7d9" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
@@ -1945,7 +1945,7 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 </figure>
 </section>
 <section id="strategy-for-nodal-analysis">
-<h2>Strategy for Nodal Analysis<a class="headerlink" href="#strategy-for-nodal-analysis" title="Permalink to this headline">#</a></h2>
+<span id="subsection-nodal-strategy"></span><h2>Strategy for Nodal Analysis<a class="headerlink" href="#strategy-for-nodal-analysis" title="Permalink to this headline">#</a></h2>
 <p>The examples I’ve worked are intended to teach you how to deal with the little oddities that arise when performing nodal analysis. If you master these you will be able to analyze any linear electric circuits. I’ve also shown you how to use the “shortcut” to perform nodal analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.</p>
 <p>Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.</p>
 <ol class="simple">

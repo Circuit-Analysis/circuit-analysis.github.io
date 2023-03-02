@@ -626,7 +626,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="mesh-analysis">
 <span id="content-chapter-mesh"></span><h1>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h1>
-<p>We often refer to mesh analysis as a <em>method</em> of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.</p>
+<p id="index-0">We often refer to mesh analysis as a <em>method</em> of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.</p>
 <section id="relating-circuit-values-to-mesh-currents">
 <h2>Relating Circuit Values to Mesh Currents<a class="headerlink" href="#relating-circuit-values-to-mesh-currents" title="Permalink to this headline">#</a></h2>
 <p>The unknowns in this case are the currents flowing around each mesh of the circuit. Let’s take a step back and first use the mesh current to find expressions for other values in the circuit. It’s a bit of make-believe to begin with but it will help as we develop the method. Let’s pretend we already know the mesh currents and want to use them to determine other currents and voltages in the circuit.</p>
@@ -720,7 +720,7 @@ I_b=I_1-I_2
 <section id="our-first-toy-problem">
 <h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
 <p>Applying the fundamental laws (Ohm’s, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods we consider is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.</p>
-<p>Find <span class="math notranslate nohighlight">\(V_A\)</span>\par</p>
+<p>Find <span class="math notranslate nohighlight">\(V_A\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="mesh-toy-problem">
@@ -748,8 +748,8 @@ I_b=I_1-I_2
 </section>
 <section id="the-steps">
 <h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
-<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example. A more complete summary is included at the endof the chapter. ADD LINK HERE</p>
-<div class="admonition-steps-for-mesh-analysis admonition">
+<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example. <a class="reference internal" href="#subsection-mesh-strategy"><span class="std std-ref">A more complete summary is included at the endof the chapter.</span></a></p>
+<div class="admonition-steps-for-mesh-analysis admonition" id="index-1">
 <p class="admonition-title">Steps for Mesh Analysis</p>
 <ol class="simple">
 <li><p>Assign mesh currents. Identify any “Super-meshes” (We’ll discuss what a super-mesh is later).</p></li>
@@ -776,7 +776,7 @@ I_b=I_1-I_2
 <p class="admonition-title">Solution using Mesh Analysis</p>
 <p>Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We’ll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn’t matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let’s start with both mesh currents flowing in the clockwise (CW) direction.</p>
 <figure class="align-default" id="mesh-toy-problem-mesh1">
-<a class="reference internal image-reference" href="_images/mesh-toy-problem-mesh1.svg"><img alt="_images/mesh-toy-problem-mesh1.svg" height="300px" src="_images/mesh-toy-problem-mesh1.svg" /></a>
+<span id="index-2"></span><a class="reference internal image-reference" href="_images/mesh-toy-problem-mesh1.svg"><img alt="_images/mesh-toy-problem-mesh1.svg" height="300px" src="_images/mesh-toy-problem-mesh1.svg" /></a>
 </figure>
 <p>In Step 2 we use KVL on each mesh. I find it useful to mark each resistor with the polarity corresponding to the mesh I’m currently working on. It is possible, as we see here with <span class="math notranslate nohighlight">\(R_2\)</span>, that a resistor will have the opposite polarity when considering the first mesh than it will when considering the second mesh. We can mark the polarities with the mesh with the corresponding current. Passive sign convention should be observed to label the polarities correctly for the <strong>passive</strong> (resistors here) components.  The voltage supply is active and therefore its polarity is unaffected by our choice of mesh current direction.</p>
 <figure class="align-default" id="mesh-toy-problem-mesh2">
@@ -1889,7 +1889,7 @@ I_2-I_3=2I_1\\
 </section>
 </section>
 <section id="strategy-for-mesh-analysis">
-<h2>Strategy for Mesh Analysis<a class="headerlink" href="#strategy-for-mesh-analysis" title="Permalink to this headline">#</a></h2>
+<span id="subsection-mesh-strategy"></span><h2>Strategy for Mesh Analysis<a class="headerlink" href="#strategy-for-mesh-analysis" title="Permalink to this headline">#</a></h2>
 <p>The examples I’ve worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis. If you master these you will be able to analyze most linear electric circuits. I’ve also shown you how to use the “shortcut” to perform mesh analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.</p>
 <p>Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.</p>
 <ol>

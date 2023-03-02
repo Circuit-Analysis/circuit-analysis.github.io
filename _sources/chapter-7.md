@@ -16,6 +16,11 @@ kernelspec:
 
 # Mesh Analysis
 
+```{index} Mesh Analysis
+
+```
+
+
 We often refer to mesh analysis as a _method_ of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.
 
 ## Relating Circuit Values to Mesh Currents
@@ -227,7 +232,7 @@ $$
 
 Applying the fundamental laws (Ohm's, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods we consider is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.
 
-Find $V_A$\par
+Find $V_A$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -321,7 +326,11 @@ Seat of the pants analysis tells us that $V_A$ is 14 V. Let's keep this result i
 
 ## The Steps
 
-I'm going to list the steps here as reference. Use these steps as we walk through the next example. A more complete summary is included at the endof the chapter. ADD LINK HERE
+I'm going to list the steps here as reference. Use these steps as we walk through the next example. [A more complete summary is included at the endof the chapter.](subsection-mesh-strategy) 
+
+```{index} Super-mesh
+
+```
 
 ```{admonition} Steps for Mesh Analysis
 1. Assign mesh currents. Identify any "Super-meshes" (We'll discuss what a super-mesh is later).
@@ -418,6 +427,9 @@ name: mesh-toy-problem-mesh
 :class: tip, dropdown
 Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
 
+```{index} Super-mesh
+
+```
 
 ```{figure} mesh-toy-problem-mesh1.svg
 ---
@@ -2462,7 +2474,7 @@ $$
 More consistent results!  Check against the previous to examples of analyzing this circuit.
 ````
 `````
-
+(subsection-mesh-strategy)=
 ## Strategy for Mesh Analysis
 
 The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis. If you master these you will be able to analyze most linear electric circuits. I've also shown you how to use the "shortcut" to perform mesh analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.
