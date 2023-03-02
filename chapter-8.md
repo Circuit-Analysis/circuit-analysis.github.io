@@ -2431,45 +2431,45 @@ $$
 
 ## The Shortcut
 
-```{figure} logo.png
+```{figure} nodal-first-toy-problem-1.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE29
+name: nodal-first-toy-problem-1-shortcut
 ---
 ```
 
-```{figure} logo.png
+```{figure} nodal-problem-2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE30
+name: nodal-problem-2-shortcut
 ---
 ```
 
-```{figure} logo.png
+```{figure} nodal-voltage-source-connected-to-ground.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE31
+name: nodal-voltage-source-connected-to-ground-shortcut
 ---
 ```
 
-```{figure} logo.png
+```{figure} voltage-between-non-reference-nodes.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE32
+name: voltage-between-non-reference-nodes-shortcut
 ---
 ```
 
-```{figure} logo.png
+```{figure} voltage-between-non-reference-nodes-2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE33
+name: voltage-between-non-reference-nodes-2-shortcut
 ---
 ```
 
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE34
+name: nodal-analysis-with-dependent-supplies-shortcut
 ---
 ```
 
