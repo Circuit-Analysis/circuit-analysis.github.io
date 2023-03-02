@@ -1556,22 +1556,86 @@ $$
 
 ````
 `````
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d:
+    d += elm.GroundSignal()
+    d += elm.Resistor().up().label('$R_3$\n$24~\Omega$')
+    d.push()
+    d += elm.Resistor().up().label('$R_1$\n$8~\Omega$')
+    d += elm.Line().right()
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$12~\Omega$'))
+    d += elm.CurrentLabelInline(direction='out', ofst=-0.5).at(R2.start).label('$I_x$')
+    d += (R4 := elm.Resistor().down().label('$R_4$\n$6~\Omega$'))
+    d += elm.Line().left()
+    d.pop()
+    d += elm.Line().right()
+    d += elm.SourceV().label('$V_S$\n$15~V$').down().reverse().length(6)
+    d += elm.Line().left()
+    d.pop()
+    d += elm.SourceControlledV().right().label('$4I_x$')
+```    
+    
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+%reset -f
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3-currents.svg') as d:
+    d += elm.GroundSignal()
+    d += (R3 := elm.Resistor().up().label('$R_3$\n$24~\Omega$').label('A', loc='right', ofst=(-0.5,0.5)))
+    d += elm.Dot().color('red')
+    d.push()
+    d += (R1 := elm.Resistor().up().label('$R_1$\n$8~\Omega$').length(4))
+    d += elm.Line().right().label('C', loc='right', ofst=(0,0.5))
+    d += elm.Dot().color('red')
+    d.push()
+    d += (R2 := elm.Resistor().down().label('$R_2$\n$12~\Omega$').label('B', loc='left', ofst=(0,0.5)).length(4))
+    d += elm.Dot().color('red')
+    d += elm.CurrentLabelInline(direction='out', ofst=-0.5).at(R2.start).label('$I_x$')
+    d += (R4 := elm.Resistor().down().label('$R_4$\n$6~\Omega$'))
+    d += elm.Line().left()
+    d.pop()
+    d += elm.Line().right()
+    d += elm.SourceV().label('$V_S$\n$15~V$').down().reverse().length(7)
+    d += elm.Line().left()
+    d.pop()
+    d += elm.SourceControlledV().right().label('$4I_x$', loc='bot')
+    d.move_from(R1.end, 0.5, -1.5)
+    d += elm.Arrow().color('blue').length(1).down()
+    d.move_from(R3.end, 0.5, -1)
+    d+= elm.Arrow().color('blue').length(1).down()
+    d.move_from(R2.end, 0.5, 1.5)
+    d += elm.Arrow().color('blue').length(1).up()
+    d.move_from(R4.end, 0.5, 2)
+    d += elm.Arrow().color('blue').length(1).down()
+    d.move_from(R1.start,-1,0.75)
+    d += elm.Line().color('orange').length(1.5)
+    d += elm.Line().color('orange').length(5).right()
+    d += elm.Line().color('orange').length(1.5).up()
+    d += elm.Line().color('orange').length(5).left().label('Super Node')
+```    
 
 `````{admonition} Example
 
 Find $I_x$ using nodal analysis.
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies-3.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE18
+name: nodal-analysis-with-dependent-supplies-3
 ---
 ```
+
 ````{admonition} Solution
 :class: tip, dropdown
-```{figure} logo.png
+```{figure} nodal-analysis-with-dependent-supplies-3-currents.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE19
+name: nodal-analysis-with-dependent-supplies-3-currents
 ---
 ```
 
