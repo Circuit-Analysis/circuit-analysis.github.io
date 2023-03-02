@@ -1723,13 +1723,15 @@ $$
 
 **Solve the System of Equations**
 
-    Let's gather the results of the three equations written above
-    \begin{alignat}{3}
-    	-V_A&-\frac{2}{3}V_B&+\frac{1}{3}V_C&=0~\text{A}\nonumber\\
-    	-\frac{1}{6}V_A&-\frac{1}{4}V_B&+\frac{5}{24}V_C&=0~\text{A}\nonumber\\
-    	&&V_C&=15~\text{V}\nonumber%alignment
-    \end{alignat}
-    and put them in matrix form
+Let's gather the results of the three equations written above
+
+\begin{alignat}{3}
+  -V_A&-\frac{2}{3}V_B&+\frac{1}{3}V_C&=0~\text{A}\nonumber\\
+  -\frac{1}{6}V_A&-\frac{1}{4}V_B&+\frac{5}{24}V_C&=0~\text{A}\nonumber\\
+  &&V_C&=15~\text{V}\nonumber%alignment
+\end{alignat}
+
+and put them in matrix form
 
 $$
  \left[ \begin{array}{rrr}
