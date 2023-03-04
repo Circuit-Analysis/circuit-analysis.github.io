@@ -46,13 +46,20 @@ name: LABEL_1
 ```
 
 The elastances add. Recall that
-\[D=\frac{1}{C}\]
+
+$$ D=\frac{1}{C} $$
+
 so
-\[\frac{1}{C_S}=\frac{1}{C_1}+\frac{1}{C_2}\]
+
+$$ \frac{1}{C_S}=\frac{1}{C_1}+\frac{1}{C_2} $$
+
 Solving for $C_S$ and adding additional capacitors
-\[C_S=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\dots+\frac{1}{C_N}}\]
+
+$$ C_S=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\dots+\frac{1}{C_N}} $$
+
 The value of two capacitors in series is commonly expressed as
-\[C_S=\frac{C_1C_2}{C_1+C_2}\]
+
+$$ C_S=\frac{C_1C_2}{C_1+C_2} $$
 
 ### Equivalent Capacitance: Parallel
 
@@ -146,13 +153,20 @@ name: LABEL_7
 ```
 
 The reluctances add. Recall that
-\[\mathcal{R}=\frac{1}{L}\]
+
+$$ \mathcal{R}=\frac{1}{L} $$
+
 so
-\[\frac{1}{L_P}=\frac{1}{L_1}+\frac{1}{L_2}\]
+
+$$ \frac{1}{L_P}=\frac{1}{L_1}+\frac{1}{L_2} $$
+
 Solving for $L_P$ and adding additional inductors
-\[L_P=\frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\dots+\frac{1}{L_N}}\]
+
+$$ L_P=\frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\dots+\frac{1}{L_N}} $$
+
 The value of two inductors in parallel is commonly expressed as
-\[L_P=\frac{L_1L_2}{L_1+L_2}\]
+
+$$ L_P=\frac{L_1L_2}{L_1+L_2} $$
 
 ### Voltage/Current Relationship
 

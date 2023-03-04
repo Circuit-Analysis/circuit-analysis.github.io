@@ -111,12 +111,18 @@ name: LABEL_6
 ---
 ```
 
-We can find I using mesh analysis on the single mesh.  
- \[(50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0\]
+We can find I using mesh analysis on the single mesh.
+
+$$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
+
 so
-\[I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A)\]
+
+$$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
+
 Using $I$ we can find the voltage across the inductor and capacitor
-\[V\*L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V)\]
+
+$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+
 There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
 
 ```{figure} logo.png
@@ -128,9 +134,12 @@ name: LABEL_7
 
     Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
 
-\[(50\angle{-150^\circ}~V)-(0~V)-V*{OC}=0\]
+$$ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 $$
+
 which reduces to
-\[V*{OC}=50\angle{-150^\circ}~V=V\*{TH}\]
+
+$$ V_{OC}=50\angle{-150^\circ}~V=V_{TH} $$
+
 which is the Thevenin voltage.
 Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
 
@@ -142,7 +151,9 @@ name: LABEL_8
 ```
 
 For this circuit
-\[Z\*{TH}=R+(L||C)=10-j20~\Omega\]
+
+$$ Z_{TH}=R+(L||C)=10-j20~\Omega $$
+
 We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
 
 ```{figure} logo.png
@@ -207,6 +218,7 @@ name: LABEL_13
 Those two impedances combine to a $1~\Omega$ impedance.
 
 From this point we can use a simple current divider to find $I_O$.
-\[I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A\]
+
+$$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
 
 \end{example}

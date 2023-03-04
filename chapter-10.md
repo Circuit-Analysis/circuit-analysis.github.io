@@ -87,7 +87,7 @@ name: LABEL_5
 ---
 ```
 
-\[ R\_{TH}=(R_1||R_2)+R_3=7~\Omega\]
+$$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 
 **Method~\#2)~Open Circuit Voltage/Short Circuit Current:**
 \fbox{\begin{minipage}{30em}
@@ -119,12 +119,16 @@ name: LABEL_7
 ---
 ```
 
-\[ \left[ \begin{array}{cc}
+$$
+\left[ \begin{array}{cc}
 9\Omega&-6\Omega\\
 -6\Omega&11\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12V\\0V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.095~\text{A}\\1.143~\text{A}\end{array}\right]\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12V\\0V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.095~\text{A}\\1.143~\text{A}\end{array}\right]
+$$
 
-and $I_{SC}$=$I_2$ in this case leading to \[R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega\]
+and $I_{SC}$=$I_2$ in this case leading to
+$$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega $$
+
 First, note that this result is the same as the value calculated with the previous method. Second, note that the units of the formula above follow Ohm's Law.
 
 **Method~\#3)~Apply a Voltage Source:**
@@ -148,11 +152,16 @@ name: LABEL_8
 ```
 
 Again, I chose mesh to find the current through the new supply. You don't need to use mesh. Use a method that you are comfortable with.
-\[ \left[ \begin{array}{cc}
+
+$$
+\left[ \begin{array}{cc}
 9\Omega&-6\Omega\\
 -6\Omega&11\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\42~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}4~\text{A}\\6~\text{A}\end{array}\right]\]
-and $I_{NEW}$=$I_2$ in this case leading to \[R*{TH}=\frac{V*{NEW}}{I\_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega\]
+\end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\42~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}4~\text{A}\\6~\text{A}\end{array}\right]
+$$
+
+and $I_{NEW}$=$I_2$ in this case leading to
+$$ R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega $$
 
 All three methods are applicable to this example and all three yield the same result for $R_{TH}$. Some problems may not allow the application of all three methods according to their limitations however, if multiple methods are applicable the results will be equivalent.
 
@@ -184,11 +193,17 @@ name: LABEL_10
 ```
 
 The single KVL equation for this circuit is
-\[12-4I+2I\*x-6I=0\]
+
+$$ 12-4I+2I_x-6I=0 $$
+
 where $I_{x}$ is equal to I. Substituting into the KVL and grouping like terms leads to
-\[12-8I=0\]
+
+$$ 12-8I=0 $$
+
 and solving for I gives
-\[I=1.5~\text{A}\]
+
+$$ I=1.5~\text{A} $$
+
 Using the value of I we can find voltages for all of the passive components in the circuit. Note that the 3~\Om ~resistor has no current flowing through it and therefore the voltage across it is 0~\text{V}.
 
 ```{figure} logo.png
@@ -199,9 +214,12 @@ name: LABEL_11
 ```
 
 We can now write a KVL around the right side of the circuit including the drop across $V_{OC}$
-\[9-0-V*{OC}=0\]
-and solve for $V*{OC}$
-\[V\_{OC}=9~\text{V}\]
+
+$$ 9-0-V_{OC}=0 $$
+
+and solve for $V_{OC}$
+
+$$ V_{OC}=9~\text{V} $$
 
 **Find $R_{TH}$**
 
@@ -219,21 +237,36 @@ name: LABEL_12
 ```
 
 The two KVL equations for this circuit are developed here
-\[12-4I*1+2I*x-6(I_1-I_2)=0\]
-where $I*{x}$ is
-\[I*x=I*1-I_2\]
+
+$$ 12-4I_1+2I_x-6(I_1-I_2)=0 $$
+
+where $I_{x}$ is
+
+$$ I_x=I_1-I_2 $$
+
 leading to
-\[8I_1-4I_2=12\]
+
+$$ 8I_1-4I_2=12 $$
+
 The KVL for the second mesh is
-\[-6(I_2-I_1)-3I_2=0\]
+
+$$ -6(I_2-I_1)-3I_2=0 $$
+
 which becomes
-\[6I_1-9I_2=0\]
+
+$$ 6I_1-9I_2=0 $$
+
 after distributing and grouping like-terms. Solving the system yields
-\[ \left[ \begin{array}{cc}
+
+$$
+\left[ \begin{array}{cc}
 8\Omega&-4\Omega\\
 6\Omega&-9\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}12~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.25~\text{A}\\1.5~\text{A}\end{array}\right]\]
-and $I*{SC}$=$I\*2$ in this case leading to \[R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega\]
+\end{array} \right]^{-1}\left[\begin{array}{c}12~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.25~\text{A}\\1.5~\text{A}\end{array}\right]
+$$
+
+and $I_{SC}$=$I_2$ in this case leading to
+$$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega $$
 
 \vspace{8mm}
 **Find $R_{TH}$ (Method \#3)**
@@ -248,23 +281,40 @@ name: LABEL_13
 ```
 
 The two KVL equations for this circuit are developed here
-\[12-4I*1+2I*x-6(I*1-I_2)=0\]
-where $I*{x}$ is
-\[I*x=I*1-I_2\]
+
+$$ 12-4I_1+2I_x-6(I_1-I_2)=0 $$
+
+where $I_{x}$ is
+
+$$ I_x=I_1-I_2 $$
+
 leading to
-\[8I_1-4I_2=12\]
+
+$$ 8I_1-4I_2=12 $$
+
 The KVL for the second mesh is
-\[-6(I_2-I_1)-3I_2-V*{NEW}=0\]
+
+$$ -6(I_2-I_1)-3I_2-V_{NEW}=0 $$
+
 which becomes
-\[6I*1-9I*2=V*{NEW}\]
-Choosing a value of 20~\text{V} for $V*{NEW}$
-\[6I*1-9I*2=20~\text{V}\]
+
+$$ 6I_1-9I_2=V_{NEW} $$
+
+Choosing a value of 20~\text{V} for $V_{NEW}$
+
+$$ 6I_1-9I_2=20~\text{V} $$
+
 after distributing and grouping like-terms. Solving the system yields
-\[ \left[ \begin{array}{cc}
+
+$$
+\left[ \begin{array}{cc}
 8\Omega&-4\Omega\\
 6\Omega&-9\Omega\\
-\end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\20~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-1.67~\text{A}\\-3.33~\text{A}\end{array}\right]\]
-and $I*{NEW}$=-$I\*2$ in this case leading to \[R*{TH}=\frac{V*{NEW}}{I\_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega\]
+\end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\20~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-1.67~\text{A}\\-3.33~\text{A}\end{array}\right]
+$$
+
+and $I_{NEW}$=-$I_2$ in this case leading to
+$$ R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega $$
 
 The Thevenin equivalent circuit can be drawn using the values found above
 
@@ -305,14 +355,18 @@ name: LABEL_16
 
 ### Analyzing the whole circuit
 
-\[ \left[ \begin{array}{cccc}
+$$
+\left[ \begin{array}{cccc}
 -1&1&0&0\\
 0&0&-1&1\\
 10&27&-9&0\\
 0&-9&9&18
-\end{array} \right]^{-1}\left[\begin{array}{c}2.2~\text{A}\\2.5~\text{A}\\-32~\text{V}\\-36~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_4\end{array}\right]=\left[\begin{array}{c}-3.288~\text{A}\\-1.088~\text{A}\\-3.363~\text{A}\\-862.7~\text{mA}\end{array}\right]\]
-\[I_O=I_2=-1.088~\text{A}\]
-\[V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V}\]
+\end{array} \right]^{-1}\left[\begin{array}{c}2.2~\text{A}\\2.5~\text{A}\\-32~\text{V}\\-36~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\I_3\\I_4\end{array}\right]=\left[\begin{array}{c}-3.288~\text{A}\\-1.088~\text{A}\\-3.363~\text{A}\\-862.7~\text{mA}\end{array}\right]
+$$
+
+$$ I_O=I_2=-1.088~\text{A} $$
+
+$$ V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V} $$
 
 ### Find the equivalent for the blue circuit
 
@@ -391,21 +445,37 @@ Use your intuition and guess what value of $R_{L}$ maximizes $P_{RL}$. When I as
 Second, a student will usually guess that $R_{L}$ is infinite (an open) reasoning that if 0~\text{V} gives us 0~\text{W} we should maximize voltage across the load. This, of course, causes the current to drop to 0~\text{A}. Once again this results in the load resistor dissipating 0~\text{W}. So the extreme limits of the load resistance won't dissipate any power. The answer lies somewhere in between those extremes. But where? Let's do some calculus.
 
 We start by developing the function (relationship) between the load resistance and the power that load resistance dissipates. We start with the definition of power
-\[P*{RL}=V*{RL}I*{RL}\]
+
+$$ P_{RL}=V_{RL}I_{RL} $$
+
 where the load voltage as pictured in the circuit above can be written with a simple voltage divider
-\[V*{RL}=V*{TH}\left[\frac{R_L}{R*{TH}+R*L}\right]\]
+
+$$ V_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right] $$
+
 and the load current is an application of equivalent resistances and Ohm's law.
-\[I*{RL}=\frac{V*{TH}}{R\_{TH}+R*L}\]
+
+$$ I_{RL}=\frac{V_{TH}}{R_{TH}+R_L} $$
+
 We can rewrite the load power by substituting the previous two expressions into the first.
-\[P*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R*L}\right]\frac{V*{TH}}{R*{TH}+R*L}\]
+
+$$ P_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right]\frac{V_{TH}}{R_{TH}+R_L} $$
+
 or in a reduced form
-\[P*{RL}=\frac{V*{TH}^2R_L}{(R*{TH}+R*L)^2}\]
+
+$$ P_{RL}=\frac{V_{TH}^2R_L}{(R_{TH}+R_L)^2} $$
+
 We can calculate the load power for a given load resistance. Alternatively, to find the maximum power we can set its derivative equal to zero and solve for $R_{L}$. The derivative with respect to $R_{L}$ is
-\[\frac{dP*{RL}}{dR*L}=\frac{V*{TH}^2(R*{TH}-R_L)}{(R*{TH}+R*L)^3}\]
+
+$$ \frac{dP_{RL}}{dR_L}=\frac{V_{TH}^2(R_{TH}-R_L)}{(R_{TH}+R_L)^3} $$
+
 The derivative will be 0 when the numerator is 0 leading to
-\[V*{TH}^2(R*{TH}-R*L)=0\]
-where $V*{TH}$ and $R*{TH}$ are fixed values so we solve for $R_{L}$. The only value of $R_{L}$ that makes this equation true is
-\[R\*L=R\_{TH}\]
+
+$$ V_{TH}^2(R_{TH}-R_L)=0 $$
+
+where $V_{TH}$ and $R_{TH}$ are fixed values so we solve for $R_{L}$. The only value of $R_{L}$ that makes this equation true is
+
+$$ R_L=R_{TH} $$
+
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
 \begin{example}
@@ -455,10 +525,14 @@ name: LABEL_26
 ```
 
 I've specified the value of $R_{L}$ that we know will result in the maximum power dissipated by that resistor, 3~\Om. In this case we can find $V_{RL}$ as
-\[V*{RL}=24~\text{V}\left[\frac{3~\Omega}{3~\Omega+3~\Omega}\right]=12~\text{V}\]
-and therefore the maximum power that $R*{L}$ can dissipate will be
-\[P*{RL}=\frac{(12~\text{V})^2}{3~\Omega}=48~\text{W}\]
-Any departure from $R*{L}$ being 3~\Om ~will lower the power dissipated by the load. Therefore, there is no value of $R_{L}$ that can dissipate 50~\text{W} in this circuit.
+
+$$ V_{RL}=24~\text{V}\left[\frac{3~\Omega}{3~\Omega+3~\Omega}\right]=12~\text{V} $$
+
+and therefore the maximum power that $R_{L}$ can dissipate will be
+
+$$ P_{RL}=\frac{(12~\text{V})^2}{3~\Omega}=48~\text{W} $$
+
+Any departure from $R_{L}$ being 3~\Om ~will lower the power dissipated by the load. Therefore, there is no value of $R_{L}$ that can dissipate 50~\text{W} in this circuit.
 \end{example}
 
 One final note. While the $R_{TH}$=$R_{L}$ condition guarantees maximum power transferred to the load it makes no guarantee about the efficiency. This misconception is common but misguided. When maximum power is dissipated by the load the efficiency will be 50\%. $R_{L}$ and $R_{TH}$ will dissipate the same power. The power dissipated by $R_{TH}$ is considered wasted energy dissipated by the transmitting circuit.
@@ -481,8 +555,10 @@ name: LABEL_27
 ```
 
 Calculating the short circuit current is a simple application of Ohm's law
-\[I\*N=I*{SC}=\frac{V*{TH}}{R*{TH}}\]
-Finding $R*{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
+
+$$ I_N=I_{SC}=\frac{V_{TH}}{R_{TH}} $$
+
+Finding $R_{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
 
 ```{figure} logo.png
 ---
@@ -492,7 +568,9 @@ name: LABEL_28
 ```
 
 The relationship between $R_{N}$ and $R_{TH}$ is simple given there is only a single resistor to consider.
-\[R\*N=R\_{TH}\]
+
+$$ R_N=R_{TH} $$
+
 While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.
 
 ### Thevenin Equivalent of a Norton Equivalent Now let's turn it around the other way. Starting with a Norton equivalent circuit let's find its Thevenin equivalent.
@@ -505,7 +583,8 @@ name: LABEL_29
 ```
 
 Finding $V_{OC}$ is once again is a simple application of Ohm's Law.
-\[V*{TH}=V*{OC}=I_NR_N\]
+
+$$ V_{TH}=V_{OC}=I_NR_N $$
 
 Finding $R_{TH}$ is similarly straight forward. The current supply is replaced by an open as shown here
 
@@ -517,7 +596,8 @@ name: LABEL_30
 ```
 
 The relationship between $R_{TH}$ and $R_{N}$ is again simple given there is only a single resistor to consider.
-\[R*{TH}=R*{N}\]
+
+$$ R_{TH}=R_{N} $$
 
 ### Summary of Conversions
 
