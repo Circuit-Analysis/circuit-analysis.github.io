@@ -22,6 +22,15 @@ kernelspec:
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+git_hash = !git rev-parse HEAD
+f = open("includes/git_hash.txt", "w")
+f.write(str(git_hash[0]))
+f.close()
+
+```
+
 
 (content:section:si_units)=
 
