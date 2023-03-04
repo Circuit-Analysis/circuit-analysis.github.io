@@ -76,8 +76,7 @@ import schemdraw.elements as elm
 with schemdraw.Drawing(file='super-example-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.LineDot().up().length(d.unit/2)
-    d += elm.Line().up().length(d.unit/4)
-        
+    d += elm.Line().up().length(d.unit/4)    
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
     d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
     d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n60V', loc='bottom'))
@@ -164,12 +163,59 @@ I encourage you to analyze the original circuit using mesh or nodal analysis to 
 
 The next problem is similar but let's find a voltage in the circuit. Also, let's examine how do we treat current supplies when using superposition.
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example-current-supply.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n30V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += (Is := elm.SourceI().down().label('$I_{S}$\n-3A', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O$','-'),loc='bottom'))    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example-current-supply-sub1.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n30V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += elm.LineDot().down().length(d.unit/4)
+    d += (Is := elm.Gap().down().length(d.unit/2))
+    d += elm.LineDot().down().length(d.unit/4).reverse()
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(1)}$','-'),loc='bottom'))    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example-current-supply-sub2.svg') as d:
+    d += elm.LineDot().up().length(d.unit/4)
+    d += elm.LineDot().up().length(d.unit/2)
+    d += elm.Line().up().length(d.unit/4)
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += (Is := elm.SourceI().down().label('$I_{S}$\n-3A', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(2)}$','-'),loc='bottom'))    
+```
+
+
+
 `````{admonition} Example
 
-```{figure} logo.png
+```{figure} super-example-current-supply.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE3
+name: super-example-current-supply
 ---
 ````
 
@@ -180,10 +226,10 @@ name: LABEL_FOR_THIS_IMAGE3
 **Sub-problem \#1**
 In the first "sub-problem" we consider the effect of $V_{S}$ on $V_{O}$. Notice that $I_{S}$ is replaced by a its ideal resistance, an open in this case.
 
-```{figure} logo.png
+```{figure} super-example-current-supply-sub1.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE4
+name: super-example-current-supply-sub1
 ---
 ```
 
@@ -200,10 +246,10 @@ $$
 **Sub-problem \#2**
 The second sub-problem we consider the effect of $I_{S}$ on $V_{O}$.
 
-```{figure} logo.png
+```{figure} super-example-current-supply-sub2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE5
+name: super-example-current-supply-sub2
 ---
 ```
 
