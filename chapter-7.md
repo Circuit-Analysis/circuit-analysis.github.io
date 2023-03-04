@@ -416,8 +416,12 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh2.svg') as d:
 
 ```
 
+```{index} Super-mesh
+
+```
+
 `````{admonition} Example
-Find $V_A$ in this circuit
+Find $V_A$ in this circuit.
 
 ````{figure} mesh-toy-problem-mesh.svg
 ---
@@ -430,10 +434,6 @@ name: mesh-toy-problem-mesh
 ````{admonition} Solution using Mesh Analysis
 :class: tip, dropdown
 Step 1 states that we should assign mesh currents. First we identify the two meshes in this circuits. There are no super-meshes in this circuit. We'll see what that means as the examples in this section progress. Each mesh gets a current direction assigned to it, clockwise or counter-clockwise. Direction doesn't matter for now, you get to pick. If the current is actually flowing the opposite direction your answer will have a negative sign. Let's start with both mesh currents flowing in the clockwise (CW) direction.
-
-```{index} Super-mesh
-
-```
 
 ```{figure} mesh-toy-problem-mesh1.svg
 ---
