@@ -332,6 +332,10 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 
 ```
 
+```{index} Mesh Analysis
+
+```
+
 ```{admonition} Steps for Mesh Analysis
 1. Assign mesh currents. Identify any "Super-meshes" (We'll discuss what a super-mesh is later).
 2. Use KVL on each mesh current.
