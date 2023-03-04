@@ -33,7 +33,6 @@ Let's start with the circuit shown here
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
 import matplotlib
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
 matplotlib.rcParams['font.family'] = 'STIXGeneral'
@@ -66,9 +65,7 @@ with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -102,9 +99,7 @@ with schemdraw.Drawing(file='find-Ia.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -237,9 +232,7 @@ Find $V_A$
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -264,9 +257,7 @@ name: mesh-toy-problem
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -284,9 +275,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-step1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -347,9 +336,7 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -371,9 +358,7 @@ Let's apply these steps to our toy problem.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -395,9 +380,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -539,9 +522,7 @@ Consider the next example that uses the same circuit. If we were later asked to 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -563,9 +544,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-other-value.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -614,9 +593,7 @@ I mentioned before that mesh analysis can be used to analyze circuits with multi
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -636,9 +613,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -733,9 +708,7 @@ More complex circuits might have additional meshes. Mesh analysis can be applied
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -755,9 +728,7 @@ with schemdraw.Drawing(file='mesh-3-meshes.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -861,9 +832,7 @@ Let's find the mesh currents in this example circuit:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -879,9 +848,7 @@ with schemdraw.Drawing(file='mesh-current-supply.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -964,9 +931,7 @@ Let's look at an example.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -984,9 +949,7 @@ with schemdraw.Drawing(file='mesh-super.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1059,9 +1022,7 @@ Let's consider another example. In the previous example the KVL was written arou
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1087,9 +1048,7 @@ with schemdraw.Drawing(file='mesh-super-3.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1201,9 +1160,7 @@ Here's an example
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1223,9 +1180,7 @@ with schemdraw.Drawing(file='mesh-dependent.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1321,9 +1276,7 @@ $$\left[ \begin{array}{cc}
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1344,9 +1297,7 @@ with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1370,9 +1321,7 @@ with schemdraw.Drawing(file='mesh-dependent-supers-annotated.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1498,9 +1447,7 @@ We begin by setting up a matrix and vector appropriate for the circuit being ana
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1526,9 +1473,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1642,9 +1587,7 @@ I'm not going to explicitly state the questions for the next example. Try to use
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1666,9 +1609,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources-shortcut.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1695,9 +1636,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources-shortcut1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1795,9 +1734,7 @@ Once again, the mesh currents found using this method are the same as those prev
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1847,9 +1784,7 @@ We can handle circuits that have current supplies using a similar approach. let'
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1920,9 +1855,7 @@ If current supplies are present in a circuit it is possible they create a super-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -1941,9 +1874,7 @@ with schemdraw.Drawing(file='mesh-super-shortcut.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -2041,9 +1972,7 @@ Let's try a circuit with a super-mesh that cuts through the intermediate branche
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -2069,9 +1998,7 @@ with schemdraw.Drawing(file='mesh-super-3-shortcut.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -2173,9 +2100,7 @@ Like I said, I'll show you both for the examples in this section.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm
@@ -2335,9 +2260,7 @@ The shortcut can be used with a dependent curent supply as well. Here is another
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 import schemdraw
 import schemdraw.elements as elm

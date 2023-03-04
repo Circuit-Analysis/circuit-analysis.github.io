@@ -23,9 +23,7 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+
 
 ```
 
@@ -49,9 +47,12 @@ These steps give us a starting point for the first example. [We'll develop what 
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
+import matplotlib
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
 import schemdraw
 import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -69,8 +70,7 @@ with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-first-toy-problem-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -300,8 +300,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-problem-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -318,8 +317,7 @@ with schemdraw.Drawing(file='nodal-problem-2.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-problem-2-current.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -488,8 +486,7 @@ Just as current sources create special cases for mesh analysis, voltage sources 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-voltage-source-connected-to-ground.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -508,8 +505,7 @@ with schemdraw.Drawing(file='nodal-voltage-source-connected-to-ground.svg') as d
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-voltage-source-connected-to-ground-nodes.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -689,8 +685,7 @@ When a voltage supply connects two non-reference nodes we call it a "supernode".
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-between-non-reference-nodes.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -713,8 +708,7 @@ with schemdraw.Drawing(file='voltage-between-non-reference-nodes.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-between-non-reference-nodes-currents.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -927,8 +921,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -949,8 +942,7 @@ with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-between-non-reference-nodes-2-currents.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -1151,8 +1143,7 @@ The negative side won't always be connected to ground as it is here. In that cas
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -1175,8 +1166,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-currents.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -1365,8 +1355,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -1393,8 +1382,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2-currents.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -1569,8 +1557,7 @@ $$
 `````
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d:
     d += elm.GroundSignal()
     d += elm.Resistor().up().label('$R_3$\n$24~\Omega$')
@@ -1592,8 +1579,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d
     
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3-currents.svg') as d:
     d += elm.GroundSignal()
     d += (R3 := elm.Resistor().up().label('$R_3$\n$24~\Omega$').label('A', loc='right', ofst=(-0.5,0.5)))
@@ -1774,8 +1760,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='opamp.svg') as d:
     d += (O1 := elm.Opamp(leads=True).label('Inputs', loc='left').label('Output', loc='right').label('$V_-$', loc='in1').label('$V_+$', loc='in2'))
     d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in1).label('$I_-$')
@@ -1796,8 +1781,7 @@ name: opamp
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
     d += (O1 := elm.Opamp(leads=True))
     d += (R1 := elm.Resistor().left().label('$3~k\Omega$').at(O1.in1))
@@ -1816,8 +1800,7 @@ with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
     d += (O1 := elm.Opamp(leads=True).label('B', loc='in1', ofst=(-0.25,0.5)).label('C', loc='out', ofst=(0.25,0.5)))
     d += elm.Dot().color('red').at(O1.in1)
@@ -1936,8 +1919,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='opamp-positive.svg') as d:
     d += (O1 := elm.Opamp(leads=True).flip())
     d += (L1 := elm.Line().left().at(O1.in2))
@@ -1958,8 +1940,7 @@ with schemdraw.Drawing(file='opamp-positive.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='opamp-positive-currents.svg') as d:
     d += (O1 := elm.Opamp(leads=True).flip())
     d += (L1 := elm.Line().left().at(O1.in2).label('A', loc='left', ofst=(0.5,0)))
@@ -2081,8 +2062,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-opamp-3.svg') as d:
     d += (op := elm.Opamp(leads=True))
     d += (LineOpIn1 := elm.Line().at(op.in1).left().length(1))
@@ -2104,8 +2084,7 @@ with schemdraw.Drawing(file='nodal-opamp-3.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-opamp-3-currents.svg') as d:
     d += (op := elm.Opamp(leads=True))
     d += (LineOpIn1 := elm.Line().at(op.in1).left().length(1).label('C', ofst=(0.25,-0.25)))
@@ -2262,8 +2241,7 @@ How will this change if we connect a load resistor to the output?
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-opamp-example-54.svg') as d:
     d += (op := elm.Opamp(leads=True).flip())
     d += (R1 := elm.Resistor().at(op.in2).left().label('$18~\Omega$'))
@@ -2286,8 +2264,7 @@ with schemdraw.Drawing(file='nodal-opamp-example-54.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-opamp-example-54-currents.svg') as d:
     d += (op := elm.Opamp(leads=True).flip())
     d += (R1 := elm.Resistor().at(op.in2).left().label('$18~\Omega$'))
@@ -2487,12 +2464,9 @@ name: nodal-analysis-with-dependent-supplies-shortcut
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
+
+
 with schemdraw.Drawing(file='nodal-dependent-2.svg') as d:
     d += (Is1 := elm.SourceControlledI().up().label('$I_{S1}$\n$3V_O$'))
     d += (LineTL := elm.Line().right())
@@ -2518,12 +2492,9 @@ name: nodal-dependent-2
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
+
+
 with schemdraw.Drawing(file='nodal-opamp-inverting.svg') as d:
     d += (op := elm.Opamp(leads=True))
     d += (R1 := elm.Resistor().at(op.in1).left().label('$R_{1}$\n3kΩ'))
@@ -2547,12 +2518,9 @@ name: nodal-opamp-inverting
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
+
+
 with schemdraw.Drawing(file='nodal-opamp-noninverting.svg') as d:
     d += (op := elm.Opamp(leads=True).flip())
     d += (LineOut1 := elm.Line().down().at(op.out).length(2))
@@ -2579,12 +2547,9 @@ name: nodal-opamp-noninverting
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
+
+
 with schemdraw.Drawing(file='nodal-opamp-shortcut.svg') as d:
     d += (op := elm.Opamp(leads=True))
     d += (LineOpIn1 := elm.Line().at(op.in1).left().length(1))
@@ -2614,12 +2579,9 @@ name: nodal-opamp-shortcut
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
+
+
 with schemdraw.Drawing(file='nodal-opamp-super-shortcut.svg') as d:
     d += (op := elm.Opamp(leads=True))
     d += (R3 := elm.Resistor().at(op.in1).left().label('$R_{3}$\n18Ω'))
