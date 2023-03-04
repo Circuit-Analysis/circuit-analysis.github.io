@@ -16,7 +16,10 @@ kernelspec:
 
 # Alternating Current: Phasors
 
-\index{Phasors}
+
+```{index} Phasors
+```
+
 
 ## Sinusoidal Functions as Rotating Vectors
 
@@ -28,7 +31,10 @@ name: SineCurveUnitCircle
 Converting from a rotating vector to a sine wave.
 ```
 
-\index{Sinusoid}
+
+```{index} Sinusoid
+```
+
 
 ```{figure} logo.png
 ---
@@ -249,30 +255,48 @@ Since all of the complex forms introduced above can specify the same point it is
 ### Polar/Exponential to Rectangular
 
 If a polar value is given as
+
 $$ A\angle\theta $$
+
 conversion to exponential form is as simple as writing
+
 $$ Ae^{j\theta} $$
+
 respecting the units of the angle $\theta$.
 Either of those two forms can be converted to the rectangular form
+
 $$ a+jb $$
+
 using trigonometry to state
+
 $$ a=A\cos\theta $$
+
 and
+
 $$ b=A\sin\theta $$
+
 again respecting the units of $\theta$. (Check your calculator mode!)
 
 ### Polar/Exponential to Rectangular
 
 if a rectangular value is given as
+
 $$ a+jb $$
+
 it can be converted to either the polar or exponential forms
+
 $$ A\angle\theta=Ae^{j\theta} $$
+
 using trigonometry and the Pythagorean theorem to state
+
 $$ A=\sqrt{a^2+b^2} $$
+
 and
+
 $$ \theta=\tan^{-1}\frac{b}{a} $$
+
 once more, respecting the units of $\theta$. (Check your calculator mode again... just to be sure!) You must also consider that the angle $\theta$ is measured from the real axis in the counter-clockwise direction. If the complex number is in the second or third quadrant you must find the supplementary angle of theta before writing the converted complex value.
-%perhaps an illustrative example of this here.
+%TODO perhaps an illustrative example of this here.
 
 ### Extending Operations into 2D Plane
 
@@ -281,16 +305,21 @@ Now that we can locate points on a 2D plane instead of a simple 1D number line w
 
 Different operations are easier in different complex forms. When performing operations by hand I suggest converting the number to the following forms:
 
-\begin{tabular}{|c|c|}
-\hline
-**Rectangular**&**Polar or Exponential**\\
-\hline
-Addition&Multiplication\\
-Subtraction&Division\\
-Negation&Negation\\
-&Inversion\\
-\hline
-\end{tabular}
+```{list-table} Operations and form of complex numbers.
+:name: table-operations
+:header-rows: 1
+
+* - Rectangular
+  - Polar or Exponential
+* - Addition
+  - Multiplication
+* - Subtraction
+  - Division
+* - Negation
+  - Negation
+* - 
+  - Inversion
+```
 
 ### Addition
 
@@ -324,12 +353,17 @@ name: LABEL_20
 
 If we must express these quantities as complex numbers the imaginary components will be zero indicating that the number are on the real axis. The operation can be described as
 
-\begin{tabular}{lr}
-&2+j0\\
-+&3+j0\\
-\hline
-&5+j0\\
-\end{tabular}
+```{list-table} Addition of complex numbers with zero imaginary component.
+:name: table-complex-addition
+:header-rows: 0
+
+* - 
+  - 2+j0
+* - $+$
+  - 3+j0
+* - 
+  - **5+j0**
+```
 
 The result, $5+j0$, can be rewritten as simply 5 since $0\times j=0$
 
@@ -344,21 +378,31 @@ name: LABEL_21
 
 The result is shown in orange on the plane and is equal to a vector with value 2+j4. We can arrive at this result mathematically rather than relying on the picture. In this case the real components add separately from the imaginary components.
 
-\begin{tabular}{lr}
-&4+j3\\
-+&-2+j1\\
-\hline
-&2+j4\\
-\end{tabular}
+```{list-table} Addition of complex numbers.
+:name: table-complex-addition-non-zero
+:header-rows: 0
+
+* - 
+  - 4+j3
+* - $+$
+  - -2+j1
+* - 
+  - **2+j4**
+```
 
 This operation is straight-forward if the complex values are in rectangular form. That is less true if they are in polar or exponential form. The plot above does not change but the calculation is less clear
 
-\begin{tabular}{lr}
-&$5\angle 36.86^\circ$\\
-+&$2.236\angle 153.43^\circ$\\
-\hline
-&$4.472\angle 63.43^\circ$\\
-\end{tabular}
+```{list-table} Addition of complex numbers.
+:name: table-complex-operations
+:header-rows: 0
+
+* - 
+  - $5\angle 36.86^\circ$
+* - $+$
+  - $2.236\angle 153.43^\circ$
+* - 
+  - $4.472\angle 63.43^\circ$
+```
 
 This is why I prefer rectangular form for addition.
 
@@ -389,15 +433,25 @@ So $-2\angle 0^\circ$ is equivalent to $2\angle 180^\circ$ and $-2\angle 180^\ci
 % REMOVED PICTURE
 
 Mathematically we can find the negative of a complex number in either form. In polar form, we rotate by $180^\circ$ modulo 360 (never exceeding a magnitude of the angle of $360^\circ$). So
+
 $$ -5\angle 36.86^\circ=5\angle(36.86^\circ+180^\circ)=5\angle 216.86^\circ $$
+
 or
+
 $$ -5\angle 36.86^\circ=5\angle(36.86^\circ-180^\circ)=5\angle -143.14^\circ $$
+
 The same thing can be accomplished in rectangular form. Since
+
 $$ 5\angle 36.86^\circ=4+j3 $$
+
 we can consider
+
 $$ -(4+j3) $$
+
 I included the parentheses deliberately to emphasis that the negative sign will distribute to both terms. Therefore,
+
 $$ -(4+j3)=-4-j3 $$
+
 Which we can see graphically as
 
 ```{figure} logo.png
@@ -414,21 +468,32 @@ $$ -4-j3=5\angle 216.86^\circ $$
 
 Subtraction is a simple combination of negation and addition. For instance to perform
 
-\begin{tabular}{rc}
-&1+j4\hspace{2mm}\\
--&(3+j2)\\
-\hline
-&-2+j2\hspace{2mm}\\
-\end{tabular}
+```{list-table} Subtraction of complex numbers.
+:name: table-complex-subtraction
+:header-rows: 0
+
+* - 
+  - 1+j4
+* - $-$
+  - 3+j2
+* - 
+  - -2+j2
+```
 
 Recall that the negative sign distributes to both terms before an addition is performed.
 
-\begin{tabular}{rc}
-&1+j4\hspace{2mm}\\
-+&-3-j2\\
-\hline
-&-2+j2\hspace{2mm}\\
-\end{tabular}
+```{list-table} Subtraction distributes.
+:name: table-complex-subtraction-distributes
+:header-rows: 0
+
+* - 
+  - 1+j4
+* - $+$
+  - -3-j2
+* - 
+  - -2+j2
+```
+
 
 Negate the second term, add it to the first. Let's consider this subtraction graphically.
 
@@ -481,6 +546,7 @@ name: LABEL_28
 ```
 
 $2\angle 0^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 180^\circ$ also know as -6.
+
 $$ (2\times 3)\angle (0^\circ +180^\circ)=6\angle 180^\circ=-6 $$
 
 ```{figure} logo.png
@@ -502,6 +568,7 @@ name: LABEL_30
 ```
 
 $2\angle 180^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 360^\circ$ which can be written as $6\angle 0^\circ$ also know as +6.
+
 $$ (2\times 3)\angle (180^\circ +180^\circ)=6\angle 360^\circ=6\angle 0^\circ=+6 $$
 
 ```{figure} logo.png
@@ -514,9 +581,13 @@ name: LABEL_31
 This result is consistent with the ``negative times a negative is a positive'' adage you were taught in grade school. So in polar form multiplication looks consistent with what you already know about multiplication of 1D values. The benefit of restating multiplication as stretching and rotating comes from extending it onto the 2D complex plane.
 
 If we consider the example
+
 $$ (2\angle 125^\circ)(3\angle -45^\circ) $$
+
 the result can be found by performing
+
 $$ (2\times3)\angle(125^\circ+(-45^\circ))=6\angle 80^\circ $$
+
 Graphically the two operands and the product are shown here
 
 ```{figure} logo.png
@@ -529,7 +600,9 @@ name: LABEL_32
 ### Inverse
 
 When a number is multiplied by its inverse the result is real valued 1 also known as $1\angle 0^\circ$. With scalars, the inverse of 2 is $\frac{1}{2}$. Multiplying the two values results in
+
 $$ \frac{2}{1}\times\frac{1}{2}=\frac{2}{2}=1=1\angle 0^\circ $$
+
 Graphically, the two vectors shown here
 
 ```{figure} logo.png
@@ -551,9 +624,13 @@ name: LABEL_34
 when multiplied together.
 
 We can find the inverse of the polar number $r\angle\theta$ by asking 1) what magnitude will result in 1 when multiplied with $r$ and 2) what angle will result in $0^\circ$ when added to $\theta$? The answer to both questions is
+
 $$ \frac{1}{r\angle\theta}=(r\angle\theta)^{-1}=\frac{1}{r}\angle{-\theta} $$
+
 The multiplication of the value and its inverse can be expressed as
+
 $$ {2\angle25^\circ}\times(2\angle25^\circ)^{-1}=(2\times\frac{1}{2})\angle(25^\circ+(-25^\circ))=1\angle 0^\circ=1 $$
+
 
 Graphically, $2\angle25^\circ$, its inverse, and the result of the multiplication are all shown here
 
@@ -569,11 +646,17 @@ Once again, the operation is consistent whether performed on a 1D number line or
 ### Division
 
 Division is a simple combination of inversion and multiplication. For instance to perform
+
 $$ 6\div2=3 $$
+
 we invert the second operand and then perform a multiplication
+
 $$ 6\times\frac{1}{2}=3 $$
+
 Let's perform this graphically on a complex example. First invert the second operand and then multiply it by the second. If the complex division is
+
 $$ (6\angle75^\circ)\div(2\angle10^\circ)=(3\angle65^\circ) $$
+
 take the second operand
 
 ```{figure} logo.png
@@ -629,7 +712,9 @@ name: LABEL_40
 ```
 
 Squaring that value we find
+
 $$ (1\angle90^\circ)\times(1\angle90^\circ)=(1\times1)\angle(90^\circ+90^\circ)=1\angle180^\circ $$
+
 $1\angle180^\circ$ can also be expressed as -1
 
 ```{figure} logo.png
@@ -640,9 +725,13 @@ name: LABEL_41
 ```
 
 Reverting back to using $j$ for $1\angle90^\circ$ and -1 for $1\angle180^\circ$ we can state that
+
 $$ j\times j=j^2=-1 $$
+
 and therefore
+
 $$ \sqrt{j^2}=j=\sqrt{-1} $$
+
 So it's true but it is better thought of as a number, an actual number since it really exists just like any other point on the complex plane. It is a vector that when multiplying some other value it leaves that magnitude unchanged and rotates the angle by positive 90 degrees.
 
 ## Impedance
@@ -652,7 +741,9 @@ I've hopefully impressed upon you that all of circuit analysis is built on the t
 ### Resistive Component
 
 Let's consider a sinusoidal voltage placed across a resistor. That voltage takes the form of
+
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
+
 Notice that even though the voltage is a time variant function it still has the appropriate unit of volts assigned to it. The voltage source is connected to the resistor as shown here
 
 ```{figure} logo.png
@@ -663,15 +754,25 @@ name: LABEL_01
 ```
 
 We need to find i(t) using what we know about the voltage/current relationship of a resistor. Ohm's law can be stated with the two time-variant functions
+
 $$ v(t)=i(t)R $$
+
 and can be solve for i(t) resulting in
+
 $$ i(t)=\frac{A\cos(\omega{t}+\theta)}{R}~A $$
+
 Once again notice that a voltage divided by a resistance results in a current with the unit amperes. This new function takes on that unit. Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with Ohm's law. It is a bit circular to perform when considering the resistor but we will follow the same pattern as we consider the other passive circuit elements. We can state the voltage/current relationship as
+
 $$ \frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{R}\cos(\omega{t}+\theta)~A} $$
+
 The cosines in this case are straightforward and clearly cancel each other as one is in the numerator and one is in the denominator. However, in the interest of showing how we will approach the other passive circuit elements, and to demonstrate the approach is consistent for all elements, we will transform the cosines to phasors resulting in
+
 $$ \frac{v(t)}{i(t)}=\frac{A}{\frac{A}{R}}\frac{(1\angle\theta)~V}{(1\angle\theta)~A} $$
+
 Dividing the phasors results in 1. A in the numerator cancels A in the denominator and R ends up in the numerator. We give this value a new name when dealing with sinusoidal voltages and currents. The impedance is the complex relationship between voltage and current
+
 $$ Z_R=\frac{v(t)}{i(t)}=R~\Omega $$
+
 The impedance of a resistor is just its resistance. It may seem strange to say that $R~\Omega$ is a complex number but it does locate a point on the complex plane. It just happens that the point is on the real axis with no imaginary component. In other words it could be expressed as $R+j0~\Omega$.
 
 ### Reactive Components
@@ -681,7 +782,9 @@ We can now consider the other two passive elements using the same thought proces
 ### Capacitor
 
 Let's consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
+
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
+
 The voltage source is connected to the capacitor as shown here
 
 ```{figure} logo.png
@@ -692,31 +795,53 @@ name: LABEL_110
 ```
 
 We need to find i(t) using what we know about the voltage/current relationship of a capacitor. The capacitor equation can be stated with the two time-variant functions
+
 $$ i(t)=C\frac{dv(t)}{dt} $$
+
 The time-derivative of the voltage is
+
 $$ \frac{dv(t)}{dt}={-A}\omega\sin(\omega{t}+\theta) $$
+
 Notice the $\omega$ in the coefficient results from the chain rule. This derivative can be substituted into the capacitor equation
+
 $$ i(t)={-A}\omega{C}\sin(\omega{t}+\theta)~A $$
+
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
+
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\sin(\omega{t}+\theta) A} $$
+
 This is where phasors prove useful.  Without phasors we would have to rely on some esoteric trig identities but let's not do that here.  Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
+
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} $$
+
 The cosines can now be transformed to phasors and divided
+
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{A}{ {-A}\omega{C}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{ {-A}\omega{C}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
+
 The amplitude, $A$, of each function cancel each other. Distributing the negative sign into the angle of the denominator leaves only a $+90^\circ$
+
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{-1}{\omega{C}}(1\angle90^\circ)~\Omega $$
+
 This result meets our definition of impedance: a complex number that relates a voltage to a current if they are both sinusoidal but it is not the form typically used. The polar form $(1\angle{90^\circ})$ is usually replaced by the rectangular form ($j$).
+
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{-j}{\omega{C}}~\Omega $$
+
 in some instances you may find the $j$ moved to the denominator. To do this let's consider $j$=$(1\angle{90^\circ}$ and
+
 $$ \frac{1}{j}=\frac{1\angle{0^\circ}}{1\angle{90^\circ}}=1\angle({-90}^\circ)=-j $$
+
 When j moves between the numerator and denominator it is negated. Therefore the impedance can be stated in two ways
+
 $$ Z_C=\frac{-j}{\omega{C}}~\Omega=\frac{1}{j\omega{C}}~\Omega $$
+
 These forms also match the definition of impedance, a complex number that relates sinusoidal voltages and currents for a capacitor. Notice it is purely imaginary and results in a $90^\circ$ phase shift.
 
 ### Inductor
 
 Last one! Let's consider a sinusoidal voltage placed across an inductor. That voltage again takes the form of
+
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
+
 The voltage source is connected to the inductor as shown here
 
 ```{figure} logo.png
@@ -739,17 +864,29 @@ $$
 $$
 
 Notice the $\omega$ in the coefficient results from u-substitution. This integral can be substituted into the inductor equation
+
 $$ i(t)=\frac{A}{\omega{L}}\sin(\omega{t}+\theta)~A $$
+
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
+
 $$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{\omega{L}}\sin(\omega{t}+\theta)~A} $$
+
 Again, a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
+
 $$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{\omega{L}}\cos(\omega{t}+\theta-90^\circ)~A} $$
+
 The cosines can now be transformed to phasors and divided
+
 $$ Z_L=\frac{v(t)}{i(t)}=\frac{A}{\frac{A}{\omega{L}}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{\frac{A}{\omega{L}}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
+
 The amplitude, $A$, of each function cancel each other and $\omega$L moves to the numerator. Distributing the negative sign into the angle of the denominator leaves only a $+90^\circ$.
+
 $$ Z_L=\frac{v(t)}{i(t)}={\omega{L}}(1\angle90^\circ)~\Omega $$
+
 This result meets our definition of impedance: a complex number that relates a voltage to a current if they are both sinusoidal but it is not the form typically used. The polar form $(1\angle{90^\circ})$ is usually replaced by the rectangular form ($j$).
+
 $$ Z_L=\frac{v(t)}{i(t)}=j\omega{L}~\Omega $$
+
 Notice it is purely imaginary and results in a $90^\circ$ phase shift in the opposite direction as the capacitor.
 
 \begin{tabular}{|c|c|c|rcl|}
@@ -804,31 +941,36 @@ name: LABEL_611
 ---
 ```
 
-The admittances add. Admittance\index{Admittance} is defined as the complex inverse of impedance
+
+```{index} Admittance
+```
+
+
+The admittances add. Admittance is defined as the complex inverse of impedance
+
 $$ Y=\frac{1}{Z} $$
-and has a unit of Siemens (S)\index{Siemens}. Therefore,
+
+
+```{index} Siemens
+```
+
+
+and has a unit of Siemens (S). Therefore,
+
 $$ \frac{1}{Z_P}=\frac{1}{Z_1}+\frac{1}{Z_2} $$
+
 Solving for $Z_P$ and adding additional impedances
+
 $$ Z_P=\frac{1}{\frac{1}{Z_1}+\frac{1}{Z_2}+\dots+\frac{1}{Z_N}} $$
+
 The value of two inductors in parallel is commonly expressed as
+
 $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 
 %%%%%%%%%%%%%%%FIXED SECTIONS to HERE
 
 ## Analysis Methods and Theorems with Alternating Current
 
-\pgfdeclarelayer{background}
-\pgfdeclarelayer{foreground}
-\pgfsetlayers{background,main,foreground}
-
-\tikzstyle{sensor}=[draw, fill=blue!20, text width=5em, text centered, minimum height=2.5em,drop shadow]
-\tikzstyle{startBlock}=[draw, circle, fill=white!20, text centered, minimum height=3em]
-\tikzstyle{td} = [sensor, text width=10em, fill=blue!20, minimum height=6em, rounded corners, drop shadow]
-\tikzstyle{pd} = [sensor, text width=10em, fill=red!20, minimum height=6em, rounded corners, drop shadow]
-
-% Define distances for bordering
-\def\blockdist{2.3}
-\def\edgedist{2.5}
 
 ```{figure} logo.png
 ---
@@ -839,7 +981,10 @@ name: LABEL_42
 
 ### Voltage Divider
 
-\index{Voltage Divider}
+
+```{index} Voltage Divider
+```
+
 ````{admonition} Example
  
 
@@ -872,7 +1017,10 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 ### Mesh Analysis
 
-\index{Mesh Analysis}
+
+```{index} Mesh Analysis
+```
+
 ````{admonition} Example
  
 
@@ -918,7 +1066,10 @@ name: LABEL_111
 
 ### Thevenin's Theorem
 
-\index{Thevenin's Theorem}
+
+```{index} Thevenin's Theorem
+```
+
 ````{admonition} Example
  
 
@@ -937,11 +1088,17 @@ Find V\tss{OC} first. The load is already removed in this example so there is al
 % Removed picture
 
 We can find I using mesh analysis on the single mesh.  
- $$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
+
+$$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
+
 so
+
 $$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
+
 Using $I$ we can find the voltage across the inductor and capacitor
-$$ V\*L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+
+$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+
 There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
 
 ```{figure} logo.png
@@ -954,9 +1111,13 @@ name: LABEL_131
     Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
 
 $$ (50\angle{-150^\circ}~V)-(0~V)-V*{OC}=0 $$
+
 which reduces to
-$$ V*{OC}=50\angle{-150^\circ}~V=V\*{TH} $$
+
+$$ V*{OC}=50\angle{-150^\circ}~V=V_{TH} $$
+
 which is the Thevenin voltage.
+
 Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
 
 ```{figure} logo.png
@@ -967,7 +1128,9 @@ name: LABEL_141
 ```
 
 For this circuit
-$$ Z\*{TH}=R+(L||C)=10-j20~\Omega $$
+
+$$ Z_{TH}=R+(L||C)=10-j20~\Omega $$
+
 We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
 
 ```{figure} logo.png
@@ -982,11 +1145,17 @@ name: LABEL_151
 
 ### Norton's Theorem
 
-\index{Norton's Theorem}
+
+```{index} Norton's Theorem
+```
+
 
 ### Source Conversions
 
-\index{Source Conversions}
+
+```{index} Source Conversions
+```
+
 ````{admonition} Example
  
 
@@ -1034,7 +1203,9 @@ name: LABEL_191
 Those two impedances combine to a $1~\Omega$ impedance.
 
 From this point we can use a simple current divider to find $I_O$.
+
 $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
 
 
 ````
+

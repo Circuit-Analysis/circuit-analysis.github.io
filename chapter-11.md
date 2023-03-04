@@ -110,7 +110,7 @@ For capacitors, these two forms of the capacitor equation take the place of Ohm'
 
 ### Physical Characteristics
 
-    Reluctance ($\mathcal{R}$=1/L) unit: Inverse Henry $H^{-1}$
+Reluctance ($\mathcal{R}$=1/L) unit: Inverse Henry $H^{-1}$
 
 ### Equivalent Inductance: Series
 
