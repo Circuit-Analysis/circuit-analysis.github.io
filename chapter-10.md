@@ -354,7 +354,7 @@ name: LABEL_16
 ---
 ```
 
-### Analyzing the whole circuit
+**Analyzing the whole circuit**
 
 $$
 \left[ \begin{array}{cccc}
@@ -369,7 +369,7 @@ $$ I_O=I_2=-1.088~\text{A} $$
 
 $$ V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V} $$
 
-### Find the equivalent for the blue circuit
+**Find the equivalent for the blue circuit**
 
 ```{figure} logo.png
 ---
@@ -378,7 +378,7 @@ name: LABEL_17
 ---
 ```
 
-### Find the equivalent for the red circuit
+**Find the equivalent for the red circuit**
 
 ```{figure} logo.png
 ---
@@ -387,7 +387,7 @@ name: LABEL_18
 ---
 ```
 
-### Working with the equivalent circuits
+**Working with the equivalent circuits**
 
 ```{figure} logo.png
 ---
@@ -425,12 +425,12 @@ name: LABEL_22
 ## Maximum Power Transfer
 
 Often we must ensure that the power delivered to a load is as much as possible. This is true when:
-\begin{enumerate}
-\item Stereo to speaker connection
-\item Power transmission
-\item Data transmission
-\item and many more...
-\end{enumerate}
+
+- Stereo to speaker connection
+- Power transmission
+- Data transmission
+- and many more...
+
 The circuit transmitting can be thought of as its Thevenin equivalent with a load connected as shown here
 
 ```{figure} logo.png

@@ -125,10 +125,9 @@ name: LABEL_11
 %The horrible ways complex numbers are taught
 %complex numbers: an extension of the 1D number line into the 2D complex plane
 The first thing you learned about numbers was how to count: 1,2,3,4,... Then you learned what 0 was and then that there are numbers less than zero: -1,-2,-3,-4,... All of these numbers allow you to locate points on a numbers line. The numbers indicate two things:
-\begin{enumerate}
-\item How many ``steps'' or units away from the origin, indicated by the magnitude of the number
-\item The direction away from the origin, indicated by the sign of the number
-\end{enumerate}
+
+- How many ``steps'' or units away from the origin, indicated by the magnitude of the number
+- The direction away from the origin, indicated by the sign of the number
 
 For instance, the number +2 locates a point on a 1D number line that is 2 units to the right of the origin
 
