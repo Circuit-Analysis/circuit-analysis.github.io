@@ -1110,11 +1110,11 @@ name: LABEL_131
 
     Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
 
-$$ (50\angle{-150^\circ}~V)-(0~V)-V*{OC}=0 $$
+$$ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 $$
 
 which reduces to
 
-$$ V*{OC}=50\angle{-150^\circ}~V=V_{TH} $$
+$$ V_{OC}=50\angle{-150^\circ}~V=V_{TH} $$
 
 which is the Thevenin voltage.
 
