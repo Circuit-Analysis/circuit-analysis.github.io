@@ -288,24 +288,6 @@ title="Toggle navigation"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/./chapter-11.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
     </ul>
   </div>
 </div>
@@ -626,71 +608,67 @@ title="Print to PDF"
 <h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
 <section id="physical-characteristics">
 <h3>Physical Characteristics<a class="headerlink" href="#physical-characteristics" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-cef4d545-2b38-4978-9cff-5ba3bae5cfa8">
-<span class="eqno">(16)<a class="headerlink" href="#equation-cef4d545-2b38-4978-9cff-5ba3bae5cfa8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ef5ade05-9a97-43b9-a65d-cdcaa28f4c62">
+<span class="eqno">(16)<a class="headerlink" href="#equation-ef5ade05-9a97-43b9-a65d-cdcaa28f4c62" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q=VC
 \end{equation}\]</div>
 <p>Elastance (D=1/C) unit: Daraf <span class="math notranslate nohighlight">\(F^{-1}\)</span></p>
 </section>
 <section id="equivalent-capacitance-series">
 <h3>Equivalent Capacitance: Series<a class="headerlink" href="#equivalent-capacitance-series" title="Permalink to this headline">#</a></h3>
-<p>Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[C,l=C\tss{1}] (0,3)
-(3,3) to[C,l_=C\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
-When two capacitors are in series they can be redrawn as a single capcitor
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[C,l=D\tss{1}+D\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>The elastances add. Recall that
-[D=\frac{1}{C}]
-so
-[\frac{1}{C_S}=\frac{1}{C_1}+\frac{1}{C_2}]
-Solving for <span class="math notranslate nohighlight">\(C_S\)</span> and adding additional capacitors
-[C_S=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\dots+\frac{1}{C_N}}]
-The value of two capacitors in series is commonly expressed as
-[C_S=\frac{C_1C_2}{C_1+C_2}]</p>
+<p>Two elements connected in series share one node <strong>exclusively</strong>.</p>
+<figure class="align-default" id="label-0">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>When two capacitors are in series they can be redrawn as a single capcitor</p>
+<figure class="align-default" id="label-1">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>The elastances add. Recall that</p>
+<div class="math notranslate nohighlight">
+\[ D=\frac{1}{C} \]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{C_S}=\frac{1}{C_1}+\frac{1}{C_2} \]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(C_S\)</span> and adding additional capacitors</p>
+<div class="math notranslate nohighlight">
+\[ C_S=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\dots+\frac{1}{C_N}} \]</div>
+<p>The value of two capacitors in series is commonly expressed as</p>
+<div class="math notranslate nohighlight">
+\[ C_S=\frac{C_1C_2}{C_1+C_2} \]</div>
 </section>
 <section id="equivalent-capacitance-parallel">
 <h3>Equivalent Capacitance: Parallel<a class="headerlink" href="#equivalent-capacitance-parallel" title="Permalink to this headline">#</a></h3>
 <p>Two elements are in parallel when they are connected to the same two nodes.</p>
-<p>\begin{center}\begin{circuitikz}\draw
-(0,0) to[C,l=C\tss{1}] (0,3)
-(2,0) to[C,l=C\tss{2}] (2,3)
-(0,0) – (2,0)
-(0,3) – (2,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>When two capacitors are in parallel they can be redrawn as a single capacitor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[C,l=C\tss{1}+C\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}</p>
+<figure class="align-default" id="label-2">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>When two capacitors are in parallel they can be redrawn as a single capacitor</p>
+<figure class="align-default" id="label-3">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
 </section>
 <section id="voltage-current-relationship">
 <h3>Voltage/Current Relationship<a class="headerlink" href="#voltage-current-relationship" title="Permalink to this headline">#</a></h3>
 <p>All of circuit analysis can be related back to the three fundamental laws: KVL, KCL, and Ohm’s Law. As new passive components are introduced we must reconsider the relationship between voltage and current. The capacitor equation takes the place of Ohm’s law.</p>
 <p>We can start with the charge equation introduced earlier and restated here as a time-domain function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6396f58a-b8c2-477b-8d41-06d790162912">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6396f58a-b8c2-477b-8d41-06d790162912" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-069ee4b1-6f22-412c-ae32-e58346cd7b8a">
+<span class="eqno">(17)<a class="headerlink" href="#equation-069ee4b1-6f22-412c-ae32-e58346cd7b8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q(t)=Cv(t)
 \end{equation}\]</div>
 <p>taking the derivative of both sides leads to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-721a3565-70b3-4a61-b1b1-cb2d8bd9d511">
-<span class="eqno">(18)<a class="headerlink" href="#equation-721a3565-70b3-4a61-b1b1-cb2d8bd9d511" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ed9dfe1-8edc-409f-806f-fb1fa80727b1">
+<span class="eqno">(18)<a class="headerlink" href="#equation-0ed9dfe1-8edc-409f-806f-fb1fa80727b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
-<p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\sfrac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6edfe3ff-011c-41c2-a496-436c06c4371e">
-<span class="eqno">(19)<a class="headerlink" href="#equation-6edfe3ff-011c-41c2-a496-436c06c4371e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\frac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d6f1130-a2dd-483b-b3a3-7d222b13749a">
+<span class="eqno">(19)<a class="headerlink" href="#equation-2d6f1130-a2dd-483b-b3a3-7d222b13749a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-885fd358-eae7-4996-93df-91f9e821d685">
-<span class="eqno">(20)<a class="headerlink" href="#equation-885fd358-eae7-4996-93df-91f9e821d685" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-388c7cd3-bd75-417d-8dfa-dabf575c84d1">
+<span class="eqno">(20)<a class="headerlink" href="#equation-388c7cd3-bd75-417d-8dfa-dabf575c84d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 \end{equation}\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -703,58 +681,52 @@ v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 <h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline">#</a></h2>
 <section id="id1">
 <h3>Physical Characteristics<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Reluctance ($\mathcal{R}$=1/L) unit: Inverse Henry $H^{-1}$
-</pre></div>
-</div>
+<p>Reluctance (<span class="math notranslate nohighlight">\(\mathcal{R}\)</span>=1/L) unit: Inverse Henry <span class="math notranslate nohighlight">\(H^{-1}\)</span></p>
 </section>
 <section id="equivalent-inductance-series">
 <h3>Equivalent Inductance: Series<a class="headerlink" href="#equivalent-inductance-series" title="Permalink to this headline">#</a></h3>
-<p>Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[L,l=L\tss{1}] (0,3)
-(3,3) to[L,l_=L\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
-When two inductors are in series they can be redrawn as a single inductor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[L,l=L\tss{1}+L\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}</p>
+<p>Two elements connected in series share one node <strong>exclusively</strong>.</p>
+<figure class="align-default" id="label-4">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>When two inductors are in series they can be redrawn as a single inductor</p>
+<figure class="align-default" id="label-5">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
 </section>
 <section id="equivalent-inductance-parallel">
 <h3>Equivalent Inductance: Parallel<a class="headerlink" href="#equivalent-inductance-parallel" title="Permalink to this headline">#</a></h3>
 <p>Two elements are in parallel when they are connected to the same two nodes.</p>
-<p>\begin{center}\begin{circuitikz}\draw
-(0,0) to[L,l=L\tss{1}] (0,3)
-(2,0) to[L,l=L\tss{2}] (2,3)
-(0,0) – (2,0)
-(0,3) – (2,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>When two inductors are in parallel they can be redrawn as a single inductor
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[L,l=<span class="math notranslate nohighlight">\(\mathcal{R}\)</span>\tss{1}+<span class="math notranslate nohighlight">\(\mathcal{R}\)</span>\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}</p>
-<p>The reluctances add. Recall that
-[\mathcal{R}=\frac{1}{L}]
-so
-[\frac{1}{L_P}=\frac{1}{L_1}+\frac{1}{L_2}]
-Solving for <span class="math notranslate nohighlight">\(L_P\)</span> and adding additional inductors
-[L_P=\frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\dots+\frac{1}{L_N}}]
-The value of two inductors in parallel is commonly expressed as
-[L_P=\frac{L_1L_2}{L_1+L_2}]</p>
+<figure class="align-default" id="label-6">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>When two inductors are in parallel they can be redrawn as a single inductor</p>
+<figure class="align-default" id="label-7">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>The reluctances add. Recall that</p>
+<div class="math notranslate nohighlight">
+\[ \mathcal{R}=\frac{1}{L} \]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{L_P}=\frac{1}{L_1}+\frac{1}{L_2} \]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(L_P\)</span> and adding additional inductors</p>
+<div class="math notranslate nohighlight">
+\[ L_P=\frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\dots+\frac{1}{L_N}} \]</div>
+<p>The value of two inductors in parallel is commonly expressed as</p>
+<div class="math notranslate nohighlight">
+\[ L_P=\frac{L_1L_2}{L_1+L_2} \]</div>
 </section>
 <section id="id2">
 <h3>Voltage/Current Relationship<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>The derivative form of the inductor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61f8a4ca-3f85-4f3d-96d6-2c8da909a0f2">
-<span class="eqno">(21)<a class="headerlink" href="#equation-61f8a4ca-3f85-4f3d-96d6-2c8da909a0f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5fd093a5-2362-40e3-8e1d-ae2e707a294f">
+<span class="eqno">(21)<a class="headerlink" href="#equation-5fd093a5-2362-40e3-8e1d-ae2e707a294f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=L\frac{di(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc6c80bf-8d53-4afe-a2f6-51162025bf2b">
-<span class="eqno">(22)<a class="headerlink" href="#equation-cc6c80bf-8d53-4afe-a2f6-51162025bf2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e789300-fc16-474b-83c1-14f81123f045">
+<span class="eqno">(22)<a class="headerlink" href="#equation-6e789300-fc16-474b-83c1-14f81123f045" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
 \end{equation}\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -781,7 +753,7 @@ i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true

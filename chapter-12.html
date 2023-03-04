@@ -288,24 +288,6 @@ title="Toggle navigation"
   </button>
   <div class="menu-dropdown__content">
     <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Circuit-Analysis/circuit-analysis.github.io/master?urlpath=tree/./chapter-12.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
     </ul>
   </div>
 </div>
@@ -582,169 +564,101 @@ title="Print to PDF"
 <h2>Analysis Methods and Theorems with Alternating Current<a class="headerlink" href="#analysis-methods-and-theorems-with-alternating-current" title="Permalink to this headline">#</a></h2>
 <section id="voltage-divider">
 <h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
-<p>\index{Voltage Divider}
-\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,l_=v<span class="math notranslate nohighlight">\(_I\)</span>(t)] (0,0)
-(0,3) to[R,lx={R and 1~k<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(3,3) to[L,lx={L and 100~mH},v=v<span class="math notranslate nohighlight">\(_O\)</span>(t)] (3,0)
-(0,0) – (3,0)
-;
-\end{circuitikz}
-\end{center}
-Find v<span class="math notranslate nohighlight">\(_O\)</span>(t) given that v<span class="math notranslate nohighlight">\(_I\)</span>(t)=4~cos(10000t+45<span class="math notranslate nohighlight">\(^\circ\)</span>)~V
-\end{example}</p>
+<p>\index{Voltage Divider}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-0">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Find v<span class="math notranslate nohighlight">\(_O\)</span>(t) given that v<span class="math notranslate nohighlight">\(_I\)</span>(t)=4~cos(10000t+45<span class="math notranslate nohighlight">\(^\circ\)</span>)~V</p>
+</div>
 </section>
 <section id="current-divider">
 <h3>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this headline">#</a></h3>
-<p>\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l^=i<span class="math notranslate nohighlight">\(_I\)</span>(t)] (0,3)
-(3,0) to[R,lx={R and 500~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(6,0) to[C,lx={C and 1~<span class="math notranslate nohighlight">\(\mu\)</span>F},i&lt;=i<span class="math notranslate nohighlight">\(_O\)</span>(t)] (6,3)
-(0,0) – (6,0)
-(0,3) – (6,3)
-;
-\end{circuitikz}
-\end{center}
-Find i<span class="math notranslate nohighlight">\(_O\)</span>(t) given that i<span class="math notranslate nohighlight">\(_I\)</span>(t)=400~cos(1000t-30<span class="math notranslate nohighlight">\(^\circ\)</span>)~mA
-\end{example}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-1">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Find i<span class="math notranslate nohighlight">\(_O\)</span>(t) given that i<span class="math notranslate nohighlight">\(_I\)</span>(t)=400~cos(1000t-30<span class="math notranslate nohighlight">\(^\circ\)</span>)~mA</p>
+</div>
 </section>
 <section id="mesh-analysis">
 <h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h3>
-<p>\index{Mesh Analysis}
-\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,5) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 12<span class="math notranslate nohighlight">\(\angle\)</span>0<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,5) to[R,lx={R<span class="math notranslate nohighlight">\(_1\)</span> and 4~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,5)
-(3,5) to[L,lx={L and j2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (6,5)
-(6,0) to[current source,lx_={I<span class="math notranslate nohighlight">\(_S\)</span> and 4<span class="math notranslate nohighlight">\(\angle\)</span>90<span class="math notranslate nohighlight">\(^\circ\)</span>~A}] (6,5)
-(3,5) to[C,lx={C and -j4~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,2.5)
-(3,2.5) to[R,lx={R<span class="math notranslate nohighlight">\(_2\)</span> and 2~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=V<span class="math notranslate nohighlight">\(_O\)</span>] (3,0)
-(0,0) – (6,0)
-;
-\end{circuitikz}
-\end{center}
-\end{example}</p>
+<p>\index{Mesh Analysis}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-2">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+</div>
 </section>
 <section id="nodal-analysis">
 <h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h3>
-<p>\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 6<span class="math notranslate nohighlight">\(\angle\)</span>0<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(3,3) to[current source,lx_={I<span class="math notranslate nohighlight">\(_S\)</span> and 4<span class="math notranslate nohighlight">\(\angle\)</span>45<span class="math notranslate nohighlight">\(^\circ\)</span>~A}] (3,0)
-(3,3) to[C,lx={C and -j1~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (6,3)
-(6,3) to[R,lx={R<span class="math notranslate nohighlight">\(_2\)</span> and 2~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=V<span class="math notranslate nohighlight">\(_O\)</span>] (6,0)
-(0,0) – (6,0)
-(3,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
-\end{example}</p>
-<p>\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) – (0,3)
-(0,3) to[R,lx={R<span class="math notranslate nohighlight">\(_1\)</span> and 2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(3,0) to[R,lx={R<span class="math notranslate nohighlight">\(_2\)</span> and 2~<span class="math notranslate nohighlight">\(\Omega\)</span>},i&gt;=I<span class="math notranslate nohighlight">\(_O\)</span>] (3,3)
-(6,0) to[R,lx={R<span class="math notranslate nohighlight">\(_3\)</span> and 2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (6,3)
-(3,0) to[L,lx={L and j2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (6,0)
-(3,3) to[C,lx={C and -j2~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (6,3)
-(0,3) – (0,5) to[voltage source,lx={V<span class="math notranslate nohighlight">\(_S\)</span> and 12<span class="math notranslate nohighlight">\(\angle\)</span>0<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (6,5) – (6,3)
-(0,0) – (3,0)
-(3,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
-\end{example}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-3">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-4">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+</div>
 </section>
 <section id="superposition">
 <h3>Superposition<a class="headerlink" href="#superposition" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="thevenin-s-theorem">
 <h3>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this headline">#</a></h3>
-<p>\index{Thevenin’s Theorem}
-\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 50<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(3,3) to[C,lx_={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-;
-\end{circuitikz}
-\end{center}
-Find the Thevenin equivalent of the circuit above.</p>
+<p>\index{Thevenin’s Theorem}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-5">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Find the Thevenin equivalent of the circuit above.</p>
 <p>\Solution
-Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V<span class="math notranslate nohighlight">\(_S\)</span> and 50<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,3)
-(3,3) to[C,lx={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=~] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-(1.5,1.5) node[red]{I}
-;
-\centerarc<span class="xref myst">red,-&gt;,thick</span>(225:-45:5mm)
-\end{circuitikz}
-\end{center}
-We can find I using mesh analysis on the single mesh.<br />
-[(50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0]
-so
-[I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A)]
-Using <span class="math notranslate nohighlight">\(I\)</span> we can find the voltage across the inductor and capacitor
-[V<em>L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V)]
-There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx</em>={V<span class="math notranslate nohighlight">\(_S\)</span> and 50<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V}] (0,0)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=100<span class="math notranslate nohighlight">\(\angle\)</span>30<span class="math notranslate nohighlight">\(^\circ\)</span>~V] (3,3)
-(3,3) to[C,lx={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=50<span class="math notranslate nohighlight">\(\angle\)</span>-150<span class="math notranslate nohighlight">\(^\circ\)</span>~V] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},v=0~V,-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-;
-\end{circuitikz}
-\end{center}
-Now we can write a KVL that includes the unknown <span class="math notranslate nohighlight">\(V_{OC}\)</span>. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included <span class="math notranslate nohighlight">\(V_{OC}\)</span>.
-[(50\angle{-150^\circ}~V)-(0~V)-V*{OC}=0]
-which reduces to
-[V*{OC}=50\angle{-150^\circ}~V=V*{TH}]
-which is the Thevenin voltage.
-Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method #1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[short] (0,3)
-(0,3) to[L,lx={L and j20~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,3)
-(3,3) to[C,lx={C and -j10~<span class="math notranslate nohighlight">\(\Omega\)</span>}] (3,0)
-(3,3) to[R,lx={R and 10~<span class="math notranslate nohighlight">\(\Omega\)</span>},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,l=Z\tss{TH}] (6,.3)
-;
-\draw[-latex] (6,1.5) – (5.5,1.5) ;
-\end{circuitikz}
-\end{center}
-For this circuit
-[Z*{TH}=R+(L||C)=10-j20~\Omega]
-We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(2,3) to[voltage source,lx_={V\tss{TH} and 50<span class="math notranslate nohighlight">\(\angle\)</span>{210<span class="math notranslate nohighlight">\(^\circ\)</span>}~V}] (2,0)
-(2,3) to[european resistor,l=<span class="math notranslate nohighlight">\(10-j20~\Omega\)</span>,-o] (6,3) node[below]{A}
-(2,0) to[short,-o] (6,0) node[above]{B}
-(4,3.7) node[above]{Z\tss{TH}}
-;
-\end{circuitikz}
-\end{center}</p>
-<p>\end{example}</p>
+Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
+<figure class="align-default" id="label-6">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>We can find I using mesh analysis on the single mesh.</p>
+<div class="math notranslate nohighlight">
+\[ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 \]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) \]</div>
+<p>Using <span class="math notranslate nohighlight">\(I\)</span> we can find the voltage across the inductor and capacitor</p>
+<div class="math notranslate nohighlight">
+\[ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) \]</div>
+<p>There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic</p>
+<figure class="align-default" id="label-7">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 \]</div>
+<p>which reduces to</p>
+<div class="math notranslate nohighlight">
+\[ V_{OC}=50\angle{-150^\circ}~V=V_{TH} \]</div>
+<p>which is the Thevenin voltage.
+Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method #1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.</p>
+<figure class="align-default" id="label-8">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>For this circuit</p>
+<div class="math notranslate nohighlight">
+\[ Z_{TH}=R+(L||C)=10-j20~\Omega \]</div>
+<p>We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.</p>
+<figure class="align-default" id="label-9">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+</div>
 </section>
 <section id="norton-s-theorem">
 <h3>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this headline">#</a></h3>
@@ -752,64 +666,33 @@ We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and
 </section>
 <section id="source-conversions">
 <h3>Source Conversions<a class="headerlink" href="#source-conversions" title="Permalink to this headline">#</a></h3>
-<p>\index{Source Conversions}
-\begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[voltage source,l=2+j2~V] (0,3)
-(0,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (2,3)
-(2,3) to[L,l=j1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (4,3)
-(4,3) to[voltage source,l=6<span class="math notranslate nohighlight">\(\angle\)</span>0<span class="math notranslate nohighlight">\(^\circ\)</span>~V] (6,3)
-(9,3) to[C,l=-j1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (9,0)
-(6,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>,i=I<span class="math notranslate nohighlight">\(_O\)</span>] (6,0)
-(6,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (9,3)
-(0,0) – (9,0)
-;
-\end{circuitikz}
-\end{center}
-Find <span class="math notranslate nohighlight">\(I_O\)</span></p>
+<p>\index{Source Conversions}</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="label-10">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Find <span class="math notranslate nohighlight">\(I_O\)</span></p>
 <p>\Solution
 First, look for any impedances that are in series/parallel. The <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the left and the <span class="math notranslate nohighlight">\(j1~\Omega\)</span> inductor are in series. Also, the <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the right and the <span class="math notranslate nohighlight">\(-j1~\Omega\)</span> capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.</p>
-<p>Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(3,0) to[voltage source,l=8+j2~V] (3,3)
-(3,3) to[european resistor,l=1+j1~\Om] (6,3)
-(9,3) to[european resistor,l=1-j1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (9,0)
-(6,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>,i=I<span class="math notranslate nohighlight">\(_O\)</span>] (6,0)
-(6,3) to[short] (9,3)
-(3,0) – (9,0)
-;
-\end{circuitikz}
-\end{center}</p>
-<p>No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l=5-j3~V] (0,3)
-(3,0) to[european resistor,l=1+j1~\Om] (3,3)
-(9,3) to[european resistor,l=1-j1~<span class="math notranslate nohighlight">\(\Omega\)</span>] (9,0)
-(6,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>,i=I<span class="math notranslate nohighlight">\(_O\)</span>] (6,0)
-(0,3) to[short] (9,3)
-(0,0) – (9,0)
-;
-\end{circuitikz}
-\end{center}
-Note that the current of the Norton equivalent is <span class="math notranslate nohighlight">\((8+j2~V)/(1+j1~\Omega)\)</span>=<span class="math notranslate nohighlight">\((5-j3~A)\)</span></p>
-<p>After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> and <span class="math notranslate nohighlight">\(1-j1~\Omega\)</span> impedances are in parallel. They are not next to each other but they are connected to the same two nodes.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l=5-j3~V] (0,3)
-(3,0) to[european resistor,l=1~\Om] (3,3)
-(6,3) to[R,l=1~<span class="math notranslate nohighlight">\(\Omega\)</span>,i=I<span class="math notranslate nohighlight">\(_O\)</span>] (6,0)
-(0,3) to[short] (6,3)
-(0,0) – (6,0)
-;
-\end{circuitikz}
-\end{center}
-Those two impedances combine to a <span class="math notranslate nohighlight">\(1~\Omega\)</span> impedance.</p>
-<p>From this point we can use a simple current divider to find <span class="math notranslate nohighlight">\(I_O\)</span>.
-[I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A]</p>
-<p>\end{example}</p>
+<p>Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.</p>
+<figure class="align-default" id="label-11">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.</p>
+<figure class="align-default" id="label-12">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Note that the current of the Norton equivalent is <span class="math notranslate nohighlight">\((8+j2~V)/(1+j1~\Omega)\)</span>=<span class="math notranslate nohighlight">\((5-j3~A)\)</span></p>
+<p>After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> and <span class="math notranslate nohighlight">\(1-j1~\Omega\)</span> impedances are in parallel. They are not next to each other but they are connected to the same two nodes.</p>
+<figure class="align-default" id="label-13">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+</figure>
+<p>Those two impedances combine to a <span class="math notranslate nohighlight">\(1~\Omega\)</span> impedance.</p>
+<p>From this point we can use a simple current divider to find <span class="math notranslate nohighlight">\(I_O\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A \]</div>
+</div>
 </section>
 </section>
 </section>
@@ -826,7 +709,7 @@ Those two impedances combine to a <span class="math notranslate nohighlight">\(1
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true

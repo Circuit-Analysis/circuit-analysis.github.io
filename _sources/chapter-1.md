@@ -179,7 +179,7 @@ $$Q=\int_{t_0}^ti(\tau)d\tau+Q_0$$
 - Electron flow - direction of negative charge (i.e. the charge on electrons)
 - Conventional flow - direction of positive charge, opposite the movement of electrons. Positive charge in this case is the absence of an electron, a.k.a. a "hole".
 
-%ADD cross section with electrons moving, conventional and electron flow labeled separately
+% TODO cross section with electrons moving, conventional and electron flow labeled separately
 
 ````{admonition} Example
 What is the current through a conductor if $6.24e18$ electrons pass through a cross section in 1 second?
@@ -758,29 +758,6 @@ $$
 $$
 ```
 ````
-
-%Now let's try an example:\par
-%\begin{example}
-%Find the current indicated in the following circuit using Ohm's Law.\par\vspace{5mm}
-% \begin{center}\begin{circuitikz}\draw
-% (0,0) to[battery,l=10V] (0,3)
-% (0,3) -- (3,3)
-% (3,3) to[resistor,l=4$\Omega$,i_=I$_x$] (3,0)
-% (3,0) -- (0,0)
-% ;
-% \end{circuitikz}\end{center}
-%
-%\Solution
-%Examining Ohm's Law,
-% $$
-%		V=IR
-%	$$
-% we have the two values needed to find the current, I$_x$. Given the voltage, V=10V, and resistance, R=4$\Omega$, Ohm's law can be solved for the unknown, I. Using the values indicated in the schematic above we have:
-%
-% $$
-%		I=\frac{V}{R}=\frac{10V}{4\Omega}=2.5A
-%	$$
-%\end{example}
 
 ## Power
 
