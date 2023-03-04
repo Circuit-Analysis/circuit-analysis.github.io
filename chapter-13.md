@@ -30,295 +30,89 @@ Converting from a rotating vector to a sine wave.
 
 \index{Sinusoid}
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {( .8, .25)} {} node[right,pos=1,fill=white] {$0^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (1,0) };
-\draw [thick,decoration={brace,mirror,raise=3pt},decorate]
-(axis cs:0,0) --
-node[below=7pt] {1}
-(axis cs:1,0);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-%\addplot+[mark=none,ultra thick,smooth,domain=0:1,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( 0, 1)} {};
-\draw [thick,decoration={brace,mirror,raise=3pt},decorate]
-(axis cs:0,0) --
-node[right=7pt] {1}
-(axis cs:0,1);
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_0
+---
+```
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {( .8, .65)} {} node[right,pos=1,fill=white] {$45^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (.707,.707) };
-\draw [thick,decoration={brace,raise=3pt},decorate]
-(axis cs:0,.707) --
-node[above=7pt] {0.707}
-(axis cs:.707,.707);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-\addplot+[mark=none,ultra thick,smooth,domain=0:.125,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( .125, .707)} {};
-\draw [thick,decoration={brace,mirror,raise=3pt},decorate]
-(axis cs:0.125,0) --
-node[right=7pt] {0.707}
-(axis cs:0.125,.707);
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_1
+---
+```
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {( 0, 1)} {} node[right,pos=1,fill=white] {$90^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (0,1) };
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-\addplot+[mark=none,ultra thick,smooth,domain=0:.25,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( .25, 0)} {};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_2
+---
+```
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {(-1, 0)} {} node[above,pos=1,fill=white] {$180^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (-1,0) };
-\draw [thick,decoration={brace,raise=3pt},decorate]
-(axis cs:0,0) --
-node[below=7pt] {-1}
-(axis cs:-1,0);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-\addplot+[mark=none,ultra thick,smooth,domain=0:.5,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( .5, -1)} {};
-\draw [thick,decoration={brace,raise=3pt},decorate]
-(axis cs:0.5,0) --
-node[right=7pt] {-1}
-(axis cs:0.5,-1);
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_3
+---
+```
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {( 0, -1)} {} node[right,pos=1,fill=white] {$270^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (0,-1) };
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-\addplot+[mark=none,ultra thick,smooth,domain=0:.75,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( .75, 0)} {};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_4
+---
+```
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-xtick={-1,1},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black] coordinates {( .8, .25)} {} node[right,pos=1,fill=white] {$360^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,ultra thick,-latex] coordinates { (0,0) (1,0) };
-\draw [thick,decoration={brace,mirror,raise=3pt},decorate]
-(axis cs:0,0) --
-node[below=7pt] {1}
-(axis cs:1,0);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7$, $-6$, $-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$},
-xtick={0.001,.25,.5,.75,1},
-xticklabels={$0^\circ$,$90^\circ$,$180^\circ$,$270^\circ$,$360^\circ$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$t~$,
-ylabel=$v$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-0,
-xmax=+1
-]
-\addplot+[mark=none,ultra thick,smooth,domain=0:1,samples=400] (\x,{cos(360*\x)});
-\addplot [blue, mark = *] coordinates {( 1, 1)} {};
-\draw [thick,decoration={brace,raise=3pt},decorate]
-(axis cs:1,0) --
-node[left=7pt] {1}
-(axis cs:1,1);
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_5
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_6
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_7
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_8
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_9
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_10
+---
+```
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_11
+---
+```
 
 %amplitude
 %angular freq
@@ -338,29 +132,21 @@ The first thing you learned about numbers was how to count: 1,2,3,4,... Then you
 
 For instance, the number +2 locates a point on a 1D number line that is 2 units to the right of the origin
 
-\begin{tikzpicture}
-\draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.08,0) -- (2.08,0);
-\draw[very thick,blue] (-.08,0) -- (2.,0);
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_12
+---
+```
 
 and the number -3 locates a point that is three units to the left of the origin
 
-\begin{tikzpicture}
-\draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,red,very thick] (.08,0) -- (-3.08,0);
-\draw[very thick,red] (.08,0) -- (-3,0);
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_13
+---
+```
 
 These numbers are often referred to as scalars.
 
@@ -370,30 +156,12 @@ For example, the number +2 can be expressed as a complex number by indicating th
 
 The real advantage of complex numbers is the ability to locate numbers that are not on the real number line. For instance, to locate a point 4 units from the origin in the 125$^\circ$ direction we can draw (4$\angle$125$^\circ$) in orange.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (2,0) };
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-3,0) };
-\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-\addplot [orange,very thick,-latex] coordinates { (0,0) (-2.294,3.277) };
-% \node [below right, red] at (axis cs: 0, 0) {};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_14
+---
+```
 
 In all instances we are locating a point with a distance from the origin and a direction. This is consistent whether we are locating the point on a number line or the 2D complex plane.
 
@@ -401,25 +169,12 @@ In all instances we are locating a point with a distance from the origin and a d
 
 The form we have been using so far in this section is known as polar form. There are two other commonly used forms for complex numbers . In all cases the complex number represents a point on the complex plane. So let's pick a point on a plane:
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [black, mark = *] coordinates {( 4,3)} {};
-% \node [below right, red] at (axis cs: 0, 0) {};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_15
+---
+```
 
 We can represent the location of the black dot shown on the plane above in three forms.
 
@@ -427,59 +182,23 @@ We can represent the location of the black dot shown on the plane above in three
 
 This is the form introduced earlier in this section. It specifies a direction and distance from the origin to the point.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$5\angle 36.86^\circ$};
-\addplot [black] coordinates {( 1, .5)} {} node[right,pos=1,fill=white] {$36.86^\circ$};
-\addplot [blue] coordinates {( 2, 1.5)} {} node[rotate=36.83,above,pos=1,fill=white] {$5$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-
-    \end{axis}
-    	\centerarc[black,thick](3.5,2.55)(36.86:-2:5mm)
-    \end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_16
+---
+```
 
 ### Rectangular Form
 
 We can use the rectangular form to represent the same point. This form specifies a distance from the origin along the real (horizontal) axis and a distance from the real axis parallel to the imaginary (vertical) axis.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [blue, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$4+j3$};
-\addplot [red] coordinates {( 2, .5)} {} node[right,pos=1,fill=white] {$4$};
-\addplot [orange] coordinates {( 4, 1.5)} {} node[right,pos=1,fill=white] {$j3$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-\addplot [red,very thick,-latex] coordinates { (0,0) (4,0) };
-\addplot [orange,very thick,-latex] coordinates { (4,0) (4,3) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_17
+---
+```
 
 The same type of information is included in this form: direction and distance. Direction is taken from the real and imaginary axes and distance is specified as scalar values. Ultimately we use this new form to locate the same point on the complex plane. Therefore we can correctly state that
 
@@ -505,30 +224,12 @@ $$
 
 Euler specified the angle of the complex value using radians rather than degrees. In the example we've been using $36.86^\circ$ is approximately $0.643$~radians. Therefore we can locate the same point on the plane shown below
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$5e^{j0.643}$};
-\addplot [black] coordinates {( 1, .5)} {} node[right,pos=1,fill=white] {$0.643$~rad};
-\addplot [blue] coordinates {( 2, 1.5)} {} node[rotate=36.83,above,pos=1,fill=white] {$5$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-
-    \end{axis}
-    	\centerarc[black,thick](3.5,2.55)(36.86:-2:5mm)
-    \end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_18
+---
+```
 
 Notice that the information contained with in the exponential form $5e^{j0.643}$ contains a distance from the origin and an angle just as in the polar form. We can correctly state that
 
@@ -606,34 +307,21 @@ These problems are simplistic but allows us to illustrate the familiar operation
 
 Let's consider the first problem by showing the implied addition operation on a number line. The first move to the right can be represented by +2 and the second can be represent by +3. To add them together (2+3=5) on the number line we draw both vectors placing them ``tip-to-tail''.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-1.5,0) -- (5.5,0) ; %edit here for the axis
-\foreach \x in {-1,0,1,2,3,4,5} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-1,0,1,2,3,4,5} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.08,0) -- (2.08,0);
-\draw[very thick,blue] (-.08,0) -- (2.,0)
-(1,0) node[above]{2~m};
-\draw[*-latex,red,very thick] (1.92,0) -- (5.08,0);
-\draw[very thick,red] (1.92,0) -- (5.,0)
-(3.5,0) node[above]{3~m};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_19
+---
+```
 
 The result of the operation is the location that the combination points to, in this case +5.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-1.5,0) -- (5.5,0) ; %edit here for the axis
-\foreach \x in {-1,0,1,2,3,4,5} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-1,0,1,2,3,4,5} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,orange,very thick] (-.08,0) -- (5.08,0);
-\draw[very thick,orange] (-.08,0) -- (5.,0)
-(2.5,0) node[above]{5~m};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_20
+---
+```
 
 If we must express these quantities as complex numbers the imaginary components will be zero indicating that the number are on the real axis. The operation can be described as
 
@@ -648,32 +336,12 @@ The result, $5+j0$, can be rewritten as simply 5 since $0\times j=0$
 
 We can take the same approach in the complex plane. Given two rectangular complex numbers, say $4+j3$ and $-2+j1$, we can add them together by placing them tip-to-tail on the complex plane.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-\addplot [blue] coordinates {( 2, 1)} {} node[right,pos=1,fill=white] {$4+j3$};
-\addplot [red] coordinates {( 3.5, 4)} {} node[pos=1,fill=white!80] {$-2+j1$};
-\addplot [red, mark = *] coordinates {( 4, 3)} {};
-\addplot [red,very thick,-latex] coordinates { (4,3) (2,4) };
-\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-\addplot [orange,very thick,-latex] coordinates { (0,0) (2,4) };
-\addplot [orange] coordinates {( 1, 2.5)} {} node[pos=1,fill=white] {$2+j4$};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_21
+---
+```
 
 The result is shown in orange on the plane and is equal to a vector with value 2+j4. We can arrive at this result mathematically rather than relying on the picture. In this case the real components add separately from the imaginary components.
 
@@ -701,37 +369,21 @@ A scalar value has the same two pieces of information as a polar number. The dis
 
 When we negate a number (multiply by -1) we simply switch the side of the origin the number is located on. The distance from the origin remains the same.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.12,0) -- (2.08,0);
-\draw[very thick,blue] (-.12,0) -- (2.,0)
-(1,0) node[above]{+2};
-\draw[*-latex,red,very thick] (.12,0) -- (-2.08,0);
-\draw[very thick,red] (.12,0) -- (-2.,0)
-(-1,0) node[above]{-2};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_22
+---
+```
 
 We can also consider these numbers in polar form. We are constrained to the real numbers for now. The negative sign can be replaced with the angle as we would if the numbers were not constrained to the real axis.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.12,0) -- (2.08,0);
-\draw[very thick,blue] (-.12,0) -- (2.,0)
-(1,0) node[above]{$2\angle 0^\circ$};
-\draw[*-latex,red,very thick] (.12,0) -- (-2.08,0);
-\draw[very thick,red] (.12,0) -- (-2.,0)
-(-1,0) node[above]{$2\angle 180^\circ$};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_23
+---
+```
 
 So $-2\angle 0^\circ$ is equivalent to $2\angle 180^\circ$ and $-2\angle 180^\circ$ is equivalent to $2\angle 0^\circ$. This rotation by $180^\circ$ extends to the complex plane. Negating $5\angle 36.86^\circ$ is shown graphically here resulting in $5\angle 216.86^\circ$
 
@@ -749,31 +401,12 @@ I included the parentheses deliberately to emphasis that the negative sign will 
 $$ -(4+j3)=-4-j3 $$
 Which we can see graphically as
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-4,-3) };
-
-    	\addplot [black, mark = *] coordinates {( 4, 3)} {} node[above,pos=1,fill=white] {$4+j3$};
-    	\addplot [black, mark = *] coordinates {( -4, -3)} {};
-    	\addplot [black] coordinates {( -3.75, -3.25)} {} node[below,pos=1,fill=white] {$-4-j3$};
-    	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [blue,very thick,-latex] coordinates { (0,0) (4,3) };
-    \end{axis}
-    \end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_24
+---
+```
 
 We can also see graphically that the negation of the rectangular form matches the negation of the polar form. So
 $$ -4-j3=5\angle 216.86^\circ $$
@@ -802,78 +435,30 @@ Negate the second term, add it to the first. Let's consider this subtraction gra
 
 Start with the second term, $3+j2$ in this case.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red] coordinates {(3, 2.2)} {} node[above,pos=1,fill=white!80] {$3+j2$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (3,2) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_25
+---
+```
 
 Next, negate it.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red] coordinates {(-3, -2.2)} {} node[below,pos=1,fill=white!80] {$-3-j2$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-3,-2) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_26
+---
+```
 
 Finally, add the first operand, $1+j4$ in this case, by placing the vectors tip-to-tail.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-4,
-ymax=+5,
-xmin=-5,
-xmax=+5
-]
-\addplot [blue, mark = *] coordinates {( -3, -2)} {};
-\addplot [blue,very thick,-latex] coordinates { (-3,-2) (-2,2) };
-\addplot [blue] coordinates {( -2.5, 1)} {} node[left,pos=1,fill=white] {$1+j4$};
-\addplot [red] coordinates {(-3, -2.2)} {} node[below,pos=1,fill=white!80] {$-3-j2$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (-3,-2) };
-\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-\addplot [orange,very thick,-latex] coordinates { (0,0) (-2,2) };
-\addplot [orange] coordinates {( -1, 2.5)} {} node[left,pos=1,fill=white] {$-2+j2$};
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_27
+---
+```
 
 The result is shown in orange on the previous plot, $-2+j2$.
 
@@ -889,69 +474,43 @@ One magnitude is stretched by the other. One angle is rotated by the other.
 
 Lets's multiply two scalars. You were likely taught that a negative times a positive is a negative and a negative time a negative is a positive. This works fine for a single dimension but it is more general if restated as a stretch and a rotate. 2 times -3 can be shown on the number line though the vectors have been labeled in polar form.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.12,0) -- (2.08,0);
-\draw[very thick,blue] (-.12,0) -- (2.,0)
-(1,0) node[above]{$2\angle 0^\circ$};
-\draw[*-latex,red,very thick] (.12,0) -- (-3.08,0);
-\draw[very thick,red] (.12,0) -- (-3.,0)
-(-1.5,0) node[above]{$3\angle 180^\circ$};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_28
+---
+```
 
 $2\angle 0^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 180^\circ$ also know as -6.
 $$ (2\times 3)\angle (0^\circ +180^\circ)=6\angle 180^\circ=-6 $$
 
-\begin{tikzpicture}
-\draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,orange,very thick] (.12,0) -- (-6.08,0);
-\draw[ultra thick,orange] (.12,0) -- (-6.,0)
-(-3,0) node[above]{$6\angle 180^\circ$=-6};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_29
+---
+```
 
 This result is consistent with the ``negative times a positive is a negative'' adage you were taught in grade school.
 
 We can examine another case, -2 times -3, shown on the number line below with the value expressed as polar numbers.
 
-\begin{tikzpicture}
-\draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,red,ultra thick] (.12,0) -- (-3.08,0);
-\draw[very thick,red] (.12,0) -- (-3.,0)
-(-2,0) node[above]{$3\angle 180^\circ$};
-\draw[*-latex,blue,very thick] (.12,-0.05) -- (-2.08,-0.05);
-\draw[very thick,blue] (.12,-.05) -- (-2.,-.05)
-(-1,0.3) node[above]{$2\angle 180^\circ$};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_30
+---
+```
 
 $2\angle 180^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 360^\circ$ which can be written as $6\angle 0^\circ$ also know as +6.
 $$ (2\times 3)\angle (180^\circ +180^\circ)=6\angle 360^\circ=6\angle 0^\circ=+6 $$
 
-\begin{tikzpicture}
-\draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,orange,ultra thick] (-.12,0) -- (6.08,0);
-\draw[very thick,orange] (-.12,0) -- (6.,0)
-(3,0) node[above]{$6\angle 0^\circ$=+6};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_31
+---
+```
 
 This result is consistent with the ``negative times a negative is a positive'' adage you were taught in grade school. So in polar form multiplication looks consistent with what you already know about multiplication of 1D values. The benefit of restating multiplication as stretching and rotating comes from extending it onto the 2D complex plane.
 
@@ -961,37 +520,12 @@ the result can be found by performing
 $$ (2\times3)\angle(125^\circ+(-45^\circ))=6\angle 80^\circ $$
 Graphically the two operands and the product are shown here
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-3,
-ymax=+6.5,
-xmin=-5,
-xmax=+5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (2.12132,-2.12132) };
-
-    	\addplot [black, mark = *] coordinates {(-1.14715,1.63830)} {} node[above,pos=1,fill=white] {$2\angle 125^\circ$};
-    	\addplot [black, mark = *] coordinates {( 2.12132, -2.12132)} {};
-    	\addplot [black] coordinates {( 2.12132, -2.12132)} {} node[below,pos=1,fill=white] {$3\angle -45^\circ$};
-    	\addplot [black, mark = *] coordinates {(1.04189,5.90885)} {} node[right,pos=1,fill=white] {$6\angle 80^\circ$};
-
-    	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [blue,very thick,-latex] coordinates { (0,0) (-1.14715,1.63830) };
-
-    	\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [orange,very thick,-latex] coordinates { (0,0) (1.04189,5.90885) };
-
-    \end{axis}
-    \end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_32
+---
+```
 
 ### Inverse
 
@@ -999,34 +533,21 @@ When a number is multiplied by its inverse the result is real valued 1 also know
 $$ \frac{2}{1}\times\frac{1}{2}=\frac{2}{2}=1=1\angle 0^\circ $$
 Graphically, the two vectors shown here
 
-\begin{tikzpicture}
-\draw[latex-latex] (-1.5,0) -- (2.5,0) ; %edit here for the axis
-\foreach \x in {-1,0,1,2} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-1,0,1,2} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,blue,very thick] (-.12,0) -- (2.08,0);
-\draw[ultra thick,blue] (-.12,0) -- (2.,0)
-(2,0) node[above]{2};
-\draw[*-latex,red,very thick] (-.12,-.05) -- (0.58,-.05);
-\draw[ultra thick,red] (-.12,-.05) -- (.5,-.05)
-(.5,0) node[above]{$\sfrac{1}{2}$};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_33
+---
+```
 
 results in
 
-\begin{tikzpicture}
-\draw[latex-latex] (-1.5,0) -- (2.5,0) ; %edit here for the axis
-\foreach \x in {-1,0,1,2} % edit here for the vertical lines
-\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-\foreach \x in {-1,0,1,2} % edit here for the numbers
-\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below]
-{$\x$};
-\draw[*-latex,orange,very thick] (-.12,0) -- (1.08,0);
-\draw[ultra thick,orange] (-.12,0) -- (1.,0)
-(1,0) node[above]{1};
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_34
+---
+```
 
 when multiplied together.
 
@@ -1037,37 +558,12 @@ $$ {2\angle25^\circ}\times(2\angle25^\circ)^{-1}=(2\times\frac{1}{2})\angle(25^\
 
 Graphically, $2\angle25^\circ$, its inverse, and the result of the multiplication are all shown here
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1,
-ymax=+1.5,
-xmin=-2,
-xmax=+2.5
-]
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) ( 0.45315, -0.21131) };
-
-    	\addplot [black, mark = *] coordinates {(1.81262,0.84524)} {} node[above,pos=1,fill=white] {$2\angle 25^\circ$};
-    	\addplot [black, mark = *] coordinates {( 0.45315, -0.21131)} {};
-    	\addplot [black] coordinates {( 0.45315, -0.21131)} {} node[below,pos=1,fill=white] {$\sfrac{1}{2}\angle -25^\circ$};
-    	\addplot [black, mark = *] coordinates {(1,0)} {} node[right,pos=1,fill=white] {$1\angle 0^\circ$};
-
-    	\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [blue,very thick,-latex] coordinates { (0,0) (1.81262,0.84524) };
-
-    	\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-    	\addplot [orange,very thick,-latex] coordinates { (0,0) (1,0) };
-
-    \end{axis}
-    \end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_35
+---
+```
 
 Once again, the operation is consistent whether performed on a 1D number line or 2D complex plane.
 
@@ -1081,78 +577,30 @@ Let's perform this graphically on a complex example. First invert the second ope
 $$ (6\angle75^\circ)\div(2\angle10^\circ)=(3\angle65^\circ) $$
 take the second operand
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1,
-ymax=+6.5,
-xmin=-1,
-xmax=+3
-]
-\addplot [red] coordinates {(1.96962,0.34730)} {} node[above,pos=1,fill=white!80] {$2\angle10^\circ$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (1.96962,0.34730) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_36
+---
+```
 
 Invert it.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1,
-ymax=+6.5,
-xmin=-1,
-xmax=+3
-]
-\addplot [red] coordinates {(0.49240,-0.08682)} {} node[above,pos=1,fill=white!80] {$0.5\angle{-10}^\circ$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (0.49240,-0.08682) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_37
+---
+```
 
 Finally, multiply it by the first operand
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1,
-ymax=+6.5,
-xmin=-1,
-xmax=+3
-]
-\addplot [red] coordinates {(0.49240,-0.08682)} {} node[right,pos=1,fill=white!80] {$0.5\angle-10^\circ$};
-\addplot [red, mark = *] coordinates {( 0, 0)} {};
-\addplot [red,very thick,-latex] coordinates { (0,0) (0.49240,-0.08682) };
-\addplot [blue] coordinates {(1.55291,5.79555)} {} node[above,pos=1,fill=white!80] {$6\angle75^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (1.55291,5.79555) };
-\addplot [orange] coordinates {(1.26785,2.71892)} {} node[above,pos=1,fill=white!80] {$3\angle65^\circ$};
-\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-\addplot [orange,very thick,-latex] coordinates { (0,0) (1.26785,2.71892) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_38
+---
+```
 
 In general, complex division is performed as
 $$ (r_1\angle\theta_1)\div(r_2\angle\theta_2)=\frac{r_1}{r_2}\angle(\theta_1-\theta_2) $$
@@ -1165,74 +613,32 @@ I said it was true so I will briefly demonstrate that using the operations and c
 
 The complex value $j$ can be plotted as
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black, mark = *] coordinates {(0,1)} {} node[right,pos=1,fill=white] {$j$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (0,1) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_39
+---
+```
 
 To locate that same point we can express it as $1\angle90^\circ$
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black, mark = *] coordinates {(0,1)} {} node[right,pos=1,fill=white] {$1\angle90^\circ$};
-\addplot [blue, mark = *] coordinates {( 0, 0)} {};
-\addplot [blue,very thick,-latex] coordinates { (0,0) (0,1) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_40
+---
+```
 
 Squaring that value we find
 $$ (1\angle90^\circ)\times(1\angle90^\circ)=(1\times1)\angle(90^\circ+90^\circ)=1\angle180^\circ $$
 $1\angle180^\circ$ can also be expressed as -1
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={-7,...,8}, yticklabels={$-7j$, $-6j$, $-5j$, $-4j$, $-3j$, $-2j$, $-j$, $0$, $j$, $2j$, $3j$, $4j$, $5j$, $6j$, $7j$, $8j$},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$Re$,
-ylabel=$Im$,
-ymin=-1.5,
-ymax=+1.5,
-xmin=-1.5,
-xmax=+1.5
-]
-\addplot [black, mark = *] coordinates {(-1,0)} {} node[above,pos=1,fill=white] {$1\angle180^\circ$};
-\addplot [orange, mark = *] coordinates {( 0, 0)} {};
-\addplot [orange,ultra thick,-latex] coordinates { (0,0) (-1,0) };
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_41
+---
+```
 
 Reverting back to using $j$ for $1\angle90^\circ$ and -1 for $1\angle180^\circ$ we can state that
 $$ j\times j=j^2=-1 $$
@@ -1253,7 +659,7 @@ Notice that even though the voltage is a time variant function it still has the 
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_0
+name: LABEL_01
 ---
 ```
 
@@ -1282,7 +688,7 @@ The voltage source is connected to the capacitor as shown here
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_1
+name: LABEL_110
 ---
 ```
 
@@ -1317,7 +723,7 @@ The voltage source is connected to the inductor as shown here
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_2
+name: LABEL_211
 ---
 ```
 
@@ -1366,7 +772,7 @@ Two elements connected in series share one node \textbf{exclusively}.
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_3
+name: LABEL_311
 ---
 ```
 
@@ -1375,7 +781,7 @@ When two impedances are in series they can be redrawn as a single impedance
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_4
+name: LABEL_411
 ---
 ```
 
@@ -1386,7 +792,7 @@ Two elements are in parallel when they are connected to the same two nodes.
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_5
+name: LABEL_511
 ---
 ```
 
@@ -1395,7 +801,7 @@ When two impedances are in parallel they can be redrawn as a single impedance
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_6
+name: LABEL_611
 ---
 ```
 
@@ -1424,29 +830,13 @@ $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 % Define distances for bordering
 \def\blockdist{2.3}
 \def\edgedist{2.5}
-\begin{tikzpicture}
-\node (tdProb) [td] {Time-domain\\\textbf{Problem}};
-\path (tdProb.north)+(-0,3) node (pdProb) [pd] {Phasor-domain\\\textbf{Problem}};
-\path (pdProb.east)+(5,0) node (pdSol) [pd] {Phasor-domain\\\textbf{Solution}};
-\path (pdSol.south)+(0,-3) node (tdSol) [td] {Time-domain\\\textbf{Solution}};
-\path (tdProb.west)+(-2,0) node (startBlk) [startBlock] {Start};
-\path (tdSol.east)+(2,0) node (endBlk) [startBlock] {End};
 
-    \path [draw, -latex] (tdProb.north) -- node [fill=white!20,text width=7em,align=center] {Phasor ~~~~~Transformation}
-        (pdProb.270) ;
-    \path [draw, -latex] (tdProb.east) -- node [above,fill=white!20,text width=5em,align=center] {Differential Equations}
-        (tdSol.180) ;
-
-\path [draw, -latex] (pdProb.east) -- node [above,fill=white!20,text width=5em,align=center] {Algebra}
-(pdSol.180) ;
-\path [draw, -latex] (pdSol.south) -- node [fill=white!20,text width=7em,align=center] {Inverse Phasor Transformation}
-(tdSol.90) ;
-\path [draw, -latex] (startBlk.east) -- node {}
-(tdProb.180) ;
-\path [draw, -latex] (tdSol.east) -- node {}
-(endBlk.180) ;
-
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_42
+---
+```
 
 ### Voltage Divider
 
@@ -1456,7 +846,7 @@ $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_7
+name: LABEL_71
 ---
 ```
 
@@ -1470,7 +860,7 @@ Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_8
+name: LABEL_81
 ---
 ```
 
@@ -1485,7 +875,7 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_9
+name: LABEL_91
 ---
 ```
 
@@ -1498,7 +888,7 @@ name: LABEL_9
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_10
+name: LABEL_101
 ---
 ```
 
@@ -1509,7 +899,7 @@ name: LABEL_10
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_11
+name: LABEL_111
 ---
 ```
 
@@ -1525,7 +915,7 @@ name: LABEL_11
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_12
+name: LABEL_121
 ---
 ```
 
@@ -1547,7 +937,7 @@ There is no current through the resistor since it is not part of a closed path. 
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_13
+name: LABEL_131
 ---
 ```
 
@@ -1562,7 +952,7 @@ Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we c
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_14
+name: LABEL_141
 ---
 ```
 
@@ -1573,7 +963,7 @@ We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_15
+name: LABEL_151
 ---
 ```
 
@@ -1591,7 +981,7 @@ name: LABEL_15
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_16
+name: LABEL_161
 ---
 ```
 
@@ -1605,7 +995,7 @@ Second look for, voltage supplies in series or current supplies in parallel. In 
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_17
+name: LABEL_171
 ---
 ```
 
@@ -1614,7 +1004,7 @@ No more impedances or sources can be combined yet. Now we consider if we can per
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_18
+name: LABEL_181
 ---
 ```
 
@@ -1625,7 +1015,7 @@ After the transformation we can again look for impedances in series/parallel, vo
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_19
+name: LABEL_191
 ---
 ```
 

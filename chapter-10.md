@@ -417,30 +417,12 @@ name: LABEL_24
 
 We'll vary the value of $R_{L}$ along the horizontal of a plot to demonstrate how the other values of interest are affected.
 
-\begin{tikzpicture}
-\begin{axis}
-[
-ytick ={0,2,4,6,8,10,12,14},
-xtick={0,2,4,6,8,10,12,14,16,18,20,22,24,26},
-axis lines = center,
-grid=both,
-minor tick num=1,
-ticks=both,
-xlabel=$R_L (\Omega)$,
-ymin=0,
-ymax=+14,
-xmin=-0,
-xmax=+26,
-width=13cm,
-height=6cm,
-legend pos=outer north east
-]
-\addplot+[blue,mark=none,ultra thick,smooth,domain=0:26,samples=400] (\x,{10*(\x/(\x+2))});
-\addplot+[red,mark=none,ultra thick,smooth,domain=0:26,samples=400] (\x,{10/(\x+2))});
-\addplot+[green,mark=none,ultra thick,smooth,domain=0:26,samples=400] (\x,{(10/(\x+2)))*(10\*(\x/(\x+2)))});
-\legend{$V_{RL}$ (V),$I_{RL}$ (A),$P_{RL}$ (W)}
-\end{axis}
-\end{tikzpicture}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_FOR_THIS_IMAGE
+---
+```
 
 Now we can graphically look at the values of $R_{L}$ and see how they affect the power dissipated by the load, the green plot above. When $R_{L}$ is 0~\Om, the left extreme of the graph, we see the greatest amount of current flowing, 5~\text{A} for this circuit. However, at that same value of $R_{L}$ we see that $V_{RL}$ is 0~\text{V}. Thus the $P_{RL}$ is 0~\text{W} as shown by the green line in the plot above.
 
