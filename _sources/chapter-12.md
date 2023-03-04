@@ -20,7 +20,10 @@ kernelspec:
 
 ### Voltage Divider
 
-\index{Voltage Divider}
+
+```{index} Voltage Divider
+```
+
 ````{admonition} Example
  
 
@@ -53,7 +56,10 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 ### Mesh Analysis
 
-\index{Mesh Analysis}
+
+```{index} Mesh Analysis
+```
+
 ````{admonition} Example
  
 
@@ -99,7 +105,10 @@ name: LABEL_4
 
 ### Thevenin's Theorem
 
-\index{Thevenin's Theorem}
+
+```{index} Thevenin's Theorem
+```
+
 ````{admonition} Example
  
 
@@ -179,11 +188,17 @@ name: LABEL_9
 
 ### Norton's Theorem
 
-\index{Norton's Theorem}
+
+```{index} Norton's Theorem
+```
+
 
 ### Source Conversions
 
-\index{Source Conversions}
+
+```{index} Source Conversions
+```
+
 ````{admonition} Example
  
 

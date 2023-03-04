@@ -20,7 +20,10 @@ kernelspec:
 
 ### Discharging Capacitor
 
-\index{RC Circuit}
+
+```{index} RC Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -63,7 +66,10 @@ $$ v_C(t)=v_C(0^{-})\mathrm{e}^{\frac{-t}{RC}} $$
 
 ### Charging Capacitor
 
-\index{RC Circuit}
+
+```{index} RC Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -108,7 +114,10 @@ $$ v_C(t)=V_S+(v_C(0)-V_S)\exp\left(\frac{-t}{RC}\right) $$
 
 ### Discharging Inductor
 
-\index{RL Circuit}
+
+```{index} RL Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -151,7 +160,10 @@ $$ i_L(t)=i_L(0)\exp\left({\frac{-t}{\frac{L}{R}}}\right) $$
 
 ### Charging Inductor
 
-\index{RL Circuit}
+
+```{index} RL Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -192,7 +204,10 @@ $$ i_L(t)=\frac{V_S}{R}+\left(i_L(0)-\frac{V_S}{R}\right)\exp\left(\frac{-t}{RC}
 
 ### Brief Laplace Transform Review
 
-\index{Laplace Transform}
+
+```{index} Laplace Transform
+```
+
 This section covers the Laplace Transform properties and pairs necessary to solve the problems presented here. This is not intended to be a thorough review of Laplace Transforms in general or their derivation.
 
 Given a time-domain function
@@ -239,7 +254,10 @@ Integration&$\mathcal{L}\left[\int{x(t)dt}\right]=\frac{X(s)}{s}+\frac{x(0^{-})}
 
 ### Brief Partial Fraction Expansion Review
 
-\index{Partial Fraction Expansion}
+
+```{index} Partial Fraction Expansion
+```
+
 This section covers partial fraction expansion as it will be performed here. This is not intended to be a thorough review.
 
 Given a function over a polynomial, the fraction may be expanded into the form
@@ -313,7 +331,10 @@ $$ F(s)=\frac{-0.25}{s+3}+\frac{0.25}{s+1} $$
 
 ### Discharging Capacitor
 
-\index{RC Circuit}
+
+```{index} RC Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -350,7 +371,10 @@ $$ v_C(t)=v_C(0^{-})\exp\left(\frac{-t}{RC}\right) $$
 
 ### Charging Capacitor
 
-\index{RC Circuit}
+
+```{index} RC Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -399,7 +423,10 @@ $$ v_C(t)=V_S+\left[v_C(0^{-})-V_S\right]\exp\left(\frac{-t}{RC}\right) $$
 
 ### Discharging Inductor
 
-\index{RL Circuit}
+
+```{index} RL Circuit
+```
+
 
 ```{figure} logo.png
 ---
@@ -438,7 +465,10 @@ $$ i_L(t)=i_L(0^{-})\exp\left(\frac{-t}{\frac{L}{R}}\right) $$
 
 ### Charging Inductor
 
-\index{RL Circuit}
+
+```{index} RL Circuit
+```
+
 
 ```{figure} logo.png
 ---
