@@ -16,6 +16,12 @@ kernelspec:
 
 # Alternating Current: Phasors
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
 
 ```{index} Phasors
 ```
@@ -1083,7 +1089,7 @@ name: LABEL_121
 Find the Thevenin equivalent of the circuit above.
 
 \Solution
-Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
+Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
 
 % Removed picture
 
@@ -1129,9 +1135,9 @@ name: LABEL_141
 
 For this circuit
 
-$$ Z_{TH}=R+(L||C)=10-j20~\Omega $$
+$$ Z\tss{TH}=R+(L||C)=10-j20~\Omega $$
 
-We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
+We can now draw the Thevenin equivalent circuit since we have both $V\tss{TH}$ and $Z\tss{TH}$.
 
 ```{figure} logo.png
 ---

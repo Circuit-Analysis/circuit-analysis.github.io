@@ -5,7 +5,7 @@ REPLACE: ````{admonition} Example\n $1\n````
 $1
 
 \\index\{(.*?(.|[\n])*?)\}
-\n```{index} $1\n```
+\n```{index} $1\n```\n
 
 \\section\{(.*?(.|[\n])*?)\}
 ## $1

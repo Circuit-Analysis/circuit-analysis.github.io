@@ -14,11 +14,16 @@ kernelspec:
 
 (content:chapter:stepbystep)=
 
-# More Complex Circuits using the ``Step-by-step Method''
+# More Complex Circuits using the "Step-by-step Method"
 
-$$
-\newcommand{\tss}[1]{_{\mathrm{#1}}}
-$$
+
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 
 ```{admonition} Steps for First-order Transient Analysis
 - Find the initial condition.

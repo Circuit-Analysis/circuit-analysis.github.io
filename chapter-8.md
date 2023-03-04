@@ -20,11 +20,11 @@ kernelspec:
 
 ```
 
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-
-
+:load: includes/python_imports.py
 ```
 
 Nodal Analysis is another methodical application of KVL, KCL, and Ohm's law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.
@@ -47,11 +47,6 @@ These steps give us a starting point for the first example. [We'll develop what 
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
-import schemdraw
-import schemdraw.elements as elm
 
 with schemdraw.Drawing(file='nodal-first-toy-problem-1.svg') as d:
     d.push()

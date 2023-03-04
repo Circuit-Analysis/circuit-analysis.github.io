@@ -20,9 +20,12 @@ kernelspec:
 
 ```
 
-$\newcommand{\green}[1]{{\color{green} #1}}$
-$\newcommand{\blue}[1]{{\color{blue} #1}}$
-$\newcommand{\red}[1]{{\color{red} #1}}$
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
 
 ## What is a linear system?
 

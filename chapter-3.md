@@ -14,12 +14,11 @@ kernelspec:
 
 # Equivalent Components
 
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+:load: includes/python_imports.py
 ```
 
 ## Series, Parallel, Neither, Both
@@ -42,8 +41,7 @@ Two elements connected in series share one node **exclusively**.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-resistors.svg') as d:
     d += elm.Resistor().label('$R_1$')
     d += elm.Resistor().label('$R_2$')
@@ -66,8 +64,7 @@ When two resistors are in series they can be redrawn as a single resistor.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-equivalent.svg') as d:
     d += elm.Resistor().label('$R_S = R_1 + R_2$')
 ```
@@ -87,8 +84,7 @@ Two elements are in parallel when they are connected to the same two nodes.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-resistors.svg') as d:
     d += elm.Resistor().label('$R_1$').down()
     d += elm.Line().right()
@@ -109,8 +105,7 @@ When two resistors are in parallel they can be redrawn as a single resistor.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-equivalent.svg') as d:
     d += elm.Resistor().label('$G_P = G_1 + G_2$').down()
 ```
@@ -146,8 +141,7 @@ Careful:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='electrically-parallel-resistors.svg') as d:
     d += elm.Resistor().label('$R_1$').up()
     d += elm.Resistor().label('$R_2$').right()
@@ -168,8 +162,7 @@ $R_1$ and $R_2$ are still *electrically* in parallel.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='not-electrically-parallel-resistors.svg') as d:
     d += elm.Resistor().label('$R_1$').up()
     d += elm.Resistor().label('$R_2$').right()
@@ -196,8 +189,7 @@ How are they connected?
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='complex-example-1.svg') as d:
     d += elm.Dot().label('A')
     d += elm.Resistor().right().label('$5\Omega$')
@@ -238,8 +230,7 @@ $R_{AB}=7.4\Omega$
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='complex-example-2.svg') as d:
     d += elm.Dot().label('A')
     d += elm.Resistor().right().label('$10\Omega$')
@@ -290,8 +281,7 @@ $R_{AB}=11.2\Omega$
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='complex-example-3.svg') as d:
     d += elm.Dot().label('A')
     d += elm.Line().left().length(2)
@@ -333,8 +323,7 @@ $R_{AB}=4k\Omega$
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-voltage-1.svg') as d:
    d += elm.SourceV().up().label('$V_1$\n6V')
    d += elm.SourceV().label('$V_2$\n12V')
@@ -361,8 +350,7 @@ Series voltage supplies, take one.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-voltage-2.svg') as d:
    d += elm.SourceV().up().label('$V_1$\n7V')
    d += elm.SourceV().label('$V_2$\n14V').reverse()
@@ -389,8 +377,7 @@ Series voltage supplies, take two.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-voltage-3.svg') as d:
    d += elm.SourceV().up().label('$V_1$\n7V')
    d += elm.SourceV().label('$V_2$\n14V').reverse()
@@ -417,8 +404,7 @@ Series voltage supplies, take three.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-voltage-4.svg') as d:
    d += elm.SourceV().up().label('$V_1$\n8V')
    d += elm.Resistor().label('$R$\n$3\Omega$')
@@ -445,8 +431,7 @@ Series voltage supplies, take four.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='series-voltage-5.svg') as d:
    d += elm.SourceV().up().label('$V_1$\n8V')
    d += elm.Resistor().label('$R$\n$3\Omega$')
@@ -478,8 +463,7 @@ Series voltage supplies, take five.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-current-1.svg') as d:
    d += elm.SourceI().up().label('$I_1$\n3A')
    d += elm.Line().right().length(6)
@@ -509,8 +493,7 @@ Parallel current supplies, take one.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-current-2.svg') as d:
    d += elm.SourceI().up().label('$I_1$\n3A')
    d += elm.Line().right().length(6)
@@ -540,8 +523,7 @@ Parallel current supplies, take two.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-current-3.svg') as d:
    d += elm.SourceI().up().label('$I_1$\n3A')
    d += elm.Line().right().length(6)
@@ -571,8 +553,7 @@ Parallel current supplies, take three.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='parallel-current-4.svg') as d:
    d += elm.SourceI().up().label('$I_1$\n3A')
    d += elm.Line().right().length(6)
@@ -614,8 +595,7 @@ R_c &= \frac{R_2 R_3}{R_1 + R_2 + R_3}
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='wye.svg') as d:
     d += elm.Dot().label('A')
     d += elm.Resistor().theta(-30).label('$R_a$')
@@ -645,8 +625,7 @@ R_3 &= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='delta.svg') as d:
    d += elm.Dot().label('A')
    d += elm.Resistor().right().label('$R_1$').length(6)

@@ -16,6 +16,13 @@ kernelspec:
 
 # Power in Alternating Current Circuits
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 In the early chapters of this book the calculation of power dissipated or supplied by components was simple enough to be embedded within chapters covering the fundamental calculations of circuit analysis.
 In the previous chapter we concerned ourselves with the analysis of circuits containing AC sources operating at a single frequency. The result of this analysis led to sinusoidal representations of voltages and currents. In this chapter, we will discover that power dissipation in AC circuits can take many forms. It is critical to understand which form is appropriate for a given application. Therefore power calculations in AC circuits was earned itself a dedicated chapter
 

@@ -16,6 +16,13 @@ kernelspec:
 
 # Mesh Analysis
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 ```{index} Mesh Analysis
 
 ```
@@ -33,12 +40,7 @@ Let's start with the circuit shown here
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-import schemdraw
-import schemdraw.elements as elm
 with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
     d += (R1 := elm.RBox().up())
     d += elm.CurrentLabelInline(direction='in').at(R1).label('$I_a$')
@@ -67,8 +69,7 @@ with schemdraw.Drawing(file='using-mesh-currents.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='find-Ia.svg') as d:
     d += elm.Dot()
     d += (R1 := elm.RBox().up())
@@ -101,8 +102,7 @@ with schemdraw.Drawing(file='find-Ia.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='find-Ib.svg') as d:
     d += (R1 := elm.RBox().up())
     d += elm.Dot()
@@ -234,8 +234,7 @@ Find $V_A$
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem.svg') as d:
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -259,8 +258,7 @@ name: mesh-toy-problem
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-step1.svg') as d:
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -277,8 +275,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-step1.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-step2.svg') as d:
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -338,8 +335,7 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-mesh.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -360,8 +356,7 @@ Let's apply these steps to our toy problem.
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-mesh1.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -382,8 +377,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh1.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-mesh2.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -524,8 +518,7 @@ Consider the next example that uses the same circuit. If we were later asked to 
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-other-value.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -546,8 +539,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-other-value.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-other-value-solution.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -595,8 +587,7 @@ I mentioned before that mesh analysis can be used to analyze circuits with multi
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
@@ -615,8 +606,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-multiple-sources-annotated.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
@@ -710,8 +700,7 @@ More complex circuits might have additional meshes. Mesh analysis can be applied
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-3-meshes.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n9kΩ'))
@@ -730,8 +719,7 @@ with schemdraw.Drawing(file='mesh-3-meshes.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-3-meshes-annotated.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n9kΩ').label(('+','','-'),loc='bottom',color='red'))
@@ -834,8 +822,7 @@ Let's find the mesh currents in this example circuit:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-current-supply.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
@@ -850,8 +837,7 @@ with schemdraw.Drawing(file='mesh-current-supply.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-current-supply-annotated.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω').label(('+','','-'),loc='bottom',color='blue'))
@@ -933,8 +919,7 @@ Let's look at an example.
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -951,8 +936,7 @@ with schemdraw.Drawing(file='mesh-super.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-annotated.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='blue'))
@@ -1024,8 +1008,7 @@ Let's consider another example. In the previous example the KVL was written arou
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-3.svg') as d:
     d.config(unit=4)
     d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
@@ -1050,8 +1033,7 @@ with schemdraw.Drawing(file='mesh-super-3.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-3-super-loop.svg') as d:
     d.config(unit=4)
     d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
@@ -1162,8 +1144,7 @@ Here's an example
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω'))
@@ -1182,8 +1163,7 @@ with schemdraw.Drawing(file='mesh-dependent.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-annotated.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω').label(('+','','-'),loc='bottom',color='blue'))
@@ -1278,8 +1258,7 @@ $$\left[ \begin{array}{cc}
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
     d.config(unit=4)
     d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
@@ -1299,8 +1278,7 @@ with schemdraw.Drawing(file='mesh-dependent-supers.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-supers-annotated.svg') as d:
     d.config(unit=4)
     d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
@@ -1323,8 +1301,7 @@ with schemdraw.Drawing(file='mesh-dependent-supers-annotated.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-supers-annotated-supermesh.svg') as d:
     d.config(unit=4)
     d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
@@ -1449,8 +1426,7 @@ We begin by setting up a matrix and vector appropriate for the circuit being ana
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut1.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -1475,8 +1451,7 @@ with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut1.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-toy-problem-mesh-shortcut2.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n21 V'))
@@ -1589,8 +1564,7 @@ I'm not going to explicitly state the questions for the next example. Try to use
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-multiple-sources-shortcut.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
@@ -1611,8 +1585,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources-shortcut.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-multiple-sources-shortcut1.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
@@ -1638,8 +1611,7 @@ with schemdraw.Drawing(file='mesh-multiple-sources-shortcut1.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-multiple-sources-shortcut2.svg') as d:
     d.config(unit=4)
     d += (Vs := elm.SourceV().up().label('$V_S$\n12 V'))
@@ -1736,8 +1708,7 @@ Once again, the mesh currents found using this method are the same as those prev
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-3-meshes-shortcut.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n9kΩ'))
@@ -1786,8 +1757,7 @@ We can handle circuits that have current supplies using a similar approach. let'
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-current-supply-shortcut.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V'))
     d += (R1 := elm.Resistor().right().label('$R_1$\n4Ω'))
@@ -1857,8 +1827,7 @@ If current supplies are present in a circuit it is possible they create a super-
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-shortcut.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -1876,8 +1845,7 @@ with schemdraw.Drawing(file='mesh-super-shortcut.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-shortcut1.svg') as d:
     d += (V1 := elm.SourceV().up().label('$V_S$\n10V').length(4))
     d += (R1 := elm.Resistor().right().label('$R_1$\n6Ω'))
@@ -1974,8 +1942,7 @@ Let's try a circuit with a super-mesh that cuts through the intermediate branche
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-3-shortcut.svg') as d:
     d.config(unit=4)
     d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
@@ -2000,8 +1967,7 @@ with schemdraw.Drawing(file='mesh-super-3-shortcut.svg') as d:
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-super-3-super-loop-shortcut.svg') as d:
     d.config(unit=4)
     d += (V1 := elm.SourceV().up().label('$V_S$\n6V').length(8))
@@ -2102,8 +2068,7 @@ Like I said, I'll show you both for the examples in this section.
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-shortcut.svg') as d:
     d.config(unit=4)
     d += (R1 := elm.Resistor().up().label('$R_1$\n6Ω'))
@@ -2262,8 +2227,7 @@ The shortcut can be used with a dependent curent supply as well. Here is another
 
 
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='mesh-dependent-supers-annotated-supermesh-shortcut.svg') as d:
     d.config(unit=4)
     d += (Vs1 := elm.SourceV().up().label('$V_{S1}$\n100V'))
