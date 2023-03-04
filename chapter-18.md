@@ -16,17 +16,14 @@ kernelspec:
 
 # More Complex Circuits using the ``Step-by-step Method''
 
-\begin{framed}
-\Large\textbf{Steps for First-order Transient Analysis}\normalsize
-\begin{enumerate}
-\item Find the initial condition.
-\item Find the final condition.
-\item Use the initial and final conditions to solve for $K_1$ and $K_2$.
-\item Find Thevenin resistance around the storage element (capacitor or inductor).
-\item Use Thevenin resistance to find $\tau$.
-\item Write time-domain voltage or current as $x(t)=K_1+K_2\exp(\frac{-t}{\tau})$.
-\end{enumerate}
-\end{framed}
+```{admonition} Steps for First-order Transient Analysis
+- Find the initial condition.
+- Find the final condition.
+- Use the initial and final conditions to solve for $K_1$ and $K_2$.
+- Find Thevenin resistance around the storage element (capacitor or inductor).
+- Use Thevenin resistance to find $\tau$.
+- Write time-domain voltage or current as $x(t)=K_1+K_2\exp(\frac{-t}{\tau})$.
+```
 
 \begin{example}
 Write an expression for v\tss{OUT}(t) for $t\geq 0$.

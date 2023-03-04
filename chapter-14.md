@@ -35,7 +35,7 @@ ADD subplot(2,1,x)
 We are often more concerned with the energy supplied or consumed over a period of time. This would require the integration of the instantaneous power of a period of time which is tedious considering our signals are always sinusoidal in the AC case. To characterize the power consumption of a component we will begin to develop alternate means of describing the power supplied or dissipated in AC circuits.
 
 \section{Average Power}
-The first means of characterizing power in AC circuits is average power. We must now differentiate between power that is being \textbf{dissipated} by a resistor versus power that is being \textbf{stored} in a storage element such as a capacitor or inductor. Calculating average power will tell us how much power us being \textbf{dissipated} by a circuit.
+The first means of characterizing power in AC circuits is average power. We must now differentiate between power that is being **dissipated** by a resistor versus power that is being **stored** in a storage element such as a capacitor or inductor. Calculating average power will tell us how much power us being **dissipated** by a circuit.
 
 Recall that you can find the average value of any periodic signal by integrating over a period and dividing by the period. For an instantaneous power signal that would look like
 \[P=\frac{1}{T}\int_t^{t+T}p(\tau)d\tau\]
@@ -132,7 +132,7 @@ name: LABEL_1
 \end{minipage}
 \vspace{1em}
 
-Our goal is to find values for $V_{EFF}$ and $I_{EFF}$ such that the the resistor in the AC circuit dissipates the same power as the resistor in the DC circuit. In other words, the two circuits will be \textbf{effectively} the same with regards to the power dissipated by the resistor.
+Our goal is to find values for $V_{EFF}$ and $I_{EFF}$ such that the the resistor in the AC circuit dissipates the same power as the resistor in the DC circuit. In other words, the two circuits will be **effectively** the same with regards to the power dissipated by the resistor.
 
 To determine values for the effective voltage and current we will use the form of power $P=I^2R$ we get from combining Ohm's Law and the definition of electrical power. We setup the following integral to find the average power in the AC circuit resistor using this form
 \[P=\frac{1}{T}\int_0^Ti^2Rdt=\frac{R}{T}\int_0^Ti^2dt\]
@@ -150,7 +150,7 @@ Solving for $I*{eff}$ is then as simple as calculating the square root of both s
 A similar path can be followed to show that
 \[V*{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt}\]
 
-Looking closely at the previous equation show us where the term ``RMS'' came from. Inside the integral is the \textbf{square} of the current. The integral itself is finding the \textbf{mean} of that squared current. Lastly, the \textbf{root} covers to whole equation. This \textbf{root-mean-square} (RMS) formula can be applied to any signal.
+Looking closely at the previous equation show us where the term ``RMS'' came from. Inside the integral is the **square** of the current. The integral itself is finding the **mean** of that squared current. Lastly, the **root** covers to whole equation. This **root-mean-square** (RMS) formula can be applied to any signal.
 
 \subsection{RMS Voltage and Current for Sinusoidal Signals}
 For the AC case we can find a more compact form that does not involve calculus. Given a current in the form of

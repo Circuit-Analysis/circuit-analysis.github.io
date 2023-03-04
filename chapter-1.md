@@ -179,7 +179,7 @@ $$Q=\int_{t_0}^ti(\tau)d\tau+Q_0$$
 - Electron flow - direction of negative charge (i.e. the charge on electrons)
 - Conventional flow - direction of positive charge, opposite the movement of electrons. Positive charge in this case is the absence of an electron, a.k.a. a "hole".
 
-%ADD cross section with electrons moving, conventional and electron flow labeled separately
+% TODO cross section with electrons moving, conventional and electron flow labeled separately
 
 ````{admonition} Example
 What is the current through a conductor if $6.24e18$ electrons pass through a cross section in 1 second?

@@ -27,12 +27,13 @@ $$$$ $1 $$$$
 **$1**
 
 \\begin\{circuitikz\}(.*?(.|[\n])*?)\\end\{circuitikz\}
-```{figure} IMAGE_FILE_NAME\n---\nheight: 300px\nname: LABEL_FOR_THIS_IMAGE\n---\n```
+\n```{figure} logo.png\n---\nheight: 300px\nname: LABEL_FOR_THIS_IMAGE\n---\n```\n
 
-\\underline{
+\\begin\{tikzpicture\}(.*?(.|[\n])*?)\\end\{tikzpicture\}
+\n```{figure} logo.png\n---\nheight: 300px\nname: LABEL_FOR_THIS_IMAGE\n---\n```\n
+
 \\underline\{(.*?(.|[\n])*?)\}
-### $1
+<u>$1</u>
 
-```{code-cell} ipython3
-:tags: [remove-input, remove-output]
-```
+\*\{
+_{

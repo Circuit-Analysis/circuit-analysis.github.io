@@ -284,7 +284,7 @@ Different operations are easier in different complex forms. When performing oper
 
 \begin{tabular}{|c|c|}
 \hline
-\textbf{Rectangular}&\textbf{Polar or Exponential}\\
+**Rectangular**&**Polar or Exponential**\\
 \hline
 Addition&Multiplication\\
 Subtraction&Division\\
@@ -767,7 +767,7 @@ Capacitor&0&$-\frac{1}{\omega C}$&0-$\frac{j}{\omega C}$&OR&0+$\frac{1}{j\omega 
 
 ### Equivalent Impedance: Series
 
-Two elements connected in series share one node \textbf{exclusively}.
+Two elements connected in series share one node **exclusively**.
 
 ```{figure} logo.png
 ---

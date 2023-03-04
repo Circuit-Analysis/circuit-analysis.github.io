@@ -70,9 +70,9 @@ name: LABEL_4
 
 There are three methods to determine Thevenin resistance. All three will be demonstrated on the toy problem in this section but each has strengths and weaknesses. Careful attention should be paid to the limitations of each method.
 
-\textbf{Method~\#1)~Equivalent Resistance:}\par
+**Method~\#1)~Equivalent Resistance:**
 \fbox{\begin{minipage}{30em}
-\underline{\textbf{Limitations:}}~ Circuit cannot have any \textbf{dependent} supplies.
+<u>**Limitations:**</u>~ Circuit cannot have any **dependent** supplies.
 \end{minipage}}
 \begin{enumerate}
 \item Remove the load if it is not already removed.
@@ -89,9 +89,9 @@ name: LABEL_5
 
 \[ R\_{TH}=(R_1||R_2)+R_3=7~\Omega\]
 
-\textbf{Method~\#2)~Open Circuit Voltage/Short Circuit Current:}\par
+**Method~\#2)~Open Circuit Voltage/Short Circuit Current:**
 \fbox{\begin{minipage}{30em}
-\underline{\textbf{Limitations:}}~Circuit must have one or more \textbf{independent} supplies.
+<u>**Limitations:**</u>~Circuit must have one or more **independent** supplies.
 \end{minipage}}
 \begin{enumerate}
 \item Remove the load if it is not already removed.
@@ -123,16 +123,17 @@ name: LABEL_7
 9\Omega&-6\Omega\\
 -6\Omega&11\Omega\\
 \end{array} \right]^{-1}\left[\begin{array}{c}12V\\0V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.095~\text{A}\\1.143~\text{A}\end{array}\right]\]
+
 and $I_{SC}$=$I_2$ in this case leading to \[R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega\]
 First, note that this result is the same as the value calculated with the previous method. Second, note that the units of the formula above follow Ohm's Law.
 
-\textbf{Method~\#3)~Apply a Voltage Source:}\par
+**Method~\#3)~Apply a Voltage Source:**
 \fbox{\begin{minipage}{30em}
-\underline{\textbf{Limitations:}}~None
+<u>**Limitations:**</u>~None
 \end{minipage}}
 \begin{enumerate}
 \item Remove the load if it is not already removed.
-\item Replace all \textbf{independent} supplies with their ideal resistances.
+\item Replace all **independent** supplies with their ideal resistances.
 \item Place a voltage supply ($V_{NEW}$) between the nodes where the load will be reconnected. You get to pick a voltage for this supply. Any number will do.
 \item Calculate the current ($I_{NEW}$) through this new supply.
 \item $R_{TH}$ is then $\sfrac{V_{NEW}}{I_{NEW}}$
@@ -172,7 +173,7 @@ name: LABEL_9
 ```
 
 \Solution
-\textbf{Find $V_{OC}$}\par
+**Find $V_{OC}$**
 In this case $V_{OC}$ is across the nodes A and B as labeled below. Mesh analysis was applied in this example to find the open circuit voltage though an method of analysis would suffice.
 
 ```{figure} logo.png
@@ -183,8 +184,8 @@ name: LABEL_10
 ```
 
 The single KVL equation for this circuit is
-\[12-4I+2I*x-6I=0\]
-where $I*{x}$ is equal to I. Substituting into the KVL and grouping like terms leads to
+\[12-4I+2I\*x-6I=0\]
+where $I_{x}$ is equal to I. Substituting into the KVL and grouping like terms leads to
 \[12-8I=0\]
 and solving for I gives
 \[I=1.5~\text{A}\]
@@ -202,11 +203,12 @@ We can now write a KVL around the right side of the circuit including the drop a
 and solve for $V*{OC}$
 \[V\_{OC}=9~\text{V}\]
 
-\textbf{Find $R_{TH}$}
+**Find $R_{TH}$**
+
 The dependent supply prevents us from applying the equivalent resistance method (method \#1 described above). Either of the other two methods will yield the correct result.
 
-\vspace{8mm}
-\textbf{Find $R_{TH}$ (Method \#2)}
+**Find $R_{TH}$ (Method \#2)**
+
 Place a short between nodes A and B and find the short circuit current ($I_{SC}$) through that short. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
 ```{figure} logo.png
@@ -217,9 +219,9 @@ name: LABEL_12
 ```
 
 The two KVL equations for this circuit are developed here
-\[12-4I*1+2I_x-6(I_1-I_2)=0\]
+\[12-4I*1+2I*x-6(I_1-I_2)=0\]
 where $I*{x}$ is
-\[I*x=I_1-I_2\]
+\[I*x=I*1-I_2\]
 leading to
 \[8I_1-4I_2=12\]
 The KVL for the second mesh is
@@ -231,10 +233,11 @@ after distributing and grouping like-terms. Solving the system yields
 8\Omega&-4\Omega\\
 6\Omega&-9\Omega\\
 \end{array} \right]^{-1}\left[\begin{array}{c}12~\text{V}\\0~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.25~\text{A}\\1.5~\text{A}\end{array}\right]\]
-and $I*{SC}$=$I*2$ in this case leading to \[R*{TH}=\frac{V*{OC}}{I*{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega\]
+and $I*{SC}$=$I\*2$ in this case leading to \[R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega\]
 
 \vspace{8mm}
-\textbf{Find $R_{TH}$ (Method \#3)}
+**Find $R_{TH}$ (Method \#3)**
+
 Place a voltage supply with a value of your choice ($V_{NEW}$) between nodes A and B and find the current ($I_{NEW}$) through that supply. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
 ```{figure} logo.png
@@ -245,23 +248,23 @@ name: LABEL_13
 ```
 
 The two KVL equations for this circuit are developed here
-\[12-4I*1+2I_x-6(I_1-I_2)=0\]
+\[12-4I*1+2I*x-6(I*1-I_2)=0\]
 where $I*{x}$ is
-\[I*x=I_1-I_2\]
+\[I*x=I*1-I_2\]
 leading to
 \[8I_1-4I_2=12\]
 The KVL for the second mesh is
 \[-6(I_2-I_1)-3I_2-V*{NEW}=0\]
 which becomes
-\[6I*1-9I_2=V*{NEW}\]
-Choosing a value of 20~\text{V} for $V_{NEW}$
-\[6I*1-9I_2=20~\text{V}\]
+\[6I*1-9I*2=V*{NEW}\]
+Choosing a value of 20~\text{V} for $V*{NEW}$
+\[6I*1-9I*2=20~\text{V}\]
 after distributing and grouping like-terms. Solving the system yields
 \[ \left[ \begin{array}{cc}
 8\Omega&-4\Omega\\
 6\Omega&-9\Omega\\
 \end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\20~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}-1.67~\text{A}\\-3.33~\text{A}\end{array}\right]\]
-and $I*{NEW}$=-$I*2$ in this case leading to \[R*{TH}=\frac{V*{NEW}}{I*{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega\]
+and $I*{NEW}$=-$I\*2$ in this case leading to \[R*{TH}=\frac{V*{NEW}}{I\_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega\]
 
 The Thevenin equivalent circuit can be drawn using the values found above
 
@@ -392,17 +395,17 @@ We start by developing the function (relationship) between the load resistance a
 where the load voltage as pictured in the circuit above can be written with a simple voltage divider
 \[V*{RL}=V*{TH}\left[\frac{R_L}{R*{TH}+R*L}\right]\]
 and the load current is an application of equivalent resistances and Ohm's law.
-\[I*{RL}=\frac{V*{TH}}{R*{TH}+R*L}\]
+\[I*{RL}=\frac{V*{TH}}{R\_{TH}+R*L}\]
 We can rewrite the load power by substituting the previous two expressions into the first.
-\[P*{RL}=V*{TH}\left[\frac{R_L}{R*{TH}+R*L}\right]\frac{V*{TH}}{R*{TH}+R_L}\]
+\[P*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R*L}\right]\frac{V*{TH}}{R*{TH}+R*L}\]
 or in a reduced form
 \[P*{RL}=\frac{V*{TH}^2R_L}{(R*{TH}+R*L)^2}\]
-We can calculate the load power for a given load resistance. Alternatively, to find the maximum power we can set its derivative equal to zero and solve for $R*{L}$.  The derivative with respect to $R_{L}$ is
-\[\frac{dP*{RL}}{dR_L}=\frac{V*{TH}^2(R*{TH}-R_L)}{(R*{TH}+R*L)^3}\]
+We can calculate the load power for a given load resistance. Alternatively, to find the maximum power we can set its derivative equal to zero and solve for $R_{L}$. The derivative with respect to $R_{L}$ is
+\[\frac{dP*{RL}}{dR*L}=\frac{V*{TH}^2(R*{TH}-R_L)}{(R*{TH}+R*L)^3}\]
 The derivative will be 0 when the numerator is 0 leading to
-\[V*{TH}^2(R*{TH}-R_L)=0\]
-where $V*{TH}$ and $R_{TH}$ are fixed values so we solve for $R_{L}$. The only value of $R_{L}$ that makes this equation true is
-\[R*L=R*{TH}\]
+\[V*{TH}^2(R*{TH}-R*L)=0\]
+where $V*{TH}$ and $R*{TH}$ are fixed values so we solve for $R_{L}$. The only value of $R_{L}$ that makes this equation true is
+\[R\*L=R\_{TH}\]
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
 \begin{example}
@@ -478,8 +481,8 @@ name: LABEL_27
 ```
 
 Calculating the short circuit current is a simple application of Ohm's law
-\[I*N=I*{SC}=\frac{V*{TH}}{R*{TH}}\]
-Finding $R_{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
+\[I\*N=I*{SC}=\frac{V*{TH}}{R*{TH}}\]
+Finding $R*{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
 
 ```{figure} logo.png
 ---
@@ -489,7 +492,7 @@ name: LABEL_28
 ```
 
 The relationship between $R_{N}$ and $R_{TH}$ is simple given there is only a single resistor to consider.
-\[R*N=R*{TH}\]
+\[R\*N=R\_{TH}\]
 While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.
 
 ### Thevenin Equivalent of a Norton Equivalent Now let's turn it around the other way. Starting with a Norton equivalent circuit let's find its Thevenin equivalent.

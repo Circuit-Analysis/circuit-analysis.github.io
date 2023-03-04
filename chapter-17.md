@@ -158,7 +158,7 @@ and,
 
 \begin{tabular}{|l|l||c|c|}
 \hline
-\textbf{Property}&\textbf{Description}&\textbf{Time-domain}&\textbf{S-domain}\\
+**Property**&**Description**&**Time-domain**&**S-domain**\\
 \hline
 Linearity&$\mathcal{L}\left[a_1x_1(t)+a_2x_2(t)\right]=a_1X_1(s)+a_2X_2(s)$&$\frac{x(t)}{1}$&$\frac{X(s)}{\sfrac{1}{s}}$\\
 Differentiation&$\mathcal{L}\left[\frac{dx(t)}{dt}\right]=sX(s)-x(0^{-})$&$\exp(-\alpha{t})$&$\frac{1}{s+\alpha}$\\

@@ -27,7 +27,7 @@ Elastance (D=1/C) unit: Daraf $F^{-1}$
 
 ### Equivalent Capacitance: Series
 
-Two elements connected in series share one node \textbf{exclusively}.
+Two elements connected in series share one node **exclusively**.
 
 ```{figure} logo.png
 ---
@@ -107,7 +107,7 @@ For capacitors, these two forms of the capacitor equation take the place of Ohm'
 
 ### Equivalent Inductance: Series
 
-Two elements connected in series share one node \textbf{exclusively}.
+Two elements connected in series share one node **exclusively**.
 
 ```{figure} logo.png
 ---
