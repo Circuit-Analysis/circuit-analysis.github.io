@@ -18,8 +18,6 @@ kernelspec:
 
 For instance, we may know nothing about the analog input circuit of the microcontroller pictured below on the left. We know we can connect the ground pin to a circuit we want to connect to and the analog input to another node in that circuit at which we want to measure the voltage. Let's use the voltage divider pictured below on the right. Ideally, connecting the output of the voltage divider to the input of the microcontroller will not affect the voltage labeled $V_\text{OUT}$. We would like it to be 6~\text{V} as would be the case if nothing is connected to the voltage divider. Realistically, $V_\text{OUT}$ will be affected, but by how much?
 
-\begin{minipage}{0.49\textwidth}
-
 ```{figure} logo.png
 ---
 height: 300px
@@ -27,8 +25,6 @@ name: LABEL_0
 ---
 ```
 
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
 
 ```{figure} logo.png
 ---
@@ -37,7 +33,8 @@ name: LABEL_1
 ---
 ```
 
-\end{minipage}
+ 
+
 
 The two theorems that will help us answer this question, Thevenin's and Norton's theorems, are detailed in this chapter. I'll revisit this example as I introduce Thevenin's theorem in the next section.
 
@@ -70,15 +67,14 @@ name: LABEL_4
 
 There are three methods to determine Thevenin resistance. All three will be demonstrated on the toy problem in this section but each has strengths and weaknesses. Careful attention should be paid to the limitations of each method.
 
-**Method~\#1)~Equivalent Resistance:**
-\fbox{\begin{minipage}{30em}
+```{admonition} **Method~\#1~Equivalent Resistance:**
+
 <u>**Limitations:**</u>~ Circuit cannot have any **dependent** supplies.
-\end{minipage}}
-\begin{enumerate}
-\item Remove the load if it is not already removed.
-\item Replace all supplies (they should all be independent) with their ideal resistances.
-\item Find the equivalent resistance between the nodes where the load will be reconnected. That resistance is $R_{TH}$.
-\end{enumerate}
+
+- Remove the load if it is not already removed.
+- Replace all supplies (they should all be independent) with their ideal resistances.
+- Find the equivalent resistance between the nodes where the load will be reconnected. That resistance is $R_{TH}$.
+```
 
 ```{figure} logo.png
 ---
@@ -89,17 +85,16 @@ name: LABEL_5
 
 $$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 
-**Method~\#2)~Open Circuit Voltage/Short Circuit Current:**
-\fbox{\begin{minipage}{30em}
+```{admonition} **Method~\#2~Open Circuit Voltage/Short Circuit Current:**
+
 <u>**Limitations:**</u>~Circuit must have one or more **independent** supplies.
-\end{minipage}}
-\begin{enumerate}
-\item Remove the load if it is not already removed.
-\item Find the open circuit voltage ($V_{OC}$) between the nodes where the load will be reconnected.
-\item Place a short between the nodes where the load will be reconnected.
-\item Find the short circuit current ($I_{SC}$) through that short.
-\item $R_{TH}$ is then $\frac{V_{OC}}{I_{SC}}$
-\end{enumerate}
+
+- Remove the load if it is not already removed.
+- Find the open circuit voltage ($V_{OC}$) between the nodes where the load will be reconnected.
+- Place a short between the nodes where the load will be reconnected.
+- Find the short circuit current ($I_{SC}$) through that short.
+- $R_{TH}$ is then $\frac{V_{OC}}{I_{SC}}$
+```
 
 $V_{OC}$ was calculated in a previous section as 8~\text{V}. The load is then replaced with a short and the short-circuit current is calculated/measured.
 
@@ -131,17 +126,16 @@ $$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega $$
 
 First, note that this result is the same as the value calculated with the previous method. Second, note that the units of the formula above follow Ohm's Law.
 
-**Method~\#3)~Apply a Voltage Source:**
-\fbox{\begin{minipage}{30em}
+```{admonition} **Method~\#3~Apply a Voltage Source:**
 <u>**Limitations:**</u>~None
-\end{minipage}}
-\begin{enumerate}
-\item Remove the load if it is not already removed.
-\item Replace all **independent** supplies with their ideal resistances.
-\item Place a voltage supply ($V_{NEW}$) between the nodes where the load will be reconnected. You get to pick a voltage for this supply. Any number will do.
-\item Calculate the current ($I_{NEW}$) through this new supply.
-\item $R_{TH}$ is then $\frac{V_{NEW}}{I_{NEW}}$
-\end{enumerate}
+
+- Remove the load if it is not already removed.
+- Replace all **independent** supplies with their ideal resistances.
+- Place a voltage supply ($V_{NEW}$) between the nodes where the load will be reconnected. You get to pick a voltage for this supply. Any number will do.
+- Calculate the current ($I_{NEW}$) through this new supply.
+- $R_{TH}$ is then $\frac{V_{NEW}}{I_{NEW}}$
+```
+
 Let's try it. I picked 42~\text{V} for the voltage source.
 
 ```{figure} logo.png
@@ -271,7 +265,7 @@ $$
 and $I_{SC}$=$I_2$ in this case leading to
 $$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega $$
 
-\vspace{8mm}
+
 **Find $R_{TH}$ (Method \#3)**
 
 Place a voltage supply with a value of your choice ($V_{NEW}$) between nodes A and B and find the current ($I_{NEW}$) through that supply. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.

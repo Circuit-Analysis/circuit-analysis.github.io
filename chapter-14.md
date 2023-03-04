@@ -150,8 +150,7 @@ The average power suffers from an additional problem. That's not to say it isn't
 \subsection{General Form of RMS Voltage and Current}
 Instead we use the concept of effective power to avoid this. Effective power is often referred to as RMS power for reason that will become apparent at the end of this section. To introduce effective power we will tell the story of two circuits: an AC circuit and a DC circuit. Those circuits are pictured here:
 
-\vspace{1em}
-\begin{minipage}{.49\textwidth}
+
 
 ```{figure} logo.png
 ---
@@ -160,8 +159,6 @@ name: LABEL_0
 ---
 ```
 
-\end{minipage}
-\begin{minipage}{.49\textwidth}
 
 ```{figure} logo.png
 ---
@@ -170,8 +167,7 @@ name: LABEL_1
 ---
 ```
 
-\end{minipage}
-\vspace{1em}
+
 
 Our goal is to find values for $V_{EFF}$ and $I_{EFF}$ such that the the resistor in the AC circuit dissipates the same power as the resistor in the DC circuit. In other words, the two circuits will be **effectively** the same with regards to the power dissipated by the resistor.
 
