@@ -529,7 +529,7 @@ name: LABEL_32
 
 ### Inverse
 
-When a number is multiplied by its inverse the result is real valued 1 also known as $1\angle 0^\circ$. With scalars, the inverse of 2 is $\sfrac{1}{2}$. Multiplying the two values results in
+When a number is multiplied by its inverse the result is real valued 1 also known as $1\angle 0^\circ$. With scalars, the inverse of 2 is $\frac{1}{2}$. Multiplying the two values results in
 $$ \frac{2}{1}\times\frac{1}{2}=\frac{2}{2}=1=1\angle 0^\circ $$
 Graphically, the two vectors shown here
 
@@ -668,9 +668,9 @@ $$ v(t)=i(t)R $$
 and can be solve for i(t) resulting in
 $$ i(t)=\frac{A\cos(\omega{t}+\theta)}{R}~A $$
 Once again notice that a voltage divided by a resistance results in a current with the unit amperes. This new function takes on that unit. Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with Ohm's law. It is a bit circular to perform when considering the resistor but we will follow the same pattern as we consider the other passive circuit elements. We can state the voltage/current relationship as
-$$ \frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\sfrac{A}{R}\cos(\omega{t}+\theta)~A} $$
+$$ \frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{R}\cos(\omega{t}+\theta)~A} $$
 The cosines in this case are straightforward and clearly cancel each other as one is in the numerator and one is in the denominator. However, in the interest of showing how we will approach the other passive circuit elements, and to demonstrate the approach is consistent for all elements, we will transform the cosines to phasors resulting in
-$$ \frac{v(t)}{i(t)}=\frac{A}{\sfrac{A}{R}}\frac{(1\angle\theta)~V}{(1\angle\theta)~A} $$
+$$ \frac{v(t)}{i(t)}=\frac{A}{\frac{A}{R}}\frac{(1\angle\theta)~V}{(1\angle\theta)~A} $$
 Dividing the phasors results in 1. A in the numerator cancels A in the denominator and R ends up in the numerator. We give this value a new name when dealing with sinusoidal voltages and currents. The impedance is the complex relationship between voltage and current
 $$ Z_R=\frac{v(t)}{i(t)}=R~\Omega $$
 The impedance of a resistor is just its resistance. It may seem strange to say that $R~\Omega$ is a complex number but it does locate a point on the complex plane. It just happens that the point is on the real axis with no imaginary component. In other words it could be expressed as $R+j0~\Omega$.
@@ -742,11 +742,11 @@ $$
 Notice the $\omega$ in the coefficient results from u-substitution. This integral can be substituted into the inductor equation
 $$ i(t)=\frac{A}{\omega{L}}\sin(\omega{t}+\theta)~A $$
 Next we can consider the voltage/current relationship since we have functions defined for both. Dividing the voltage by the current is consistent with the units of Ohm's law. We will follow the same pattern as we did for the resistor. We can state the voltage/current relationship as
-$$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\sfrac{A}{\omega{L}}\sin(\omega{t}+\theta)~A} $$
+$$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{\omega{L}}\sin(\omega{t}+\theta)~A} $$
 Again, a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
-$$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\sfrac{A}{\omega{L}}\cos(\omega{t}+\theta-90^\circ)~A} $$
+$$ Z_L=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{\frac{A}{\omega{L}}\cos(\omega{t}+\theta-90^\circ)~A} $$
 The cosines can now be transformed to phasors and divided
-$$ Z_L=\frac{v(t)}{i(t)}=\frac{A}{\sfrac{A}{\omega{L}}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{\sfrac{A}{\omega{L}}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
+$$ Z_L=\frac{v(t)}{i(t)}=\frac{A}{\frac{A}{\omega{L}}}\frac{(1\angle\theta)~V}{(1\angle[\theta-90^\circ])~A}=\frac{A}{\frac{A}{\omega{L}}}(1\angle[\theta-(\theta-90^\circ)]~\Omega $$
 The amplitude, $A$, of each function cancel each other and $\omega$L moves to the numerator. Distributing the negative sign into the angle of the denominator leaves only a $+90^\circ$.
 $$ Z_L=\frac{v(t)}{i(t)}={\omega{L}}(1\angle90^\circ)~\Omega $$
 This result meets our definition of impedance: a complex number that relates a voltage to a current if they are both sinusoidal but it is not the form typically used. The polar form $(1\angle{90^\circ})$ is usually replaced by the rectangular form ($j$).

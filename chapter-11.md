@@ -93,7 +93,7 @@ taking the derivative of both sides leads to
 \begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}
-Recall from the section on fundamentals the the time derivative of charge is current, $i(t)=\sfrac{dq(t)}{dt}$, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as
+Recall from the section on fundamentals the the time derivative of charge is current, $i(t)=\frac{dq(t)}{dt}$, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as
 \begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}

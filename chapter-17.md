@@ -55,11 +55,11 @@ $$ \ln~v_C(t)-\ln~v_C(0)=\frac{-t}{RC}-\frac{-0}{RC} $$
 
 $$ \ln~\frac{v_C(t)}{v_C(0)}=\frac{-t}{RC} $$
 
-$$ \mathrm{e}^{\ln~\frac{v_C(t)}{v_C(0)}}=\mathrm{e}^{\sfrac{-t}{RC}} $$
+$$ \mathrm{e}^{\ln~\frac{v_C(t)}{v_C(0)}}=\mathrm{e}^{\frac{-t}{RC}} $$
 
-$$ \frac{v_C(t)}{v_C(0)}=\mathrm{e}^{\sfrac{-t}{RC}} $$
+$$ \frac{v_C(t)}{v_C(0)}=\mathrm{e}^{\frac{-t}{RC}} $$
 
-$$ v_C(t)=v_C(0^{-})\mathrm{e}^{\sfrac{-t}{RC}} $$
+$$ v_C(t)=v_C(0^{-})\mathrm{e}^{\frac{-t}{RC}} $$
 
 ### Charging Capacitor
 
@@ -133,21 +133,21 @@ $$ \frac{L}{R}\frac{di_L(t)}{dt}=-i_L(t) $$
 
 $$ \frac{L}{R}di_L(t)=-i_L(t)dt $$
 
-$$ \frac{1}{i_L(t)}di_L(t)=\frac{-1}{\sfrac{L}{R}}dt $$
+$$ \frac{1}{i_L(t)}di_L(t)=\frac{-1}{\frac{L}{R}}dt $$
 
-$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
+$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} $$
 
-$$ \left.\ln~i_L(\mathcal{T})\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\sfrac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
+$$ \left.\ln~i_L(\mathcal{T})\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\frac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
 
-$$ \ln~i_L(t)-\ln~i_L(0)=\frac{-t}{\sfrac{L}{R}}-\frac{-0}{\sfrac{L}{R}} $$
+$$ \ln~i_L(t)-\ln~i_L(0)=\frac{-t}{\frac{L}{R}}-\frac{-0}{\frac{L}{R}} $$
 
-$$ \ln~\frac{i_L(t)}{i_L(0)}=\frac{-t}{\sfrac{L}{R}} $$
+$$ \ln~\frac{i_L(t)}{i_L(0)}=\frac{-t}{\frac{L}{R}} $$
 
-$$ \exp\left({\ln~\frac{i_L(t)}{i_L(0)}}\right)=\exp\left({\frac{-t}{\sfrac{L}{R}}}\right) $$
+$$ \exp\left({\ln~\frac{i_L(t)}{i_L(0)}}\right)=\exp\left({\frac{-t}{\frac{L}{R}}}\right) $$
 
-$$ {\frac{i_L(t)}{i_L(0)}}=\exp\left({\frac{-t}{\sfrac{L}{R}}}\right) $$
+$$ {\frac{i_L(t)}{i_L(0)}}=\exp\left({\frac{-t}{\frac{L}{R}}}\right) $$
 
-$$ i_L(t)=i_L(0)\exp\left({\frac{-t}{\sfrac{L}{R}}}\right) $$
+$$ i_L(t)=i_L(0)\exp\left({\frac{-t}{\frac{L}{R}}}\right) $$
 
 ### Charging Inductor
 
@@ -172,17 +172,17 @@ $$ \frac{V_S}{R}-i(t)-\frac{L}{R}\frac{di_L(t)}{dt}=0 $$
 
 $$ -\frac{L}{R}\frac{di_L(t)}{dt}=i(t)-\frac{V_S}{R} $$
 
-$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\sfrac{V_S}{R}}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
+$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\frac{V_S}{R}}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} $$
 
-$$ \left.\ln~\left[i(\mathcal{T})-\sfrac{V_S}{R}\right]\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\sfrac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
+$$ \left.\ln~\left[i(\mathcal{T})-\frac{V_S}{R}\right]\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\frac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
 
-$$ \ln~\left[i_L(t)-\sfrac{V_S}{R}\right]-\ln~\left[i_L(0)-\sfrac{V_S}{R}\right]=\frac{-t}{RC}-\frac{-0}{RC} $$
+$$ \ln~\left[i_L(t)-\frac{V_S}{R}\right]-\ln~\left[i_L(0)-\frac{V_S}{R}\right]=\frac{-t}{RC}-\frac{-0}{RC} $$
 
-$$ \ln~\left[\frac{i_L(t)-\sfrac{V_S}{R}}{i_L(0)-\sfrac{V_S}{R}}\right]=\frac{-t}{RC} $$
+$$ \ln~\left[\frac{i_L(t)-\frac{V_S}{R}}{i_L(0)-\frac{V_S}{R}}\right]=\frac{-t}{RC} $$
 
-$$ \exp\left(\ln~\left[\frac{i_L(t)-\sfrac{V_S}{R}}{i_L(0)-\sfrac{V_S}{R}}\right]\right)=\exp\left(\frac{-t}{RC}\right) $$
+$$ \exp\left(\ln~\left[\frac{i_L(t)-\frac{V_S}{R}}{i_L(0)-\frac{V_S}{R}}\right]\right)=\exp\left(\frac{-t}{RC}\right) $$
 
-$$ \frac{i_L(t)-\sfrac{V_S}{R}}{i_L(0)-\sfrac{V_S}{R}}=\exp\left(\frac{-t}{RC}\right) $$
+$$ \frac{i_L(t)-\frac{V_S}{R}}{i_L(0)-\frac{V_S}{R}}=\exp\left(\frac{-t}{RC}\right) $$
 
 $$ i_L(t)-\frac{V_S}{R}=\left(i_L(0)-\frac{V_S}{R}\right)\exp\left(\frac{-t}{RC}\right) $$
 
@@ -221,7 +221,7 @@ Again, note the initial condition x(0) in the Laplace-domain.
 
 Using the properties reviewed above only two transform pairs are needed here. First,
 
-$$ \mathcal{L}\left[\frac{x(t)}{1}\right]=\frac{X(s)}{\sfrac{1}{s}} $$
+$$ \mathcal{L}\left[\frac{x(t)}{1}\right]=\frac{X(s)}{\frac{1}{s}} $$
 
 and,
 
@@ -231,7 +231,7 @@ $$ \mathcal{L}\left[\exp(-\alpha{t})\right]=\frac{1}{s+\alpha} $$
 \hline
 **Property**&**Description**&**Time-domain**&**S-domain**\\
 \hline
-Linearity&$\mathcal{L}\left[a_1x_1(t)+a_2x_2(t)\right]=a_1X_1(s)+a_2X_2(s)$&$\frac{x(t)}{1}$&$\frac{X(s)}{\sfrac{1}{s}}$\\
+Linearity&$\mathcal{L}\left[a_1x_1(t)+a_2x_2(t)\right]=a_1X_1(s)+a_2X_2(s)$&$\frac{x(t)}{1}$&$\frac{X(s)}{\frac{1}{s}}$\\
 Differentiation&$\mathcal{L}\left[\frac{dx(t)}{dt}\right]=sX(s)-x(0^{-})$&$\exp(-\alpha{t})$&$\frac{1}{s+\alpha}$\\
 Integration&$\mathcal{L}\left[\int{x(t)dt}\right]=\frac{X(s)}{s}+\frac{x(0^{-})}{s}$&&\\
 \hline
@@ -342,9 +342,9 @@ $$ sV_C(s)+\frac{V_C(s)}{RC}=v_C(0^{-}) $$
 
 $$ V_C(s)\left[s+\frac{1}{RC}\right]=v_C(0^{-}) $$
 
-$$ V_C(s)=\frac{v_C(0^{-})}{s+\sfrac{1}{RC}} $$
+$$ V_C(s)=\frac{v_C(0^{-})}{s+\frac{1}{RC}} $$
 
-$$ \mathcal{L}^{-1}\left[V_C(s)\right]=\mathcal{L}^{-1}\left[\frac{v_C(0^{-})}{s+\sfrac{1}{RC}}\right] $$
+$$ \mathcal{L}^{-1}\left[V_C(s)\right]=\mathcal{L}^{-1}\left[\frac{v_C(0^{-})}{s+\frac{1}{RC}}\right] $$
 
 $$ v_C(t)=v_C(0^{-})\exp\left(\frac{-t}{RC}\right) $$
 
@@ -385,9 +385,9 @@ $$ V_C(s)=\frac{\frac{V_S}{RC}}{s\left(s+\frac{1}{RC}\right)}+\frac{v_C(0^{-})}{
 
 $$ V_C(s)=\frac{A}{s}+\frac{B}{s+\frac{1}{RC}}+\frac{v_C(0^{-})}{s+\frac{1}{RC}} $$
 
-$$ A=\left.\frac{\sfrac{V_S}{RC}}{s+\sfrac{1}{RC}}\right|_{s=0}=\frac{\sfrac{V_S}{RC}}{\sfrac{1}{RC}}=V_S $$
+$$ A=\left.\frac{\frac{V_S}{RC}}{s+\frac{1}{RC}}\right|_{s=0}=\frac{\frac{V_S}{RC}}{\frac{1}{RC}}=V_S $$
 
-$$ B=\left.\frac{\sfrac{V_S}{RC}}{s}\right|_{s=-\sfrac{1}{RC}}=\frac{\sfrac{V_S}{RC}}{-\sfrac{1}{RC}}=-V_S $$
+$$ B=\left.\frac{\frac{V_S}{RC}}{s}\right|_{s=-\frac{1}{RC}}=\frac{\frac{V_S}{RC}}{-\frac{1}{RC}}=-V_S $$
 
 $$ V_C(s)=\frac{V_S}{s}-\frac{V_S}{s+\frac{1}{RC}}+\frac{v_C(0^{-})}{s+\frac{1}{RC}} $$
 
@@ -434,7 +434,7 @@ $$ \mathcal{L}^{-1}\left[I(s)\right]=\mathcal{L}^{-1}\left[\frac{i_L(0^{-})}{s+\
 
 $$ i_L(t)=i_L(0^{-})\exp\left(\frac{-Rt}{L}\right) $$
 
-$$ i_L(t)=i_L(0^{-})\exp\left(\frac{-t}{\sfrac{L}{R}}\right) $$
+$$ i_L(t)=i_L(0^{-})\exp\left(\frac{-t}{\frac{L}{R}}\right) $$
 
 ### Charging Inductor
 
@@ -473,12 +473,12 @@ $$ \frac{\frac{V_S}{L}}{s(s+\frac{R}{L})}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) 
 
 $$ \frac{A}{s}+\frac{B}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) $$
 
-$$ A=\left.\frac{\sfrac{V_S}{L}}{s+\sfrac{R}{L}}\right|_{s=0}=\frac{\sfrac{V_S}{L}}{\sfrac{R}{L}}=\frac{V_S}{R} $$
+$$ A=\left.\frac{\frac{V_S}{L}}{s+\frac{R}{L}}\right|_{s=0}=\frac{\frac{V_S}{L}}{\frac{R}{L}}=\frac{V_S}{R} $$
 
-$$ B=\left.\frac{\sfrac{V_S}{L}}{s}\right|_{s=-\sfrac{R}{L}}=\frac{\sfrac{V_S}{L}}{-\sfrac{R}{L}}=-\frac{V_S}{R} $$
+$$ B=\left.\frac{\frac{V_S}{L}}{s}\right|_{s=-\frac{R}{L}}=\frac{\frac{V_S}{L}}{-\frac{R}{L}}=-\frac{V_S}{R} $$
 
-$$ \frac{\sfrac{V_S}{R}}{s}-\frac{\sfrac{V_S}{R}}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) $$
+$$ \frac{\frac{V_S}{R}}{s}-\frac{\frac{V_S}{R}}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) $$
 
-$$ \frac{V_S}{R}-\frac{V_S}{R}\exp\left(\frac{-t}{\sfrac{L}{R}}\right)+i_L(0^{-})\exp\left(\frac{-t}{\sfrac{L}{R}}\right)=i_L(t) $$
+$$ \frac{V_S}{R}-\frac{V_S}{R}\exp\left(\frac{-t}{\frac{L}{R}}\right)+i_L(0^{-})\exp\left(\frac{-t}{\frac{L}{R}}\right)=i_L(t) $$
 
-$$ i_L(t)=\frac{V_S}{R}+\left[i_L(0^{-})-\frac{V_S}{R}\right]\exp\left(\frac{-t}{\sfrac{L}{R}}\right) $$
+$$ i_L(t)=\frac{V_S}{R}+\left[i_L(0^{-})-\frac{V_S}{R}\right]\exp\left(\frac{-t}{\frac{L}{R}}\right) $$

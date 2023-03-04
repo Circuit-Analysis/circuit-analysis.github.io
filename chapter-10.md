@@ -98,7 +98,7 @@ $$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 \item Find the open circuit voltage ($V_{OC}$) between the nodes where the load will be reconnected.
 \item Place a short between the nodes where the load will be reconnected.
 \item Find the short circuit current ($I_{SC}$) through that short.
-\item $R_{TH}$ is then $\sfrac{V_{OC}}{I_{SC}}$
+\item $R_{TH}$ is then $\frac{V_{OC}}{I_{SC}}$
 \end{enumerate}
 
 $V_{OC}$ was calculated in a previous section as 8~\text{V}. The load is then replaced with a short and the short-circuit current is calculated/measured.
@@ -140,7 +140,7 @@ First, note that this result is the same as the value calculated with the previo
 \item Replace all **independent** supplies with their ideal resistances.
 \item Place a voltage supply ($V_{NEW}$) between the nodes where the load will be reconnected. You get to pick a voltage for this supply. Any number will do.
 \item Calculate the current ($I_{NEW}$) through this new supply.
-\item $R_{TH}$ is then $\sfrac{V_{NEW}}{I_{NEW}}$
+\item $R_{TH}$ is then $\frac{V_{NEW}}{I_{NEW}}$
 \end{enumerate}
 Let's try it. I picked 42~\text{V} for the voltage source.
 
