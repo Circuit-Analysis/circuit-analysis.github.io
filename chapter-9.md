@@ -36,13 +36,67 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 1.  Algebraically sum the values from each individual supply.
 ```
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example.svg') as d:
+    d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n30V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n60V', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(Vs1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')    
+    d += elm.Dot().color('red').at(R2.start).label('$V_A$')
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example-sub1.svg') as d:
+    d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n30V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += elm.LineDot().down().length(d.unit/4)
+    d += elm.LineDot().down().length(d.unit/2)
+    d += elm.Line().down().length(d.unit/4)
+    d += (LineB := elm.Line().left().tox(Vs1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(1)}$')    
+    d += elm.Dot().color('red').at(R2.start).label('$V_A^{(1)}$')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='super-example-sub2.svg') as d:
+    d += elm.LineDot().up().length(d.unit/4)
+    d += elm.LineDot().up().length(d.unit/2)
+    d += elm.Line().up().length(d.unit/4)
+        
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
+    d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n60V', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (GndSig := elm.GroundSignal())
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(2)}$')    
+    d += elm.Dot().color('red').at(R2.start).label('$V_A^{(2)}$')
+```
+
+
+
 `````{admonition} Example
 
 Find $I_{O}$ using superposition.
-```{figure} logo.png
+```{figure} super-example.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE1
+name: super-example
 ---
 ````
 
@@ -54,10 +108,10 @@ The circuit has two <u>independent</u> supplies (doesn't matter whether they are
 **Sub-problem \#1**
 In the first "sub-problem" we consider the effect of $V_{S1}$ on $I_{O}$. Notice that $V_{S2}$ is replaced by a its ideal resistance, a short in this case. Also notice that the $I_{O}$ labeled in this sub-problem has a superscript indicating it is the result of the first independent supply considered. This is a distinct value for the $I_{O}$ labeled in the original problem.
 
-```{figure} logo.png
+```{figure} super-example-sub1.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE13
+name: super-example-sub1
 ---
 ```
 
@@ -77,10 +131,10 @@ $$
 **Sub-problem \#2**
 In the second "sub-problem" we consider the effect of $V_{S2}$ on $I_{O}$. $I_{O}$ in this problem is labeled I$_O^{(2)}$ as it is the output current caused by the second independent supply. $V_{S1}$ is replaced by its ideal resistance.
 
-```{figure} logo.png
+```{figure} super-example-sub2.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE2
+name: super-example-sub2
 ---
 ```
 
