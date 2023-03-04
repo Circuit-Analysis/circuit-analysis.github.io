@@ -29,7 +29,7 @@ Converting from a rotating vector to a sine wave.
 ```
 
 \index{Sinusoid}
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -80,9 +80,7 @@ node[right=7pt] {1}
 (axis cs:0,1);
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -133,9 +131,7 @@ node[right=7pt] {0.707}
 (axis cs:0.125,.707);
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -178,9 +174,7 @@ xmax=+1
 \addplot [blue, mark = *] coordinates {( .25, 0)} {};
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -231,9 +225,7 @@ node[right=7pt] {-1}
 (axis cs:0.5,-1);
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -276,9 +268,7 @@ xmax=+1
 \addplot [blue, mark = *] coordinates {( .75, 0)} {};
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -329,7 +319,7 @@ node[left=7pt] {1}
 (axis cs:1,1);
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 %amplitude
 %angular freq
 %phase angle
@@ -347,7 +337,7 @@ The first thing you learned about numbers was how to count: 1,2,3,4,... Then you
 \end{enumerate}
 
 For instance, the number +2 locates a point on a 1D number line that is 2 units to the right of the origin
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
 \foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
@@ -358,9 +348,9 @@ For instance, the number +2 locates a point on a 1D number line that is 2 units 
 \draw[*-latex,blue,very thick] (-.08,0) -- (2.08,0);
 \draw[very thick,blue] (-.08,0) -- (2.,0);
 \end{tikzpicture}
-\end{center}
+
 and the number -3 locates a point that is three units to the left of the origin
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
 \foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
@@ -371,7 +361,7 @@ and the number -3 locates a point that is three units to the left of the origin
 \draw[*-latex,red,very thick] (.08,0) -- (-3.08,0);
 \draw[very thick,red] (.08,0) -- (-3,0);
 \end{tikzpicture}
-\end{center}
+
 These numbers are often referred to as scalars.
 
 A complex, or ``imaginary'', number accomplishes the same thing as a scalar number. It locates a point in space by giving an indication of the distance from the origin, and the direction away from the origin. However, there is a difference. A scalar locates a point on 1D line and a complex number locates a point on a 2D plane.
@@ -380,7 +370,6 @@ For example, the number +2 can be expressed as a complex number by indicating th
 
 The real advantage of complex numbers is the ability to locate numbers that are not on the real number line. For instance, to locate a point 4 units from the origin in the 125$^\circ$ direction we can draw (4$\angle$125$^\circ$) in orange.
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -405,14 +394,13 @@ xmax=+5
 % \node [below right, red] at (axis cs: 0, 0) {};
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
 In all instances we are locating a point with a distance from the origin and a direction. This is consistent whether we are locating the point on a number line or the 2D complex plane.
 
 ### Other Complex Number Forms
 
 The form we have been using so far in this section is known as polar form. There are two other commonly used forms for complex numbers . In all cases the complex number represents a point on the complex plane. So let's pick a point on a plane:
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -432,13 +420,13 @@ xmax=+5
 % \node [below right, red] at (axis cs: 0, 0) {};
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 We can represent the location of the black dot shown on the plane above in three forms.
 
 ### Polar Form
 
 This is the form introduced earlier in this section. It specifies a direction and distance from the origin to the point.
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -464,13 +452,10 @@ xmax=+5
     	\centerarc[black,thick](3.5,2.55)(36.86:-2:5mm)
     \end{tikzpicture}
 
-\end{center}
-
 ### Rectangular Form
 
 We can use the rectangular form to represent the same point. This form specifies a distance from the origin along the real (horizontal) axis and a distance from the real axis parallel to the imaginary (vertical) axis.
 
-\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -495,7 +480,7 @@ xmax=+5
 \addplot [orange,very thick,-latex] coordinates { (4,0) (4,3) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 The same type of information is included in this form: direction and distance. Direction is taken from the real and imaginary axes and distance is specified as scalar values. Ultimately we use this new form to locate the same point on the complex plane. Therefore we can correctly state that
 
 $$
@@ -519,7 +504,7 @@ Ae^{j\theta}=A\cos\theta+jA\sin\theta
 $$
 
 Euler specified the angle of the complex value using radians rather than degrees. In the example we've been using $36.86^\circ$ is approximately $0.643$~radians. Therefore we can locate the same point on the plane shown below
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -545,7 +530,6 @@ xmax=+5
     	\centerarc[black,thick](3.5,2.55)(36.86:-2:5mm)
     \end{tikzpicture}
 
-\end{center}
 Notice that the information contained with in the exponential form $5e^{j0.643}$ contains a distance from the origin and an angle just as in the polar form. We can correctly state that
 
 $$
@@ -596,7 +580,7 @@ once more, respecting the units of $\theta$. (Check your calculator mode again..
 Now that we can locate points on a 2D plane instead of a simple 1D number line we should reconsider the operations we perform on these new numbers. What we will find is that the operations are the same regardless of the type of number we are using. Stated differently, the scalar operations reviewed below are equivalent to complex operations on a 2D plane.
 
 Different operations are easier in different complex forms. When performing operations by hand I suggest converting the number to the following forms:
-\begin{center}
+
 \begin{tabular}{|c|c|}
 \hline
 \textbf{Rectangular}&\textbf{Polar or Exponential}\\
@@ -607,7 +591,6 @@ Negation&Negation\\
 &Inversion\\
 \hline
 \end{tabular}
-\end{center}
 
 ### Addition
 
@@ -622,7 +605,7 @@ or
 These problems are simplistic but allows us to illustrate the familiar operations we learned early in life. The problems also hint at the fact that these number represent something; physical distance in the first example and number of apples in the second. This seems natural to us when using scalar numbers. The same is true with complex numbers: the numbers still mean something and should have an appropriate unit assigned. Complex numbers can represent physical distance in the same way as scalars just with another dimension. Complex numbers can also represent voltage, current, force, torque, apples, etc.
 
 Let's consider the first problem by showing the implied addition operation on a number line. The first move to the right can be represented by +2 and the second can be represent by +3. To add them together (2+3=5) on the number line we draw both vectors placing them ``tip-to-tail''.
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-1.5,0) -- (5.5,0) ; %edit here for the axis
 \foreach \x in {-1,0,1,2,3,4,5} % edit here for the vertical lines
@@ -637,9 +620,9 @@ Let's consider the first problem by showing the implied addition operation on a 
 \draw[very thick,red] (1.92,0) -- (5.,0)
 (3.5,0) node[above]{3~m};
 \end{tikzpicture}
-\end{center}
-The result of the operation is the location that the combination points to, in this case +5.  
-\begin{center}
+
+The result of the operation is the location that the combination points to, in this case +5.
+
 \begin{tikzpicture}
 \draw[latex-latex] (-1.5,0) -- (5.5,0) ; %edit here for the axis
 \foreach \x in {-1,0,1,2,3,4,5} % edit here for the vertical lines
@@ -651,20 +634,20 @@ The result of the operation is the location that the combination points to, in t
 \draw[very thick,orange] (-.08,0) -- (5.,0)
 (2.5,0) node[above]{5~m};
 \end{tikzpicture}
-\end{center}
+
 If we must express these quantities as complex numbers the imaginary components will be zero indicating that the number are on the real axis. The operation can be described as
-\begin{center}
+
 \begin{tabular}{lr}
 &2+j0\\
 +&3+j0\\
 \hline
 &5+j0\\
 \end{tabular}
-\end{center}
+
 The result, $5+j0$, can be rewritten as simply 5 since $0\times j=0$
 
-We can take the same approach in the complex plane. Given two rectangular complex numbers, say $4+j3$ and $-2+j1$, we can add them together by placing them tip-to-tail on the complex plane.  
-\begin{center}
+We can take the same approach in the complex plane. Given two rectangular complex numbers, say $4+j3$ and $-2+j1$, we can add them together by placing them tip-to-tail on the complex plane.
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -691,25 +674,25 @@ xmax=+5
 \addplot [orange] coordinates {( 1, 2.5)} {} node[pos=1,fill=white] {$2+j4$};
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 The result is shown in orange on the plane and is equal to a vector with value 2+j4. We can arrive at this result mathematically rather than relying on the picture. In this case the real components add separately from the imaginary components.
-\begin{center}
+
 \begin{tabular}{lr}
 &4+j3\\
 +&-2+j1\\
 \hline
 &2+j4\\
 \end{tabular}
-\end{center}
+
 This operation is straight-forward if the complex values are in rectangular form. That is less true if they are in polar or exponential form. The plot above does not change but the calculation is less clear
-\begin{center}
+
 \begin{tabular}{lr}
 &$5\angle 36.86^\circ$\\
 +&$2.236\angle 153.43^\circ$\\
 \hline
 &$4.472\angle 63.43^\circ$\\
 \end{tabular}
-\end{center}
+
 This is why I prefer rectangular form for addition.
 
 ### Negation
@@ -717,7 +700,7 @@ This is why I prefer rectangular form for addition.
 A scalar value has the same two pieces of information as a polar number. The distance from the origin is clearly the magnitude (absolute value) of the number. The direction may not be immediately obvious. The sign of the scalar number tells us whether it is located to the left or right of the origin.
 
 When we negate a number (multiply by -1) we simply switch the side of the origin the number is located on. The distance from the origin remains the same.
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
 \foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
@@ -732,9 +715,9 @@ When we negate a number (multiply by -1) we simply switch the side of the origin
 \draw[very thick,red] (.12,0) -- (-2.,0)
 (-1,0) node[above]{-2};
 \end{tikzpicture}
-\end{center}
+
 We can also consider these numbers in polar form. We are constrained to the real numbers for now. The negative sign can be replaced with the angle as we would if the numbers were not constrained to the real axis.
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
 \foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
@@ -749,7 +732,7 @@ We can also consider these numbers in polar form. We are constrained to the real
 \draw[very thick,red] (.12,0) -- (-2.,0)
 (-1,0) node[above]{$2\angle 180^\circ$};
 \end{tikzpicture}
-\end{center}
+
 So $-2\angle 0^\circ$ is equivalent to $2\angle 180^\circ$ and $-2\angle 180^\circ$ is equivalent to $2\angle 0^\circ$. This rotation by $180^\circ$ extends to the complex plane. Negating $5\angle 36.86^\circ$ is shown graphically here resulting in $5\angle 216.86^\circ$
 
 % REMOVED PICTURE
@@ -765,7 +748,7 @@ $$ -(4+j3) $$
 I included the parentheses deliberately to emphasis that the negative sign will distribute to both terms. Therefore,
 $$ -(4+j3)=-4-j3 $$
 Which we can see graphically as
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -792,34 +775,33 @@ xmax=+5
     \end{axis}
     \end{tikzpicture}
 
-\end{center}
 We can also see graphically that the negation of the rectangular form matches the negation of the polar form. So
 $$ -4-j3=5\angle 216.86^\circ $$
 
 ### Subtraction
 
 Subtraction is a simple combination of negation and addition. For instance to perform
-\begin{center}
+
 \begin{tabular}{rc}
 &1+j4\hspace{2mm}\\
 -&(3+j2)\\
 \hline
 &-2+j2\hspace{2mm}\\
 \end{tabular}
-\end{center}
+
 Recall that the negative sign distributes to both terms before an addition is performed.
-\begin{center}
+
 \begin{tabular}{rc}
 &1+j4\hspace{2mm}\\
 +&-3-j2\\
 \hline
 &-2+j2\hspace{2mm}\\
 \end{tabular}
-\end{center}
+
 Negate the second term, add it to the first. Let's consider this subtraction graphically.
 
 Start with the second term, $3+j2$ in this case.
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -840,9 +822,9 @@ xmax=+5
 \addplot [red,very thick,-latex] coordinates { (0,0) (3,2) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Next, negate it.
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -863,9 +845,9 @@ xmax=+5
 \addplot [red,very thick,-latex] coordinates { (0,0) (-3,-2) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Finally, add the first operand, $1+j4$ in this case, by placing the vectors tip-to-tail.
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -892,7 +874,7 @@ xmax=+5
 \addplot [orange] coordinates {( -1, 2.5)} {} node[left,pos=1,fill=white] {$-2+j2$};
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 The result is shown in orange on the previous plot, $-2+j2$.
 
 ### Multiplication
@@ -906,7 +888,7 @@ $$
 One magnitude is stretched by the other. One angle is rotated by the other.
 
 Lets's multiply two scalars. You were likely taught that a negative times a positive is a negative and a negative time a negative is a positive. This works fine for a single dimension but it is more general if restated as a stretch and a rotate. 2 times -3 can be shown on the number line though the vectors have been labeled in polar form.
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
 \foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
@@ -921,10 +903,10 @@ Lets's multiply two scalars. You were likely taught that a negative times a posi
 \draw[very thick,red] (.12,0) -- (-3.,0)
 (-1.5,0) node[above]{$3\angle 180^\circ$};
 \end{tikzpicture}
-\end{center}
+
 $2\angle 0^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 180^\circ$ also know as -6.
 $$ (2\times 3)\angle (0^\circ +180^\circ)=6\angle 180^\circ=-6 $$
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
 \foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
@@ -936,11 +918,11 @@ $$ (2\times 3)\angle (0^\circ +180^\circ)=6\angle 180^\circ=-6 $$
 \draw[ultra thick,orange] (.12,0) -- (-6.,0)
 (-3,0) node[above]{$6\angle 180^\circ$=-6};
 \end{tikzpicture}
-\end{center}
+
 This result is consistent with the ``negative times a positive is a negative'' adage you were taught in grade school.
 
 We can examine another case, -2 times -3, shown on the number line below with the value expressed as polar numbers.
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
 \foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
@@ -955,10 +937,10 @@ We can examine another case, -2 times -3, shown on the number line below with th
 \draw[very thick,blue] (.12,-.05) -- (-2.,-.05)
 (-1,0.3) node[above]{$2\angle 180^\circ$};
 \end{tikzpicture}
-\end{center}
+
 $2\angle 180^\circ$ is stretched to 3 times its length and rotated by $180^\circ$. The result is $6\angle 360^\circ$ which can be written as $6\angle 0^\circ$ also know as +6.
 $$ (2\times 3)\angle (180^\circ +180^\circ)=6\angle 360^\circ=6\angle 0^\circ=+6 $$
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-6.5,0) -- (6.5,0) ; %edit here for the axis
 \foreach \x in {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6} % edit here for the vertical lines
@@ -970,7 +952,7 @@ $$ (2\times 3)\angle (180^\circ +180^\circ)=6\angle 360^\circ=6\angle 0^\circ=+6
 \draw[very thick,orange] (-.12,0) -- (6.,0)
 (3,0) node[above]{$6\angle 0^\circ$=+6};
 \end{tikzpicture}
-\end{center}
+
 This result is consistent with the ``negative times a negative is a positive'' adage you were taught in grade school. So in polar form multiplication looks consistent with what you already know about multiplication of 1D values. The benefit of restating multiplication as stretching and rotating comes from extending it onto the 2D complex plane.
 
 If we consider the example
@@ -978,7 +960,7 @@ $$ (2\angle 125^\circ)(3\angle -45^\circ) $$
 the result can be found by performing
 $$ (2\times3)\angle(125^\circ+(-45^\circ))=6\angle 80^\circ $$
 Graphically the two operands and the product are shown here
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1011,14 +993,12 @@ xmax=+5
     \end{axis}
     \end{tikzpicture}
 
-\end{center}
-
 ### Inverse
 
 When a number is multiplied by its inverse the result is real valued 1 also known as $1\angle 0^\circ$. With scalars, the inverse of 2 is $\sfrac{1}{2}$. Multiplying the two values results in
 $$ \frac{2}{1}\times\frac{1}{2}=\frac{2}{2}=1=1\angle 0^\circ $$
 Graphically, the two vectors shown here
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-1.5,0) -- (2.5,0) ; %edit here for the axis
 \foreach \x in {-1,0,1,2} % edit here for the vertical lines
@@ -1033,9 +1013,9 @@ Graphically, the two vectors shown here
 \draw[ultra thick,red] (-.12,-.05) -- (.5,-.05)
 (.5,0) node[above]{$\sfrac{1}{2}$};
 \end{tikzpicture}
-\end{center}
+
 results in
-\begin{center}
+
 \begin{tikzpicture}
 \draw[latex-latex] (-1.5,0) -- (2.5,0) ; %edit here for the axis
 \foreach \x in {-1,0,1,2} % edit here for the vertical lines
@@ -1047,7 +1027,7 @@ results in
 \draw[ultra thick,orange] (-.12,0) -- (1.,0)
 (1,0) node[above]{1};
 \end{tikzpicture}
-\end{center}
+
 when multiplied together.
 
 We can find the inverse of the polar number $r\angle\theta$ by asking 1) what magnitude will result in 1 when multiplied with $r$ and 2) what angle will result in $0^\circ$ when added to $\theta$? The answer to both questions is
@@ -1056,7 +1036,7 @@ The multiplication of the value and its inverse can be expressed as
 $$ {2\angle25^\circ}\times(2\angle25^\circ)^{-1}=(2\times\frac{1}{2})\angle(25^\circ+(-25^\circ))=1\angle 0^\circ=1 $$
 
 Graphically, $2\angle25^\circ$, its inverse, and the result of the multiplication are all shown here
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1089,7 +1069,6 @@ xmax=+2.5
     \end{axis}
     \end{tikzpicture}
 
-\end{center}
 Once again, the operation is consistent whether performed on a 1D number line or 2D complex plane.
 
 ### Division
@@ -1101,7 +1080,7 @@ $$ 6\times\frac{1}{2}=3 $$
 Let's perform this graphically on a complex example. First invert the second operand and then multiply it by the second. If the complex division is
 $$ (6\angle75^\circ)\div(2\angle10^\circ)=(3\angle65^\circ) $$
 take the second operand
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1122,9 +1101,9 @@ xmax=+3
 \addplot [red,very thick,-latex] coordinates { (0,0) (1.96962,0.34730) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Invert it.
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1145,9 +1124,9 @@ xmax=+3
 \addplot [red,very thick,-latex] coordinates { (0,0) (0.49240,-0.08682) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Finally, multiply it by the first operand
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1174,7 +1153,6 @@ xmax=+3
 \addplot [orange,very thick,-latex] coordinates { (0,0) (1.26785,2.71892) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
 
 In general, complex division is performed as
 $$ (r_1\angle\theta_1)\div(r_2\angle\theta_2)=\frac{r_1}{r_2}\angle(\theta_1-\theta_2) $$
@@ -1186,7 +1164,7 @@ You were undoubtedly taught the fact the the square root of a negative number do
 I said it was true so I will briefly demonstrate that using the operations and complex forms discussed in this section. But please remember that it is a consequence of the important concepts, not the important concept itself.
 
 The complex value $j$ can be plotted as
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1207,9 +1185,9 @@ xmax=+1.5
 \addplot [blue,very thick,-latex] coordinates { (0,0) (0,1) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 To locate that same point we can express it as $1\angle90^\circ$
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1230,11 +1208,11 @@ xmax=+1.5
 \addplot [blue,very thick,-latex] coordinates { (0,0) (0,1) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Squaring that value we find
 $$ (1\angle90^\circ)\times(1\angle90^\circ)=(1\times1)\angle(90^\circ+90^\circ)=1\angle180^\circ $$
 $1\angle180^\circ$ can also be expressed as -1
-\begin{center}
+
 \begin{tikzpicture}
 \begin{axis}
 [
@@ -1255,7 +1233,7 @@ xmax=+1.5
 \addplot [orange,ultra thick,-latex] coordinates { (0,0) (-1,0) };
 \end{axis}
 \end{tikzpicture}
-\end{center}
+
 Reverting back to using $j$ for $1\angle90^\circ$ and -1 for $1\angle180^\circ$ we can state that
 $$ j\times j=j^2=-1 $$
 and therefore
@@ -1271,15 +1249,14 @@ I've hopefully impressed upon you that all of circuit analysis is built on the t
 Let's consider a sinusoidal voltage placed across a resistor. That voltage takes the form of
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
 Notice that even though the voltage is a time variant function it still has the appropriate unit of volts assigned to it. The voltage source is connected to the resistor as shown here
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[vsourcesin,v_=v(t)] (0,0)
-(3,0) to[R,l=R,i<=i(t)] (3,3)
-(0,0) -- (3,0)
-(0,3) -- (3,3)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_0
+---
+```
+
 We need to find i(t) using what we know about the voltage/current relationship of a resistor. Ohm's law can be stated with the two time-variant functions
 $$ v(t)=i(t)R $$
 and can be solve for i(t) resulting in
@@ -1301,15 +1278,14 @@ We can now consider the other two passive elements using the same thought proces
 Let's consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
 The voltage source is connected to the capacitor as shown here
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[vsourcesin,v_=v(t)] (0,0)
-(3,0) to[C,l=C,i<=i(t)] (3,3)
-(0,0) -- (3,0)
-(0,3) -- (3,3)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_1
+---
+```
+
 We need to find i(t) using what we know about the voltage/current relationship of a capacitor. The capacitor equation can be stated with the two time-variant functions
 $$ i(t)=C\frac{dv(t)}{dt} $$
 The time-derivative of the voltage is
@@ -1337,15 +1313,14 @@ These forms also match the definition of impedance, a complex number that relate
 Last one! Let's consider a sinusoidal voltage placed across an inductor. That voltage again takes the form of
 $$ v(t)=A\cos(\omega{t}+\theta)~V $$
 The voltage source is connected to the inductor as shown here
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[vsourcesin,v_=v(t)] (0,0)
-(3,0) to[L,l=L,i<=i(t)] (3,3)
-(0,0) -- (3,0)
-(0,3) -- (3,3)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_2
+---
+```
+
 We need to find i(t) using what we know about the voltage/current relationship of a inductor. The inductor equation can be stated with the two time-variant functions
 
 $$
@@ -1372,7 +1347,6 @@ This result meets our definition of impedance: a complex number that relates a v
 $$ Z_L=\frac{v(t)}{i(t)}=j\omega{L}~\Omega $$
 Notice it is purely imaginary and results in a $90^\circ$ phase shift in the opposite direction as the capacitor.
 
-\begin{center}
 \begin{tabular}{|c|c|c|rcl|}
 \hline
 &Resistance($\Omega$)&Reactance($\Omega$)&&Impedance($\Omega$)&\\
@@ -1382,41 +1356,48 @@ Inductor&0&$\omega$L&&0+j$\omega$L&\\
 Capacitor&0&$-\frac{1}{\omega C}$&0-$\frac{j}{\omega C}$&OR&0+$\frac{1}{j\omega C}$\\
 \hline
 \end{tabular}
-\end{center}
 
 ## Equivalent Impedances
 
 ### Equivalent Impedance: Series
 
 Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[european resistor,l=Z\tss{1}] (0,3)
-(3,3) to[european resistor,l_=Z\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_3
+---
+```
+
 When two impedances are in series they can be redrawn as a single impedance
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[european resistor,l=Z\tss{1}+Z\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_4
+---
+```
 
 ### Equivalent Impedance: Parallel
 
 Two elements are in parallel when they are connected to the same two nodes.
 
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[european resistor,l=Z\tss{1}] (0,3)
-(2,0) to[european resistor,l=Z\tss{2}] (2,3)
-(0,0) -- (2,0)
-(0,3) -- (2,3)
-;
-\end{circuitikz}\end{center}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_5
+---
+```
 
 When two impedances are in parallel they can be redrawn as a single impedance
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[european resistor,l=Y\tss{1}+Y\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_6
+---
+```
 
 The admittances add. Admittance\index{Admittance} is defined as the complex inverse of impedance
 $$ Y=\frac{1}{Z} $$
@@ -1443,7 +1424,7 @@ $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 % Define distances for bordering
 \def\blockdist{2.3}
 \def\edgedist{2.5}
-\begin{center}\begin{tikzpicture}
+\begin{tikzpicture}
 \node (tdProb) [td] {Time-domain\\\textbf{Problem}};
 \path (tdProb.north)+(-0,3) node (pdProb) [pd] {Phasor-domain\\\textbf{Problem}};
 \path (pdProb.east)+(5,0) node (pdSol) [pd] {Phasor-domain\\\textbf{Solution}};
@@ -1465,37 +1446,34 @@ $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 \path [draw, -latex] (tdSol.east) -- node {}
 (endBlk.180) ;
 
-\end{tikzpicture}\end{center}
+\end{tikzpicture}
 
 ### Voltage Divider
 
 \index{Voltage Divider}
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,l_=v$_I$(t)] (0,0)
-(0,3) to[R,lx={R and 1~k$\Omega$}] (3,3)
-(3,3) to[L,lx={L and 100~mH},v=v$_O$(t)] (3,0)
-(0,0) -- (3,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_7
+---
+```
+
 Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
 \end{example}
 
 ### Current Divider
 
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l^=i$_I$(t)] (0,3)
-(3,0) to[R,lx={R and 500~$\Omega$}] (3,3)
-(6,0) to[C,lx={C and 1~$\mu$F},i<=i$_O$(t)] (6,3)
-(0,0) -- (6,0)
-(0,3) -- (6,3)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_8
+---
+```
+
 Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 \end{example}
 
@@ -1503,52 +1481,38 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 \index{Mesh Analysis}
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,5) to[voltage source,lx_={V$_S$ and 12$\angle$0$^\circ$~V}] (0,0)
-(0,5) to[R,lx={R$_1$ and 4~$\Omega$}] (3,5)
-(3,5) to[L,lx={L and j2~$\Omega$}] (6,5)
-(6,0) to[current source,lx_={I$_S$ and 4$\angle$90$^\circ$~A}] (6,5)
-(3,5) to[C,lx={C and -j4~$\Omega$}] (3,2.5)
-(3,2.5) to[R,lx={R$_2$ and 2~$\Omega$},v=V$_O$] (3,0)
-(0,0) -- (6,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_9
+---
+```
+
 \end{example}
 
 ### Nodal Analysis
 
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V$_S$ and 6$\angle$0$^\circ$~V}] (0,0)
-(0,3) to[L,lx={L and j2~$\Omega$}] (3,3)
-(3,3) to[current source,lx_={I$_S$ and 4$\angle$45$^\circ$~A}] (3,0)
-(3,3) to[C,lx={C and -j1~$\Omega$}] (6,3)
-(6,3) to[R,lx={R$_2$ and 2~$\Omega$},v=V$_O$] (6,0)
-(0,0) -- (6,0)
-(3,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_10
+---
+```
+
 \end{example}
 
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) -- (0,3)
-(0,3) to[R,lx={R$_1$ and 2~$\Omega$}] (3,3)
-(3,0) to[R,lx={R$_2$ and 2~$\Omega$},i>=I$_O$] (3,3)
-(6,0) to[R,lx={R$_3$ and 2~$\Omega$}] (6,3)
-(3,0) to[L,lx={L and j2~$\Omega$}] (6,0)
-(3,3) to[C,lx={C and -j2~$\Omega$}] (6,3)
-(0,3) -- (0,5) to[voltage source,lx={V$_S$ and 12$\angle$0$^\circ$~V}] (6,5) -- (6,3)
-(0,0) -- (3,0)
-(3,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_11
+---
+```
+
 \end{example}
 
 ### Superposition
@@ -1557,16 +1521,14 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 \index{Thevenin's Theorem}
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx_={V$_S$ and 50$\angle$30$^\circ$~V}] (0,0)
-(0,3) to[L,lx={L and j20~$\Omega$}] (3,3)
-(3,3) to[C,lx_={C and -j10~$\Omega$}] (3,0)
-(3,3) to[R,lx={R and 10~$\Omega$},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_12
+---
+```
+
 Find the Thevenin equivalent of the circuit above.
 
 \Solution
@@ -1579,49 +1541,41 @@ We can find I using mesh analysis on the single mesh.
 so
 $$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
 Using $I$ we can find the voltage across the inductor and capacitor
-$$ V*L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+$$ V\*L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
 There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[voltage source,lx*={V$_S$ and 50$\angle$30$^\circ$~V}] (0,0)
-		(0,3) to[L,lx={L and j20~$\Omega$},v=100$\angle$30$^\circ$~V] (3,3)
-		(3,3) to[C,lx={C and -j10~$\Omega$},v=50$\angle$-150$^\circ$~V] (3,0)
-		(3,3) to[R,lx={R and 10~$\Omega$},v=0~V,-o] (6,3) node[below]{A}
-		(0,0) to[short,-o] (6,0) node[above]{B}
-		(6,2.7) to[open,v_=V\tss{OC}] (6,.3)
-		;
-		\end{circuitikz}
-	\end{center}
-	Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_13
+---
+```
+
+    Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
+
 $$ (50\angle{-150^\circ}~V)-(0~V)-V*{OC}=0 $$
 which reduces to
-$$ V*{OC}=50\angle{-150^\circ}~V=V*{TH} $$
+$$ V*{OC}=50\angle{-150^\circ}~V=V\*{TH} $$
 which is the Thevenin voltage.
 Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[short] (0,3)
-(0,3) to[L,lx={L and j20~$\Omega$}] (3,3)
-(3,3) to[C,lx={C and -j10~$\Omega$}] (3,0)
-(3,3) to[R,lx={R and 10~$\Omega$},-o] (6,3) node[below]{A}
-(0,0) to[short,-o] (6,0) node[above]{B}
-(6,2.7) to[open,l=Z\tss{TH}] (6,.3)
-;
-\draw[-latex] (6,1.5) -- (5.5,1.5) ;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_14
+---
+```
+
 For this circuit
-$$ Z*{TH}=R+(L||C)=10-j20~\Omega $$
+$$ Z\*{TH}=R+(L||C)=10-j20~\Omega $$
 We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(2,3) to[voltage source,lx_={V\tss{TH} and 50$\angle${210$^\circ$}~V}] (2,0)
-(2,3) to[european resistor,l=$10-j20~\Omega$,-o] (6,3) node[below]{A}
-(2,0) to[short,-o] (6,0) node[above]{B}
-(4,3.7) node[above]{Z\tss{TH}}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_15
+---
+```
 
 \end{example}
 
@@ -1633,62 +1587,48 @@ We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and
 
 \index{Source Conversions}
 \begin{example}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[voltage source,l=2+j2~V] (0,3)
-(0,3) to[R,l=1~$\Omega$] (2,3)
-(2,3) to[L,l=j1~$\Omega$] (4,3)
-(4,3) to[voltage source,l=6$\angle$0$^\circ$~V] (6,3)
-(9,3) to[C,l=-j1~$\Omega$] (9,0)
-(6,3) to[R,l=1~$\Omega$,i=I$_O$] (6,0)
-(6,3) to[R,l=1~$\Omega$] (9,3)
-(0,0) -- (9,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_16
+---
+```
+
 Find $I_O$
 
 \Solution
 First, look for any impedances that are in series/parallel. The $1~\Omega$ resistor on the left and the $j1~\Omega$ inductor are in series. Also, the $1~\Omega$ resistor on the right and the $-j1~\Omega$ capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.
 
 Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(3,0) to[voltage source,l=8+j2~V] (3,3)
-(3,3) to[european resistor,l=1+j1~\Om] (6,3)
-(9,3) to[european resistor,l=1-j1~$\Omega$] (9,0)
-(6,3) to[R,l=1~$\Omega$,i=I$_O$] (6,0)
-(6,3) to[short] (9,3)
-(3,0) -- (9,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_17
+---
+```
 
 No more impedances or sources can be combined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impedance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l=5-j3~V] (0,3)
-(3,0) to[european resistor,l=1+j1~\Om] (3,3)
-(9,3) to[european resistor,l=1-j1~$\Omega$] (9,0)
-(6,3) to[R,l=1~$\Omega$,i=I$_O$] (6,0)
-(0,3) to[short] (9,3)
-(0,0) -- (9,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_18
+---
+```
+
 Note that the current of the Norton equivalent is $(8+j2~V)/(1+j1~\Omega)$=$(5-j3~A)$
 
 After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The $1+j1~\Omega$ and $1-j1~\Omega$ impedances are in parallel. They are not next to each other but they are connected to the same two nodes.
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[current source,l=5-j3~V] (0,3)
-(3,0) to[european resistor,l=1~\Om] (3,3)
-(6,3) to[R,l=1~$\Omega$,i=I$_O$] (6,0)
-(0,3) to[short] (6,3)
-(0,0) -- (6,0)
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_19
+---
+```
+
 Those two impedances combine to a $1~\Omega$ impedance.
 
 From this point we can use a simple current divider to find $I_O$.

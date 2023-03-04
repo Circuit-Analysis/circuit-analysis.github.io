@@ -21,16 +21,14 @@ kernelspec:
 ### Discharging Capacitor
 
 \index{RC Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[C,l=C] (0,3)
-(3,0) to[R,l=R] (3,3)
-(0,0)--(3,0)
-(0,3) to[short,-*] (1.5,3) node[above]{v\tss{C}(t)} -- (3,3)
-(1.5,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_0
+---
+```
+
 \[-i_C(t)-i_R(t)=0\]
 \[i_C(t)+i_R(t)=0\]
 \[i_C(t)=C\frac{dv_C(t)}{dt}\]
@@ -51,17 +49,14 @@ kernelspec:
 ### Charging Capacitor
 
 \index{RC Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[battery,l=V\tss{S},-*] (0,0)
-(0,3) node[above]{V\tss{S}}
-(0,3) to[R,l=R] (3,3)
-(3,3) node[above]{v\tss{C}(t)} to[C,l=C,*-] (3,0)
-(0,0)--(3,0)
-(1.5,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_1
+---
+```
+
 \[i*R(t)-i_C(t)=0\]
 \[i_C(t)=C\frac{dv_C(t)}{dt}\]
 \[i_R(t)=\frac{V_S-v_C(t)}{R}\]
@@ -84,17 +79,14 @@ kernelspec:
 ### Discharging Inductor
 
 \index{RL Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[L,l=L] (0,3)
-(3,0) to[R,l=R] (3,3)
-(0,0)--(3,0)
-(0,3) -- (3,3)
-(1.5,1.5) node[blue]{i\tss{L}(t)}
-;
-\centerarc[blue,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_2
+---
+```
+
 \[-v*L(t)-v_R(t)=0\]
 \[v_L(t)+v_R(t)=0\]
 \[v_L(t)=L\frac{di_L(t)}{dt}\]
@@ -115,18 +107,14 @@ kernelspec:
 ### Charging Inductor
 
 \index{RL Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[battery,l_=V\tss{S}] (0,0)
-(0,3) node[above]{V\tss{S}}
-(0,3) to[R,l=R] (3,3)
-(3,3) node[above]{v\tss{C}(t)} to[L,l=L] (3,0)
-(0,0)--(3,0)
-(1.5,1.5) node[blue]{i\tss{L}(t)}
-;
-\centerarc[blue,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_3
+---
+```
+
 \[V*S-v_R(t)-v_L(t)=0\]
 \[v_L(t)=L\frac{di_L(t)}{dt}\]
 \[v_R(t)=Ri(t)\]
@@ -168,7 +156,6 @@ Using the properties reviewed above only two transform pairs are needed here. Fi
 and,
 \[\mathcal{L}\left[\exp(-\alpha{t})\right]=\frac{1}{s+\alpha}\]
 
-\begin{center}
 \begin{tabular}{|l|l||c|c|}
 \hline
 \textbf{Property}&\textbf{Description}&\textbf{Time-domain}&\textbf{S-domain}\\
@@ -178,7 +165,6 @@ Differentiation&$\mathcal{L}\left[\frac{dx(t)}{dt}\right]=sX(s)-x(0^{-})$&$\exp(
 Integration&$\mathcal{L}\left[\int{x(t)dt}\right]=\frac{X(s)}{s}+\frac{x(0^{-})}{s}$&&\\
 \hline
 \end{tabular}
-\end{center}
 
 ### Brief Partial Fraction Expansion Review
 
@@ -224,16 +210,14 @@ so,
 ### Discharging Capacitor
 
 \index{RC Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[C,l=C] (0,3)
-(3,0) to[R,l=R] (3,3)
-(0,0)--(3,0)
-(0,3) to[short,-*] (1.5,3) node[above]{v\tss{C}(t)} -- (3,3)
-(1.5,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_4
+---
+```
+
 \[-i_C(t)-i_R(t)=0\]
 \[i_C(t)+i_R(t)=0\]
 \[i_C(t)=C\frac{dv_C(t)}{dt}\]
@@ -251,17 +235,14 @@ so,
 ### Charging Capacitor
 
 \index{RC Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[battery,l=V\tss{S},-*] (0,0)
-(0,3) node[above]{V\tss{S}}
-(0,3) to[R,l=R] (3,3)
-(3,3) node[above]{v\tss{C}(t)} to[C,l=C,*-] (3,0)
-(0,0)--(3,0)
-(1.5,0) node[sground,scale=0.5]{}
-;
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_5
+---
+```
+
 \[i*R(t)-i_C(t)=0\]
 \[i_C(t)=C\frac{dv_C(t)}{dt}\]
 \[i_R(t)=\frac{V_S-v_C(t)}{R}\]
@@ -285,17 +266,14 @@ so,
 ### Discharging Inductor
 
 \index{RL Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,0) to[L,l=L] (0,3)
-(3,0) to[R,l=R] (3,3)
-(0,0)--(3,0)
-(0,3) -- (3,3)
-(1.5,1.5) node[blue]{i\tss{L}(t)}
-;
-\centerarc[blue,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_6
+---
+```
+
 \[-v_L(t)-v_R(t)=0\]
 \[v_L(t)+v_R(t)=0\]
 \[v_L(t)=L\frac{di_L(t)}{dt}\]
@@ -314,18 +292,14 @@ so,
 ### Charging Inductor
 
 \index{RL Circuit}
-\begin{center}
-\begin{circuitikz}[american]\draw
-(0,3) to[battery,l=V\tss{S}] (0,0)
-(0,3) node[above]{V\tss{S}}
-(0,3) to[R,l=R] (3,3)
-(3,3) node[above]{v\tss{C}(t)} to[L,l=L] (3,0)
-(0,0)--(3,0)
-(1.5,1.5) node[blue]{i\tss{L}(t)}
-;
-\centerarc[blue,->,thick](1.5,1.5)(225:-45:5mm)
-\end{circuitikz}
-\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_7
+---
+```
+
 \[V*S-v_R(t)-v_L(t)=0\]
 \[v_L(t)=L\frac{di_L(t)}{dt}\]
 \[v_R(t)=Ri(t)\]

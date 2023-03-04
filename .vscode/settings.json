@@ -10,5 +10,8 @@
     "milliamps",
     "opamp",
     "wirecutter"
-]
+],
+"files.exclude": {
+    "**/*.svg": true
+},
 }

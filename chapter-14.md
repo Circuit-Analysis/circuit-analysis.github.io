@@ -83,7 +83,7 @@ Now we can look closely at this final expression for the average power dissipate
 We can use the table below to summarize these sections
 \bgroup
 \def\arraystretch{1.75}% 1 is the default, change whatever you need
-\begin{center}
+
 \begin{tabular}{|c|c|c|}
 \hline
 &Instantaneous&Average\\
@@ -93,7 +93,7 @@ DC&$P=VI$&$P=VI$\\
 AC&$p(t)=v(t)i(t)$&$P=\frac{V_pI_p}{2}\left[cos(\theta_v-\theta_i)\right]$\\
 \hline
 \end{tabular}
-\end{center}
+
 \egroup
 From this, we can take away the following
 \begin{itemize}
@@ -111,22 +111,24 @@ Instead we use the concept of effective power to avoid this. Effective power is 
 
 \vspace{1em}
 \begin{minipage}{.49\textwidth}
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[sV,l=v(t)] (0,3)
-(0,0) -- (3,0)
-(0,3) to[short,i=i(t)](3,3)
-(3,0) to[R,l_=R] (3,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_0
+---
+```
+
 \end{minipage}
 \begin{minipage}{.49\textwidth}
-\begin{center}\begin{circuitikz}\draw
-(0,3) to[battery,l_=V\tss{EFF}] (0,0)
-(0,0) -- (3,0)
-(0,3) to[short,i=I\tss{EFF}] (3,3)
-(3,0) to[R,l_=R] (3,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_1
+---
+```
+
 \end{minipage}
 \vspace{1em}
 

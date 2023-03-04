@@ -28,16 +28,22 @@ Elastance (D=1/C) unit: Daraf $F^{-1}$
 ### Equivalent Capacitance: Series
 
 Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[C,l=C\tss{1}] (0,3)
-(3,3) to[C,l_=C\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_0
+---
+```
+
 When two capacitors are in series they can be redrawn as a single capcitor
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[C,l=D\tss{1}+D\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_1
+---
+```
 
 The elastances add. Recall that
 \[D=\frac{1}{C}\]
@@ -52,19 +58,21 @@ The value of two capacitors in series is commonly expressed as
 
 Two elements are in parallel when they are connected to the same two nodes.
 
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[C,l=C\tss{1}] (0,3)
-(2,0) to[C,l=C\tss{2}] (2,3)
-(0,0) -- (2,0)
-(0,3) -- (2,3)
-;
-\end{circuitikz}\end{center}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_2
+---
+```
 
 When two capacitors are in parallel they can be redrawn as a single capacitor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[C,l=C\tss{1}+C\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_3
+---
+```
 
 ### Voltage/Current Relationship
 
@@ -100,34 +108,42 @@ For capacitors, these two forms of the capacitor equation take the place of Ohm'
 ### Equivalent Inductance: Series
 
 Two elements connected in series share one node \textbf{exclusively}.
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[L,l=L\tss{1}] (0,3)
-(3,3) to[L,l_=L\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_4
+---
+```
+
 When two inductors are in series they can be redrawn as a single inductor
-\begin{center}\begin{circuitikz}\draw
-(-3,3) to[L,l=L\tss{1}+L\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_5
+---
+```
 
 ### Equivalent Inductance: Parallel
 
 Two elements are in parallel when they are connected to the same two nodes.
 
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[L,l=L\tss{1}] (0,3)
-(2,0) to[L,l=L\tss{2}] (2,3)
-(0,0) -- (2,0)
-(0,3) -- (2,3)
-;
-\end{circuitikz}\end{center}
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_6
+---
+```
 
 When two inductors are in parallel they can be redrawn as a single inductor
-\begin{center}\begin{circuitikz}\draw
-(0,0) to[L,l=$\mathcal{R}$\tss{1}+$\mathcal{R}$\tss{2}] (0,3)
-;
-\end{circuitikz}\end{center}
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_7
+---
+```
 
 The reluctances add. Recall that
 \[\mathcal{R}=\frac{1}{L}\]
