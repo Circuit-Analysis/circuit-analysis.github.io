@@ -25,7 +25,8 @@ kernelspec:
 - Write time-domain voltage or current as $x(t)=K_1+K_2\exp(\frac{-t}{\tau})$.
 ```
 
-\begin{example}
+````{admonition} Example
+ 
 Write an expression for v\tss{OUT}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -35,9 +36,11 @@ name: LABEL_0
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{OUT}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -47,9 +50,11 @@ name: LABEL_1
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{OUT}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -59,9 +64,11 @@ name: LABEL_2
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for i\tss{OUT}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -71,9 +78,11 @@ name: LABEL_3
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{O}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -83,9 +92,11 @@ name: LABEL_4
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{O}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -95,9 +106,11 @@ name: LABEL_5
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{O}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -107,9 +120,11 @@ name: LABEL_6
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for v\tss{O}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -119,9 +134,11 @@ name: LABEL_7
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Write an expression for i\tss{O}(t) for $t\geq 0$.
 
 ```{figure} logo.png
@@ -131,4 +148,5 @@ name: LABEL_8
 ---
 ```
 
-\end{example}
+
+````

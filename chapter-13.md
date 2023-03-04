@@ -841,7 +841,8 @@ name: LABEL_42
 ### Voltage Divider
 
 \index{Voltage Divider}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -851,11 +852,13 @@ name: LABEL_71
 ```
 
 Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
-\end{example}
+
+````
 
 ### Current Divider
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -865,12 +868,14 @@ name: LABEL_81
 ```
 
 Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
-\end{example}
+
+````
 
 ### Mesh Analysis
 
 \index{Mesh Analysis}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -879,11 +884,13 @@ name: LABEL_91
 ---
 ```
 
-\end{example}
+
+````
 
 ### Nodal Analysis
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -892,9 +899,11 @@ name: LABEL_101
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -903,14 +912,16 @@ name: LABEL_111
 ---
 ```
 
-\end{example}
+
+````
 
 ### Superposition
 
 ### Thevenin's Theorem
 
 \index{Thevenin's Theorem}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -967,7 +978,8 @@ name: LABEL_151
 ---
 ```
 
-\end{example}
+
+````
 
 ### Norton's Theorem
 
@@ -976,7 +988,8 @@ name: LABEL_151
 ### Source Conversions
 
 \index{Source Conversions}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -1024,4 +1037,5 @@ Those two impedances combine to a $1~\Omega$ impedance.
 From this point we can use a simple current divider to find $I_O$.
 $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
 
-\end{example}
+
+````

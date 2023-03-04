@@ -21,7 +21,8 @@ kernelspec:
 ### Voltage Divider
 
 \index{Voltage Divider}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -31,11 +32,13 @@ name: LABEL_0
 ```
 
 Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
-\end{example}
+
+````
 
 ### Current Divider
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -45,12 +48,14 @@ name: LABEL_1
 ```
 
 Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
-\end{example}
+
+````
 
 ### Mesh Analysis
 
 \index{Mesh Analysis}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -59,11 +64,13 @@ name: LABEL_2
 ---
 ```
 
-\end{example}
+
+````
 
 ### Nodal Analysis
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -72,9 +79,11 @@ name: LABEL_3
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -83,14 +92,16 @@ name: LABEL_4
 ---
 ```
 
-\end{example}
+
+````
 
 ### Superposition
 
 ### Thevenin's Theorem
 
 \index{Thevenin's Theorem}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -163,7 +174,8 @@ name: LABEL_9
 ---
 ```
 
-\end{example}
+
+````
 
 ### Norton's Theorem
 
@@ -172,7 +184,8 @@ name: LABEL_9
 ### Source Conversions
 
 \index{Source Conversions}
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -221,4 +234,5 @@ From this point we can use a simple current divider to find $I_O$.
 
 $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
 
-\end{example}
+
+````

@@ -47,9 +47,9 @@ $$ RCdv_C(t)=-v_C(t)dt $$
 
 $$ \frac{1}{v_C(t)}dv_C(t)=\frac{-1}{RC}dt $$
 
-$$ \int*{v*C(0)}^{v_C(t)}\frac{1}{v_C(\mathcal{T})}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} $$
+$$ \int_{v_C(0)}^{v_C(t)}\frac{1}{v_C(\mathcal{T})}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} $$
 
-$$ \left.\ln~v*C(\mathcal{T})\right|*{v_C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|_{0}^{t} $$
+$$ \left.\ln~v_C(\mathcal{T})\right|_{v_C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|_{0}^{t} $$
 
 $$ \ln~v_C(t)-\ln~v_C(0)=\frac{-t}{RC}-\frac{-0}{RC} $$
 
@@ -88,7 +88,7 @@ $$ \frac{dv_C(t)}{dt}=\frac{v_C(t)-V_S}{-RC} $$
 
 $$ dv_C(t)=\frac{(v_C(t)-V_S)dt}{-RC} $$
 
-$$ \int*{v*C(0)}^{v_C(t)}\frac{1}{(v_C(\mathcal{T})-V_S)}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} $$
+$$ \int_{v_C(0)}^{v_C(t)}\frac{1}{(v_C(\mathcal{T})-V_S)}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} $$
 
 $$ \left.\ln~\left[v_C(\mathcal{T})-V_S\right]\right|_{v_C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|_{0}^{t} $$
 
@@ -135,9 +135,9 @@ $$ \frac{L}{R}di_L(t)=-i_L(t)dt $$
 
 $$ \frac{1}{i_L(t)}di_L(t)=\frac{-1}{\sfrac{L}{R}}dt $$
 
-$$ \int*{i*L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
+$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
 
-$$ \left.\ln~i*L(\mathcal{T})\right|*{i*L(0)}^{i_L(t)}=\left.\frac{-1}{\sfrac{L}{R}}\mathcal{T}\right|*{0}^{t} $$
+$$ \left.\ln~i_L(\mathcal{T})\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\sfrac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
 
 $$ \ln~i_L(t)-\ln~i_L(0)=\frac{-t}{\sfrac{L}{R}}-\frac{-0}{\sfrac{L}{R}} $$
 
@@ -172,7 +172,7 @@ $$ \frac{V_S}{R}-i(t)-\frac{L}{R}\frac{di_L(t)}{dt}=0 $$
 
 $$ -\frac{L}{R}\frac{di_L(t)}{dt}=i(t)-\frac{V_S}{R} $$
 
-$$ \int*{i*L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\sfrac{V_S}{R}}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
+$$ \int_{i_L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\sfrac{V_S}{R}}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\sfrac{L}{R}}d\mathcal{T} $$
 
 $$ \left.\ln~\left[i(\mathcal{T})-\sfrac{V_S}{R}\right]\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\sfrac{L}{R}}\mathcal{T}\right|_{0}^{t} $$
 
@@ -251,7 +251,8 @@ with
 $$ A=\left.\frac{X(s)}{s+b}\right|_{s=-a}\text{~and~}B=\left.\frac{X(s)}{s+s}\right|_{s=-b} $$
 
 Here are two examples worked in different ways. I don't always remember how to use the formulas shown above as I will demonstrate in the first example. I can always remember how to derive it as I will show you in the second example.
-\begin{example}
+````{admonition} Example
+ 
 Expand
 
 $$ F(s)=\frac{2s}{s^2+4s+3} $$
@@ -266,9 +267,11 @@ $$ B=\left.\frac{2s}{s+3}\right|_{s=-1}=\frac{-2}{2}=-1 $$
 
 $$ F(s)=\frac{3}{s+3}+\frac{-1}{s+1} $$
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Expand
 
 $$ F(s)=\frac{1}{s^2+2s-3} $$
@@ -305,7 +308,8 @@ so,
 
 $$ F(s)=\frac{-0.25}{s+3}+\frac{0.25}{s+1} $$
 
-\end{example}
+
+````
 
 ### Discharging Capacitor
 
@@ -381,7 +385,7 @@ $$ V_C(s)=\frac{\frac{V_S}{RC}}{s\left(s+\frac{1}{RC}\right)}+\frac{v_C(0^{-})}{
 
 $$ V_C(s)=\frac{A}{s}+\frac{B}{s+\frac{1}{RC}}+\frac{v_C(0^{-})}{s+\frac{1}{RC}} $$
 
-$$ A=\left.\frac{\sfrac{V_S}{RC}}{s+\sfrac{1}{RC}}\right|*{s=0}=\frac{\sfrac{V*S}{RC}}{\sfrac{1}{RC}}=V_S $$
+$$ A=\left.\frac{\sfrac{V_S}{RC}}{s+\sfrac{1}{RC}}\right|_{s=0}=\frac{\sfrac{V_S}{RC}}{\sfrac{1}{RC}}=V_S $$
 
 $$ B=\left.\frac{\sfrac{V_S}{RC}}{s}\right|_{s=-\sfrac{1}{RC}}=\frac{\sfrac{V_S}{RC}}{-\sfrac{1}{RC}}=-V_S $$
 
@@ -469,7 +473,7 @@ $$ \frac{\frac{V_S}{L}}{s(s+\frac{R}{L})}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) 
 
 $$ \frac{A}{s}+\frac{B}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) $$
 
-$$ A=\left.\frac{\sfrac{V_S}{L}}{s+\sfrac{R}{L}}\right|*{s=0}=\frac{\sfrac{V*S}{L}}{\sfrac{R}{L}}=\frac{V_S}{R} $$
+$$ A=\left.\frac{\sfrac{V_S}{L}}{s+\sfrac{R}{L}}\right|_{s=0}=\frac{\sfrac{V_S}{L}}{\sfrac{R}{L}}=\frac{V_S}{R} $$
 
 $$ B=\left.\frac{\sfrac{V_S}{L}}{s}\right|_{s=-\sfrac{R}{L}}=\frac{\sfrac{V_S}{L}}{-\sfrac{R}{L}}=-\frac{V_S}{R} $$
 

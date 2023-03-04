@@ -167,11 +167,14 @@ All three methods are applicable to this example and all three yield the same re
 
 Some examples will allow us to consider each of the three cases and their limitations.
 
-\begin{example}
+````{admonition} Example
+ 
 Find the Thevenin equivalent for the circuit shown here around the resistor, $R_{L}$.
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
 ```{figure} logo.png
@@ -326,9 +329,11 @@ name: LABEL_14
 ```
 
 A load connected to the original circuit between nodes A and B will see the same voltage, current, and power as a load connected across the output of the Thevenin equivalent.
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
 ```{figure} logo.png
@@ -340,11 +345,13 @@ name: LABEL_15
 
 This circuit has no independent supplies leading us to apply a voltage source where the load will be connected (method \#3 described above). The other two methods will not work according to their limitations.
 
-\end{example}
+
+````
 
 We often use Thevenin equivalent circuits to characterize sub-circuits without having to know the details of each sub-circuit. In this way we can determine what is happening at the nodes where the sub-circuits connect together. Examples of sub-circuits include stages of amplifiers, sections of a power distribution layout, sensors, and microcontrollers.
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -395,7 +402,8 @@ name: LABEL_19
 ---
 ```
 
-\end{example}
+
+````
 
 ## Norton's Theorem
 
@@ -478,7 +486,8 @@ $$ R_L=R_{TH} $$
 
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
-\begin{example}
+````{admonition} Example
+ 
 Let's take a look at an example with values that supports the theory introduced above. Consider a circuit that has a Thevenin voltage of 10~\text{V} and a Thevenin resistance of 2~\Om. The equivalent circuit can be drawn with a load connected as shown here:
 
 ```{figure} logo.png
@@ -503,9 +512,11 @@ At the other extreme of the domain of $R_{L}$ we can consider, $R_{L}$ is $\inft
 
 The maximum power is dissipated when $R_{L}$=$R_{TH}$, 2~\Om~for this example. This is evident in the plot above as the green line reaches its maximum value of 12.5~\text{W} when $R_{L}$ is 2~\Om.
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 Can $R_{L}$ dissipate 50~\text{W} in this circuit?
 
 ```{figure} logo.png
@@ -533,7 +544,8 @@ and therefore the maximum power that $R_{L}$ can dissipate will be
 $$ P_{RL}=\frac{(12~\text{V})^2}{3~\Omega}=48~\text{W} $$
 
 Any departure from $R_{L}$ being 3~\Om ~will lower the power dissipated by the load. Therefore, there is no value of $R_{L}$ that can dissipate 50~\text{W} in this circuit.
-\end{example}
+
+````
 
 One final note. While the $R_{TH}$=$R_{L}$ condition guarantees maximum power transferred to the load it makes no guarantee about the efficiency. This misconception is common but misguided. When maximum power is dissipated by the load the efficiency will be 50\%. $R_{L}$ and $R_{TH}$ will dissipate the same power. The power dissipated by $R_{TH}$ is considered wasted energy dissipated by the transmitting circuit.
 
@@ -619,7 +631,8 @@ name: LABEL_32
 
 ### Circuit Analysis and Reduction of Complexity with Source Conversions derp
 
-\begin{example}
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -628,9 +641,11 @@ name: LABEL_33
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -639,9 +654,11 @@ name: LABEL_34
 ---
 ```
 
-\end{example}
 
-\begin{example}
+````
+
+````{admonition} Example
+ 
 
 ```{figure} logo.png
 ---
@@ -650,7 +667,8 @@ name: LABEL_35
 ---
 ```
 
-\end{example}
+
+````
 
 Highlight reduction in complexity
 Add Dependent supply example
