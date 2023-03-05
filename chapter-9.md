@@ -45,8 +45,7 @@ I'm going to list the steps here as reference. Use these steps as we walk throug
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example.svg') as d:
     d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n30V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
@@ -61,8 +60,7 @@ with schemdraw.Drawing(file='super-example.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-sub1.svg') as d:
     d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n30V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
@@ -78,8 +76,7 @@ with schemdraw.Drawing(file='super-example-sub1.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.LineDot().up().length(d.unit/2)
@@ -172,8 +169,7 @@ The next problem is similar but let's find a voltage in the circuit. Also, let's
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-current-supply.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n30V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
@@ -185,8 +181,7 @@ with schemdraw.Drawing(file='super-example-current-supply.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-current-supply-sub1.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n30V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
@@ -200,8 +195,7 @@ with schemdraw.Drawing(file='super-example-current-supply-sub1.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-current-supply-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.LineDot().up().length(d.unit/2)
@@ -284,8 +278,7 @@ In the next example I'll increase the number of supplies. Superposition scales, 
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-3-supplies.svg') as d:
     d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n12V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ', loc='top'))
@@ -303,8 +296,7 @@ with schemdraw.Drawing(file='super-example-3-supplies.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-3-supplies-sub1.svg') as d:
     d += (Vs1 := elm.Battery().up().label('$V_{S1}$\n12V', loc='top').reverse())
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n4kΩ', loc='top'))
@@ -329,8 +321,7 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub1.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-3-supplies-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.Line().up().length(d.unit/2)
@@ -354,8 +345,7 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub2.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-3-supplies-sub3.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.Line().up().length(d.unit/2)
@@ -473,8 +463,7 @@ In this last example let's examine how a dependent supply is treated when using 
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-dependent.svg') as d:
     d += (Vs1 := elm.SourceControlledV().up().label('$V_{S1}$\n$2I_O$', loc='top'))
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n12Ω', loc='top'))
@@ -487,8 +476,7 @@ with schemdraw.Drawing(file='super-example-dependent.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-dependent-sub1.svg') as d:
     d += (Vs1 := elm.SourceControlledV().up().label('$V_{S1}$\n$2I_O$', loc='top'))
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n12Ω', loc='top'))
@@ -503,8 +491,7 @@ with schemdraw.Drawing(file='super-example-dependent-sub1.svg') as d:
 ```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='super-example-dependent-sub2.svg') as d:
     d += (Vs1 := elm.SourceControlledV().up().label('$V_{S1}$\n$2I_O$', loc='top'))
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n12Ω', loc='top'))
