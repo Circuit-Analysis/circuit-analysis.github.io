@@ -14,6 +14,13 @@ kernelspec:
 
 # A Sloppy Approach to Circuit Analysis
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 <center>
 <i>Sometimes a desperate man does dumb things.</i>
 
@@ -24,8 +31,7 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='sloppy-1.svg') as d:
     d += elm.SourceV().label('$V_S$')
     d += elm.Resistor().right().label('$R_1$\n$2~\Omega$')
@@ -66,8 +72,7 @@ $I_{R_1}$ and $R_1$ tells us $V_{R_1}$, and KVL then tells us what $V_S$ is.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='sloppy-2.svg') as d:
     d += elm.Resistor().up().label('$6~k\Omega$').label(['+','$V_{6k}$','-'], loc='bot')
     d += elm.Line().right()
@@ -107,8 +112,7 @@ $V_\text{3k}$ may then be found using $V_\text{6k}$ and the voltage divider equa
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='sloppy-3.svg') as d:
     d += elm.SourceI().label('$4~mA$').up()
     d += elm.Line().right()
@@ -143,8 +147,7 @@ Using KCL, we can then find $I_x$.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='sloppy-4.svg') as d:
     d += elm.Battery().up().label('$5~V$').label('A', loc='right').reverse()
     d += elm.Resistor().right().label(['+', '$4~V$', '-'])

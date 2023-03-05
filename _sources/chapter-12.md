@@ -16,6 +16,13 @@ kernelspec:
 
 # Alternating Current: Differential Equation Approach
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 ## Analysis Methods and Theorems with Alternating Current
 
 ### Voltage Divider
@@ -122,7 +129,7 @@ name: LABEL_5
 Find the Thevenin equivalent of the circuit above.
 
 \Solution
-Find V\tss{OC} first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
+Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
 
 ```{figure} logo.png
 ---
@@ -152,7 +159,7 @@ name: LABEL_7
 ---
 ```
 
-    Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
+Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
 
 $$ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 $$
 
@@ -161,7 +168,7 @@ which reduces to
 $$ V_{OC}=50\angle{-150^\circ}~V=V_{TH} $$
 
 which is the Thevenin voltage.
-Next, we find Z\tss{TH}. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
+Next, we find $Z\tss{TH}$. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
 
 ```{figure} logo.png
 ---
@@ -172,9 +179,9 @@ name: LABEL_8
 
 For this circuit
 
-$$ Z_{TH}=R+(L||C)=10-j20~\Omega $$
+$$ Z\tss{TH}=R+(L||C)=10-j20~\Omega $$
 
-We can now draw the Thevenin equivalent circuit since we have both V\tss{TH} and Z\tss{TH}.
+We can now draw the Thevenin equivalent circuit since we have both $V\tss{TH}$ and $Z\tss{TH}$.
 
 ```{figure} logo.png
 ---

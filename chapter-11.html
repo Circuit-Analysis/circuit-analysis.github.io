@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-18.html">
-   More Complex Circuits using the ``Step-by-step Method’’
+   More Complex Circuits using the “Step-by-step Method”
   </a>
  </li>
  <li class="toctree-l1">
@@ -602,14 +602,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="other-passive-components">
-<span id="content-chapter-otherpassivecomponents"></span><h1>Other Passive Components<a class="headerlink" href="#other-passive-components" title="Permalink to this headline">#</a></h1>
+  <p id="content-chapter-otherpassivecomponents"><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="other-passive-components">
+<h1>Other Passive Components<a class="headerlink" href="#other-passive-components" title="Permalink to this headline">#</a></h1>
 <section id="capacitors">
 <h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
 <section id="physical-characteristics">
 <h3>Physical Characteristics<a class="headerlink" href="#physical-characteristics" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-9899beba-228c-4499-85b4-8ea276d08ca5">
-<span class="eqno">(16)<a class="headerlink" href="#equation-9899beba-228c-4499-85b4-8ea276d08ca5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f74f7cb-232f-4d52-ab97-608895d34fe3">
+<span class="eqno">(16)<a class="headerlink" href="#equation-1f74f7cb-232f-4d52-ab97-608895d34fe3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q=VC
 \end{equation}\]</div>
 <p>Elastance (D=1/C) unit: Daraf <span class="math notranslate nohighlight">\(F^{-1}\)</span></p>
@@ -652,23 +660,23 @@ Q=VC
 <h3>Voltage/Current Relationship<a class="headerlink" href="#voltage-current-relationship" title="Permalink to this headline">#</a></h3>
 <p>All of circuit analysis can be related back to the three fundamental laws: KVL, KCL, and Ohm’s Law. As new passive components are introduced we must reconsider the relationship between voltage and current. The capacitor equation takes the place of Ohm’s law.</p>
 <p>We can start with the charge equation introduced earlier and restated here as a time-domain function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-120b8445-7d84-42c2-ac07-50508ac513c1">
-<span class="eqno">(17)<a class="headerlink" href="#equation-120b8445-7d84-42c2-ac07-50508ac513c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-048945b2-b179-4c52-a90a-a1c9161bae8c">
+<span class="eqno">(17)<a class="headerlink" href="#equation-048945b2-b179-4c52-a90a-a1c9161bae8c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q(t)=Cv(t)
 \end{equation}\]</div>
 <p>taking the derivative of both sides leads to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36f965d8-e908-4d47-8efc-c991a8c4c882">
-<span class="eqno">(18)<a class="headerlink" href="#equation-36f965d8-e908-4d47-8efc-c991a8c4c882" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fccb78de-9e4d-4b95-bb2a-608f12d33e18">
+<span class="eqno">(18)<a class="headerlink" href="#equation-fccb78de-9e4d-4b95-bb2a-608f12d33e18" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dq(t)}{dt}=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>Recall from the section on fundamentals the the time derivative of charge is current, <span class="math notranslate nohighlight">\(i(t)=\frac{dq(t)}{dt}\)</span>, alternatively stated as the flow rate of charge. Therefore the derivative form of the capacitor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86de10c7-c071-48c0-87d3-c0ab6187c88d">
-<span class="eqno">(19)<a class="headerlink" href="#equation-86de10c7-c071-48c0-87d3-c0ab6187c88d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee389654-90d3-44ea-8b7b-50b3fcdd2d69">
+<span class="eqno">(19)<a class="headerlink" href="#equation-ee389654-90d3-44ea-8b7b-50b3fcdd2d69" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=C\frac{dv(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-907251ab-79ac-44d7-b6e5-fcb05de21cbb">
-<span class="eqno">(20)<a class="headerlink" href="#equation-907251ab-79ac-44d7-b6e5-fcb05de21cbb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-244150d5-3d50-4797-b377-d8d5ab5def3c">
+<span class="eqno">(20)<a class="headerlink" href="#equation-244150d5-3d50-4797-b377-d8d5ab5def3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 \end{equation}\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
@@ -720,13 +728,13 @@ v(t)=\frac{1}{C}\int\_{t_0}^t i(\tau)d\tau + v(t_0)
 <section id="id2">
 <h3>Voltage/Current Relationship<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>The derivative form of the inductor equation can be stated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7378445-1c0d-4d5a-98c1-ee8c45e6b071">
-<span class="eqno">(21)<a class="headerlink" href="#equation-d7378445-1c0d-4d5a-98c1-ee8c45e6b071" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f56b98a0-b0ea-458c-b70c-703ce5fa0415">
+<span class="eqno">(21)<a class="headerlink" href="#equation-f56b98a0-b0ea-458c-b70c-703ce5fa0415" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v(t)=L\frac{di(t)}{dt}
 \end{equation}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b481e7a-90ca-4ef6-b584-b3e176453d30">
-<span class="eqno">(22)<a class="headerlink" href="#equation-2b481e7a-90ca-4ef6-b584-b3e176453d30" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-74f66fc5-3297-43a0-a8c2-a85c460c6e1b">
+<span class="eqno">(22)<a class="headerlink" href="#equation-74f66fc5-3297-43a0-a8c2-a85c460c6e1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i(t)=\frac{1}{L}\int\_{t_0}^t v(\tau)d\tau + i(t_0)
 \end{equation}\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>

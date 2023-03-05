@@ -16,17 +16,21 @@ kernelspec:
 
 # Fundamentals
 
-$\newcommand{\textss}[1]{_{\mbox{#1}}}$
-$\newcommand{\Deg}{^\circ}$
-
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+:load: includes/python_imports.py
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+git_hash = !git rev-parse HEAD
+f = open("includes/git_hash.txt", "w")
+f.write(str(git_hash[0]))
+f.close()
 
 ```
+
 
 (content:section:si_units)=
 
@@ -215,8 +219,6 @@ Independent Current Source.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
 with schemdraw.Drawing(file='independent-current-source.svg') as d:
     d += elm.SourceI().label('$I_S$').label('2 mA', loc="bottom")
 ```
@@ -236,8 +238,6 @@ Dependent Current Source.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
 with schemdraw.Drawing(file='dependent-current-source.svg') as d:
     d += elm.SourceControlledI().label('$I_S$').label('4 $V_x$', loc="bottom")
 ```
@@ -281,8 +281,7 @@ There are more than one type of ground. Here are some common symbols.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='different-grounds.svg') as d:
     d += elm.Ground().label('Earth Ground')
     d.here = (4, 0)
@@ -335,8 +334,7 @@ A battery and an generic independent voltage source.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='independent-voltage-source.svg') as d:
     d += elm.Battery().label('Battery').label('12V', loc="bottom").down()
     d.move(6, 0)
@@ -359,8 +357,7 @@ A dependent voltage source.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='dependent-voltage-source.svg') as d:
     d += elm.SourceControlledV().label('$V_S$').label('$4 V_x$', loc="bottom")
 ```
@@ -381,8 +378,7 @@ Different voltages labeled.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 class VoltageLabel(elm.Element):
@@ -416,8 +412,7 @@ Different voltages labeled.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 with schemdraw.Drawing(file='labeled-voltages-2.svg') as d:
@@ -461,8 +456,7 @@ Cross-section of a resistive element.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 class Cylinder(elm.Element):
@@ -647,8 +641,7 @@ Explanation of Ohm's law.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 schemdraw.config(lw=1, font='times')
@@ -664,8 +657,7 @@ $$v=iR$$
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 schemdraw.config(lw=1, font='times')
@@ -679,8 +671,7 @@ with schemdraw.Drawing(file='ohms-law-example-1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 schemdraw.config(lw=1, font='times')
@@ -724,8 +715,7 @@ Solution for current via Ohm's law.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 from schemdraw.segments import *
 
 schemdraw.config(lw=1, font='times')
@@ -808,8 +798,7 @@ Always answers the question: "How much power is begin dissipated?" Negative sign
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='conservation-of-power.svg') as d:
     d += (I1 := elm.SourceI().label('3 A'))
     d += (R1 := elm.Resistor().right().label(['+','$4V$','-']))
