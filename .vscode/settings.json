@@ -1,17 +1,18 @@
 {
-  "cSpell.words": [
-    "amsmath",
-    "carbatteryvoltage",
-    "dollarmath",
-    "halign",
-    "ipython",
-    "manim",
-    "milliamp",
-    "milliamps",
-    "opamp",
-    "wirecutter"
-],
-"files.exclude": {
-    "**/*.svg": true
-},
+    "cSpell.words": [
+        "amsmath",
+        "carbatteryvoltage",
+        "dollarmath",
+        "genindex",
+        "halign",
+        "ipython",
+        "manim",
+        "milliamp",
+        "milliamps",
+        "opamp",
+        "wirecutter"
+    ],
+    "files.exclude": {
+        "**/*.svg": true
+    },
 }
