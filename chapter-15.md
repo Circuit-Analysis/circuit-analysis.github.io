@@ -16,6 +16,13 @@ kernelspec:
 
 # A Simpler Approach: Complex Power
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 \section{Apparent Power}
 Apparent power is a combination of the power being dissipated by a load (average power) and the power being stored by the load (reactive power)
 

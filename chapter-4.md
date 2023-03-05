@@ -14,12 +14,11 @@ kernelspec:
 
 # Dividers
 
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
+:load: includes/python_imports.py
 ```
 
 ```{index} Divider
@@ -39,8 +38,7 @@ The voltage divider relates voltage across multiple resistors connected in serie
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-divider-1.svg') as d:
     d += elm.Battery().label('$V_S$\n15 V').down().length(6)
     d += elm.Line().right()
@@ -54,8 +52,7 @@ with schemdraw.Drawing(file='voltage-divider-1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-divider-2.svg') as d:
     d += elm.Battery().label('$V_S$\n15 V').down().length(6)
     d += elm.Line().right()
@@ -126,8 +123,7 @@ Before you commit to using the voltage divider formula, ask yourself these quest
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='current-divider-1.svg') as d:
     d += elm.SourceI().label('$I_S$\n3 mA').label(['-','V','+'], loc='bot').up().length(4)
     d += elm.Line().right()
@@ -146,8 +142,7 @@ with schemdraw.Drawing(file='current-divider-1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='current-divider-2.svg') as d:
     d += elm.SourceI().label('$I_S$\n3 mA').label(['-','V','+'], loc='bot').up().length(4)
     d += elm.Line().right()
@@ -233,8 +228,7 @@ Before you commit to using the current divider formula, ask yourself these quest
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='voltage-divider-power-1.svg') as d:
     d += elm.Battery().label('$V_S$\n15 V').down().length(6)
     d += elm.Line().right()
@@ -322,8 +316,7 @@ So we can see that the amount of power dissipated does not change, even when we 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='current-divider-power-1.svg') as d:
     d += elm.SourceI().label('$I_S$\n3 mA').label(['-','V','+'], loc='bot').up().length(4)
     d += elm.Line().right()
@@ -490,8 +483,7 @@ with schemdraw.Drawing(file='kvl-2.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='kcl-1.svg') as d:
     d += (D1 := elm.Dot().scale(3))
     d += elm.ResistorIEC().theta(225).length(4)

@@ -14,13 +14,11 @@ kernelspec:
 
 # Anatomy of a Circuit
 
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
-
+:load: includes/python_imports.py
 ```
 
 ## Nodes
@@ -30,8 +28,7 @@ A **node** is any point in a circuit that connects two or more elements. The vol
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='anatomy-node.svg') as d:
     d += elm.Resistor().right()
     d += elm.Dot().label('node').color('red')
@@ -56,8 +53,7 @@ A **branch** is any circuit element connecting two nodes.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='anatomy-branch.svg') as d:
     d += elm.Dot()
     d += elm.Resistor().right().color('blue')
@@ -85,8 +81,7 @@ A **loop** is any closed path in a circuit. _Closed_ means that it begins and en
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='anatomy-loop.svg') as d:
     d.push()
     d += (R1 := elm.RBox().up().color('gray'))
@@ -151,8 +146,7 @@ A **mesh** is a loop with no intermediate branches.
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='anatomy-mesh.svg') as d:
     d += (R1 := elm.RBox().up().color('gray'))
     d += (R2 := elm.RBox().right().color('gray'))

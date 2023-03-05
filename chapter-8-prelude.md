@@ -16,13 +16,11 @@ kernelspec:
 
 # More Anatomy of a Circuit
 
+```{include} includes/latex_imports.md
+```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-
-import matplotlib
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
-
+:load: includes/python_imports.py
 ```
 
 Before proceeding to Nodal Analysis let's look at nodes, node voltages and how they relate to other circuit values.
@@ -38,8 +36,7 @@ If you don't need to cross a component between two of your labeled nodes than th
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-example-1.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -65,8 +62,7 @@ with schemdraw.Drawing(file='nodal-example-1.svg') as d:
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-example-2.svg') as d:
     d.push()
     d += elm.GroundSignal()
@@ -97,8 +93,7 @@ with schemdraw.Drawing(file='nodal-example-2.svg') as d:
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
-import schemdraw
-import schemdraw.elements as elm
+
 with schemdraw.Drawing(file='nodal-example-3.svg') as d:
     d.push()
     d += elm.GroundSignal()

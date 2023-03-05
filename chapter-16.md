@@ -16,6 +16,13 @@ kernelspec:
 
 # Power Factor Correction
 
+```{include} includes/latex_imports.md
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+:load: includes/python_imports.py
+```
+
 ## A Lagging Circuit
 
 ## A Leading Circuit
