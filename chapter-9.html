@@ -509,19 +509,25 @@ title="Print to PDF"
 <li><p>Algebraically sum the values from each individual supply.</p></li>
 </ol>
 </div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find <span class="math notranslate nohighlight">\(I_{O}\)</span> using superposition.</p>
-<figure class="align-default" id="label-for-this-image1">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example">
+<a class="reference internal image-reference" href="_images/super-example.svg"><img alt="_images/super-example.svg" height="300px" src="_images/super-example.svg" /></a>
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>The circuit has two <u>independent</u> supplies (doesn’t matter whether they are voltage or current supplies) so we analyze the circuit twice.</p>
 <p><strong>Sub-problem #1</strong>
 In the first “sub-problem” we consider the effect of <span class="math notranslate nohighlight">\(V_{S1}\)</span> on <span class="math notranslate nohighlight">\(I_{O}\)</span>. Notice that <span class="math notranslate nohighlight">\(V_{S2}\)</span> is replaced by a its ideal resistance, a short in this case. Also notice that the <span class="math notranslate nohighlight">\(I_{O}\)</span> labeled in this sub-problem has a superscript indicating it is the result of the first independent supply considered. This is a distinct value for the <span class="math notranslate nohighlight">\(I_{O}\)</span> labeled in the original problem.</p>
-<figure class="align-default" id="label-for-this-image13">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-sub1">
+<a class="reference internal image-reference" href="_images/super-example-sub1.svg"><img alt="_images/super-example-sub1.svg" height="300px" src="_images/super-example-sub1.svg" /></a>
 </figure>
 <p>Now we analyze the circuit using any method that will give us the correct answer. I’ll use the mesh shortcut here.</p>
 <div class="math notranslate nohighlight">
@@ -537,8 +543,8 @@ I_O^{(1)}=I_1-I_2=(2-1)=1~\text{A}
 \]</div>
 <p><strong>Sub-problem #2</strong>
 In the second “sub-problem” we consider the effect of <span class="math notranslate nohighlight">\(V_{S2}\)</span> on <span class="math notranslate nohighlight">\(I_{O}\)</span>. <span class="math notranslate nohighlight">\(I_{O}\)</span> in this problem is labeled I<span class="math notranslate nohighlight">\(_O^{(2)}\)</span> as it is the output current caused by the second independent supply. <span class="math notranslate nohighlight">\(V_{S1}\)</span> is replaced by its ideal resistance.</p>
-<figure class="align-default" id="label-for-this-image2">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-sub2">
+<a class="reference internal image-reference" href="_images/super-example-sub2.svg"><img alt="_images/super-example-sub2.svg" height="300px" src="_images/super-example-sub2.svg" /></a>
 </figure>
 <p>Again, we analyze the circuit using any method that will give us the correct answer. Again, I’ll use the mesh shortcut here.</p>
 <div class="math notranslate nohighlight">
@@ -562,17 +568,23 @@ I_O=I_O^{(1)}+I_O^{(2)}=1~\text{A}+2~\text{A}=3~\text{A}
 </div>
 </div>
 <p>The next problem is similar but let’s find a voltage in the circuit. Also, let’s examine how do we treat current supplies when using superposition.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-for-this-image3">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-current-supply">
+<a class="reference internal image-reference" href="_images/super-example-current-supply.svg"><img alt="_images/super-example-current-supply.svg" height="300px" src="_images/super-example-current-supply.svg" /></a>
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p><strong>Sub-problem #1</strong>
 In the first “sub-problem” we consider the effect of <span class="math notranslate nohighlight">\(V_{S}\)</span> on <span class="math notranslate nohighlight">\(V_{O}\)</span>. Notice that <span class="math notranslate nohighlight">\(I_{S}\)</span> is replaced by a its ideal resistance, an open in this case.</p>
-<figure class="align-default" id="label-for-this-image4">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-current-supply-sub1">
+<a class="reference internal image-reference" href="_images/super-example-current-supply-sub1.svg"><img alt="_images/super-example-current-supply-sub1.svg" height="300px" src="_images/super-example-current-supply-sub1.svg" /></a>
 </figure>
 <p>It is possible to use a simple voltage divider to analyze this circuit. For consistency I will write the KVL using the mesh analysis shortcut. This sub-problem only has a single mesh and no current supplies so analysis involves a single KVL. The shortcut only requires a 1x1 matrix and a 1x1 vector. It feels silly… but it works.</p>
 <div class="math notranslate nohighlight">
@@ -585,8 +597,8 @@ V_O^{(1)}=I(R_2)=1.5(10)=15~V
 \]</div>
 <p><strong>Sub-problem #2</strong>
 The second sub-problem we consider the effect of <span class="math notranslate nohighlight">\(I_{S}\)</span> on <span class="math notranslate nohighlight">\(V_{O}\)</span>.</p>
-<figure class="align-default" id="label-for-this-image5">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-current-supply-sub2">
+<a class="reference internal image-reference" href="_images/super-example-current-supply-sub2.svg"><img alt="_images/super-example-current-supply-sub2.svg" height="300px" src="_images/super-example-current-supply-sub2.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -608,18 +620,26 @@ V_O=V_O^{(1)}+V_O^{(2)}=15~V+15~V=30~V
 </div>
 </div>
 <p>In the next example I’ll increase the number of supplies. Superposition scales, that is to say we simply increase the number of sub-problems. Three, four, five supplies may be workable by hand as I’ll show here but many more than that and we should consider using a tool such as MATLAB to perform the analysis. There are circuits that require an infinite number of sub-problems to analyze. Often we will use MATLAB to analyze a large number of the sub-problems in order to approximate an infinite number. But let’s not get ahead of ourselves. Let’s solve the next one with three supplies.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find <span class="math notranslate nohighlight">\(I_{O}\)</span> using superposition.</p>
-<figure class="align-default" id="label-for-this-image6">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-3-supplies">
+<a class="reference internal image-reference" href="_images/super-example-3-supplies.svg"><img alt="_images/super-example-3-supplies.svg" height="300px" src="_images/super-example-3-supplies.svg" /></a>
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>With three independent supplies we need to consider three sub-problems for this circuit. The order of the sub-problems does not matter, just pick an independent supply and get going. Let’s start by considering the effect <span class="math notranslate nohighlight">\(V_{S1}\)</span> has on <span class="math notranslate nohighlight">\(I_{O}\)</span>.</p>
 <p><strong>Sub-problem #1</strong></p>
-<figure class="align-default" id="label-for-this-image7">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-3-supplies-sub1">
+<a class="reference internal image-reference" href="_images/super-example-3-supplies-sub1.svg"><img alt="_images/super-example-3-supplies-sub1.svg" height="300px" src="_images/super-example-3-supplies-sub1.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -633,8 +653,8 @@ V_O=V_O^{(1)}+V_O^{(2)}=15~V+15~V=30~V
 I_O^{(1)}=I_1-I_2=3~\text{mA}-1.5~\text{mA}=1.5~\text{mA}
 \]</div>
 <p><strong>Sub-problem #2</strong></p>
-<figure class="align-default" id="label-for-this-image8">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-3-supplies-sub2">
+<a class="reference internal image-reference" href="_images/super-example-3-supplies-sub2.svg"><img alt="_images/super-example-3-supplies-sub2.svg" height="300px" src="_images/super-example-3-supplies-sub2.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -648,8 +668,8 @@ I_O^{(1)}=I_1-I_2=3~\text{mA}-1.5~\text{mA}=1.5~\text{mA}
 I_O^{(2)}=I_1-I_2=1.5~\text{mA}-1.5~\text{mA}=0~\text{A}
 \]</div>
 <p><strong>Sub-problem #3</strong></p>
-<figure class="align-default" id="label-for-this-image9">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-3-supplies-sub3">
+<a class="reference internal image-reference" href="_images/super-example-3-supplies-sub3.svg"><img alt="_images/super-example-3-supplies-sub3.svg" height="300px" src="_images/super-example-3-supplies-sub3.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -675,18 +695,24 @@ I_O=I_O^{(1)}+I_O^{(2)}+I_O^{(3)}=1.5~\text{mA}+0~\text{A}+3~\text{mA}=4.5~\text
 <section id="dependent-supplies">
 <h2>Dependent Supplies<a class="headerlink" href="#dependent-supplies" title="Permalink to this headline">#</a></h2>
 <p>In this last example let’s examine how a dependent supply is treated when using superposition.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find <span class="math notranslate nohighlight">\(I_{O}\)</span> using superposition.</p>
-<figure class="align-default" id="label-for-this-image10">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-dependent">
+<a class="reference internal image-reference" href="_images/super-example-dependent.svg"><img alt="_images/super-example-dependent.svg" height="300px" src="_images/super-example-dependent.svg" /></a>
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>Stop. Ask yourself how many sub-problems you’ll need to solve for this circuit. If you said three you’re wrong. Count the <strong>independent</strong> supplies to determine how many sub-problems to solve. There are only two in this circuit. When you redraw the circuit the dependent supply should be included in each sub-problem. Look at the circuits below to see an example of this.</p>
 <p><strong>Sub-problem #1</strong></p>
-<figure class="align-default" id="label-for-this-image11">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-dependent-sub1">
+<a class="reference internal image-reference" href="_images/super-example-dependent-sub1.svg"><img alt="_images/super-example-dependent-sub1.svg" height="300px" src="_images/super-example-dependent-sub1.svg" /></a>
 </figure>
 <p>Let’s start by writing the KVL around the super loop.</p>
 <div class="math notranslate nohighlight">
@@ -726,8 +752,8 @@ I_O^{(1)}=-I_2
 I_O^{(1)}=-I_2=-1.2~\text{A}
 \]</div>
 <p><strong>Sub-problem #2</strong></p>
-<figure class="align-default" id="label-for-this-image12">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="super-example-dependent-sub2">
+<a class="reference internal image-reference" href="_images/super-example-dependent-sub2.svg"><img alt="_images/super-example-dependent-sub2.svg" height="300px" src="_images/super-example-dependent-sub2.svg" /></a>
 </figure>
 <p>For this sub-problem I’ll write the KVL for the only mesh after the current supply has been replaced by an open.</p>
 <div class="math notranslate nohighlight">
