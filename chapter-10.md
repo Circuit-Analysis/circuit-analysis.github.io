@@ -25,32 +25,62 @@ kernelspec:
 
 For instance, we may know nothing about the analog input circuit of the microcontroller pictured below on the left. We know we can connect the ground pin to a circuit we want to connect to and the analog input to another node in that circuit at which we want to measure the voltage. Let's use the voltage divider pictured below on the right. Ideally, connecting the output of the voltage divider to the input of the microcontroller will not affect the voltage labeled $V_\text{OUT}$. We would like it to be 6~\text{V} as would be the case if nothing is connected to the voltage divider. Realistically, $V_\text{OUT}$ will be affected, but by how much?
 
-```{figure} logo.png
----
-height: 300px
-name: LABEL_0
----
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-intro.svg') as d:
+    d+= (uC := elm.Ic(pins=[elm.IcPin(anchorname='GND', side='bottom'),
+                 elm.IcPin(anchorname='A0', side='left',pos=1)],
+            edgepadW = 1.5,  # Make it a bit wider
+            edgepadH = 2.5,  # Make it a bit wider
+            lblsize=12,
+            pinspacing=1))
+    d += (GndSig := elm.GroundSignal().at(uC.GND))    
+    d += (Rin := elm.Resistor().at(uC.GND).up())    
+    d += (LineT := elm.Line().left().tox(uC.A0))    
+    d += (Lbl1 := elm.Label().at(uC.A0).label('Analog\nInput',loc='left'))    
+    d += (Lbl2 := elm.Label().at((1.5,5.1)).label('Microcontroller',loc='top'))    
+
+    d.move_from(uC.GND, dx=6, dy=6)
+    d += elm.Dot(open=True).label('$+12V$',loc='right')
+    d += (R1 := elm.Resistor().down().label('$R_{1}$\n42kΩ', loc='top'))
+    d += (R2 := elm.Resistor().down().label('$R_{2}$\n42kΩ', loc='top'))    
+    d += (GndSig := elm.GroundSignal())    
+    d += (LineOut := elm.Line().at(R1.end).right().length(d.unit/4))    
+    d += elm.Dot(open=True).label('$V_{OUT}$',loc='right')
 ```
 
 
-```{figure} logo.png
+```{figure} thevenin-intro.svg
 ---
 height: 300px
-name: LABEL_1
+name: thevenin-intro
 ---
 ```
-
- 
-
 
 The two theorems that will help us answer this question, Thevenin's and Norton's theorems, are detailed in this chapter. I'll revisit this example as I introduce Thevenin's theorem in the next section.
 
 ## Thevenin's Theorem
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-canonical.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='bottom').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vth.start))    
+    d += (thevenin := elm.EncircleBox([Vth, Rth],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((1.5,3.6)).label('Thevenin Equivalent',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-canonical.svg
 ---
 height: 300px
-name: LABEL_2
+name: thevenin-canonical
 ---
 ```
 
