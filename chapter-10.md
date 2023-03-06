@@ -86,17 +86,53 @@ name: thevenin-canonical
 
 ### Thevenin Voltage
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+   
+    d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-toy.svg
 ---
 height: 300px
-name: LABEL_3
+name: thevenin-toy
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-load-removed.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'), loc='bottom').length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-toy-load-removed.svg
 ---
 height: 300px
-name: LABEL_4
+name: thevenin-toy-load-removed
 ---
 ```
 
