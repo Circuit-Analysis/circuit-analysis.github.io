@@ -149,10 +149,33 @@ There are three methods to determine Thevenin resistance. All three will be demo
 - Find the equivalent resistance between the nodes where the load will be reconnected. That resistance is $R_{TH}$.
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-1.svg') as d:
+    d += elm.LineDot().up().length(d.unit/6)
+    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+    d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
+    
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))    
+```
+
+```{figure} thevenin-toy-Rth-method-1.svg
 ---
 height: 300px
-name: LABEL_5
+name: thevenin-toy-Rth-method-1
 ---
 ```
 
