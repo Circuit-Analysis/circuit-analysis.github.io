@@ -194,19 +194,55 @@ $$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 
 $V_{OC}$ was calculated in a previous section as 8~\text{V}. The load is then replaced with a short and the short-circuit current is calculated/measured.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-2.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+```
+```{figure} thevenin-toy-Rth-method-2.svg
 ---
 height: 300px
-name: LABEL_6
+name: thevenin-toy-Rth-method-2
 ---
 ```
 
 Use any method of analysis that you are confident in. I used mesh here:
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-2-mesh.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Rl,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+    
+```
+```{figure} thevenin-toy-Rth-method-2-mesh.svg
 ---
 height: 300px
-name: LABEL_7
+name: thevenin-toy-Rth-method-2-mesh
 ---
 ```
 
