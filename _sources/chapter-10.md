@@ -25,48 +25,114 @@ kernelspec:
 
 For instance, we may know nothing about the analog input circuit of the microcontroller pictured below on the left. We know we can connect the ground pin to a circuit we want to connect to and the analog input to another node in that circuit at which we want to measure the voltage. Let's use the voltage divider pictured below on the right. Ideally, connecting the output of the voltage divider to the input of the microcontroller will not affect the voltage labeled $V_\text{OUT}$. We would like it to be 6~\text{V} as would be the case if nothing is connected to the voltage divider. Realistically, $V_\text{OUT}$ will be affected, but by how much?
 
-```{figure} logo.png
----
-height: 300px
-name: LABEL_0
----
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-intro.svg') as d:
+    d+= (uC := elm.Ic(pins=[elm.IcPin(anchorname='GND', side='bottom'),
+                 elm.IcPin(anchorname='A0', side='left',pos=1)],
+            edgepadW = 1.5,  # Make it a bit wider
+            edgepadH = 2.5,  # Make it a bit wider
+            lblsize=12,
+            pinspacing=1))
+    d += (GndSig := elm.GroundSignal().at(uC.GND))    
+    d += (Rin := elm.Resistor().at(uC.GND).up())    
+    d += (LineT := elm.Line().left().tox(uC.A0))    
+    d += (Lbl1 := elm.Label().at(uC.A0).label('Analog\nInput',loc='left'))    
+    d += (Lbl2 := elm.Label().at((1.5,5.1)).label('Microcontroller',loc='top'))    
+
+    d.move_from(uC.GND, dx=6, dy=6)
+    d += elm.Dot(open=True).label('$+12V$',loc='right')
+    d += (R1 := elm.Resistor().down().label('$R_{1}$\n42kΩ', loc='top'))
+    d += (R2 := elm.Resistor().down().label('$R_{2}$\n42kΩ', loc='top'))    
+    d += (GndSig := elm.GroundSignal())    
+    d += (LineOut := elm.Line().at(R1.end).right().length(d.unit/4))    
+    d += elm.Dot(open=True).label('$V_{OUT}$',loc='right')
 ```
 
 
-```{figure} logo.png
+```{figure} thevenin-intro.svg
 ---
 height: 300px
-name: LABEL_1
+name: thevenin-intro
 ---
 ```
-
- 
-
 
 The two theorems that will help us answer this question, Thevenin's and Norton's theorems, are detailed in this chapter. I'll revisit this example as I introduce Thevenin's theorem in the next section.
 
 ## Thevenin's Theorem
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-canonical.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='bottom').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vth.start))    
+    d += (thevenin := elm.EncircleBox([Vth, Rth],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((1.5,3.6)).label('Thevenin Equivalent',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-canonical.svg
 ---
 height: 300px
-name: LABEL_2
+name: thevenin-canonical
 ---
 ```
 
 ### Thevenin Voltage
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+   
+    d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-toy.svg
 ---
 height: 300px
-name: LABEL_3
+name: thevenin-toy
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-load-removed.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'), loc='bottom').length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+```
+
+```{figure} thevenin-toy-load-removed.svg
 ---
 height: 300px
-name: LABEL_4
+name: thevenin-toy-load-removed
 ---
 ```
 
@@ -83,10 +149,33 @@ There are three methods to determine Thevenin resistance. All three will be demo
 - Find the equivalent resistance between the nodes where the load will be reconnected. That resistance is $R_{TH}$.
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-1.svg') as d:
+    d += elm.LineDot().up().length(d.unit/6)
+    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+    d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
+    
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))    
+```
+
+```{figure} thevenin-toy-Rth-method-1.svg
 ---
 height: 300px
-name: LABEL_5
+name: thevenin-toy-Rth-method-1
 ---
 ```
 
@@ -105,19 +194,55 @@ $$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 
 $V_{OC}$ was calculated in a previous section as 8~\text{V}. The load is then replaced with a short and the short-circuit current is calculated/measured.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-2.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+```
+```{figure} thevenin-toy-Rth-method-2.svg
 ---
 height: 300px
-name: LABEL_6
+name: thevenin-toy-Rth-method-2
 ---
 ```
 
 Use any method of analysis that you are confident in. I used mesh here:
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-2-mesh.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Rl,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+    
+```
+```{figure} thevenin-toy-Rth-method-2-mesh.svg
 ---
 height: 300px
-name: LABEL_7
+name: thevenin-toy-Rth-method-2-mesh
 ---
 ```
 
@@ -145,10 +270,34 @@ First, note that this result is the same as the value calculated with the previo
 
 Let's try it. I picked 42~\text{V} for the voltage source.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-toy-Rth-method-3-mesh.svg') as d:
+    d += elm.LineDot().up().length(d.unit/6)
+    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.SourceV().down().length(4*d.unit/6).label('$V_{NEW}$\n42V',loc='bottom').reverse())    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(1.5))            
+    d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75,direction='ccw').label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Rl,LineB,R2],pad=0.75,direction='ccw').label('$I_2$').color('blue')
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
+    d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
+    
+```
+
+```{figure} thevenin-toy-Rth-method-3-mesh.svg
 ---
 height: 300px
-name: LABEL_8
+name: thevenin-toy-Rth-method-3-mesh
 ---
 ```
 

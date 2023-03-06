@@ -593,25 +593,30 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>For instance, we may know nothing about the analog input circuit of the microcontroller pictured below on the left. We know we can connect the ground pin to a circuit we want to connect to and the analog input to another node in that circuit at which we want to measure the voltage. Let’s use the voltage divider pictured below on the right. Ideally, connecting the output of the voltage divider to the input of the microcontroller will not affect the voltage labeled <span class="math notranslate nohighlight">\(V_\text{OUT}\)</span>. We would like it to be 6~\text{V} as would be the case if nothing is connected to the voltage divider. Realistically, <span class="math notranslate nohighlight">\(V_\text{OUT}\)</span> will be affected, but by how much?</p>
-<figure class="align-default" id="label-0">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<figure class="align-default" id="label-1">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-intro">
+<a class="reference internal image-reference" href="_images/thevenin-intro.svg"><img alt="_images/thevenin-intro.svg" height="300px" src="_images/thevenin-intro.svg" /></a>
 </figure>
 <p>The two theorems that will help us answer this question, Thevenin’s and Norton’s theorems, are detailed in this chapter. I’ll revisit this example as I introduce Thevenin’s theorem in the next section.</p>
 <section id="thevenin-s-theorem">
 <h2>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="label-2">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-canonical">
+<a class="reference internal image-reference" href="_images/thevenin-canonical.svg"><img alt="_images/thevenin-canonical.svg" height="300px" src="_images/thevenin-canonical.svg" /></a>
 </figure>
 <section id="thevenin-voltage">
 <h3>Thevenin Voltage<a class="headerlink" href="#thevenin-voltage" title="Permalink to this headline">#</a></h3>
-<figure class="align-default" id="label-3">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy">
+<a class="reference internal image-reference" href="_images/thevenin-toy.svg"><img alt="_images/thevenin-toy.svg" height="300px" src="_images/thevenin-toy.svg" /></a>
 </figure>
-<figure class="align-default" id="label-4">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy-load-removed">
+<a class="reference internal image-reference" href="_images/thevenin-toy-load-removed.svg"><img alt="_images/thevenin-toy-load-removed.svg" height="300px" src="_images/thevenin-toy-load-removed.svg" /></a>
 </figure>
 </section>
 <section id="thevenin-resistance-three-methods">
@@ -626,8 +631,10 @@ title="Print to PDF"
 <li><p>Find the equivalent resistance between the nodes where the load will be reconnected. That resistance is <span class="math notranslate nohighlight">\(R_{TH}\)</span>.</p></li>
 </ul>
 </div>
-<figure class="align-default" id="label-5">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy-rth-method-1">
+<a class="reference internal image-reference" href="_images/thevenin-toy-Rth-method-1.svg"><img alt="_images/thevenin-toy-Rth-method-1.svg" height="300px" src="_images/thevenin-toy-Rth-method-1.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[ R_{TH}=(R_1||R_2)+R_3=7~\Omega \]</div>
@@ -643,12 +650,16 @@ title="Print to PDF"
 </ul>
 </div>
 <p><span class="math notranslate nohighlight">\(V_{OC}\)</span> was calculated in a previous section as 8~\text{V}. The load is then replaced with a short and the short-circuit current is calculated/measured.</p>
-<figure class="align-default" id="label-6">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy-rth-method-2">
+<a class="reference internal image-reference" href="_images/thevenin-toy-Rth-method-2.svg"><img alt="_images/thevenin-toy-Rth-method-2.svg" height="300px" src="_images/thevenin-toy-Rth-method-2.svg" /></a>
 </figure>
 <p>Use any method of analysis that you are confident in. I used mesh here:</p>
-<figure class="align-default" id="label-7">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy-rth-method-2-mesh">
+<a class="reference internal image-reference" href="_images/thevenin-toy-Rth-method-2-mesh.svg"><img alt="_images/thevenin-toy-Rth-method-2-mesh.svg" height="300px" src="_images/thevenin-toy-Rth-method-2-mesh.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -672,8 +683,10 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{OC}}{I_{SC}}=\fra
 </ul>
 </div>
 <p>Let’s try it. I picked 42~\text{V} for the voltage source.</p>
-<figure class="align-default" id="label-8">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-toy-rth-method-3-mesh">
+<a class="reference internal image-reference" href="_images/thevenin-toy-Rth-method-3-mesh.svg"><img alt="_images/thevenin-toy-Rth-method-3-mesh.svg" height="300px" src="_images/thevenin-toy-Rth-method-3-mesh.svg" /></a>
 </figure>
 <p>Again, I chose mesh to find the current through the new supply. You don’t need to use mesh. Use a method that you are comfortable with.</p>
 <div class="math notranslate nohighlight">
