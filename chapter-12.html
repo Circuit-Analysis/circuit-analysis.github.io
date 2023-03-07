@@ -625,8 +625,9 @@ title="Print to PDF"
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>Find the Thevenin equivalent of the circuit above.</p>
-<p>\Solution
-Find <span class="math notranslate nohighlight">\(V\tss{OC}\)</span> first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Find <span class="math notranslate nohighlight">\(V\tss{OC}\)</span> first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
 <figure class="align-default" id="label-6">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
@@ -638,7 +639,10 @@ Find <span class="math notranslate nohighlight">\(V\tss{OC}\)</span> first. The 
 \[ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) \]</div>
 <p>Using <span class="math notranslate nohighlight">\(I\)</span> we can find the voltage across the inductor and capacitor</p>
 <div class="math notranslate nohighlight">
-\[ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) \]</div>
+\[ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V) \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) \]</div>
 <p>There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic</p>
 <figure class="align-default" id="label-7">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
@@ -662,6 +666,7 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 </div>
+</div>
 </section>
 <section id="norton-s-theorem">
 <h3>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this headline">#</a></h3>
@@ -674,8 +679,9 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>Find <span class="math notranslate nohighlight">\(I_O\)</span></p>
-<p>\Solution
-First, look for any impedances that are in series/parallel. The <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the left and the <span class="math notranslate nohighlight">\(j1~\Omega\)</span> inductor are in series. Also, the <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the right and the <span class="math notranslate nohighlight">\(-j1~\Omega\)</span> capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>First, look for any impedances that are in series/parallel. The <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the left and the <span class="math notranslate nohighlight">\(j1~\Omega\)</span> inductor are in series. Also, the <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the right and the <span class="math notranslate nohighlight">\(-j1~\Omega\)</span> capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.</p>
 <p>Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.</p>
 <figure class="align-default" id="label-11">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
@@ -693,6 +699,7 @@ First, look for any impedances that are in series/parallel. The <span class="mat
 <p>From this point we can use a simple current divider to find <span class="math notranslate nohighlight">\(I_O\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A \]</div>
+</div>
 </div>
 </section>
 </section>
@@ -768,6 +775,4 @@ First, look for any impedances that are in series/parallel. The <span class="mat
 
 
   </body>
-</html>
-
-<!-- dc8e5fff0683d74c7df85618eb604dd0f098ebac -->
+</html><!-- dc8e5fff0683d74c7df85618eb604dd0f098ebac -->
