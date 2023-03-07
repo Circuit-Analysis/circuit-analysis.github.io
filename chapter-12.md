@@ -116,7 +116,7 @@ name: LABEL_4
 ```{index} Thevenin's Theorem
 ```
 
-````{admonition} Example
+`````{admonition} Example
  
 
 ```{figure} logo.png
@@ -128,7 +128,8 @@ name: LABEL_5
 
 Find the Thevenin equivalent of the circuit above.
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
 
 ```{figure} logo.png
@@ -148,7 +149,11 @@ $$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
 
 Using $I$ we can find the voltage across the inductor and capacitor
 
-$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V)\text{~and~}V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V) $$
+
+and
+
+$$ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
 
 There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
 
@@ -192,6 +197,7 @@ name: LABEL_9
 
 
 ````
+`````
 
 ### Norton's Theorem
 
@@ -206,7 +212,7 @@ name: LABEL_9
 ```{index} Source Conversions
 ```
 
-````{admonition} Example
+`````{admonition} Example
  
 
 ```{figure} logo.png
@@ -218,7 +224,8 @@ name: LABEL_10
 
 Find $I_O$
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
 First, look for any impedances that are in series/parallel. The $1~\Omega$ resistor on the left and the $j1~\Omega$ inductor are in series. Also, the $1~\Omega$ resistor on the right and the $-j1~\Omega$ capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.
 
 Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.
@@ -255,6 +262,6 @@ Those two impedances combine to a $1~\Omega$ impedance.
 From this point we can use a simple current divider to find $I_O$.
 
 $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
-
-
 ````
+
+`````
