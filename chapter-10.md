@@ -618,13 +618,134 @@ This circuit has no independent supplies leading us to apply a voltage source wh
 
 We often use Thevenin equivalent circuits to characterize sub-circuits without having to know the details of each sub-circuit. In this way we can determine what is happening at the nodes where the sub-circuits connect together. Examples of sub-circuits include stages of amplifiers, sections of a power distribution layout, sensors, and microcontrollers.
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents.svg') as d:
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
+    d += (LineTL := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right())       
+    d += (LineTR := elm.Line().right())       
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
+    
+    d += (LineBL := elm.Line().at(R1.start).right())       
+    d += (Vs1 := elm.SourceV().right().label('32V'))    
+    d += (LineBR := elm.Line().right().tox(Vs2.end))       
+    
+    d += elm.CurrentLabelInline(direction='in', ofst=0).at(LineT).label('$I_{O}$',loc='bottom')    
+    d.move_from(R2.end,.8,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+
+    d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
+    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-blue.svg') as d:
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
+    d += (LineTL := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right().length(1))       
+    
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
+    
+    d += (LineBL := elm.Line().at(R1.start).right())       
+    d += (Vs1 := elm.SourceV().right().label('32V'))    
+    d += (LineBR := elm.Line().right().tox(LineT.end))       
+    
+    d.move_from(R2.end,.8,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+
+    d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    
+    d += elm.Dot(open=True).at(LineT.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineBR.end).label('B',loc='right')
+
+    d.move_from(Is1.center,5,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(LineBR.end,4,0)
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n-10V').reverse())    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n28Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-red.svg') as d:
+    d += (LineT := elm.Line().right().length(1))       
+    d += (LineTR := elm.Line().right())       
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
+    
+    d.move_from(R3.start,-1.2,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (LineBR := elm.Line().at(Vo.end).right().tox(Vs2.end))       
+    
+    d += elm.Dot(open=True).at(LineT.start).label('A',loc='left')
+    d += elm.Dot(open=True).at(LineBR.start).label('B',loc='left')
+
+    d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
+    
+    d.move_from(Is2.center,4.5,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(LineBR.end,4,0)
+    d += (LineB := elm.Line().right())       
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n27V').reverse())    
+    d += (Rth := elm.Resistor().left().label('$R_{TH}$\n6Ω', loc='top'))       
+    
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='left')
+    d += elm.Dot(open=True).at(LineB.start).label('B',loc='left')
+
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-thevenins.svg') as d:
+    d += (Vth1 := elm.Battery().up().label('-10V',loc='bottom').reverse())    
+    d += (Rth1 := elm.Resistor().right().label('28Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right().length(1.5))       
+    d += (LineB1 := elm.Line().at(Vth1.start).right().tox(Rth1.end))       
+    d += (LineB := elm.Line().right().length(1.5))       
+    
+    d += (LineB2 := elm.Line().right())       
+    d += (Vth2 := elm.Battery().up().label('27V').reverse())    
+    d += (Rth2:= elm.Resistor().left().label('6Ω', loc='bottom'))       
+    
+    d += (thevenin1 := elm.EncircleBox([Vth1, Rth1,LineB1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (thevenin2 := elm.EncircleBox([Vth2, Rth2,LineB2],includelabels=True).linestyle('--').linewidth(1).color('red'))
+    
+    d.move_from(Rth1.end,.6,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.2).at(LineT).label('$I_{O}$',loc='top')    
+    
+
+```
+
+
+
 ````{admonition} Example
  
-
-```{figure} logo.png
+```{figure} thevenin-2-equivalents.svg
 ---
 height: 300px
-name: LABEL_16
+name: thevenin-2-equivalents
 ---
 ```
 
@@ -645,28 +766,28 @@ $$ V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V} $$
 
 **Find the equivalent for the blue circuit**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-blue.svg
 ---
 height: 300px
-name: LABEL_17
+name: thevenin-2-equivalents-blue
 ---
 ```
 
 **Find the equivalent for the red circuit**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-red.svg
 ---
 height: 300px
-name: LABEL_18
+name: thevenin-2-equivalents-red
 ---
 ```
 
 **Working with the equivalent circuits**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-thevenins.svg
 ---
 height: 300px
-name: LABEL_19
+name: thevenin-2-equivalents-thevenins
 ---
 ```
 
