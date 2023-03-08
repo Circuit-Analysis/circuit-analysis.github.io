@@ -323,14 +323,113 @@ Find the Thevenin equivalent for the circuit shown here around the resistor, $R_
 
 ````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Voc.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-voltages.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').label(('+','6V','-'),loc='bottom'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top').label(('+','0V','-'),loc='bottom'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom').label(('+','9V','-'),loc='top'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-2.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Isc := elm.Line().at(R3.end).down().toy(LineB.end))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.3).at(Isc).label('$I_{SC}$',loc='bottom')     
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-3.svg') as d:
+    d += (LineL := elm.LineDot().up().length(d.unit/6))
+    d += (Vs1 := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+ 
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(LineL.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Isc := elm.Battery().at(R3.end).down().toy(LineB.end).label('$V_{NEW}$',loc='bottom'))    
+    d += elm.CurrentLabelInline(direction='out', ofst=0.7).at(Isc).label('$I_{NEW}$',loc='bottom')     
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Thevenin.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n9V').reverse())    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n6Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+```
+
 ````{admonition} Example
  
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
-```{figure} logo.png
+
+```{figure} thevenin-dependent-and-independent.svg
 ---
 height: 300px
-name: LABEL_9
+name: thevenin-dependent-and-independent
 ---
 ```
 
@@ -338,10 +437,10 @@ name: LABEL_9
 **Find $V_{OC}$**
 In this case $V_{OC}$ is across the nodes A and B as labeled below. Mesh analysis was applied in this example to find the open circuit voltage though an method of analysis would suffice.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Voc.svg
 ---
 height: 300px
-name: LABEL_10
+name: thevenin-dependent-and-independent-Voc
 ---
 ```
 
@@ -359,10 +458,10 @@ $$ I=1.5~\text{A} $$
 
 Using the value of I we can find voltages for all of the passive components in the circuit. Note that the 3~\Om ~resistor has no current flowing through it and therefore the voltage across it is 0~\text{V}.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-voltages.svg
 ---
 height: 300px
-name: LABEL_11
+name: thevenin-dependent-and-independent-voltages
 ---
 ```
 
@@ -382,10 +481,10 @@ The dependent supply prevents us from applying the equivalent resistance method 
 
 Place a short between nodes A and B and find the short circuit current ($I_{SC}$) through that short. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Rth-2.svg
 ---
 height: 300px
-name: LABEL_12
+name: thevenin-dependent-and-independent-Rth-2
 ---
 ```
 
@@ -426,10 +525,10 @@ $$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega $$
 
 Place a voltage supply with a value of your choice ($V_{NEW}$) between nodes A and B and find the current ($I_{NEW}$) through that supply. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Rth-3.svg
 ---
 height: 300px
-name: LABEL_13
+name: thevenin-dependent-and-independent-Rth-3
 ---
 ```
 
@@ -471,10 +570,10 @@ $$ R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega $$
 
 The Thevenin equivalent circuit can be drawn using the values found above
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Thevenin.svg
 ---
 height: 300px
-name: LABEL_14
+name: thevenin-dependent-and-independent-Thevenin
 ---
 ```
 
@@ -779,7 +878,7 @@ name: LABEL_32
 ---
 ```
 
-### Circuit Analysis and Reduction of Complexity with Source Conversions derp
+### Circuit Analysis and Reduction of Complexity with Source Conversions
 
 ````{admonition} Example
  
