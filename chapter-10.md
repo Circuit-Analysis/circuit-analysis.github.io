@@ -421,9 +421,10 @@ with schemdraw.Drawing(file='thevenin-dependent-and-independent-Thevenin.svg') a
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
 ```
 
-````{admonition} Example
+`````{admonition} Example
  
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
+
 
 
 ```{figure} thevenin-dependent-and-independent.svg
@@ -433,7 +434,9 @@ name: thevenin-dependent-and-independent
 ---
 ```
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
+
 **Find $V_{OC}$**
 In this case $V_{OC}$ is across the nodes A and B as labeled below. Mesh analysis was applied in this example to find the open circuit voltage though an method of analysis would suffice.
 
@@ -580,6 +583,8 @@ name: thevenin-dependent-and-independent-Thevenin
 A load connected to the original circuit between nodes A and B will see the same voltage, current, and power as a load connected across the output of the Thevenin equivalent.
 
 ````
+
+`````
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
