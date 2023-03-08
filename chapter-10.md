@@ -581,14 +581,33 @@ A load connected to the original circuit between nodes A and B will see the same
 
 ````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-only.svg') as d:
+    d += (Is1 := elm.SourceControlledI().up().label('$I_{S1}$\n$6I_x$').length(4))    
+    d += (LineT := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8Ω', loc='top'))       
+    d += (R4 := elm.Resistor().right().label('$R_{4}$\n10Ω', loc='top'))       
+    d += (R6 := elm.Resistor().right().label('$R_{6}$\n4Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Is1.start).right().tox(R6.end))       
+    d += elm.Dot(open=True).at(R6.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += (R1 := elm.Resistor().at(LineT.end).down().label('$R_{1}$\n30Ω', loc='top').toy(Is1.start))       
+    d += (R3 := elm.Resistor().at(R2.end).down().label('$R_{3}$\n25Ω', loc='top').toy(Is1.start))       
+    d += (R5 := elm.Resistor().at(R4.end).down().label('$R_{5}$\n6Ω', loc='bottom').length(2))       
+    d += (Is2 := elm.SourceControlledI().down().label('$I_{S2}$\n$10I_x$', loc='bottom').length(2))       
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.3).at(R3).label('$I_{x}$',loc='top')    
+```
+
 ````{admonition} Example
  
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-only.svg
 ---
 height: 300px
-name: LABEL_15
+name: thevenin-dependent-only
 ---
 ```
 
