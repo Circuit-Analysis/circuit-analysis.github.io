@@ -1042,7 +1042,6 @@ plt.ylim([0,14])
 plt.xlim([0,26])
 plt.legend()
 
-
 plt.savefig('max-power-plot.svg')
 ```
 
@@ -1076,23 +1075,45 @@ The maximum power is dissipated when $R_{L}$=$R_{TH}$, 2~\Om~for this example. T
 
 ````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-limit.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n32V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4Ω', loc='top'))    
+    d += (LineT := elm.Line().right())    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n12Ω', loc='bottom'))    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-limit-equivalent.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{TH}$\n24V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{TH}$\n3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().down().label('$R_{L}$\n3Ω', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+```
+
 ````{admonition} Example
  
 Can $R_{L}$ dissipate 50~\text{W} in this circuit?
 
-```{figure} logo.png
+```{figure} max-power-limit.svg
 ---
 height: 300px
-name: LABEL_25
+name: max-power-limit
 ---
 ```
 
 To answer this we can redraw the circuit the circuit as its Thevenin equivalent. Thevenizing around $R_{L}$ give us a Thevenin voltage of 24~\text{V} and Thevenin resistance of 3~\Om. Take a moment to confirm these values. You're an expert now. You've read the first part of this chapter. The equivalent circuit looks like
 
-```{figure} logo.png
+```{figure} max-power-limit-equivalent.svg
 ---
 height: 300px
-name: LABEL_26
+name: max-power-limit-equivalent
 ---
 ```
 
