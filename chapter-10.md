@@ -939,10 +939,21 @@ Often we must ensure that the power delivered to a load is as much as possible. 
 
 The circuit transmitting can be thought of as its Thevenin equivalent with a load connected as shown here
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vth.start))   
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+```
+```{figure} max-power.svg
 ---
 height: 300px
-name: LABEL_23
+name: max-power
 ---
 ```
 
@@ -986,23 +997,73 @@ $$ R_L=R_{TH} $$
 
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-example.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n10V', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n2Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vth.start))   
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+```
+
+```{code-cell} ipython3
+:tags: [remove-input,remove-output]
+import numpy as np
+import matplotlib
+from matplotlib import pyplot as plt
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+font = {'family' : 'normal',
+        'weight' : 'bold',
+        'size'   : 32}
+matplotlib.rc('font', **font)
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(24, 10)
+
+Rl=np.arange(0,26,.01)
+i=10/(2+Rl)
+v=i*Rl
+p=v*i
+
+plt.grid(True, which='both')
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+
+plt.plot(Rl, i,color='r', linewidth=3,label='$\mathbf{I_{RL}}$ (A)')
+plt.plot(Rl, v,color='b', linewidth=3,label='$\mathbf{V_{RL}}$ (V)')
+plt.plot(Rl, p,color='g', linewidth=3,label='$\mathbf{P_{RL}}$ (W)')
+
+plt.xlabel('$\mathbf{R_L}$ (Ω)',fontsize=32, fontweight='bold')
+#plt.legend(loc=(1.04, 0))
+plt.ylim([0,14])
+plt.xlim([0,26])
+plt.legend()
+
+
+plt.savefig('max-power-plot.svg')
+```
+
 ````{admonition} Example
  
 Let's take a look at an example with values that supports the theory introduced above. Consider a circuit that has a Thevenin voltage of 10~\text{V} and a Thevenin resistance of 2~\Om. The equivalent circuit can be drawn with a load connected as shown here:
 
-```{figure} logo.png
+```{figure} max-power-example.svg
 ---
 height: 300px
-name: LABEL_24
+name: max-power-example
 ---
 ```
 
 We'll vary the value of $R_{L}$ along the horizontal of a plot to demonstrate how the other values of interest are affected.
 
-```{figure} logo.png
+```{figure} max-power-plot.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE
+name: max-power-plot
+
 ---
 ```
 
