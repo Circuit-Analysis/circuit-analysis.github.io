@@ -801,26 +801,132 @@ name: thevenin-2-equivalents-thevenins
 
 ## Norton's Theorem
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-canonical.svg') as d:
+    d += (In := elm.SourceI().up().label('$I_{N}$', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(In.start))    
+    d += (thevenin := elm.EncircleBox([In, Rn],includelabels=False,padx=.5).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((1,3.3)).label('Norton Equivalent',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} norton-canonical.svg
 ---
 height: 300px
-name: LABEL_20
+name: norton-canonical
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+   
+    d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} norton-toy.svg
 ---
 height: 300px
-name: LABEL_21
+name: norton-toy
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy-Isc.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+```
+
+```{figure} norton-toy-Isc.svg
 ---
 height: 300px
-name: LABEL_22
+name: norton-toy-Isc
 ---
 ```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy-Rth-method-1.svg') as d:
+    d += elm.LineDot().up().length(d.unit/6)
+    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+    d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
+    
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{N}$',loc='right').length(0.8))    
+```
+
+```{figure} norton-toy-Rth-method-1.svg
+---
+height: 300px
+name: norton-toy-Rth-method-1
+---
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-equivalent.svg') as d:
+    d += (In := elm.SourceI().up().label('$I_{N}$\n1.143A', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$\n7Ω', loc='top'))    
+
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$\n42Ω', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(In.start))    
+    
+```
+
+```{figure} norton-equivalent.svg
+---
+height: 300px
+name: norton-equivalent
+---
+```
+
 
 ## Maximum Power Transfer
 
