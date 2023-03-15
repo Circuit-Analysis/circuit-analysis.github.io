@@ -483,8 +483,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions-derp">
-     Circuit Analysis and Reduction of Complexity with Source Conversions derp
+    <a class="reference internal nav-link" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions">
+     Circuit Analysis and Reduction of Complexity with Source Conversions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -561,8 +561,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions-derp">
-     Circuit Analysis and Reduction of Complexity with Source Conversions derp
+    <a class="reference internal nav-link" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions">
+     Circuit Analysis and Reduction of Complexity with Source Conversions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -704,17 +704,30 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <p class="admonition-title">Example</p>
 <p>Find the Thevenin equivalent for the circuit shown here around the resistor, <span class="math notranslate nohighlight">\(R_{L}\)</span>.</p>
 </div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find the Thevenin equivalent for the circuit shown here between nodes A and B.</p>
-<figure class="align-default" id="label-9">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent.svg"><img alt="_images/thevenin-dependent-and-independent.svg" height="300px" src="_images/thevenin-dependent-and-independent.svg" /></a>
 </figure>
-<p>\Solution
-<strong>Find <span class="math notranslate nohighlight">\(V_{OC}\)</span></strong>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><strong>Find <span class="math notranslate nohighlight">\(V_{OC}\)</span></strong>
 In this case <span class="math notranslate nohighlight">\(V_{OC}\)</span> is across the nodes A and B as labeled below. Mesh analysis was applied in this example to find the open circuit voltage though an method of analysis would suffice.</p>
-<figure class="align-default" id="label-10">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent-voc">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent-Voc.svg"><img alt="_images/thevenin-dependent-and-independent-Voc.svg" height="300px" src="_images/thevenin-dependent-and-independent-Voc.svg" /></a>
 </figure>
 <p>The single KVL equation for this circuit is</p>
 <div class="math notranslate nohighlight">
@@ -726,8 +739,8 @@ In this case <span class="math notranslate nohighlight">\(V_{OC}\)</span> is acr
 <div class="math notranslate nohighlight">
 \[ I=1.5~\text{A} \]</div>
 <p>Using the value of I we can find voltages for all of the passive components in the circuit. Note that the 3~\Om ~resistor has no current flowing through it and therefore the voltage across it is 0~\text{V}.</p>
-<figure class="align-default" id="label-11">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent-voltages">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent-voltages.svg"><img alt="_images/thevenin-dependent-and-independent-voltages.svg" height="300px" src="_images/thevenin-dependent-and-independent-voltages.svg" /></a>
 </figure>
 <p>We can now write a KVL around the right side of the circuit including the drop across <span class="math notranslate nohighlight">\(V_{OC}\)</span></p>
 <div class="math notranslate nohighlight">
@@ -739,8 +752,8 @@ In this case <span class="math notranslate nohighlight">\(V_{OC}\)</span> is acr
 <p>The dependent supply prevents us from applying the equivalent resistance method (method #1 described above). Either of the other two methods will yield the correct result.</p>
 <p><strong>Find <span class="math notranslate nohighlight">\(R_{TH}\)</span> (Method #2)</strong></p>
 <p>Place a short between nodes A and B and find the short circuit current (<span class="math notranslate nohighlight">\(I_{SC}\)</span>) through that short. The circuit now has two meshes as shown below and <span class="math notranslate nohighlight">\(I_{SC}\)</span> is equal to <span class="math notranslate nohighlight">\(I_2\)</span> in magnitude and polarity.</p>
-<figure class="align-default" id="label-12">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent-rth-2">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent-Rth-2.svg"><img alt="_images/thevenin-dependent-and-independent-Rth-2.svg" height="300px" src="_images/thevenin-dependent-and-independent-Rth-2.svg" /></a>
 </figure>
 <p>The two KVL equations for this circuit are developed here</p>
 <div class="math notranslate nohighlight">
@@ -769,8 +782,8 @@ In this case <span class="math notranslate nohighlight">\(V_{OC}\)</span> is acr
 $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega \)</span>$</p>
 <p><strong>Find <span class="math notranslate nohighlight">\(R_{TH}\)</span> (Method #3)</strong></p>
 <p>Place a voltage supply with a value of your choice (<span class="math notranslate nohighlight">\(V_{NEW}\)</span>) between nodes A and B and find the current (<span class="math notranslate nohighlight">\(I_{NEW}\)</span>) through that supply. The circuit now has two meshes as shown below and <span class="math notranslate nohighlight">\(I_{SC}\)</span> is equal to <span class="math notranslate nohighlight">\(I_2\)</span> in magnitude and polarity.</p>
-<figure class="align-default" id="label-13">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent-rth-3">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent-Rth-3.svg"><img alt="_images/thevenin-dependent-and-independent-Rth-3.svg" height="300px" src="_images/thevenin-dependent-and-independent-Rth-3.svg" /></a>
 </figure>
 <p>The two KVL equations for this circuit are developed here</p>
 <div class="math notranslate nohighlight">
@@ -801,24 +814,35 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{OC}}{I_{SC}}=\fra
 <p>and <span class="math notranslate nohighlight">\(I_{NEW}\)</span>=-<span class="math notranslate nohighlight">\(I_2\)</span> in this case leading to
 $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega \)</span>$</p>
 <p>The Thevenin equivalent circuit can be drawn using the values found above</p>
-<figure class="align-default" id="label-14">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-and-independent-thevenin">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-and-independent-Thevenin.svg"><img alt="_images/thevenin-dependent-and-independent-Thevenin.svg" height="300px" src="_images/thevenin-dependent-and-independent-Thevenin.svg" /></a>
 </figure>
 <p>A load connected to the original circuit between nodes A and B will see the same voltage, current, and power as a load connected across the output of the Thevenin equivalent.</p>
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Find the Thevenin equivalent for the circuit shown here between nodes A and B.</p>
-<figure class="align-default" id="label-15">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-dependent-only">
+<a class="reference internal image-reference" href="_images/thevenin-dependent-only.svg"><img alt="_images/thevenin-dependent-only.svg" height="300px" src="_images/thevenin-dependent-only.svg" /></a>
 </figure>
 <p>This circuit has no independent supplies leading us to apply a voltage source where the load will be connected (method #3 described above). The other two methods will not work according to their limitations.</p>
 </div>
 <p>We often use Thevenin equivalent circuits to characterize sub-circuits without having to know the details of each sub-circuit. In this way we can determine what is happening at the nodes where the sub-circuits connect together. Examples of sub-circuits include stages of amplifiers, sections of a power distribution layout, sensors, and microcontrollers.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-16">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-2-equivalents">
+<a class="reference internal image-reference" href="_images/thevenin-2-equivalents.svg"><img alt="_images/thevenin-2-equivalents.svg" height="300px" src="_images/thevenin-2-equivalents.svg" /></a>
 </figure>
 <p><strong>Analyzing the whole circuit</strong></p>
 <div class="math notranslate nohighlight">
@@ -835,30 +859,46 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <div class="math notranslate nohighlight">
 \[ V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V} \]</div>
 <p><strong>Find the equivalent for the blue circuit</strong></p>
-<figure class="align-default" id="label-17">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-2-equivalents-blue">
+<a class="reference internal image-reference" href="_images/thevenin-2-equivalents-blue.svg"><img alt="_images/thevenin-2-equivalents-blue.svg" height="300px" src="_images/thevenin-2-equivalents-blue.svg" /></a>
 </figure>
 <p><strong>Find the equivalent for the red circuit</strong></p>
-<figure class="align-default" id="label-18">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-2-equivalents-red">
+<a class="reference internal image-reference" href="_images/thevenin-2-equivalents-red.svg"><img alt="_images/thevenin-2-equivalents-red.svg" height="300px" src="_images/thevenin-2-equivalents-red.svg" /></a>
 </figure>
 <p><strong>Working with the equivalent circuits</strong></p>
-<figure class="align-default" id="label-19">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-2-equivalents-thevenins">
+<a class="reference internal image-reference" href="_images/thevenin-2-equivalents-thevenins.svg"><img alt="_images/thevenin-2-equivalents-thevenins.svg" height="300px" src="_images/thevenin-2-equivalents-thevenins.svg" /></a>
 </figure>
 </div>
 </section>
 </section>
 <section id="norton-s-theorem">
 <h2>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="label-20">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-canonical">
+<a class="reference internal image-reference" href="_images/norton-canonical.svg"><img alt="_images/norton-canonical.svg" height="300px" src="_images/norton-canonical.svg" /></a>
 </figure>
-<figure class="align-default" id="label-21">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-toy">
+<a class="reference internal image-reference" href="_images/norton-toy.svg"><img alt="_images/norton-toy.svg" height="300px" src="_images/norton-toy.svg" /></a>
 </figure>
-<figure class="align-default" id="label-22">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-toy-isc">
+<a class="reference internal image-reference" href="_images/norton-toy-Isc.svg"><img alt="_images/norton-toy-Isc.svg" height="300px" src="_images/norton-toy-Isc.svg" /></a>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-toy-rth-method-1">
+<a class="reference internal image-reference" href="_images/norton-toy-Rth-method-1.svg"><img alt="_images/norton-toy-Rth-method-1.svg" height="300px" src="_images/norton-toy-Rth-method-1.svg" /></a>
+</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-equivalent">
+<a class="reference internal image-reference" href="_images/norton-equivalent.svg"><img alt="_images/norton-equivalent.svg" height="300px" src="_images/norton-equivalent.svg" /></a>
 </figure>
 </section>
 <section id="maximum-power-transfer">
@@ -871,8 +911,10 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <li><p>and many more…</p></li>
 </ul>
 <p>The circuit transmitting can be thought of as its Thevenin equivalent with a load connected as shown here</p>
-<figure class="align-default" id="label-23">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="max-power">
+<a class="reference internal image-reference" href="_images/max-power.svg"><img alt="_images/max-power.svg" height="300px" src="_images/max-power.svg" /></a>
 </figure>
 <p>We want to select the value of <span class="math notranslate nohighlight">\(R_{L}\)</span> in order to maximize the power dissipate by that same resistor, <span class="math notranslate nohighlight">\(P_{RL}\)</span>. In order to find the relationship between the power and the value. This relationship can be stated mathematically using the function <span class="math notranslate nohighlight">\(P_{RL}(R_L)\)</span>. Don’t confuse this notation with multiplication. One variable is a function of the other. Before we develop this function, let’s play some mind games and look at some common answers that I get from students.</p>
 <p>Use your intuition and guess what value of <span class="math notranslate nohighlight">\(R_{L}\)</span> maximizes <span class="math notranslate nohighlight">\(P_{RL}\)</span>. When I ask for responses in class I usually get one of two answers. First, students will guess <span class="math notranslate nohighlight">\(R_{L}\)</span> is 0~\Om (a short) reasoning that value will cause the maximum current to flow. While the current will be maximized, the voltage across a short is 0~\text{V}. Therefore, the power dissipated by the shorted load will be 0~\text{W}.</p>
@@ -902,29 +944,37 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <div class="math notranslate nohighlight">
 \[ R_L=R_{TH} \]</div>
 <p>This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let’s consider two applications of this theorem.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Let’s take a look at an example with values that supports the theory introduced above. Consider a circuit that has a Thevenin voltage of 10~\text{V} and a Thevenin resistance of 2~\Om. The equivalent circuit can be drawn with a load connected as shown here:</p>
-<figure class="align-default" id="label-24">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="max-power-example">
+<a class="reference internal image-reference" href="_images/max-power-example.svg"><img alt="_images/max-power-example.svg" height="300px" src="_images/max-power-example.svg" /></a>
 </figure>
 <p>We’ll vary the value of <span class="math notranslate nohighlight">\(R_{L}\)</span> along the horizontal of a plot to demonstrate how the other values of interest are affected.</p>
-<figure class="align-default" id="label-for-this-image">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="max-power-plot">
+<a class="reference internal image-reference" href="_images/max-power-plot.svg"><img alt="_images/max-power-plot.svg" height="300px" src="_images/max-power-plot.svg" /></a>
 </figure>
 <p>Now we can graphically look at the values of <span class="math notranslate nohighlight">\(R_{L}\)</span> and see how they affect the power dissipated by the load, the green plot above. When <span class="math notranslate nohighlight">\(R_{L}\)</span> is 0~\Om, the left extreme of the graph, we see the greatest amount of current flowing, 5~\text{A} for this circuit. However, at that same value of <span class="math notranslate nohighlight">\(R_{L}\)</span> we see that <span class="math notranslate nohighlight">\(V_{RL}\)</span> is 0~\text{V}. Thus the <span class="math notranslate nohighlight">\(P_{RL}\)</span> is 0~\text{W} as shown by the green line in the plot above.</p>
 <p>At the other extreme of the domain of <span class="math notranslate nohighlight">\(R_{L}\)</span> we can consider, <span class="math notranslate nohighlight">\(R_{L}\)</span> is <span class="math notranslate nohighlight">\(\infty~\Omega\)</span>. Since the paper is not wide enough we’ll have to use 26~\Om ~as an approximation of infinity. Notice <span class="math notranslate nohighlight">\(P_{RL}\)</span> is asymptotically approaching 0~\text{W} as <span class="math notranslate nohighlight">\(I_{RL}\)</span> is asymptotically approaching 0~\text{A}.</p>
 <p>The maximum power is dissipated when <span class="math notranslate nohighlight">\(R_{L}\)</span>=<span class="math notranslate nohighlight">\(R_{TH}\)</span>, 2~\Om~for this example. This is evident in the plot above as the green line reaches its maximum value of 12.5~\text{W} when <span class="math notranslate nohighlight">\(R_{L}\)</span> is 2~\Om.</p>
 </div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>Can <span class="math notranslate nohighlight">\(R_{L}\)</span> dissipate 50~\text{W} in this circuit?</p>
-<figure class="align-default" id="label-25">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="max-power-limit">
+<a class="reference internal image-reference" href="_images/max-power-limit.svg"><img alt="_images/max-power-limit.svg" height="300px" src="_images/max-power-limit.svg" /></a>
 </figure>
 <p>To answer this we can redraw the circuit the circuit as its Thevenin equivalent. Thevenizing around <span class="math notranslate nohighlight">\(R_{L}\)</span> give us a Thevenin voltage of 24~\text{V} and Thevenin resistance of 3~\Om. Take a moment to confirm these values. You’re an expert now. You’ve read the first part of this chapter. The equivalent circuit looks like</p>
-<figure class="align-default" id="label-26">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="max-power-limit-equivalent">
+<a class="reference internal image-reference" href="_images/max-power-limit-equivalent.svg"><img alt="_images/max-power-limit-equivalent.svg" height="300px" src="_images/max-power-limit-equivalent.svg" /></a>
 </figure>
 <p>I’ve specified the value of <span class="math notranslate nohighlight">\(R_{L}\)</span> that we know will result in the maximum power dissipated by that resistor, 3~\Om. In this case we can find <span class="math notranslate nohighlight">\(V_{RL}\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -984,8 +1034,8 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 </section>
-<section id="circuit-analysis-and-reduction-of-complexity-with-source-conversions-derp">
-<h3>Circuit Analysis and Reduction of Complexity with Source Conversions derp<a class="headerlink" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions-derp" title="Permalink to this headline">#</a></h3>
+<section id="circuit-analysis-and-reduction-of-complexity-with-source-conversions">
+<h3>Circuit Analysis and Reduction of Complexity with Source Conversions<a class="headerlink" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions" title="Permalink to this headline">#</a></h3>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <figure class="align-default" id="label-33">
@@ -1083,9 +1133,4 @@ Add Dependent supply example</p>
 
 
   </body>
-</html>
-
-
-
-
-<!-- 8553ddb1f413384d3ef96b47d8dd588edf60ffe0 -->
+</html><!-- a8abde8402d6f18489daf89affc6a14d375d455a -->

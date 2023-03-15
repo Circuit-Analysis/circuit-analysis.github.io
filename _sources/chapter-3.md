@@ -128,7 +128,10 @@ $$\frac{1}{R_P}=\frac{1}{R_1}+\frac{1}{R_2}$$
 
 Solving for $R_P$ and adding additional resistors
 
-$$R_P=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\dots+\frac{1}{R_N}}$$
+```{math}
+:label: resistors-in-parallel
+R_P=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}+\dots+\frac{1}{R_N}}
+```
 
 The value of two resistors in parallel is commonly expressed as
 
