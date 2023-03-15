@@ -248,7 +248,7 @@ Just like resistance has an inverse quantity of conductance, inductance has an i
   - Variable
 * - Flux
   - Weber
-  - W
+  - Wb
   - $\phi$
 * - Current
   - Ampere
