@@ -460,11 +460,6 @@ title="Print to PDF"
      Voltage/Current Relationship
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capacitor-impedance-for-alternating-current-circuits">
-     Capacitor Impedance for Alternating Current Circuits
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -490,11 +485,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
      Voltage/Current Relationship
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inductor-impedance-for-alternating-current-circuits">
-     Inductor Impedance for Alternating Current Circuits
     </a>
    </li>
   </ul>
@@ -575,11 +565,6 @@ title="Print to PDF"
      Voltage/Current Relationship
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capacitor-impedance-for-alternating-current-circuits">
-     Capacitor Impedance for Alternating Current Circuits
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -605,11 +590,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
      Voltage/Current Relationship
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inductor-impedance-for-alternating-current-circuits">
-     Inductor Impedance for Alternating Current Circuits
     </a>
    </li>
   </ul>
@@ -774,12 +754,10 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ i(t)=C\frac{dv(t)}{dt}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:</p>
-<div class="math notranslate nohighlight">
-\[ v(t)=\frac{1}{C}\int_{t_0}^t i(\tau)d\tau + v(t_0)\]</div>
+<div class="math notranslate nohighlight" id="equation-capacitor-voltage-current">
+<span class="eqno">(17)<a class="headerlink" href="#equation-capacitor-voltage-current" title="Permalink to this equation">#</a></span>\[v(t)=\frac{1}{C}\int_{t_0}^t i(\tau)d\tau + v(t_0)\]</div>
 <p>For capacitors, these two forms of the capacitor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
-</section>
-<section id="capacitor-impedance-for-alternating-current-circuits">
-<h3>Capacitor Impedance for Alternating Current Circuits<a class="headerlink" href="#capacitor-impedance-for-alternating-current-circuits" title="Permalink to this headline">#</a></h3>
+<p>We shall see in the section <em><a class="reference internal" href="chapter-13.html#content-subsubsub-capacitor"><span class="std std-ref">Capacitor</span></a></em> how we can make the connection to Ohm’s Law even more direct.</p>
 </section>
 </section>
 <section id="inductors">
@@ -879,12 +857,10 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ v(t)=L\frac{di(t)}{dt}\]</div>
 <p>An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:</p>
-<div class="math notranslate nohighlight">
-\[ i(t)=\frac{1}{L}\int_{t_0}^t v(\tau)d\tau + i(t_0)\]</div>
+<div class="math notranslate nohighlight" id="equation-inductor-voltage-current">
+<span class="eqno">(18)<a class="headerlink" href="#equation-inductor-voltage-current" title="Permalink to this equation">#</a></span>\[i(t)=\frac{1}{L}\int_{t_0}^t v(\tau)d\tau + i(t_0)\]</div>
 <p>For inductors, these two forms of the inductor equation take the place of Ohm’s Law in the methods of analysis previously introduced.</p>
-</section>
-<section id="inductor-impedance-for-alternating-current-circuits">
-<h3>Inductor Impedance for Alternating Current Circuits<a class="headerlink" href="#inductor-impedance-for-alternating-current-circuits" title="Permalink to this headline">#</a></h3>
+<p>We shall see in the section <em><a class="reference internal" href="chapter-13.html#content-subsubsub-inductor"><span class="std std-ref">Inductor</span></a></em> how we can make the connection to Ohm’s Law even more direct.</p>
 </section>
 </section>
 <section id="realistic-models-of-passive-components">
@@ -894,11 +870,11 @@ title="Print to PDF"
 </div>
 <section id="a-realistic-resistor-model">
 <h3>A Realistic Resistor Model<a class="headerlink" href="#a-realistic-resistor-model" title="Permalink to this headline">#</a></h3>
-<p>Horowitz et al. (<span id="id5">Horowitz and Hill [<a class="reference internal" href="#id18" title="Paul Horowitz and Winfield Hill. The art of electronics : the x-chapters. Cambridge University Press, 2020.">2020</a>]</span>) presents the following model for a realistic resistor.</p>
+<p>Horowitz et al. (<span id="id5">Horowitz and Hill [<a class="reference internal" href="#id18" title="Paul Horowitz and Winfield Hill. The Art of Electronics : the X-Chapters. Cambridge University Press, 2020.">2020</a>]</span>) presents the following model for a realistic resistor.</p>
 <figure class="align-default" id="realistic-resistor">
 <a class="reference internal image-reference" href="_images/realistic-resistor.svg"><img alt="_images/realistic-resistor.svg" height="300px" src="_images/realistic-resistor.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 50 </span><span class="caption-text">A realistic resistor model from <span id="id6">Horowitz and Hill [<a class="reference internal" href="#id18" title="Paul Horowitz and Winfield Hill. The art of electronics : the x-chapters. Cambridge University Press, 2020.">2020</a>]</span>.</span><a class="headerlink" href="#realistic-resistor" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">A realistic resistor model from <span id="id6">Horowitz and Hill [<a class="reference internal" href="#id18" title="Paul Horowitz and Winfield Hill. The Art of Electronics : the X-Chapters. Cambridge University Press, 2020.">2020</a>]</span>.</span><a class="headerlink" href="#realistic-resistor" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <table class="table" id="table-realistic-resistor">
@@ -930,11 +906,11 @@ title="Print to PDF"
 </section>
 <section id="a-realistic-capacitor-model">
 <h3>A Realistic Capacitor Model<a class="headerlink" href="#a-realistic-capacitor-model" title="Permalink to this headline">#</a></h3>
-<p><span id="id7">Agilent Technologies [<a class="reference internal" href="#id19" title="Inc. Agilent Technologies. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span> presents the following model for a realistic capacitor.</p>
+<p><span id="id7">Inc. [<a class="reference internal" href="#id19" title="Agilent Technologies Inc. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span> presents the following model for a realistic capacitor.</p>
 <figure class="align-default" id="realistic-capacitor">
 <a class="reference internal image-reference" href="_images/realistic-capacitor.svg"><img alt="_images/realistic-capacitor.svg" height="300px" src="_images/realistic-capacitor.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 51 </span><span class="caption-text">A realistic capacitor model from <span id="id8">Agilent Technologies [<a class="reference internal" href="#id19" title="Inc. Agilent Technologies. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span>.</span><a class="headerlink" href="#realistic-capacitor" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">A realistic capacitor model from <span id="id8">Inc. [<a class="reference internal" href="#id19" title="Agilent Technologies Inc. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span>.</span><a class="headerlink" href="#realistic-capacitor" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <table class="table" id="table-realistic-capacitor">
@@ -963,11 +939,11 @@ title="Print to PDF"
 </section>
 <section id="a-realistic-inductor-model">
 <h3>A Realistic Inductor Model<a class="headerlink" href="#a-realistic-inductor-model" title="Permalink to this headline">#</a></h3>
-<p><span id="id9">Agilent Technologies [<a class="reference internal" href="#id19" title="Inc. Agilent Technologies. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span> presents the following model for a realistic inductor.</p>
+<p><span id="id9">Inc. [<a class="reference internal" href="#id19" title="Agilent Technologies Inc. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span> presents the following model for a realistic inductor.</p>
 <figure class="align-default" id="realistic-inductor">
 <a class="reference internal image-reference" href="_images/realistic-inductor.svg"><img alt="_images/realistic-inductor.svg" height="300px" src="_images/realistic-inductor.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 52 </span><span class="caption-text">A realistic inductor model from <span id="id10">Agilent Technologies [<a class="reference internal" href="#id19" title="Inc. Agilent Technologies. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span>.</span><a class="headerlink" href="#realistic-inductor" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">A realistic inductor model from <span id="id10">Inc. [<a class="reference internal" href="#id19" title="Agilent Technologies Inc. Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques. Agilent Technologies, Inc., 2009.">2009</a>]</span>.</span><a class="headerlink" href="#realistic-inductor" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <table class="table" id="table-realistic-inductor">
@@ -1003,14 +979,14 @@ title="Print to PDF"
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <div class="docutils container" id="id11">
 <dl class="citation">
-<dt class="label" id="id19"><span class="brackets">AT09</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id8">2</a>,<a href="#id9">3</a>,<a href="#id10">4</a>)</span></dt>
-<dd><p>Inc. Agilent Technologies. <em>Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques</em>. Agilent Technologies, Inc., 2009.</p>
-</dd>
 <dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id1">HE06</a></span></dt>
 <dd><p>Marin S. Halper and James C. Ellenbogen. Supercapacitors: A Brief Overview. <a class="reference external" href="https://www.mitre.org/sites/default/files/pdf/06_0667.pdf">https://www.mitre.org/sites/default/files/pdf/06_0667.pdf</a>, 2006. [Online; accessed 14-March-2023].</p>
 </dd>
 <dt class="label" id="id18"><span class="brackets">HH20</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
-<dd><p>Paul Horowitz and Winfield Hill. <em>The art of electronics : the x-chapters</em>. Cambridge University Press, 2020.</p>
+<dd><p>Paul Horowitz and Winfield Hill. <em>The Art of Electronics : the X-Chapters</em>. Cambridge University Press, 2020.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets">Inc09</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id8">2</a>,<a href="#id9">3</a>,<a href="#id10">4</a>)</span></dt>
+<dd><p>Agilent Technologies Inc. <em>Agilent Impedance Measurement Handbook : A guide to measurement technology and techniques</em>. Agilent Technologies, Inc., 2009.</p>
 </dd>
 <dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id3">Pho13</a></span></dt>
 <dd><p>The Photon. Inductor equivalent of capacitor's charge. <a class="reference external" href="https://electronics.stackexchange.com/a/68361/4338">https://electronics.stackexchange.com/a/68361/4338</a>, 2013. [Online; accessed 14-March-2023].</p>
@@ -1091,5 +1067,4 @@ title="Print to PDF"
 
   </body>
 </html>
-
-<!-- ccfbcd0aa3041e51fec5221c64a4e68a4a7203c5 -->
+<!-- e39f484399979bdcf3bd3564ef1c8e4d6c14a64a -->

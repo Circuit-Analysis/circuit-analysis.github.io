@@ -785,7 +785,8 @@ The impedance of a resistor is just its resistance. It may seem strange to say t
 
 We can now consider the other two passive elements using the same thought process as we did for the resistor.
 
-### Capacitor
+(content:subsubsub:capacitor)=
+#### Capacitor
 
 Let's consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
 
@@ -842,7 +843,9 @@ $$ Z_C=\frac{-j}{\omega{C}}~\Omega=\frac{1}{j\omega{C}}~\Omega $$
 
 These forms also match the definition of impedance, a complex number that relates sinusoidal voltages and currents for a capacitor. Notice it is purely imaginary and results in a $90^\circ$ phase shift.
 
-### Inductor
+(content:subsubsub:inductor)=
+
+#### Inductor
 
 Last one! Let's consider a sinusoidal voltage placed across an inductor. That voltage again takes the form of
 
