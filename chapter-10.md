@@ -323,25 +323,127 @@ Find the Thevenin equivalent for the circuit shown here around the resistor, $R_
 
 ````
 
-````{admonition} Example
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Voc.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-voltages.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').label(('+','6V','-'),loc='bottom'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top').label(('+','0V','-'),loc='bottom'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom').label(('+','9V','-'),loc='top'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-2.svg') as d:
+    d += (Vs1 := elm.SourceV().up().label('12V'))    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Isc := elm.Line().at(R3.end).down().toy(LineB.end))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.3).at(Isc).label('$I_{SC}$',loc='bottom')     
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-3.svg') as d:
+    d += (LineL := elm.LineDot().up().length(d.unit/6))
+    d += (Vs1 := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+ 
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
+    d += (LineB := elm.Line().at(LineL.start).right().tox(R3.end))    
+    d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
+    d += (Isc := elm.Battery().at(R3.end).down().toy(LineB.end).label('$V_{NEW}$',loc='bottom'))    
+    d += elm.CurrentLabelInline(direction='out', ofst=0.7).at(Isc).label('$I_{NEW}$',loc='bottom')     
+    d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-and-independent-Thevenin.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n9V').reverse())    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n6Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+```
+
+`````{admonition} Example
  
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
-```{figure} logo.png
+
+
+```{figure} thevenin-dependent-and-independent.svg
 ---
 height: 300px
-name: LABEL_9
+name: thevenin-dependent-and-independent
 ---
 ```
 
-\Solution
+````{admonition} Solution
+:class: tip, dropdown
+
 **Find $V_{OC}$**
 In this case $V_{OC}$ is across the nodes A and B as labeled below. Mesh analysis was applied in this example to find the open circuit voltage though an method of analysis would suffice.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Voc.svg
 ---
 height: 300px
-name: LABEL_10
+name: thevenin-dependent-and-independent-Voc
 ---
 ```
 
@@ -359,10 +461,10 @@ $$ I=1.5~\text{A} $$
 
 Using the value of I we can find voltages for all of the passive components in the circuit. Note that the 3~\Om ~resistor has no current flowing through it and therefore the voltage across it is 0~\text{V}.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-voltages.svg
 ---
 height: 300px
-name: LABEL_11
+name: thevenin-dependent-and-independent-voltages
 ---
 ```
 
@@ -382,10 +484,10 @@ The dependent supply prevents us from applying the equivalent resistance method 
 
 Place a short between nodes A and B and find the short circuit current ($I_{SC}$) through that short. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Rth-2.svg
 ---
 height: 300px
-name: LABEL_12
+name: thevenin-dependent-and-independent-Rth-2
 ---
 ```
 
@@ -426,10 +528,10 @@ $$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{9~\text{V}}{1.5~\text{A}}=6~\Omega $$
 
 Place a voltage supply with a value of your choice ($V_{NEW}$) between nodes A and B and find the current ($I_{NEW}$) through that supply. The circuit now has two meshes as shown below and $I_{SC}$ is equal to $I_2$ in magnitude and polarity.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Rth-3.svg
 ---
 height: 300px
-name: LABEL_13
+name: thevenin-dependent-and-independent-Rth-3
 ---
 ```
 
@@ -471,10 +573,10 @@ $$ R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{20~\text{V}}{3.33~\text{A}}=6~\Omega $$
 
 The Thevenin equivalent circuit can be drawn using the values found above
 
-```{figure} logo.png
+```{figure} thevenin-dependent-and-independent-Thevenin.svg
 ---
 height: 300px
-name: LABEL_14
+name: thevenin-dependent-and-independent-Thevenin
 ---
 ```
 
@@ -482,14 +584,35 @@ A load connected to the original circuit between nodes A and B will see the same
 
 ````
 
+`````
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-dependent-only.svg') as d:
+    d += (Is1 := elm.SourceControlledI().up().label('$I_{S1}$\n$6I_x$').length(4))    
+    d += (LineT := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8Ω', loc='top'))       
+    d += (R4 := elm.Resistor().right().label('$R_{4}$\n10Ω', loc='top'))       
+    d += (R6 := elm.Resistor().right().label('$R_{6}$\n4Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Is1.start).right().tox(R6.end))       
+    d += elm.Dot(open=True).at(R6.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+    d += (R1 := elm.Resistor().at(LineT.end).down().label('$R_{1}$\n30Ω', loc='top').toy(Is1.start))       
+    d += (R3 := elm.Resistor().at(R2.end).down().label('$R_{3}$\n25Ω', loc='top').toy(Is1.start))       
+    d += (R5 := elm.Resistor().at(R4.end).down().label('$R_{5}$\n6Ω', loc='bottom').length(2))       
+    d += (Is2 := elm.SourceControlledI().down().label('$I_{S2}$\n$10I_x$', loc='bottom').length(2))       
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.3).at(R3).label('$I_{x}$',loc='top')    
+```
+
 ````{admonition} Example
  
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
-```{figure} logo.png
+```{figure} thevenin-dependent-only.svg
 ---
 height: 300px
-name: LABEL_15
+name: thevenin-dependent-only
 ---
 ```
 
@@ -500,13 +623,134 @@ This circuit has no independent supplies leading us to apply a voltage source wh
 
 We often use Thevenin equivalent circuits to characterize sub-circuits without having to know the details of each sub-circuit. In this way we can determine what is happening at the nodes where the sub-circuits connect together. Examples of sub-circuits include stages of amplifiers, sections of a power distribution layout, sensors, and microcontrollers.
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents.svg') as d:
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
+    d += (LineTL := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right())       
+    d += (LineTR := elm.Line().right())       
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
+    
+    d += (LineBL := elm.Line().at(R1.start).right())       
+    d += (Vs1 := elm.SourceV().right().label('32V'))    
+    d += (LineBR := elm.Line().right().tox(Vs2.end))       
+    
+    d += elm.CurrentLabelInline(direction='in', ofst=0).at(LineT).label('$I_{O}$',loc='bottom')    
+    d.move_from(R2.end,.8,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+
+    d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
+    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-blue.svg') as d:
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
+    d += (LineTL := elm.Line().right())       
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right().length(1))       
+    
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
+    
+    d += (LineBL := elm.Line().at(R1.start).right())       
+    d += (Vs1 := elm.SourceV().right().label('32V'))    
+    d += (LineBR := elm.Line().right().tox(LineT.end))       
+    
+    d.move_from(R2.end,.8,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+
+    d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    
+    d += elm.Dot(open=True).at(LineT.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineBR.end).label('B',loc='right')
+
+    d.move_from(Is1.center,5,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(LineBR.end,4,0)
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n-10V').reverse())    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n28Ω', loc='top'))       
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
+    d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-red.svg') as d:
+    d += (LineT := elm.Line().right().length(1))       
+    d += (LineTR := elm.Line().right())       
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
+    
+    d.move_from(R3.start,-1.2,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (LineBR := elm.Line().at(Vo.end).right().tox(Vs2.end))       
+    
+    d += elm.Dot(open=True).at(LineT.start).label('A',loc='left')
+    d += elm.Dot(open=True).at(LineBR.start).label('B',loc='left')
+
+    d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
+    
+    d.move_from(Is2.center,4.5,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(LineBR.end,4,0)
+    d += (LineB := elm.Line().right())       
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n27V').reverse())    
+    d += (Rth := elm.Resistor().left().label('$R_{TH}$\n6Ω', loc='top'))       
+    
+    d += elm.Dot(open=True).at(Rth.end).label('A',loc='left')
+    d += elm.Dot(open=True).at(LineB.start).label('B',loc='left')
+
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-2-equivalents-thevenins.svg') as d:
+    d += (Vth1 := elm.Battery().up().label('-10V',loc='bottom').reverse())    
+    d += (Rth1 := elm.Resistor().right().label('28Ω', loc='bottom'))       
+    d += (LineT := elm.Line().right().length(1.5))       
+    d += (LineB1 := elm.Line().at(Vth1.start).right().tox(Rth1.end))       
+    d += (LineB := elm.Line().right().length(1.5))       
+    
+    d += (LineB2 := elm.Line().right())       
+    d += (Vth2 := elm.Battery().up().label('27V').reverse())    
+    d += (Rth2:= elm.Resistor().left().label('6Ω', loc='bottom'))       
+    
+    d += (thevenin1 := elm.EncircleBox([Vth1, Rth1,LineB1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (thevenin2 := elm.EncircleBox([Vth2, Rth2,LineB2],includelabels=True).linestyle('--').linewidth(1).color('red'))
+    
+    d.move_from(Rth1.end,.6,0)
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.2).at(LineT).label('$I_{O}$',loc='top')    
+    
+
+```
+
+
+
 ````{admonition} Example
  
-
-```{figure} logo.png
+```{figure} thevenin-2-equivalents.svg
 ---
 height: 300px
-name: LABEL_16
+name: thevenin-2-equivalents
 ---
 ```
 
@@ -527,28 +771,28 @@ $$ V_O=9*(I_2-I_3)=9*(-1.088+3.363)=20.47~\text{V} $$
 
 **Find the equivalent for the blue circuit**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-blue.svg
 ---
 height: 300px
-name: LABEL_17
+name: thevenin-2-equivalents-blue
 ---
 ```
 
 **Find the equivalent for the red circuit**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-red.svg
 ---
 height: 300px
-name: LABEL_18
+name: thevenin-2-equivalents-red
 ---
 ```
 
 **Working with the equivalent circuits**
 
-```{figure} logo.png
+```{figure} thevenin-2-equivalents-thevenins.svg
 ---
 height: 300px
-name: LABEL_19
+name: thevenin-2-equivalents-thevenins
 ---
 ```
 
@@ -557,26 +801,132 @@ name: LABEL_19
 
 ## Norton's Theorem
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-canonical.svg') as d:
+    d += (In := elm.SourceI().up().label('$I_{N}$', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(In.start))    
+    d += (thevenin := elm.EncircleBox([In, Rn],includelabels=False,padx=.5).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((1,3.3)).label('Norton Equivalent',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} norton-canonical.svg
 ---
 height: 300px
-name: LABEL_20
+name: norton-canonical
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+   
+    d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
+    d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
+```
+
+```{figure} norton-toy.svg
 ---
 height: 300px
-name: LABEL_21
+name: norton-toy
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy-Isc.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+```
+
+```{figure} norton-toy-Isc.svg
 ---
 height: 300px
-name: LABEL_22
+name: norton-toy-Isc
 ---
 ```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-toy-Rth-method-1.svg') as d:
+    d += elm.LineDot().up().length(d.unit/6)
+    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += elm.LineDot().up().length(d.unit/6).reverse()
+    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+    d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
+    
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{N}$',loc='right').length(0.8))    
+```
+
+```{figure} norton-toy-Rth-method-1.svg
+---
+height: 300px
+name: norton-toy-Rth-method-1
+---
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-equivalent.svg') as d:
+    d += (In := elm.SourceI().up().label('$I_{N}$\n1.143A', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$\n7Ω', loc='top'))    
+
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$\n42Ω', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(In.start))    
+    
+```
+
+```{figure} norton-equivalent.svg
+---
+height: 300px
+name: norton-equivalent
+---
+```
+
 
 ## Maximum Power Transfer
 
@@ -589,10 +939,21 @@ Often we must ensure that the power delivered to a load is as much as possible. 
 
 The circuit transmitting can be thought of as its Thevenin equivalent with a load connected as shown here
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vth.start))   
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+```
+```{figure} max-power.svg
 ---
 height: 300px
-name: LABEL_23
+name: max-power
 ---
 ```
 
@@ -636,23 +997,72 @@ $$ R_L=R_{TH} $$
 
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-example.svg') as d:
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n10V', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n2Ω', loc='top'))    
+    d += (LineT := elm.Line().right().length(1))    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vth.start))   
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+```
+
+```{code-cell} ipython3
+:tags: [remove-input,remove-output]
+import numpy as np
+import matplotlib
+from matplotlib import pyplot as plt
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+font = {'family' : 'normal',
+        'weight' : 'bold',
+        'size'   : 32}
+matplotlib.rc('font', **font)
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(24, 10)
+
+Rl=np.arange(0,26,.01)
+i=10/(2+Rl)
+v=i*Rl
+p=v*i
+
+plt.grid(True, which='both')
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+
+plt.plot(Rl, i,color='r', linewidth=3,label='$\mathbf{I_{RL}}$ (A)')
+plt.plot(Rl, v,color='b', linewidth=3,label='$\mathbf{V_{RL}}$ (V)')
+plt.plot(Rl, p,color='g', linewidth=3,label='$\mathbf{P_{RL}}$ (W)')
+
+plt.xlabel('$\mathbf{R_L}$ (Ω)',fontsize=32, fontweight='bold')
+#plt.legend(loc=(1.04, 0))
+plt.ylim([0,14])
+plt.xlim([0,26])
+plt.legend()
+
+plt.savefig('max-power-plot.svg')
+```
+
 ````{admonition} Example
  
 Let's take a look at an example with values that supports the theory introduced above. Consider a circuit that has a Thevenin voltage of 10~\text{V} and a Thevenin resistance of 2~\Om. The equivalent circuit can be drawn with a load connected as shown here:
 
-```{figure} logo.png
+```{figure} max-power-example.svg
 ---
 height: 300px
-name: LABEL_24
+name: max-power-example
 ---
 ```
 
 We'll vary the value of $R_{L}$ along the horizontal of a plot to demonstrate how the other values of interest are affected.
 
-```{figure} logo.png
+```{figure} max-power-plot.svg
 ---
 height: 300px
-name: LABEL_FOR_THIS_IMAGE
+name: max-power-plot
+
 ---
 ```
 
@@ -665,23 +1075,45 @@ The maximum power is dissipated when $R_{L}$=$R_{TH}$, 2~\Om~for this example. T
 
 ````
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-limit.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n32V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4Ω', loc='top'))    
+    d += (LineT := elm.Line().right())    
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n12Ω', loc='bottom'))    
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='max-power-limit-equivalent.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{TH}$\n24V', loc='top').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{TH}$\n3Ω', loc='top'))    
+    d += (R2 := elm.Resistor().down().label('$R_{L}$\n3Ω', loc='bottom').label(('+','$V_{RL}$','-')))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+```
+
 ````{admonition} Example
  
 Can $R_{L}$ dissipate 50~\text{W} in this circuit?
 
-```{figure} logo.png
+```{figure} max-power-limit.svg
 ---
 height: 300px
-name: LABEL_25
+name: max-power-limit
 ---
 ```
 
 To answer this we can redraw the circuit the circuit as its Thevenin equivalent. Thevenizing around $R_{L}$ give us a Thevenin voltage of 24~\text{V} and Thevenin resistance of 3~\Om. Take a moment to confirm these values. You're an expert now. You've read the first part of this chapter. The equivalent circuit looks like
 
-```{figure} logo.png
+```{figure} max-power-limit-equivalent.svg
 ---
 height: 300px
-name: LABEL_26
+name: max-power-limit-equivalent
 ---
 ```
 
@@ -779,7 +1211,7 @@ name: LABEL_32
 ---
 ```
 
-### Circuit Analysis and Reduction of Complexity with Source Conversions derp
+### Circuit Analysis and Reduction of Complexity with Source Conversions
 
 ````{admonition} Example
  
