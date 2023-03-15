@@ -7,9 +7,12 @@
         "halign",
         "ipython",
         "manim",
+        "mathcal",
         "milliamp",
         "milliamps",
         "opamp",
+        "otherpassivecomponents",
+        "reluctances",
         "wirecutter"
     ],
     "files.exclude": {
