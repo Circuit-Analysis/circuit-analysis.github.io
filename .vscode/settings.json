@@ -13,6 +13,7 @@
         "opamp",
         "otherpassivecomponents",
         "reluctances",
+        "subsubsub",
         "wirecutter"
     ],
     "files.exclude": {

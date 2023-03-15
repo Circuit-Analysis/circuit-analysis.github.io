@@ -42,3 +42,54 @@ _{
 \\begin\{minipage\}(.*?(.|[\n])*?)\\end\{minipage\}
 \n $1 \n
 
+### Capacitor Impedance for Alternating Current Circuits
+
+One way that {eq}`capacitor-voltage-current` can be used is to see what happens when 
+
+$$
+i(t) = A \cos(\omega t) 
+$$
+
+If we assume that the initial voltage is zero ($v(t_0) = 0$) and that this occurs when $t_0 = 0$, then {eq}`capacitor-voltage-current` gives
+
+\begin{align*}
+v(t) &= \frac{A}{C} \int_{0}^t \cos(\omega \tau) d\tau\\
+&= \frac{A}{\omega C} \sin(\omega \tau) + K\\
+&= -\frac{A}{\omega C} \cos(\omega \tau + \frac{\pi}{2}) + K\\
+\end{align*}
+
+We can then look at the relationship between voltage and current and see that there are two components:
+
+\begin{align*}
+\frac{v(t) }{i(t)} &= \frac{-\frac{A}{\omega C} \cos(\omega \tau + \frac{\pi}{2}) + K}{A \cos(\omega t) }\\
+&= \frac{-1}{\omega C} (-\tan(\omega t))\\
+&= \frac{1}{\omega C} \tan(\omega t)
+\end{align*}
+
+where we have neglected the effect of the arbitrary constant of integration, $K$.
+
+### Inductor Impedance for Alternating Current Circuits
+
+Let's look at {eq}`inductor-voltage-current` when 
+
+$$
+v(t) = A \cos(\omega t) 
+$$
+
+If we assume that the initial current is zero ($i(t_0) = 0$) and that this occurs when $t_0 = 0$, then {eq}`inductor-voltage-current` gives
+
+\begin{align*}
+i(t) &= \frac{A}{L} \int_{0}^t \cos(\omega \tau) d\tau\\
+&= \frac{A}{\omega L} \sin(\omega \tau) + K\\
+&= -\frac{A}{\omega L} \cos(\omega \tau + \frac{\pi}{2}) + K\\
+\end{align*}
+
+We can then look at the relationship between voltage and current and see that there are two components:
+
+\begin{align*}
+\frac{v(t) }{i(t)} &= \frac{A \cos(\omega t) }{-\frac{A}{\omega L} \cos(\omega \tau + \frac{\pi}{2}) + K}\\
+&=  -\omega L (- \cot(\omega t))\\
+&=  \omega L \cot(\omega t)
+\end{align*}
+
+where we have neglected the effect of the arbitrary constant of integration, $K$.

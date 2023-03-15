@@ -184,12 +184,14 @@ $$ i(t)=C\frac{dv(t)}{dt}$$
 
 An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the capacitor equation:
 
-$$ v(t)=\frac{1}{C}\int_{t_0}^t i(\tau)d\tau + v(t_0)$$
+```{math}
+:label: capacitor-voltage-current
+v(t)=\frac{1}{C}\int_{t_0}^t i(\tau)d\tau + v(t_0)
+```
 
 For capacitors, these two forms of the capacitor equation take the place of Ohm's Law in the methods of analysis previously introduced.
 
-### Capacitor Impedance for Alternating Current Circuits
-
+We shall see in the section *{ref}`content:subsubsub:capacitor`* how we can make the connection to Ohm's Law even more direct.
 
 (content:section:inductors)=
 ## Inductors
@@ -329,11 +331,14 @@ $$ v(t)=L\frac{di(t)}{dt}$$
 
 An alternate form of the equation is used often. Taking the integral of each side of the derivative form results in the integral form of the inductor equation:
 
-$$ i(t)=\frac{1}{L}\int_{t_0}^t v(\tau)d\tau + i(t_0)$$
+```{math}
+:label: inductor-voltage-current
+i(t)=\frac{1}{L}\int_{t_0}^t v(\tau)d\tau + i(t_0)
+```
 
 For inductors, these two forms of the inductor equation take the place of Ohm's Law in the methods of analysis previously introduced.
 
-### Inductor Impedance for Alternating Current Circuits
+We shall see in the section *{ref}`content:subsubsub:inductor`* how we can make the connection to Ohm's Law even more direct.
 
 
 ## Realistic Models of Passive Components
