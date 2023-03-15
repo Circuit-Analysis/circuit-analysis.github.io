@@ -338,10 +338,116 @@ For inductors, these two forms of the inductor equation take the place of Ohm's 
 
 ## Realistic Models of Passive Components
 
+What we have looked at above and earlier are *ideal* resistors, capacitors, and inductors. In reality, each of these devices often exhibits aspects of the other two also. Different models for **real** devices have been developed. They are as follows.
+
+```{index} Realistic Models
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+with schemdraw.Drawing(file='realistic-resistor.svg') as d:
+    d += elm.Inductor().label('$L_{\ell}$', loc='bot')
+    d.push()
+    d += elm.Resistor().label('$R$', loc='bot')
+    d += elm.Inductor().label('$L_S$', loc='bot')
+    d += elm.Inductor().label('$L_{\ell}$', loc='bot')
+    d.pop()
+    d += elm.Line().up().length(2)
+    d += elm.Capacitor().label('$C_P$').length(6).right()
+    d += elm.Line().down().length(2)
+with schemdraw.Drawing(file='realistic-inductor.svg') as d:
+    d += elm.Line()
+    d.push()
+    d += elm.Resistor().label('$R_S$', loc='bot')
+    d += elm.Inductor().label('$L$', loc='bot')
+    d += elm.Line()
+    d.pop()
+    d += elm.Line().up().length(2)
+    d += elm.Capacitor().label('$C_P$').length(6).right()
+    d += elm.Line().down().length(2)
+with schemdraw.Drawing(file='realistic-capacitor.svg') as d:
+    d += elm.Resistor().label('$R_S$', loc='bot')
+    d += elm.Capacitor().label('$C$')
+    d += elm.Inductor().label('$L_S$', loc='bot')
+```
+
 ### A Realistic Resistor Model
+
+Horowitz et al. ({cite:ts}`horowitz_x_chapters`) presents the following model for a realistic resistor.
+
+```{figure} realistic-resistor.svg
+---
+height: 300px
+name: realistic-resistor
+---
+A realistic resistor model from {cite:ts}`horowitz_x_chapters`.
+```
+
+```{list-table} Realistic resistor model components.
+:name: table-realistic-resistor
+:header-rows: 1
+
+* - Quantity
+  - Description
+* - $R$
+  - The nominal resistance.
+* - $L_\ell$
+  - The lead inductance.
+* - $L_S$
+  - The series inductance.
+* - $C_P$
+  - The parallel or shunt capacitance.
+```
 ### A Realistic Capacitor Model
 
+{cite:ts}`agilent_impedance_measurement` presents the following model for a realistic capacitor.
+
+```{figure} realistic-capacitor.svg
+---
+height: 300px
+name: realistic-capacitor
+---
+A realistic capacitor model from {cite:ts}`agilent_impedance_measurement`.
+```
+
+```{list-table} Realistic capacitor model components.
+:name: table-realistic-capacitor
+:header-rows: 1
+
+* - Quantity
+  - Description
+* - $R_S$
+  - The series resistance.
+* - $L_S$
+  - The series inductance.
+* - $C$
+  - The nominal capacitance.
+```
+
 ### A Realistic Inductor Model
+
+{cite:ts}`agilent_impedance_measurement` presents the following model for a realistic inductor.
+
+```{figure} realistic-inductor.svg
+---
+height: 300px
+name: realistic-inductor
+---
+A realistic inductor model from {cite:ts}`agilent_impedance_measurement`.
+```
+
+```{list-table} Realistic inductor model components.
+:name: table-realistic-inductor
+:header-rows: 1
+* - Quantity
+  - Description
+* - $R_S$
+  - The series resistance.
+* - $L$
+  - The nominal inductance.
+* - $C_P$
+  - The parallel or shunt capacitance.
+```
 
 ## Next Steps: Analyzing Circuits with Reactive Components
 
