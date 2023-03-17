@@ -40,7 +40,7 @@ with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
 ```{index} Voltage Divider
 ```
 
-````{admonition} Example
+`````{admonition} Example
  
 
 ```{figure} voltage-divider-resistor-inductor.svg
@@ -52,11 +52,11 @@ name: voltage-divider-resistor-inductor
 
 Find v$_O$(t) given that $v_I(t)=4 \cos(10000t+45^\circ)$ V
 
-```{admonition} Solution using differential equations
+````{admonition} Solution using differential equations
 :class: tip, dropdown
 First remember that 
 
-$$v_O(t) = L d\frac{i(t)}{dt}$$
+$$v_O(t) = L \frac{d~i(t)}{dt}$$
 
 and that
 
@@ -68,14 +68,86 @@ $$ v_I(t) = v_R(t) + v_O(t)$$
 
 or
 
-$$ 4 \cos(10000t+45^\circ) = R i(t) + L d\frac{i(t)}{dt}$$
+$$ 4 \cos(10000t+45^\circ) = R i(t) + L \frac{d~i(t)}{dt}$$
 
 Now, we need to solve this linear, first order differential equation ({cite:ts}`paul_dawkins_math_notes`).
 
+```{note} Dawkins' approach 
+:class: dropdown
+
+{cite:ts}`paul_dawkins_math_notes` says to:
+
+- Put the differential equation in the correct initial form.
+
+$$ \frac{d~i(t)}{dt} + p(t) i(t) = g(t) $$
+
+- Find the integrating factor $\mu(t)$ using
+
+$$ \mu(t) = e^{\int p(t) dt} $$
+
+- Multiply everything in the differential equation by $\mu(t)$ and verify that the left side becomes the product rule $(\mu(t)y(t))^′$ and write it as such.
+
+- Integrate both sides, make sure you properly deal with the constant of integration.
+
+- Solve for the solution $i(t)$.
+
 ```
 
+To get the equation into the correct form, just swap sides and divide both sides by $L$:
+
+$$  \frac{R}{L} i(t) +  \frac{d~i(t)}{dt} = \frac{4}{L} \cos(10000t+45^\circ)$$
+
+Then we can see that $p(t) = \frac{R}{L}$ so that
+
+$$ \mu(t) = e^{\frac{R}{L} t} $$
+
+Then
+
+\begin{align*}
+\mu(t)\frac{R}{L} i(t) +  \mu(t)\frac{d~i(t)}{dt} &= \mu(t)\frac{4}{L} \cos(10000t+45^\circ)\\
+(\mu(t) i(t))' &= \mu(t)\frac{4}{L} \cos(10000t+45^\circ)
+\end{align*}
+
+and integrating both sides we get
+
+\begin{align*}
+\int (e^{\frac{R}{L} t} i(t))' dt &= \int e^{\frac{R}{L} t}\frac{4}{L} \cos(10000t+45^\circ) dt\\
+e^{\frac{R}{L} t} i(t) + k &= \frac{4 e^{\frac{R}{L} t}}{10^8 L^2 + R^2}  \big [  10000 L \sin(10000t+45^\circ)   \\
+&+ R \cos(10000t+45^\circ)  \big ] + c
+\end{align*}
+
+so that
+
+\begin{align*}
+i(t) &= \frac{4}{10^8 L^2 + R^2}  \big [ 10000 L \sin(10000t+45^\circ) \\
+&+ R  \cos(10000t+45^\circ)  \big ] \\
+& + \kappa e^{-\frac{R}{L} t}
+\end{align*}
+
+Substituting $L= 0.1$ and $R = 1000$ we get
+
+\begin{align*}
+i(t) &= \frac{4}{10^6 + 10^6} \big [ 1000 \sin(10000t+45^\circ)\\
+&+ 1000 \cos(10000t+45^\circ) \big ] \\
+&+ \kappa e^{-\frac{R}{L} t} \\
+&= \frac{4}{10^6 + 10^6} 1000 \sqrt{2} \cos(10000 t) + \kappa e^{-\frac{R}{L} t}
+\end{align*}
+
+And after a long time ($t > 5 \frac{L}{R} = 500 \mu s$)
+
+$$ i(t) = \frac{2 \sqrt{2}}{1000} \cos(10000 t)  $$
+
+So
+
+\begin{align*}
+v_O(t) &= L \frac{d~i(t)}{dt} \\
+&=  0.1 \times ( - 10000 \times \frac{2 \sqrt{2}}{1000}  \sin(10000t)  )\\
+&= -  2 \sqrt{2} \sin(10000t) \\
+&= 2 \sqrt{2} \cos(10000 t + 90^\circ)
+\end{align*}
 
 ````
+`````
 
 ### Current Divider
 

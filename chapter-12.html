@@ -594,7 +594,7 @@ title="Print to PDF"
 <p class="admonition-title">Solution using differential equations</p>
 <p>First remember that</p>
 <div class="math notranslate nohighlight">
-\[v_O(t) = L d\frac{i(t)}{dt}\]</div>
+\[v_O(t) = L \frac{d~i(t)}{dt}\]</div>
 <p>and that</p>
 <div class="math notranslate nohighlight">
 \[ v_R(t) = R i(t).\]</div>
@@ -603,8 +603,72 @@ title="Print to PDF"
 \[ v_I(t) = v_R(t) + v_O(t)\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
-\[ 4 \cos(10000t+45^\circ) = R i(t) + L d\frac{i(t)}{dt}\]</div>
-<p>Now, we need to solve this linear, first order differential equation (<span id="id1">Dawkins [<a class="reference internal" href="#id11" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>).</p>
+\[ 4 \cos(10000t+45^\circ) = R i(t) + L \frac{d~i(t)}{dt}\]</div>
+<p>Now, we need to solve this linear, first order differential equation (<span id="id1">Dawkins [<a class="reference internal" href="#id12" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>).</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p><span id="id2">Dawkins [<a class="reference internal" href="#id12" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span> says to:</p>
+<ul class="simple">
+<li><p>Put the differential equation in the correct initial form.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{d~i(t)}{dt} + p(t) i(t) = g(t) \]</div>
+<ul class="simple">
+<li><p>Find the integrating factor <span class="math notranslate nohighlight">\(\mu(t)\)</span> using</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \mu(t) = e^{\int p(t) dt} \]</div>
+<ul class="simple">
+<li><p>Multiply everything in the differential equation by <span class="math notranslate nohighlight">\(\mu(t)\)</span> and verify that the left side becomes the product rule <span class="math notranslate nohighlight">\((\mu(t)y(t))^′\)</span> and write it as such.</p></li>
+<li><p>Integrate both sides, make sure you properly deal with the constant of integration.</p></li>
+<li><p>Solve for the solution <span class="math notranslate nohighlight">\(i(t)\)</span>.</p></li>
+</ul>
+</div>
+<p>To get the equation into the correct form, just swap sides and divide both sides by <span class="math notranslate nohighlight">\(L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[  \frac{R}{L} i(t) +  \frac{d~i(t)}{dt} = \frac{4}{L} \cos(10000t+45^\circ)\]</div>
+<p>Then we can see that <span class="math notranslate nohighlight">\(p(t) = \frac{R}{L}\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[ \mu(t) = e^{\frac{R}{L} t} \]</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mu(t)\frac{R}{L} i(t) +  \mu(t)\frac{d~i(t)}{dt} &amp;= \mu(t)\frac{4}{L} \cos(10000t+45^\circ)\\
+(\mu(t) i(t))' &amp;= \mu(t)\frac{4}{L} \cos(10000t+45^\circ)
+\end{align*}\]</div>
+<p>and integrating both sides we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int (e^{\frac{R}{L} t} i(t))' dt &amp;= \int e^{\frac{R}{L} t}\frac{4}{L} \cos(10000t+45^\circ) dt\\
+e^{\frac{R}{L} t} i(t) + k &amp;= \frac{4 e^{\frac{R}{L} t}}{10^8 L^2 + R^2}  \big [  10000 L \sin(10000t+45^\circ)   \\
+&amp;+ R \cos(10000t+45^\circ)  \big ] + c
+\end{align*}\]</div>
+<p>so that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+i(t) &amp;= \frac{4}{10^8 L^2 + R^2}  \big [ 10000 L \sin(10000t+45^\circ) \\
+&amp;+ R  \cos(10000t+45^\circ)  \big ] \\
+&amp; + \kappa e^{-\frac{R}{L} t}
+\end{align*}\]</div>
+<p>Substituting <span class="math notranslate nohighlight">\(L= 0.1\)</span> and <span class="math notranslate nohighlight">\(R = 1000\)</span> we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+i(t) &amp;= \frac{4}{10^6 + 10^6} \big [ 1000 \sin(10000t+45^\circ)\\
+&amp;+ 1000 \cos(10000t+45^\circ) \big ] \\
+&amp;+ \kappa e^{-\frac{R}{L} t} \\
+&amp;= \frac{4}{10^6 + 10^6} 1000 \sqrt{2} \cos(10000 t) + \kappa e^{-\frac{R}{L} t}
+\end{align*}\]</div>
+<p>And after a long time (<span class="math notranslate nohighlight">\(t &gt; 5 \frac{L}{R} = 500 \mu s\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[ i(t) = \frac{2 \sqrt{2}}{1000} \cos(10000 t)  \]</div>
+<p>So</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
+&amp;=  0.1 \times ( - 10000 \times \frac{2 \sqrt{2}}{1000}  \sin(10000t)  )\\
+&amp;= -  2 \sqrt{2} \sin(10000t) \\
+&amp;= 2 \sqrt{2} \cos(10000 t + 90^\circ)
+\end{align*}\]</div>
 </div>
 </div>
 </section>
@@ -733,9 +797,9 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
-<div class="docutils container" id="id2">
+<div class="docutils container" id="id3">
 <dl class="citation">
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Daw22</a></span></dt>
+<dt class="label" id="id12"><span class="brackets">Daw22</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>Paul Dawkins. Differential Equations - Linear Equations. <a class="reference external" href="https://tutorial.math.lamar.edu/classes/de/Linear.aspx">https://tutorial.math.lamar.edu/classes/de/Linear.aspx</a>, 2022. [Online; accessed 14-March-2023].</p>
 </dd>
 </dl>
@@ -813,4 +877,4 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 
 
   </body>
-</html><!-- e39f484399979bdcf3bd3564ef1c8e4d6c14a64a -->
+</html><!-- fa6e592141259b5304df621be4a45f242b7b020e -->
