@@ -23,10 +23,19 @@ kernelspec:
 :load: includes/python_imports.py
 ```
 
+
+
 ## Analysis Methods and Theorems with Alternating Current
 
 ### Voltage Divider
-
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
+    d += elm.SourceV().label('$v_I(t)$').up()
+    d += elm.Resistor().label('$R$\n$1~k\Omega$').right()
+    d += elm.Inductor().label('$L$\n$100 mH$',loc='bot').down().label(['+', '$v_O(t)$','-'])
+    d += elm.Line().left()
+```
 
 ```{index} Voltage Divider
 ```
@@ -34,14 +43,37 @@ kernelspec:
 ````{admonition} Example
  
 
-```{figure} logo.png
+```{figure} voltage-divider-resistor-inductor.svg
 ---
 height: 300px
-name: LABEL_0
+name: voltage-divider-resistor-inductor
 ---
 ```
 
-Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
+Find v$_O$(t) given that $v_I(t)=4 \cos(10000t+45^\circ)$ V
+
+```{admonition} Solution using differential equations
+:class: tip, dropdown
+First remember that 
+
+$$v_O(t) = L d\frac{i(t)}{dt}$$
+
+and that
+
+$$ v_R(t) = R i(t).$$
+
+Then, from Kirchhoff's Voltage Law:
+
+$$ v_I(t) = v_R(t) + v_O(t)$$
+
+or
+
+$$ 4 \cos(10000t+45^\circ) = R i(t) + L d\frac{i(t)}{dt}$$
+
+Now, we need to solve this linear, first order differential equation ({cite:ts}`paul_dawkins_math_notes`).
+
+```
+
 
 ````
 
@@ -265,3 +297,9 @@ $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A
 ````
 
 `````
+
+## References
+
+```{bibliography} ./references.bib
+:filter: docname in docnames
+```

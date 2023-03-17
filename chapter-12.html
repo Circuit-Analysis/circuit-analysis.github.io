@@ -482,6 +482,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -548,6 +553,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -572,12 +582,30 @@ title="Print to PDF"
 <h2>Analysis Methods and Theorems with Alternating Current<a class="headerlink" href="#analysis-methods-and-theorems-with-alternating-current" title="Permalink to this headline">#</a></h2>
 <section id="voltage-divider">
 <h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition" id="index-0">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-0">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="voltage-divider-resistor-inductor">
+<a class="reference internal image-reference" href="_images/voltage-divider-resistor-inductor.svg"><img alt="_images/voltage-divider-resistor-inductor.svg" height="300px" src="_images/voltage-divider-resistor-inductor.svg" /></a>
 </figure>
-<p>Find v<span class="math notranslate nohighlight">\(_O\)</span>(t) given that v<span class="math notranslate nohighlight">\(_I\)</span>(t)=4~cos(10000t+45<span class="math notranslate nohighlight">\(^\circ\)</span>)~V</p>
+<p>Find v<span class="math notranslate nohighlight">\(_O\)</span>(t) given that <span class="math notranslate nohighlight">\(v_I(t)=4 \cos(10000t+45^\circ)\)</span> V</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution using differential equations</p>
+<p>First remember that</p>
+<div class="math notranslate nohighlight">
+\[v_O(t) = L d\frac{i(t)}{dt}\]</div>
+<p>and that</p>
+<div class="math notranslate nohighlight">
+\[ v_R(t) = R i(t).\]</div>
+<p>Then, from Kirchhoff’s Voltage Law:</p>
+<div class="math notranslate nohighlight">
+\[ v_I(t) = v_R(t) + v_O(t)\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ 4 \cos(10000t+45^\circ) = R i(t) + L d\frac{i(t)}{dt}\]</div>
+<p>Now, we need to solve this linear, first order differential equation (<span id="id1">Dawkins [<a class="reference internal" href="#id11" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>).</p>
+</div>
 </div>
 </section>
 <section id="current-divider">
@@ -703,6 +731,16 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 </div>
 </section>
 </section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Daw22</a></span></dt>
+<dd><p>Paul Dawkins. Differential Equations - Linear Equations. <a class="reference external" href="https://tutorial.math.lamar.edu/classes/de/Linear.aspx">https://tutorial.math.lamar.edu/classes/de/Linear.aspx</a>, 2022. [Online; accessed 14-March-2023].</p>
+</dd>
+</dl>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -775,40 +813,4 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 
 
   </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- e39f484399979bdcf3bd3564ef1c8e4d6c14a64a -->
+</html><!-- e39f484399979bdcf3bd3564ef1c8e4d6c14a64a -->
