@@ -21,12 +21,11 @@ kernelspec:
 :load: includes/python_imports.py
 ```
 
-<center>
-<i>Sometimes a desperate man does dumb things.</i>
+```{epigraph}
+Sometimes a desperate man does dumb things.
 
-<b>Angus MacGyver</b>
-
-</center>
+-- Angus MacGyver
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
