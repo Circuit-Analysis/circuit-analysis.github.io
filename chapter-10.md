@@ -1337,17 +1337,32 @@ name: source-conversion-example-00
 ```
 ````
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-01.svg') as d:
+    d += (R1 := elm.Resistor().up().label('6Ω', loc='top'))    
+    d += (Line1 := elm.Line().right())    
+    d += (Line2 := elm.Line().right())    
+    d += (Vs := elm.Battery().right().label('$5V$', loc='top').reverse())
+    d += (Line4 := elm.Line().right())    
+    d += (R4 := elm.Resistor().right().label('1Ω', loc='top'))    
+    d += (R5 := elm.Resistor().down().label('4Ω', loc='top'))    
+    d += (LineB := elm.Line().left().tox(R1.start))    
+
+    d += (I1 := elm.SourceI().at(Line1.end).down().label('5A', loc='top').reverse())
+    d += (R2 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().at(Vs.end).down().label('7Ω', loc='top'))    
+    d += (I2 := elm.SourceI().at(Line4.end).down().label('3A', loc='top').reverse())
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+```
+````{admonition} Example
+```{figure} source-conversion-example-01.svg
 ---
 height: 300px
-name: LABEL_34
+name: source-conversion-example-01
 ---
 ```
-
-
 ````
 
 ````{admonition} Example
