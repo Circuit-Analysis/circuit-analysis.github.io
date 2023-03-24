@@ -151,21 +151,93 @@ v_O(t) &= L \frac{d~i(t)}{dt} \\
 
 ### Current Divider
 
-````{admonition} Example
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='current-divider-resistor-capacitor.svg') as d:
+    d += elm.SourceI().label('$i_I(t)$').up()
+    d += elm.Line().right()
+    d.push()
+    d += elm.Line().right()
+    d += (C:= elm.Capacitor().down().label('$C$\n$1 \mu F$'))
+    d += elm.Line().left().length(6)
+    d.pop()
+    d += elm.Resistor().down().label('$R$\n$500 \Omega$')
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(C.end).label('$i_O(t)$')
+```
+
+`````{admonition} Example
  
 
-```{figure} logo.png
+```{figure} current-divider-resistor-capacitor.svg
 ---
 height: 300px
-name: LABEL_1
+name: current-divider-resistor-capacitor
 ---
 ```
 
-Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
+Find $i_O(t)$ given that $i_I(t)=400 \cos(1000t-30^\circ)$ mA.
+
+````{admonition} Solution using differential equations
+:class: tip, dropdown
+
+Here
+
+$$ i_O(t) = C \frac{d~v_C(t)}{dt} $$
+
+and applying Kirchhoff's Current Law (KCL) to the top node we get
+
+$$ i_I(t) = v_R(t) / R  + C \frac{d~v_C(t)}{dt} $$
+
+Rearranging this into Dawkins' preferred format, we get
+
+$$ \frac{1}{RC} v_R(t) + \frac{d~v_C(t)}{dt} = 400 \cos(1000t-30^\circ) $$
+
+and noting that $v_R(t) = v_C(t)$
+
+$$ \frac{1}{RC} v(t) + \frac{d~v(t)}{dt} = 400 \cos(1000t-30^\circ) $$
+
+For this example, our integrating factor $\mu(t)$ is now
+
+$$ \mu(t) = e^{\frac{t}{RC}} $$
+
+and multiplying both sides of our differential equation by this factor yields
+
+$$ (\mu(t) v(t))^′ = \mu(t) 400 \cos(1000t-30^\circ ).$$
+
+We can now integrate this as we did in the voltage divider example to give
+
+\begin{align*}
+\int (e^{\frac{t}{RC}} v(t))^′ dt &=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
+\int (e^{\frac{t}{5 \times 10^{-4}}} v(t))^′ dt &=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
+e^{2000 t} v(t) + c &= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
+v(t) &= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t} 
+\end{align*}
+
 
 ````
 
+
+`````
+
 ### Mesh Analysis
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='mesh-analysis-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
+    d += elm.Resistor().right().label('$R_1$\n$4 \Omega$')
+    d.push()
+    d += elm.Inductor().right().label('$L$')
+    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{90^\circ}$ A', loc='bot').length(6).reverse()
+    d += elm.Line().length(6).left()
+    d.pop()
+    d += elm.Capacitor().down().label('$C$', loc='bot')    
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
+
+
+```
 
 
 ```{index} Mesh Analysis
@@ -173,11 +245,10 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 ````{admonition} Example
  
-
-```{figure} logo.png
+```{figure} mesh-analysis-differential-equations.svg
 ---
-height: 300px
-name: LABEL_2
+height: 600px
+name: mesh-analysis-differential-equations
 ---
 ```
 
@@ -186,13 +257,49 @@ name: LABEL_2
 
 ### Nodal Analysis
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='nodal-analysis-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$6 \\angle 0^\circ$')
+    d += elm.Inductor().right().label('$L$')
+    d.push()
+    d += elm.Capacitor().right().label('$C$')
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
+    d += elm.Line().length(6).left()
+    d.pop()
+    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{45^\circ}$')
+
+with schemdraw.Drawing(file='nodal-analysis-differential-equations-2.svg') as d:
+    d += elm.Line().length(3).up()
+    d += elm.Line().length(2).up()    
+    d += elm.SourceV().right().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
+    d += elm.Line().length(2).down()
+    d.push()
+    d += elm.Resistor().label('$R_3$').down()
+    d += elm.Inductor().left().label('$L$')
+    d.push()
+    d.push()
+    d += elm.Ground().right()
+    d.pop()
+    d += (R2 := elm.Resistor().up().label('$R_2$'))
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$i_O(t)$', loc='bot')
+    d.pop()
+    d += elm.Line().left()
+    d.pop()
+    d += elm.Capacitor().left().label('$C$', loc='bot')    
+    d += elm.Resistor().left().label('$R_1$', loc='bot')   
+    
+
+```
+
 ````{admonition} Example
  
 
-```{figure} logo.png
+```{figure} nodal-analysis-differential-equations.svg
 ---
 height: 300px
-name: LABEL_3
+name: nodal-analysis-differential-equations
 ---
 ```
 
@@ -202,10 +309,10 @@ name: LABEL_3
 ````{admonition} Example
  
 
-```{figure} logo.png
+```{figure} nodal-analysis-differential-equations-2.svg
 ---
-height: 300px
-name: LABEL_4
+height: 600px
+name: nodal-analysis-differential-equations-2
 ---
 ```
 
@@ -216,17 +323,64 @@ name: LABEL_4
 
 ### Thevenin's Theorem
 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V')
+    d += elm.Inductor().right().label('$L$')
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))   
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += elm.Line().left()
+    d.move_from(R.end,0,0)
+
+with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
+    d += (L := elm.Inductor().right().label('$L$'))
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += (LN := elm.Line().left())
+    d.move_from(R.end,0,0)
+    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')   
+
+with schemdraw.Drawing(file='thevenin-differential-equations-voltages.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
+    d += (L := elm.Inductor().right().label(['+', '-'])).label('$100 \\angle 30^\circ$ V', loc='bot').length(4)
+    d.push()
+    d += (R := elm.Resistor().right().label(['+', '-']).label('$0 \\angle 0^\circ$ V', loc='bot').dot().label('A', loc='right'))
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$50 \\angle 150^\circ$ V', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)).label(['+', '-'], loc='bot'))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += (LN := elm.Line().left().length(4))
+    d.move_from(R.end,0,0)
+
+
+```
 
 ```{index} Thevenin's Theorem
 ```
 
+ 
+
 `````{admonition} Example
  
 
-```{figure} logo.png
+```{figure} thevenin-differential-equations.svg
 ---
 height: 300px
-name: LABEL_5
+name: thevenin-differential-equations
 ---
 ```
 
@@ -236,10 +390,10 @@ Find the Thevenin equivalent of the circuit above.
 :class: tip, dropdown
 Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
 
-```{figure} logo.png
+```{figure} thevenin-differential-equations-mesh.svg
 ---
 height: 300px
-name: LABEL_6
+name: thevenin-differential-equations-mesh
 ---
 ```
 
@@ -261,10 +415,10 @@ $$ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
 
 There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
 
-```{figure} logo.png
+```{figure} thevenin-differential-equations-voltages.svg
 ---
 height: 300px
-name: LABEL_7
+name: thevenin-differential-equations-voltages
 ---
 ```
 
