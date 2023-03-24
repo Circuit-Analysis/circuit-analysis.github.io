@@ -473,8 +473,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#thevenin-equivalent-of-a-norton-equivalent-now-let-s-turn-it-around-the-other-way-starting-with-a-norton-equivalent-circuit-let-s-find-its-thevenin-equivalent">
-     Thevenin Equivalent of a Norton Equivalent Now let’s turn it around the other way. Starting with a Norton equivalent circuit let’s find its Thevenin equivalent.
+    <a class="reference internal nav-link" href="#thevenin-equivalent-of-a-norton-equivalent">
+     Thevenin Equivalent of a Norton Equivalent
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -551,8 +551,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#thevenin-equivalent-of-a-norton-equivalent-now-let-s-turn-it-around-the-other-way-starting-with-a-norton-equivalent-circuit-let-s-find-its-thevenin-equivalent">
-     Thevenin Equivalent of a Norton Equivalent Now let’s turn it around the other way. Starting with a Norton equivalent circuit let’s find its Thevenin equivalent.
+    <a class="reference internal nav-link" href="#thevenin-equivalent-of-a-norton-equivalent">
+     Thevenin Equivalent of a Norton Equivalent
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -993,32 +993,41 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <section id="norton-equivalent-of-a-thevenin-equivalent">
 <h3>Norton Equivalent of a Thevenin Equivalent<a class="headerlink" href="#norton-equivalent-of-a-thevenin-equivalent" title="Permalink to this headline">#</a></h3>
 <p>To begin, we will find the Norton equivalent of a Thevenin equivalent circuit. The short circuit current is labeled in the schematic below.</p>
-<figure class="align-default" id="label-27">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-of-thevenin-current">
+<a class="reference internal image-reference" href="_images/norton-of-thevenin-current.svg"><img alt="_images/norton-of-thevenin-current.svg" height="300px" src="_images/norton-of-thevenin-current.svg" /></a>
 </figure>
 <p>Calculating the short circuit current is a simple application of Ohm’s law</p>
 <div class="math notranslate nohighlight">
 \[ I_N=I_{SC}=\frac{V_{TH}}{R_{TH}} \]</div>
 <p>Finding <span class="math notranslate nohighlight">\(R_{N}\)</span> is similarly straight forward. The voltage supply is replaced by a short as shown here</p>
-<figure class="align-default" id="label-28">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-of-thevenin-resistance">
+<a class="reference internal image-reference" href="_images/norton-of-thevenin-resistance.svg"><img alt="_images/norton-of-thevenin-resistance.svg" height="300px" src="_images/norton-of-thevenin-resistance.svg" /></a>
 </figure>
 <p>The relationship between <span class="math notranslate nohighlight">\(R_{N}\)</span> and <span class="math notranslate nohighlight">\(R_{TH}\)</span> is simple given there is only a single resistor to consider.</p>
 <div class="math notranslate nohighlight">
 \[ R_N=R_{TH} \]</div>
 <p>While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.</p>
 </section>
-<section id="thevenin-equivalent-of-a-norton-equivalent-now-let-s-turn-it-around-the-other-way-starting-with-a-norton-equivalent-circuit-let-s-find-its-thevenin-equivalent">
-<h3>Thevenin Equivalent of a Norton Equivalent Now let’s turn it around the other way. Starting with a Norton equivalent circuit let’s find its Thevenin equivalent.<a class="headerlink" href="#thevenin-equivalent-of-a-norton-equivalent-now-let-s-turn-it-around-the-other-way-starting-with-a-norton-equivalent-circuit-let-s-find-its-thevenin-equivalent" title="Permalink to this headline">#</a></h3>
-<figure class="align-default" id="label-29">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<section id="thevenin-equivalent-of-a-norton-equivalent">
+<h3>Thevenin Equivalent of a Norton Equivalent<a class="headerlink" href="#thevenin-equivalent-of-a-norton-equivalent" title="Permalink to this headline">#</a></h3>
+<p>Now let’s turn it around the other way. Starting with a Norton equivalent circuit let’s find its Thevenin equivalent.</p>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-of-norton-voltage">
+<a class="reference internal image-reference" href="_images/thevenin-of-norton-voltage.svg"><img alt="_images/thevenin-of-norton-voltage.svg" height="300px" src="_images/thevenin-of-norton-voltage.svg" /></a>
 </figure>
 <p>Finding <span class="math notranslate nohighlight">\(V_{OC}\)</span> is once again is a simple application of Ohm’s Law.</p>
 <div class="math notranslate nohighlight">
 \[ V_{TH}=V_{OC}=I_NR_N \]</div>
 <p>Finding <span class="math notranslate nohighlight">\(R_{TH}\)</span> is similarly straight forward. The current supply is replaced by an open as shown here</p>
-<figure class="align-default" id="label-30">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-of-norton-resistance">
+<a class="reference internal image-reference" href="_images/thevenin-of-norton-resistance.svg"><img alt="_images/thevenin-of-norton-resistance.svg" height="300px" src="_images/thevenin-of-norton-resistance.svg" /></a>
 </figure>
 <p>The relationship between <span class="math notranslate nohighlight">\(R_{TH}\)</span> and <span class="math notranslate nohighlight">\(R_{N}\)</span> is again simple given there is only a single resistor to consider.</p>
 <div class="math notranslate nohighlight">
@@ -1027,31 +1036,41 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <section id="summary-of-conversions">
 <h3>Summary of Conversions<a class="headerlink" href="#summary-of-conversions" title="Permalink to this headline">#</a></h3>
 <p>These conversion allow us to move quickly between Thevenin and Norton equivalents. In doing so the goal is to combine resistors and sources in such a way that reduces the complexity of the circuit. Let’s keep the conversion shown below in our heads as we further develop this technique.</p>
-<figure class="align-default" id="label-31">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="norton-of-thevenin">
+<a class="reference internal image-reference" href="_images/norton-of-thevenin.svg"><img alt="_images/norton-of-thevenin.svg" height="300px" src="_images/norton-of-thevenin.svg" /></a>
 </figure>
-<figure class="align-default" id="label-32">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<figure class="align-default" id="thevenin-of-norton">
+<a class="reference internal image-reference" href="_images/thevenin-of-norton.svg"><img alt="_images/thevenin-of-norton.svg" height="300px" src="_images/thevenin-of-norton.svg" /></a>
 </figure>
 </section>
 <section id="circuit-analysis-and-reduction-of-complexity-with-source-conversions">
 <h3>Circuit Analysis and Reduction of Complexity with Source Conversions<a class="headerlink" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions" title="Permalink to this headline">#</a></h3>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<figure class="align-default" id="label-33">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-34">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="source-conversion-example-00">
+<a class="reference internal image-reference" href="_images/source-conversion-example-00.svg"><img alt="_images/source-conversion-example-00.svg" height="300px" src="_images/source-conversion-example-00.svg" /></a>
 </figure>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-35">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="source-conversion-example-01">
+<a class="reference internal image-reference" href="_images/source-conversion-example-01.svg"><img alt="_images/source-conversion-example-01.svg" height="300px" src="_images/source-conversion-example-01.svg" /></a>
+</figure>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<figure class="align-default" id="source-conversion-example-02">
+<a class="reference internal image-reference" href="_images/source-conversion-example-02.svg"><img alt="_images/source-conversion-example-02.svg" height="300px" src="_images/source-conversion-example-02.svg" /></a>
 </figure>
 </div>
 <p>Highlight reduction in complexity
@@ -1133,24 +1152,4 @@ Add Dependent supply example</p>
 
 
   </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- fa6e592141259b5304df621be4a45f242b7b020e -->
+</html><!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->

@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$50 \measuredangle 30^\circ$ V')
+    d += elm.Inductor().right().label('$L$')
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))   
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += elm.Line().left()
+    d.move_from(R.end,0,0)
+
+with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \angle 30^\circ$ V'))
+    d += (L := elm.Inductor().right().label('$L$'))
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += (LN := elm.Line().left())
+    d.move_from(R.end,0,0)
+    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')   
+------------------
+
+Traceback [0;36m(most recent call last)[0m:
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3457[0m, in [1;35mrun_code[0m
+    exec(code_obj, self.user_global_ns, self.user_ns)
+
+  File [1;32m"/var/folders/65/qy_bbqpj2x3470cgr0fmhyc40000gn/T/ipykernel_18800/1163971642.py"[0m, line [1;32m26[0m, in [1;35m<module>[0m
+    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m176[0m, in [1;35m__exit__[0m
+    self.save(self.outfile)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m389[0m, in [1;35msave[0m
+    self.draw(show=False)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m364[0m, in [1;35mdraw[0m
+    self._initfig(ax=ax, backend=backend, showframe=showframe)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m340[0m, in [1;35m_initfig[0m
+    bbox=self.get_bbox(),
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m196[0m, in [1;35mget_bbox[0m
+    bbox = element.get_bbox(transform=True)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/elements/elements.py"[0m, line [1;32m414[0m, in [1;35mget_bbox[0m
+    segxmin, segymin, segxmax, segymax = segment.get_bbox()
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/segments.py"[0m, line [1;32m333[0m, in [1;35mget_bbox[0m
+    w, h, _ = svg.text_size(self.text, 'Arial', self.fontsize)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svg.py"[0m, line [1;32m178[0m, in [1;35mtext_size[0m
+    textsize = svgtext.text_approx_size(text, font=font, size=size)
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svgtext.py"[0m, line [1;32m306[0m, in [1;35mtext_approx_size[0m
+    math = ' '.join(mathtextsvg(line).itertext())  # itertext strips all the tags
+
+  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svgtext.py"[0m, line [1;32m234[0m, in [1;35mmathtextsvg[0m
+    return ET.fromstring(svgtext)
+
+[0;36m  File [0;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/xml/etree/ElementTree.py"[0;36m, line [0;32m1344[0;36m, in [0;35mXML[0;36m[0m
+[0;31m    parser.feed(text)[0m
+
+[0;36m  File [0;32m"<string>"[0;36m, line [0;32munknown[0m
+[0;31mParseError[0m[0;31m:[0m not well-formed (invalid token): line 1, column 10
+
+ParseError: not well-formed (invalid token): line 1, column 10 (<string>)
+

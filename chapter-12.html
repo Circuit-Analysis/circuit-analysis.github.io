@@ -674,35 +674,70 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 </section>
 <section id="current-divider">
 <h3>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-1">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="current-divider-resistor-capacitor">
+<a class="reference internal image-reference" href="_images/current-divider-resistor-capacitor.svg"><img alt="_images/current-divider-resistor-capacitor.svg" height="300px" src="_images/current-divider-resistor-capacitor.svg" /></a>
 </figure>
-<p>Find i<span class="math notranslate nohighlight">\(_O\)</span>(t) given that i<span class="math notranslate nohighlight">\(_I\)</span>(t)=400~cos(1000t-30<span class="math notranslate nohighlight">\(^\circ\)</span>)~mA</p>
+<p>Find <span class="math notranslate nohighlight">\(i_O(t)\)</span> given that <span class="math notranslate nohighlight">\(i_I(t)=400 \cos(1000t-30^\circ)\)</span> mA.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution using differential equations</p>
+<p>Here</p>
+<div class="math notranslate nohighlight">
+\[ i_O(t) = C \frac{d~v_C(t)}{dt} \]</div>
+<p>and applying Kirchhoff’s Current Law (KCL) to the top node we get</p>
+<div class="math notranslate nohighlight">
+\[ i_I(t) = v_R(t) / R  + C \frac{d~v_C(t)}{dt} \]</div>
+<p>Rearranging this into Dawkins’ preferred format, we get</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{RC} v_R(t) + \frac{d~v_C(t)}{dt} = 400 \cos(1000t-30^\circ) \]</div>
+<p>and noting that <span class="math notranslate nohighlight">\(v_R(t) = v_C(t)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{RC} v(t) + \frac{d~v(t)}{dt} = 400 \cos(1000t-30^\circ) \]</div>
+<p>For this example, our integrating factor <span class="math notranslate nohighlight">\(\mu(t)\)</span> is now</p>
+<div class="math notranslate nohighlight">
+\[ \mu(t) = e^{\frac{t}{RC}} \]</div>
+<p>and multiplying both sides of our differential equation by this factor yields</p>
+<div class="math notranslate nohighlight">
+\[ (\mu(t) v(t))^′ = \mu(t) 400 \cos(1000t-30^\circ ).\]</div>
+<p>We can now integrate this as we did in the voltage divider example to give</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int (e^{\frac{t}{RC}} v(t))^′ dt &amp;=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
+\int (e^{\frac{t}{5 \times 10^{-4}}} v(t))^′ dt &amp;=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
+e^{2000 t} v(t) + c &amp;= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
+v(t) &amp;= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t} 
+\end{align*}\]</div>
+</div>
 </div>
 </section>
 <section id="mesh-analysis">
 <h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition" id="index-1">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-2">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="mesh-analysis-differential-equations">
+<a class="reference internal image-reference" href="_images/mesh-analysis-differential-equations.svg"><img alt="_images/mesh-analysis-differential-equations.svg" height="600px" src="_images/mesh-analysis-differential-equations.svg" /></a>
 </figure>
 </div>
 </section>
 <section id="nodal-analysis">
 <h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-3">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="nodal-analysis-differential-equations">
+<a class="reference internal image-reference" href="_images/nodal-analysis-differential-equations.svg"><img alt="_images/nodal-analysis-differential-equations.svg" height="300px" src="_images/nodal-analysis-differential-equations.svg" /></a>
 </figure>
 </div>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-4">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="nodal-analysis-differential-equations-2">
+<a class="reference internal image-reference" href="_images/nodal-analysis-differential-equations-2.svg"><img alt="_images/nodal-analysis-differential-equations-2.svg" height="600px" src="_images/nodal-analysis-differential-equations-2.svg" /></a>
 </figure>
 </div>
 </section>
@@ -711,17 +746,19 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 </section>
 <section id="thevenin-s-theorem">
 <h3>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="admonition-example admonition" id="index-2">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="label-5">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-differential-equations">
+<a class="reference internal image-reference" href="_images/thevenin-differential-equations.svg"><img alt="_images/thevenin-differential-equations.svg" height="300px" src="_images/thevenin-differential-equations.svg" /></a>
 </figure>
 <p>Find the Thevenin equivalent of the circuit above.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>Find <span class="math notranslate nohighlight">\(V\tss{OC}\)</span> first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
-<figure class="align-default" id="label-6">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-differential-equations-mesh">
+<a class="reference internal image-reference" href="_images/thevenin-differential-equations-mesh.svg"><img alt="_images/thevenin-differential-equations-mesh.svg" height="300px" src="_images/thevenin-differential-equations-mesh.svg" /></a>
 </figure>
 <p>We can find I using mesh analysis on the single mesh.</p>
 <div class="math notranslate nohighlight">
@@ -736,8 +773,8 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 <div class="math notranslate nohighlight">
 \[ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) \]</div>
 <p>There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic</p>
-<figure class="align-default" id="label-7">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
+<figure class="align-default" id="thevenin-differential-equations-voltages">
+<a class="reference internal image-reference" href="_images/thevenin-differential-equations-voltages.svg"><img alt="_images/thevenin-differential-equations-voltages.svg" height="300px" src="_images/thevenin-differential-equations-voltages.svg" /></a>
 </figure>
 <p>Now we can write a KVL that includes the unknown <span class="math notranslate nohighlight">\(V_{OC}\)</span>. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included <span class="math notranslate nohighlight">\(V_{OC}\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -877,4 +914,5 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 
 
   </body>
-</html><!-- fa6e592141259b5304df621be4a45f242b7b020e -->
+</html>
+<!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
