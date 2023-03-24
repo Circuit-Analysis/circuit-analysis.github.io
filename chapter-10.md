@@ -1141,10 +1141,22 @@ Converting sources is a bit of an oddity that turns out to be useful. It is poss
 
 To begin, we will find the Norton equivalent of a Thevenin equivalent circuit. The short circuit current is labeled in the schematic below.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-of-thevenin-current.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Line().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')        
+```
+```{figure} norton-of-thevenin-current.svg
 ---
 height: 300px
-name: LABEL_27
+name: norton-of-thevenin-current
 ---
 ```
 
@@ -1154,10 +1166,23 @@ $$ I_N=I_{SC}=\frac{V_{TH}}{R_{TH}} $$
 
 Finding $R_{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-of-thevenin-resistance.svg') as d:
+    d += (Vs := elm.Line().up())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (LineRth := elm.Line(arrow='->').at((3,1.5)).left().label('$R_{N}$',loc='right').length(0.8))    
+```
+
+```{figure} norton-of-thevenin-resistance.svg
 ---
 height: 300px
-name: LABEL_28
+name: norton-of-thevenin-resistance
 ---
 ```
 
@@ -1167,12 +1192,26 @@ $$ R_N=R_{TH} $$
 
 While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.
 
-### Thevenin Equivalent of a Norton Equivalent Now let's turn it around the other way. Starting with a Norton equivalent circuit let's find its Thevenin equivalent.
+### Thevenin Equivalent of a Norton Equivalent 
+Now let's turn it around the other way. Starting with a Norton equivalent circuit let's find its Thevenin equivalent.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-of-norton-voltage.svg') as d:
+    d += (Vs := elm.SourceI().up().label('$I_{N}$', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'),loc='bottom'))    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+```
+```{figure} thevenin-of-norton-voltage.svg
 ---
 height: 300px
-name: LABEL_29
+name: thevenin-of-norton-voltage
 ---
 ```
 
@@ -1182,10 +1221,25 @@ $$ V_{TH}=V_{OC}=I_NR_N $$
 
 Finding $R_{TH}$ is similarly straight forward. The current supply is replaced by an open as shown here
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-of-norton-resistance.svg') as d:
+    d += (Vs := elm.Gap().up())
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (LineRth := elm.Line(arrow='->').at((5,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))    
+    
+```
+```{figure} thevenin-of-norton-resistance.svg
 ---
 height: 300px
-name: LABEL_30
+name: thevenin-of-norton-resistance
 ---
 ```
 
@@ -1197,59 +1251,141 @@ $$ R_{TH}=R_{N} $$
 
 These conversion allow us to move quickly between Thevenin and Norton equivalents. In doing so the goal is to combine resistors and sources in such a way that reduces the complexity of the circuit. Let's keep the conversion shown below in our heads as we further develop this technique.
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='norton-of-thevenin.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    
+    d.move_from(Rth.end, dx=0.75, dy=-d.unit/2)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))       
+
+    d.move_from(LineB.start, dx=5, dy=0)
+    d += (Vs := elm.SourceI().up().label('$V_{TH}/R_{TH}$', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{TH}$', loc='top'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+```
+```{figure} norton-of-thevenin.svg
 ---
 height: 300px
-name: LABEL_31
+name: norton-of-thevenin
 ---
 ```
 
-```{figure} logo.png
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-of-norton.svg') as d:
+    d += (Vs := elm.SourceI().up().label('$I_N$', loc='top'))
+    d += (LineTL := elm.Line().right().length(2))    
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+            
+    d.move_from(Rth.end, dx=1.75, dy=-d.unit/2)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))       
+
+    d.move_from(LineB.start, dx=4.5, dy=0)
+    d += (Vs := elm.Battery().up().label('$I_NR_N$', loc='top').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{N}$', loc='top'))    
+    d += elm.Dot(open=True)
+    d += (Rl := elm.Gap().down())    
+    d += elm.Dot(open=True)
+    d += (LineB := elm.Line().left().tox(Vs.start))
+```
+```{figure} thevenin-of-norton.svg
 ---
 height: 300px
-name: LABEL_32
+name: thevenin-of-norton
 ---
 ```
 
 ### Circuit Analysis and Reduction of Complexity with Source Conversions
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-00.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$12V$', loc='top'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
+    d += (LineT := elm.Line().at(R1.end).right())    
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+
+```
+````{admonition} Example
+```{figure} source-conversion-example-00.svg
 ---
 height: 300px
-name: LABEL_33
+name: source-conversion-example-00
 ---
 ```
-
-
 ````
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-01.svg') as d:
+    d += (R1 := elm.Resistor().up().label('6Ω', loc='top'))    
+    d += (Line1 := elm.Line().right())    
+    d += (Line2 := elm.Line().right())    
+    d += (Vs := elm.Battery().right().label('$5V$', loc='top').reverse())
+    d += (Line4 := elm.Line().right())    
+    d += (R4 := elm.Resistor().right().label('1Ω', loc='top'))    
+    d += (R5 := elm.Resistor().down().label('4Ω', loc='top'))    
+    d += (LineB := elm.Line().left().tox(R1.start))    
+
+    d += (I1 := elm.SourceI().at(Line1.end).down().label('5A', loc='top').reverse())
+    d += (R2 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))    
+    d += (R3 := elm.Resistor().at(Vs.end).down().label('7Ω', loc='top'))    
+    d += (I2 := elm.SourceI().at(Line4.end).down().label('3A', loc='top').reverse())
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+```
+````{admonition} Example
+```{figure} source-conversion-example-01.svg
 ---
 height: 300px
-name: LABEL_34
+name: source-conversion-example-01
 ---
 ```
-
-
 ````
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-02.svg') as d:
+    d += (Vs := elm.Battery().up().label('12V', loc='top'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').length(2))    
+    d += (R2 := elm.Resistor().right().label('2Ω', loc='top').length(2))    
+    d += (Line2 := elm.Line().right())    
+    d += (Line3 := elm.Line().right())    
+    d += (I1 := elm.SourceI().down().label('4A', loc='top').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))     
+    d += (R3 := elm.Resistor().at(R2.end).down().label('8Ω', loc='top').label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (R4 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))        
+```
+````{admonition} Example
+```{figure} source-conversion-example-02.svg
 ---
 height: 300px
-name: LABEL_35
+name: source-conversion-example-02
 ---
 ```
-
-
 ````
 
 Highlight reduction in complexity
