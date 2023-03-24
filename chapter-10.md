@@ -1365,17 +1365,27 @@ name: source-conversion-example-01
 ```
 ````
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-02.svg') as d:
+    d += (Vs := elm.Battery().up().label('12V', loc='top'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').length(2))    
+    d += (R2 := elm.Resistor().right().label('2Ω', loc='top').length(2))    
+    d += (Line2 := elm.Line().right())    
+    d += (Line3 := elm.Line().right())    
+    d += (I1 := elm.SourceI().down().label('4A', loc='top').reverse())
+    d += (LineB := elm.Line().left().tox(R1.start))     
+    d += (R3 := elm.Resistor().at(R2.end).down().label('8Ω', loc='top').label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (R4 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))        
+```
+````{admonition} Example
+```{figure} source-conversion-example-02.svg
 ---
 height: 300px
-name: LABEL_35
+name: source-conversion-example-02
 ---
 ```
-
-
 ````
 
 Highlight reduction in complexity
