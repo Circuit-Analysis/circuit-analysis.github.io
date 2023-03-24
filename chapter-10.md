@@ -1315,17 +1315,26 @@ name: thevenin-of-norton
 
 ### Circuit Analysis and Reduction of Complexity with Source Conversions
 
-````{admonition} Example
- 
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
 
-```{figure} logo.png
+with schemdraw.Drawing(file='source-conversion-example-00.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$12V$', loc='top'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
+    d += (LineT := elm.Line().at(R1.end).right())    
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+
+```
+````{admonition} Example
+```{figure} source-conversion-example-00.svg
 ---
 height: 300px
-name: LABEL_33
+name: source-conversion-example-00
 ---
 ```
-
-
 ````
 
 ````{admonition} Example
