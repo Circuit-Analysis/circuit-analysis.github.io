@@ -17,17 +17,18 @@ kernelspec:
 # Alternating Current: Differential Equation Approach
 
 ```{include} includes/latex_imports.md
+
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
 
-
-
 ## Analysis Methods and Theorems with Alternating Current
 
 ### Voltage Divider
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
@@ -38,10 +39,11 @@ with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
 ```
 
 ```{index} Voltage Divider
+
 ```
 
 `````{admonition} Example
- 
+
 
 ```{figure} voltage-divider-resistor-inductor.svg
 ---
@@ -54,7 +56,7 @@ Find v$_O$(t) given that $v_I(t)=4 \cos(10000t+45^\circ)$ V
 
 ````{admonition} Solution using differential equations
 :class: tip, dropdown
-First remember that 
+First remember that
 
 $$v_O(t) = L \frac{d~i(t)}{dt}$$
 
@@ -72,7 +74,7 @@ $$ 4 \cos(10000t+45^\circ) = R i(t) + L \frac{d~i(t)}{dt}$$
 
 Now, we need to solve this linear, first order differential equation ({cite:ts}`paul_dawkins_math_notes`).
 
-```{note} Dawkins' approach 
+```{note} Dawkins' approach
 :class: dropdown
 
 {cite:ts}`paul_dawkins_math_notes` says to:
@@ -167,7 +169,7 @@ with schemdraw.Drawing(file='current-divider-resistor-capacitor.svg') as d:
 ```
 
 `````{admonition} Example
- 
+
 
 ```{figure} current-divider-resistor-capacitor.svg
 ---
@@ -211,7 +213,7 @@ We can now integrate this as we did in the voltage divider example to give
 \int (e^{\frac{t}{RC}} v(t))^′ dt &=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
 \int (e^{\frac{t}{5 \times 10^{-4}}} v(t))^′ dt &=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
 e^{2000 t} v(t) + c &= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
-v(t) &= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t} 
+v(t) &= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t}
 \end{align*}
 
 And after a long time ($t > 5 RC = 2.5 ms$):
@@ -219,6 +221,14 @@ And after a long time ($t > 5 RC = 2.5 ms$):
 $$
 v(t) = 0.178885 \sin(1000 t + 33.4^\circ )
 $$
+
+Then
+
+\begin{align*}
+i_O(t) &= C \frac{d~v(t)}{dt} \\
+&=  1 \times 10^{-6} \times (  178.885 cos(1000 t + 33.4^\circ) )\\
+&= 178.885  \cos(10000 t + 90^\circ) \mu A
+\end{align*}
 
 ````
 
@@ -238,18 +248,18 @@ with schemdraw.Drawing(file='mesh-analysis-differential-equations.svg') as d:
     d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{90^\circ}$ A', loc='bot').length(6).reverse()
     d += elm.Line().length(6).left()
     d.pop()
-    d += elm.Capacitor().down().label('$C$', loc='bot')    
+    d += elm.Capacitor().down().label('$C$', loc='bot')
     d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
 
 
 ```
 
-
 ```{index} Mesh Analysis
+
 ```
 
 ````{admonition} Example
- 
+
 ```{figure} mesh-analysis-differential-equations.svg
 ---
 height: 600px
@@ -277,7 +287,7 @@ with schemdraw.Drawing(file='nodal-analysis-differential-equations.svg') as d:
 
 with schemdraw.Drawing(file='nodal-analysis-differential-equations-2.svg') as d:
     d += elm.Line().length(3).up()
-    d += elm.Line().length(2).up()    
+    d += elm.Line().length(2).up()
     d += elm.SourceV().right().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
     d += elm.Line().length(2).down()
     d.push()
@@ -292,14 +302,14 @@ with schemdraw.Drawing(file='nodal-analysis-differential-equations-2.svg') as d:
     d.pop()
     d += elm.Line().left()
     d.pop()
-    d += elm.Capacitor().left().label('$C$', loc='bot')    
-    d += elm.Resistor().left().label('$R_1$', loc='bot')   
-    
+    d += elm.Capacitor().left().label('$C$', loc='bot')
+    d += elm.Resistor().left().label('$R_1$', loc='bot')
+
 
 ```
 
 ````{admonition} Example
- 
+
 
 ```{figure} nodal-analysis-differential-equations.svg
 ---
@@ -312,7 +322,7 @@ name: nodal-analysis-differential-equations
 ````
 
 ````{admonition} Example
- 
+
 
 ```{figure} nodal-analysis-differential-equations-2.svg
 ---
@@ -337,7 +347,7 @@ with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
     d.push()
     d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
     d.pop()
-    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))   
+    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))
     d.push()
     d += elm.Line().right().dot().label('B', loc='right')
     d.pop()
@@ -356,7 +366,7 @@ with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
     d.pop()
     d += (LN := elm.Line().left())
     d.move_from(R.end,0,0)
-    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')   
+    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')
 
 with schemdraw.Drawing(file='thevenin-differential-equations-voltages.svg') as d:
     d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
@@ -375,12 +385,11 @@ with schemdraw.Drawing(file='thevenin-differential-equations-voltages.svg') as d
 ```
 
 ```{index} Thevenin's Theorem
+
 ```
 
- 
-
 `````{admonition} Example
- 
+
 
 ```{figure} thevenin-differential-equations.svg
 ---
@@ -464,19 +473,18 @@ name: LABEL_9
 
 ### Norton's Theorem
 
-
 ```{index} Norton's Theorem
-```
 
+```
 
 ### Source Conversions
 
-
 ```{index} Source Conversions
+
 ```
 
 `````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
