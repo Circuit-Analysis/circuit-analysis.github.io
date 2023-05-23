@@ -205,13 +205,13 @@ $$ \mu(t) = e^{\frac{t}{RC}} $$
 
 and multiplying both sides of our differential equation by this factor yields
 
-$$ (\mu(t) v(t))^′ = \mu(t) 400 \cos(1000t-30^\circ ).$$
+$$ \frac{d}{dt} (\mu(t) v(t)) = \mu(t) 400 \cos(1000t-30^\circ ).$$
 
 We can now integrate this as we did in the voltage divider example to give
 
 \begin{align*}
-\int (e^{\frac{t}{RC}} v(t))^′ dt &=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
-\int (e^{\frac{t}{5 \times 10^{-4}}} v(t))^′ dt &=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
+\int \frac{d}{dt}  (e^{\frac{t}{RC}} v(t)) dt &=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
+\int \frac{d}{dt} (e^{\frac{t}{5 \times 10^{-4}}} v(t)) dt &=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
 e^{2000 t} v(t) + c &= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
 v(t) &= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t}
 \end{align*}
@@ -226,8 +226,8 @@ Then
 
 \begin{align*}
 i_O(t) &= C \frac{d~v(t)}{dt} \\
-&=  1 \times 10^{-6} \times (  178.885 cos(1000 t + 33.4^\circ) )\\
-&= 178.885  \cos(10000 t + 90^\circ) \mu A
+&=  1 \times 10^{-6} \times (  178.885 \cos(1000 t + 33.4^\circ) )\\
+&= 178.885  \cos(1000 t + 33.4^\circ) \mu A
 \end{align*}
 
 ````
@@ -241,34 +241,146 @@ i_O(t) &= C \frac{d~v(t)}{dt} \\
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='mesh-analysis-differential-equations.svg') as d:
-    d += elm.SourceV().up().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
-    d += elm.Resistor().right().label('$R_1$\n$4 \Omega$')
+    d += (VS := elm.SourceV().up().label('$v_S(t)$').length(6))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$4 \Omega$').length(6))
     d.push()
-    d += elm.Inductor().right().label('$L$')
-    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{90^\circ}$ A', loc='bot').length(6).reverse()
-    d += elm.Line().length(6).left()
+    d += (L := elm.Inductor().right().label('$L$\n$100$ mH').length(6))
+    d += (IS := elm.SourceI().down().label('$i_S(t)$', loc='bot').length(6).reverse())
+    d += (LN := elm.Line().length(12).left())
     d.pop()
-    d += elm.Capacitor().down().label('$C$', loc='bot')
-    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
+    d += (C := elm.Capacitor().down().label('$C$\n$1$ mF', loc='bot'))
+    d += (R2 := elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R_2$\n$5 \Omega$', loc='bot'))
 
-
+with schemdraw.Drawing(file='mesh-analysis-differential-equations-meshes.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$').length(6))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$4 \Omega$').length(6))
+    d.push()
+    d += (L := elm.Inductor().right().label('$L$\n$100$ mH').length(6))
+    d += (IS := elm.SourceI().down().label('$i_S(t)$', loc='bot').length(6).reverse())
+    d += (LN := elm.Line().length(12).left())
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$C$\n$1$ mF', loc='bot'))
+    d += (R2 := elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R_2$\n$5 \Omega$', loc='bot'))
+    d += elm.LoopCurrent([R1,C,LN,VS], pad = 0.75).label('$I_1$').color('red')
+    d += elm.LoopCurrent([L,IS,LN,C], pad = 0.75, direction = 'ccw').label('$I_2$').color('blue')
 ```
 
 ```{index} Mesh Analysis
 
 ```
 
-````{admonition} Example
+`````{admonition} Example
+
+Solve for $v_O(t)$ using mesh analysis where
+
+$$
+v_S(t) = 12 \cos( 100 t) \mbox{V}
+$$
+
+and
+
+$$
+i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
+$$
 
 ```{figure} mesh-analysis-differential-equations.svg
 ---
-height: 600px
+height: 400px
 name: mesh-analysis-differential-equations
 ---
 ```
 
+````{admonition} Solution using differential equations
+:class: tip, dropdown
 
+First, let's define the mesh currents $I_1$ and $I_2$.
+
+```{figure} mesh-analysis-differential-equations-meshes.svg
+---
+height: 400px
+name: mesh-analysis-differential-equations-meshes
+---
+```
+
+Then, the KVL equation for the $I_1$ mesh is
+
+\begin{align*}
+-v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &=& 0\\
+12\cos( 100 t) + I_1(t) R_1 + \ldots \\
+\frac{1}{C} \int I_1(t) dt + (I_1(t) - I_2(t)) R_2 &=& 0\\
+12\cos( 100 t) + 4 I_1(t) + \ldots \\
+1000 \int I_1(t) dt + 5(I_1(t) - I_2(t)) &=& 0
+\end{align*}
+
+yielding
+
+```{math}
+:label: loop_1_mesh
+9 I_1(t) + 1000 \int I_1(t) dt - 5 I_2(t)  = -12\cos( 100 t).
+```
+
+Looking at the $I_2$ mesh, we see that there is a current source and that $I_2$ is in the same direction as $i_S$.
+
+This simplifies the analysis because it means
+
+$$
+I_2(t) = i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
+$$
+
+Substituting this into {eq}`loop_1_mesh` gives
+
+\begin{align*}
+9 I_1(t) + 1000 \int I_1(t) dt - 20 \cos( 100 t + 90^\circ)  &=&\\ -12\cos( 100 t)\\
+9 I_1(t) + 1000 \int I_1(t) dt   &=&\\ -12\cos( 100 t) + 20 \cos( 100 t + 90^\circ)\\
+9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + \tan^{-1}(3/5))\\
+9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + 30.96^\circ)
+\end{align*}
+
+Then, to turn this into a differential equation, we can differentiate both sides with respect to $t$ to get:
+
+\begin{align*}
+9 \frac{d}{dt} I_1(t) + 1000 I_1(t) = -400 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+0.009 \frac{d}{dt} I_1(t) +  I_1(t) = -0.4 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+\end{align*}
+
+Again using our integrating factor $\mu(t) = e^{t/0.009}$, we get
+
+$$
+\frac{d}{dt} (\mu(t) I_1(t)) = -400 \sqrt{34} \cos(100 t + 30.96^\circ) \mu(t).
+$$
+
+Integrating both sides with respect to $t$ gives
+
+\begin{align*}
+e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \int e^{t/0.009} \cos(100 t + 30.96^\circ) dt\\
+e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \left (0.009 e^{t/0.009} \cos(100 t + 30.96^\circ)\right. \\
+&& + \left . \displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} \right)
+\end{align*}
+
+Rearranging, we get
+
+\begin{align*}
+I_1(t) &=& -0.4 \sqrt{34} \biggl( 0.009 \cos(100 t + 30.96^\circ) \\
+&& +  \left(\displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} - c \right)e^{-t/0.009} \biggr )
+\end{align*}
+
+and then after more than $t \gg 5 \times 0.009$ we get
+
+\begin{align*}
+I_1(t) &=& -0.4 \sqrt{34} 0.009 \cos(100 t + 30.96^\circ)\\
+ &=& -20.99 \cos(100 t + 30.96^\circ) \mbox{A.}
+\end{align*}
+
+Then
+
+\begin{align*}
+v_O(t) &=& (I_1(t) + I_2(t)) R_2 \\
+&=& -20.99 \cos(100 t + 30.96^\circ)  \\
+&& + 20 \cos( 100 t + 90^\circ) \\
+&=& 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
+\end{align*}
 ````
+`````
 
 ### Nodal Analysis
 
@@ -333,209 +445,6 @@ name: nodal-analysis-differential-equations-2
 
 
 ````
-
-### Superposition
-
-### Thevenin's Theorem
-
-```{code-cell} ipython3
-:tags: [remove-input, remove-output]
-
-with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
-    d += elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V')
-    d += elm.Inductor().right().label('$L$')
-    d.push()
-    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
-    d.pop()
-    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))
-    d.push()
-    d += elm.Line().right().dot().label('B', loc='right')
-    d.pop()
-    d += elm.Line().left()
-    d.move_from(R.end,0,0)
-
-with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
-    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
-    d += (L := elm.Inductor().right().label('$L$'))
-    d.push()
-    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
-    d.pop()
-    d += (C := elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)))
-    d.push()
-    d += elm.Line().right().dot().label('B', loc='right')
-    d.pop()
-    d += (LN := elm.Line().left())
-    d.move_from(R.end,0,0)
-    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')
-
-with schemdraw.Drawing(file='thevenin-differential-equations-voltages.svg') as d:
-    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
-    d += (L := elm.Inductor().right().label(['+', '-'])).label('$100 \\angle 30^\circ$ V', loc='bot').length(4)
-    d.push()
-    d += (R := elm.Resistor().right().label(['+', '-']).label('$0 \\angle 0^\circ$ V', loc='bot').dot().label('A', loc='right'))
-    d.pop()
-    d += (C := elm.Capacitor().down().label('$50 \\angle 150^\circ$ V', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)).label(['+', '-'], loc='bot'))
-    d.push()
-    d += elm.Line().right().dot().label('B', loc='right')
-    d.pop()
-    d += (LN := elm.Line().left().length(4))
-    d.move_from(R.end,0,0)
-
-
-```
-
-```{index} Thevenin's Theorem
-
-```
-
-`````{admonition} Example
-
-
-```{figure} thevenin-differential-equations.svg
----
-height: 300px
-name: thevenin-differential-equations
----
-```
-
-Find the Thevenin equivalent of the circuit above.
-
-````{admonition} Solution
-:class: tip, dropdown
-Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
-
-```{figure} thevenin-differential-equations-mesh.svg
----
-height: 300px
-name: thevenin-differential-equations-mesh
----
-```
-
-We can find I using mesh analysis on the single mesh.
-
-$$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
-
-so
-
-$$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
-
-Using $I$ we can find the voltage across the inductor and capacitor
-
-$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V) $$
-
-and
-
-$$ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
-
-There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
-
-```{figure} thevenin-differential-equations-voltages.svg
----
-height: 300px
-name: thevenin-differential-equations-voltages
----
-```
-
-Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
-
-$$ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 $$
-
-which reduces to
-
-$$ V_{OC}=50\angle{-150^\circ}~V=V_{TH} $$
-
-which is the Thevenin voltage.
-Next, we find $Z\tss{TH}$. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_8
----
-```
-
-For this circuit
-
-$$ Z\tss{TH}=R+(L||C)=10-j20~\Omega $$
-
-We can now draw the Thevenin equivalent circuit since we have both $V\tss{TH}$ and $Z\tss{TH}$.
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_9
----
-```
-
-
-````
-`````
-
-### Norton's Theorem
-
-```{index} Norton's Theorem
-
-```
-
-### Source Conversions
-
-```{index} Source Conversions
-
-```
-
-`````{admonition} Example
-
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_10
----
-```
-
-Find $I_O$
-
-````{admonition} Solution
-:class: tip, dropdown
-First, look for any impedances that are in series/parallel. The $1~\Omega$ resistor on the left and the $j1~\Omega$ inductor are in series. Also, the $1~\Omega$ resistor on the right and the $-j1~\Omega$ capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.
-
-Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_11
----
-```
-
-No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_12
----
-```
-
-Note that the current of the Norton equivalent is $(8+j2~V)/(1+j1~\Omega)$=$(5-j3~A)$
-
-After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The $1+j1~\Omega$ and $1-j1~\Omega$ impedances are in parallel. They are not next to each other but they are connected to the same two nodes.
-
-```{figure} logo.png
----
-height: 300px
-name: LABEL_13
----
-```
-
-Those two impedances combine to a $1~\Omega$ impedance.
-
-From this point we can use a simple current divider to find $I_O$.
-
-$$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
-````
-
-`````
 
 ## References
 
