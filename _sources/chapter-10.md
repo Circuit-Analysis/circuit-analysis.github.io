@@ -1328,14 +1328,145 @@ with schemdraw.Drawing(file='source-conversion-example-00.svg') as d:
     d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
 
 ```
-````{admonition} Example
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='source-conversion-example-00-step-01.svg') as d:
+    d += (Vs := elm.SourceV().up().label('$12V$', loc='top').color('yellowgreen'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').color('yellowgreen'))    
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
+    d += (LineT := elm.Line().at(R1.end).right())    
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
+    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+
+    d.move_from(R3.center,1,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(R3.end,4.25,0)
+    d += (Is := elm.SourceI().up().label('$12V/4Ω$\n$=3A$', loc='top').color('yellowgreen'))
+    d += (LineTL := elm.Line().right().color('yellowgreen'))    
+    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('yellowgreen'))    
+    d += (LineT := elm.Line().at(LineTL.end).right())    
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
+    d += (LineTR := elm.Line().at(LineT.end).right())    
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
+    d += (LineBR := elm.Line().left().tox(R1.end))    
+    d += (LineBL := elm.Line().left().tox(Is.start).color('yellowgreen'))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='source-conversion-example-00-step-02.svg') as d:
+    d += (Is := elm.SourceI().up().label('$3A$', loc='top'))
+    d += (LineTL := elm.Line().right())    
+    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('red'))    
+    d += (LineT := elm.Line().at(LineTL.end).right().color('red'))    
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top').color('red'))    
+    d += (LineTR := elm.Line().at(LineT.end).right())    
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
+    d += (LineBR := elm.Line().left().tox(R2.end))    
+    d += (LineB := elm.Line().left().tox(R1.end).color('red'))    
+    d += (LineBL := elm.Line().left().tox(Is.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    
+    d.move_from(R3.center,1,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(R3.end,3.5,0)
+    d += (Is := elm.SourceI().up().label('$3A$', loc='top'))
+    d += (LineTL := elm.Line().right())    
+    d += (R1 := elm.Resistor().down().label('4Ω||6Ω\n=2.4Ω', loc='top').color('red'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right())    
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
+    d += (LineBR := elm.Line().left().tox(R1.end))    
+    d += (LineBL := elm.Line().left().tox(Is.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='source-conversion-example-00-step-03.svg') as d:
+    d += (Is := elm.SourceI().up().label('$3A$', loc='top').color('blue'))
+    d += (LineTL := elm.Line().right().color('blue'))    
+    d += (R1 := elm.Resistor().down().label('2.4Ω', loc='top').color('blue'))    
+    d += (LineTR := elm.Line().at(LineTL.end).right())    
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
+    d += (LineBR := elm.Line().left().tox(R1.end))    
+    d += (LineBL := elm.Line().left().tox(Is.start).color('blue'))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+
+    d.move_from(R3.center,1,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(R3.end,4.5,0)
+    d += (Vs := elm.SourceV().up().label('$3A\U000022C5 2.4Ω$\n=7.2V', loc='top').color('blue'))
+    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('blue'))    
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
+    d += (LineBL := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+```
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='source-conversion-example-00-step-04.svg') as d:
+    d += (Vs := elm.SourceV().up().label('7.2V', loc='top'))
+    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('orange'))    
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top').color('orange'))    
+    d += (LineBL := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+
+    d.move_from(R3.center,1,0)
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+
+    d.move_from(R3.end,4.5,0)
+    d += (Vs := elm.SourceV().up().label('7.2V', loc='top'))
+    d += (LineT := elm.Line().right())    
+    d += (R3 := elm.Resistor().down().label('2.4Ω+3Ω\n=5.4Ω', loc='top').color('orange'))    
+    d += (LineBL := elm.Line().left().tox(Vs.start))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+
+```
+
+
+
+`````{admonition} Example
 ```{figure} source-conversion-example-00.svg
 ---
 height: 300px
 name: source-conversion-example-00
 ---
 ```
+
+````{admonition} Solution
+:class: tip, dropdown
+```{figure} source-conversion-example-00-step-01.svg
+---
+height: 300px
+name: source-conversion-example-00-step-01
+---
+```
+```{figure} source-conversion-example-00-step-02.svg
+---
+height: 300px
+name: source-conversion-example-00-step-02
+---
+```
+```{figure} source-conversion-example-00-step-03.svg
+---
+height: 300px
+name: source-conversion-example-00-step-03
+---
+```
+```{figure} source-conversion-example-00-step-04.svg
+---
+height: 300px
+name: source-conversion-example-00-step-04
+---
+```
 ````
+`````
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]

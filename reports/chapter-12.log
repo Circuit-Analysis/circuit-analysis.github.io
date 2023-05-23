@@ -17,77 +17,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
-    d += elm.SourceV().up().label('$v_S(t)$\n$50 \measuredangle 30^\circ$ V')
+with schemdraw.Drawing(file='mesh-analysis-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
+    d += elm.Resistor().right().label('$R_1$\n$4 \Omega$')
+    d.push()
     d += elm.Inductor().right().label('$L$')
-    d.push()
-    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{90^\circ}$ A', loc='bot').length(6).reverse()
+    d += elm.Line().length(6).left()
     d.pop()
-    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))   
-    d.push()
-    d += elm.Line().right().dot().label('B', loc='right')
-    d.pop()
-    d += elm.Line().left()
-    d.move_from(R.end,0,0)
+    d += elm.Capacitor().down().label('$C$', loc='bot')
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R_2$', loc='bot')
 
-with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
-    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \angle 30^\circ$ V'))
+with schemdraw.Drawing(file='mesh-analysis-differential-equations-meshes.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6))
+    d += (R1 := elm.Resistor().right().label('$R_1$\n$4 \Omega$'))
+    d.push()
     d += (L := elm.Inductor().right().label('$L$'))
-    d.push()
-    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d += (Is := elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{90^\circ}$ A', loc='bot').length(6).reverse())
+    d += (LN := elm.Line().length(6).left())
     d.pop()
-    d += (C := elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)))
-    d.push()
-    d += elm.Line().right().dot().label('B', loc='right')
-    d.pop()
-    d += (LN := elm.Line().left())
-    d.move_from(R.end,0,0)
-    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')   
+    d += (C := elm.Capacitor().down().label('$C$', loc='bot'))
+    d += (R2 := elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R_2$', loc='bot'))
+    d += elm.LoopCurrent([R1,C,LN,VS], pad = 0.1).label('$I_1$').color('red')
+    d += elm.LoopCurrent([L,IS,LN,C], pad = 0.1).label('$I_2$').color('blue')
 ------------------
 
-Traceback [0;36m(most recent call last)[0m:
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3457[0m, in [1;35mrun_code[0m
-    exec(code_obj, self.user_global_ns, self.user_ns)
-
-  File [1;32m"/var/folders/65/qy_bbqpj2x3470cgr0fmhyc40000gn/T/ipykernel_18800/1163971642.py"[0m, line [1;32m26[0m, in [1;35m<module>[0m
-    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m176[0m, in [1;35m__exit__[0m
-    self.save(self.outfile)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m389[0m, in [1;35msave[0m
-    self.draw(show=False)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m364[0m, in [1;35mdraw[0m
-    self._initfig(ax=ax, backend=backend, showframe=showframe)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m340[0m, in [1;35m_initfig[0m
-    bbox=self.get_bbox(),
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/schemdraw.py"[0m, line [1;32m196[0m, in [1;35mget_bbox[0m
-    bbox = element.get_bbox(transform=True)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/elements/elements.py"[0m, line [1;32m414[0m, in [1;35mget_bbox[0m
-    segxmin, segymin, segxmax, segymax = segment.get_bbox()
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/segments.py"[0m, line [1;32m333[0m, in [1;35mget_bbox[0m
-    w, h, _ = svg.text_size(self.text, 'Arial', self.fontsize)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svg.py"[0m, line [1;32m178[0m, in [1;35mtext_size[0m
-    textsize = svgtext.text_approx_size(text, font=font, size=size)
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svgtext.py"[0m, line [1;32m306[0m, in [1;35mtext_approx_size[0m
-    math = ' '.join(mathtextsvg(line).itertext())  # itertext strips all the tags
-
-  File [1;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/schemdraw/backends/svgtext.py"[0m, line [1;32m234[0m, in [1;35mmathtextsvg[0m
-    return ET.fromstring(svgtext)
-
-[0;36m  File [0;32m"/Users/kootsoop/opt/anaconda3/lib/python3.9/xml/etree/ElementTree.py"[0;36m, line [0;32m1344[0;36m, in [0;35mXML[0;36m[0m
-[0;31m    parser.feed(text)[0m
-
-[0;36m  File [0;32m"<string>"[0;36m, line [0;32munknown[0m
-[0;31mParseError[0m[0;31m:[0m not well-formed (invalid token): line 1, column 10
-
-ParseError: not well-formed (invalid token): line 1, column 10 (<string>)
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/65/qy_bbqpj2x3470cgr0fmhyc40000gn/T/ipykernel_31015/514067472.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     21[0m     [0md[0m [0;34m+=[0m [0;34m([0m[0mR2[0m [0;34m:=[0m [0melm[0m[0;34m.[0m[0mResistor[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mdown[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m[[0m[0;34m'+'[0m[0;34m,[0m [0;34m'$v_O(t)$'[0m[0;34m,[0m [0;34m'-'[0m[0;34m][0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m'$R_2$'[0m[0;34m,[0m [0mloc[0m[0;34m=[0m[0;34m'bot'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m     [0md[0m [0;34m+=[0m [0melm[0m[0;34m.[0m[0mLoopCurrent[0m[0;34m([0m[0;34m[[0m[0mR1[0m[0;34m,[0m[0mC[0m[0;34m,[0m[0mLN[0m[0;34m,[0m[0mVS[0m[0;34m][0m[0;34m,[0m [0mpad[0m [0;34m=[0m [0;36m0.1[0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m'$I_1$'[0m[0;34m)[0m[0;34m.[0m[0mcolor[0m[0;34m([0m[0;34m'red'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 23[0;31m     [0md[0m [0;34m+=[0m [0melm[0m[0;34m.[0m[0mLoopCurrent[0m[0;34m([0m[0;34m[[0m[0mL[0m[0;34m,[0m[0mIS[0m[0;34m,[0m[0mLN[0m[0;34m,[0m[0mC[0m[0;34m][0m[0;34m,[0m [0mpad[0m [0;34m=[0m [0;36m0.1[0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m'$I_2$'[0m[0;34m)[0m[0;34m.[0m[0mcolor[0m[0;34m([0m[0;34m'blue'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'IS' is not defined
+NameError: name 'IS' is not defined
 

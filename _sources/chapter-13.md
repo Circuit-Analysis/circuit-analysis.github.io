@@ -17,15 +17,17 @@ kernelspec:
 # Alternating Current: Phasors
 
 ```{include} includes/latex_imports.md
+
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
 
 ```{index} Phasors
-```
 
+```
 
 ## Sinusoidal Functions as Rotating Vectors
 
@@ -37,10 +39,9 @@ name: SineCurveUnitCircle
 Converting from a rotating vector to a sine wave.
 ```
 
-
 ```{index} Sinusoid
-```
 
+```
 
 ```{figure} logo.png
 ---
@@ -323,7 +324,7 @@ Different operations are easier in different complex forms. When performing oper
   - Division
 * - Negation
   - Negation
-* - 
+* -
   - Inversion
 ```
 
@@ -363,11 +364,11 @@ If we must express these quantities as complex numbers the imaginary components 
 :name: table-complex-addition
 :header-rows: 0
 
-* - 
+* -
   - 2+j0
 * - $+$
   - 3+j0
-* - 
+* -
   - **5+j0**
 ```
 
@@ -388,11 +389,11 @@ The result is shown in orange on the plane and is equal to a vector with value 2
 :name: table-complex-addition-non-zero
 :header-rows: 0
 
-* - 
+* -
   - 4+j3
 * - $+$
   - -2+j1
-* - 
+* -
   - **2+j4**
 ```
 
@@ -402,11 +403,11 @@ This operation is straight-forward if the complex values are in rectangular form
 :name: table-complex-operations
 :header-rows: 0
 
-* - 
+* -
   - $5\angle 36.86^\circ$
 * - $+$
   - $2.236\angle 153.43^\circ$
-* - 
+* -
   - $4.472\angle 63.43^\circ$
 ```
 
@@ -478,11 +479,11 @@ Subtraction is a simple combination of negation and addition. For instance to pe
 :name: table-complex-subtraction
 :header-rows: 0
 
-* - 
+* -
   - 1+j4
 * - $-$
   - 3+j2
-* - 
+* -
   - -2+j2
 ```
 
@@ -492,14 +493,13 @@ Recall that the negative sign distributes to both terms before an addition is pe
 :name: table-complex-subtraction-distributes
 :header-rows: 0
 
-* - 
+* -
   - 1+j4
 * - $+$
   - -3-j2
-* - 
+* -
   - -2+j2
 ```
-
 
 Negate the second term, add it to the first. Let's consider this subtraction graphically.
 
@@ -636,7 +636,6 @@ $$ \frac{1}{r\angle\theta}=(r\angle\theta)^{-1}=\frac{1}{r}\angle{-\theta} $$
 The multiplication of the value and its inverse can be expressed as
 
 $$ {2\angle25^\circ}\times(2\angle25^\circ)^{-1}=(2\times\frac{1}{2})\angle(25^\circ+(-25^\circ))=1\angle 0^\circ=1 $$
-
 
 Graphically, $2\angle25^\circ$, its inverse, and the result of the multiplication are all shown here
 
@@ -786,6 +785,7 @@ The impedance of a resistor is just its resistance. It may seem strange to say t
 We can now consider the other two passive elements using the same thought process as we did for the resistor.
 
 (content:subsubsub:capacitor)=
+
 #### Capacitor
 
 Let's consider a sinusoidal voltage placed across a capacitor. That voltage again takes the form of
@@ -817,7 +817,7 @@ Next we can consider the voltage/current relationship since we have functions de
 
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\sin(\omega{t}+\theta) A} $$
 
-This is where phasors prove useful.  Without phasors we would have to rely on some esoteric trig identities but let's not do that here.  Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
+This is where phasors prove useful. Without phasors we would have to rely on some esoteric trig identities but let's not do that here. Recall from the section introducing phasors that a sine can be converted to a cosine by shifting the phase angle by ${-90}^\circ$.
 
 $$ Z_C=\frac{v(t)}{i(t)}=\frac{A\cos(\omega{t}+\theta)~V}{ {-A}\omega{C}\cos(\omega{t}+\theta-90^\circ) A} $$
 
@@ -950,19 +950,17 @@ name: LABEL_611
 ---
 ```
 
-
 ```{index} Admittance
-```
 
+```
 
 The admittances add. Admittance is defined as the complex inverse of impedance
 
 $$ Y=\frac{1}{Z} $$
 
-
 ```{index} Siemens
-```
 
+```
 
 and has a unit of Siemens (S). Therefore,
 
@@ -980,7 +978,6 @@ $$ Z_P=\frac{Z_1Z_2}{Z_1+Z_2} $$
 
 ## Analysis Methods and Theorems with Alternating Current
 
-
 ```{figure} logo.png
 ---
 height: 300px
@@ -990,12 +987,12 @@ name: LABEL_42
 
 ### Voltage Divider
 
-
 ```{index} Voltage Divider
+
 ```
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1011,7 +1008,7 @@ Find v$_O$(t) given that v$_I$(t)=4~cos(10000t+45$^\circ$)~V
 ### Current Divider
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1026,12 +1023,12 @@ Find i$_O$(t) given that i$_I$(t)=400~cos(1000t-30$^\circ$)~mA
 
 ### Mesh Analysis
 
-
 ```{index} Mesh Analysis
+
 ```
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1046,7 +1043,7 @@ name: LABEL_91
 ### Nodal Analysis
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1059,7 +1056,7 @@ name: LABEL_101
 ````
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1075,12 +1072,12 @@ name: LABEL_111
 
 ### Thevenin's Theorem
 
-
 ```{index} Thevenin's Theorem
+
 ```
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1096,7 +1093,7 @@ Find $V\tss{OC}$ first. The load is already removed in this example so there is 
 
 % Removed picture
 
-We can find I using mesh analysis on the single mesh.  
+We can find I using mesh analysis on the single mesh.
 
 $$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
 
@@ -1154,19 +1151,18 @@ name: LABEL_151
 
 ### Norton's Theorem
 
-
 ```{index} Norton's Theorem
-```
 
+```
 
 ### Source Conversions
 
-
 ```{index} Source Conversions
+
 ```
 
 ````{admonition} Example
- 
+
 
 ```{figure} logo.png
 ---
@@ -1218,3 +1214,207 @@ $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A
 
 ````
 
+# NOTE: Below may be a duplicate of above!
+
+### Superposition
+
+### Thevenin's Theorem
+
+```{code-cell} ipython3
+:tags: [remove-input, remove-output]
+
+with schemdraw.Drawing(file='thevenin-differential-equations.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V')
+    d += elm.Inductor().right().label('$L$')
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += elm.Line().left()
+    d.move_from(R.end,0,0)
+
+with schemdraw.Drawing(file='thevenin-differential-equations-mesh.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
+    d += (L := elm.Inductor().right().label('$L$'))
+    d.push()
+    d += (R := elm.Resistor().right().label('$R$').dot().label('A', loc='right'))
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$C$', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += (LN := elm.Line().left())
+    d.move_from(R.end,0,0)
+    d += elm.LoopCurrent([L,C,LN,VS], pad = 0.5).label('$I$').color('red')
+
+with schemdraw.Drawing(file='thevenin-differential-equations-voltages.svg') as d:
+    d += (VS := elm.SourceV().up().label('$v_S(t)$\n$50 \\angle 30^\circ$ V'))
+    d += (L := elm.Inductor().right().label(['+', '-'])).label('$100 \\angle 30^\circ$ V', loc='bot').length(4)
+    d.push()
+    d += (R := elm.Resistor().right().label(['+', '-']).label('$0 \\angle 0^\circ$ V', loc='bot').dot().label('A', loc='right'))
+    d.pop()
+    d += (C := elm.Capacitor().down().label('$50 \\angle 150^\circ$ V', loc='top').label(['+', '$v_{OC}$', '-'], loc='bot', ofst=(0,3)).label(['+', '-'], loc='bot'))
+    d.push()
+    d += elm.Line().right().dot().label('B', loc='right')
+    d.pop()
+    d += (LN := elm.Line().left().length(4))
+    d.move_from(R.end,0,0)
+
+
+```
+
+```{index} Thevenin's Theorem
+
+```
+
+`````{admonition} Example
+
+
+```{figure} thevenin-differential-equations.svg
+---
+height: 300px
+name: thevenin-differential-equations
+---
+```
+
+Find the Thevenin equivalent of the circuit above.
+
+````{admonition} Solution
+:class: tip, dropdown
+Find $V\tss{OC}$ first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.
+
+```{figure} thevenin-differential-equations-mesh.svg
+---
+height: 300px
+name: thevenin-differential-equations-mesh
+---
+```
+
+We can find I using mesh analysis on the single mesh.
+
+$$ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 $$
+
+so
+
+$$ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) $$
+
+Using $I$ we can find the voltage across the inductor and capacitor
+
+$$ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V) $$
+
+and
+
+$$ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) $$
+
+There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic
+
+```{figure} thevenin-differential-equations-voltages.svg
+---
+height: 300px
+name: thevenin-differential-equations-voltages
+---
+```
+
+Now we can write a KVL that includes the unknown $V_{OC}$. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included $V_{OC}$.
+
+$$ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 $$
+
+which reduces to
+
+$$ V_{OC}=50\angle{-150^\circ}~V=V_{TH} $$
+
+which is the Thevenin voltage.
+Next, we find $Z\tss{TH}$. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method \#1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_8
+---
+```
+
+For this circuit
+
+$$ Z\tss{TH}=R+(L||C)=10-j20~\Omega $$
+
+We can now draw the Thevenin equivalent circuit since we have both $V\tss{TH}$ and $Z\tss{TH}$.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_9
+---
+```
+
+
+````
+`````
+
+### Norton's Theorem
+
+```{index} Norton's Theorem
+
+```
+
+### Source Conversions
+
+```{index} Source Conversions
+
+```
+
+`````{admonition} Example
+
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_10
+---
+```
+
+Find $I_O$
+
+````{admonition} Solution
+:class: tip, dropdown
+First, look for any impedances that are in series/parallel. The $1~\Omega$ resistor on the left and the $j1~\Omega$ inductor are in series. Also, the $1~\Omega$ resistor on the right and the $-j1~\Omega$ capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.
+
+Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_11
+---
+```
+
+No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_12
+---
+```
+
+Note that the current of the Norton equivalent is $(8+j2~V)/(1+j1~\Omega)$=$(5-j3~A)$
+
+After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The $1+j1~\Omega$ and $1-j1~\Omega$ impedances are in parallel. They are not next to each other but they are connected to the same two nodes.
+
+```{figure} logo.png
+---
+height: 300px
+name: LABEL_13
+---
+```
+
+Those two impedances combine to a $1~\Omega$ impedance.
+
+From this point we can use a simple current divider to find $I_O$.
+
+$$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A $$
+````
+
+`````

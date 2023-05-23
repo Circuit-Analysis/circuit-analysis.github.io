@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,6 +34,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Other Passive Components" href="chapter-11.html" />
     <link rel="prev" title="Superposition" href="chapter-9.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     
@@ -583,7 +584,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="equivalent-circuits">
-<span id="content-chapter-equivalentcircuits"></span><h1>Equivalent Circuits<a class="headerlink" href="#equivalent-circuits" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-equivalentcircuits"></span><h1>Equivalent Circuits<a class="headerlink" href="#equivalent-circuits" title="Permalink to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
@@ -600,14 +601,14 @@ title="Print to PDF"
 </figure>
 <p>The two theorems that will help us answer this question, Thevenin’s and Norton’s theorems, are detailed in this chapter. I’ll revisit this example as I introduce Thevenin’s theorem in the next section.</p>
 <section id="thevenin-s-theorem">
-<h2>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this headline">#</a></h2>
+<h2>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="thevenin-canonical">
 <a class="reference internal image-reference" href="_images/thevenin-canonical.svg"><img alt="_images/thevenin-canonical.svg" height="300px" src="_images/thevenin-canonical.svg" /></a>
 </figure>
 <section id="thevenin-voltage">
-<h3>Thevenin Voltage<a class="headerlink" href="#thevenin-voltage" title="Permalink to this headline">#</a></h3>
+<h3>Thevenin Voltage<a class="headerlink" href="#thevenin-voltage" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="thevenin-toy">
@@ -620,7 +621,7 @@ title="Print to PDF"
 </figure>
 </section>
 <section id="thevenin-resistance-three-methods">
-<h3>Thevenin Resistance: Three Methods<a class="headerlink" href="#thevenin-resistance-three-methods" title="Permalink to this headline">#</a></h3>
+<h3>Thevenin Resistance: Three Methods<a class="headerlink" href="#thevenin-resistance-three-methods" title="Permalink to this heading">#</a></h3>
 <p>There are three methods to determine Thevenin resistance. All three will be demonstrated on the toy problem in this section but each has strengths and weaknesses. Careful attention should be paid to the limitations of each method.</p>
 <div class="admonition-method-1-equivalent-resistance admonition">
 <p class="admonition-title"><strong>Method~#1~Equivalent Resistance:</strong></p>
@@ -874,7 +875,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </section>
 </section>
 <section id="norton-s-theorem">
-<h2>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this headline">#</a></h2>
+<h2>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <figure class="align-default" id="norton-canonical">
@@ -902,7 +903,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 </section>
 <section id="maximum-power-transfer">
-<h2>Maximum Power Transfer<a class="headerlink" href="#maximum-power-transfer" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Power Transfer<a class="headerlink" href="#maximum-power-transfer" title="Permalink to this heading">#</a></h2>
 <p>Often we must ensure that the power delivered to a load is as much as possible. This is true when:</p>
 <ul class="simple">
 <li><p>Stereo to speaker connection</p></li>
@@ -988,10 +989,10 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <p>For now I’ll leave this as an exercise for you. What value of <span class="math notranslate nohighlight">\(R_{L}\)</span> gives maximum efficiency? What if we could vary <span class="math notranslate nohighlight">\(R_{TH}\)</span>? What value of <span class="math notranslate nohighlight">\(R_{TH}\)</span> would lead to maximum efficiency?</p>
 </section>
 <section id="source-conversions">
-<h2>Source Conversions<a class="headerlink" href="#source-conversions" title="Permalink to this headline">#</a></h2>
+<h2>Source Conversions<a class="headerlink" href="#source-conversions" title="Permalink to this heading">#</a></h2>
 <p>Converting sources is a bit of an oddity that turns out to be useful. It is possible to solve for some circuit values in some circuits using this technique. However, not all circuits and values will yield to it. It is much more useful as a method of reducing the complexity of a circuit under analysis. Converting equivalent sources is useful to reduce the number of mesh currents or node voltages in a circuit.</p>
 <section id="norton-equivalent-of-a-thevenin-equivalent">
-<h3>Norton Equivalent of a Thevenin Equivalent<a class="headerlink" href="#norton-equivalent-of-a-thevenin-equivalent" title="Permalink to this headline">#</a></h3>
+<h3>Norton Equivalent of a Thevenin Equivalent<a class="headerlink" href="#norton-equivalent-of-a-thevenin-equivalent" title="Permalink to this heading">#</a></h3>
 <p>To begin, we will find the Norton equivalent of a Thevenin equivalent circuit. The short circuit current is labeled in the schematic below.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1013,7 +1014,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <p>While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.</p>
 </section>
 <section id="thevenin-equivalent-of-a-norton-equivalent">
-<h3>Thevenin Equivalent of a Norton Equivalent<a class="headerlink" href="#thevenin-equivalent-of-a-norton-equivalent" title="Permalink to this headline">#</a></h3>
+<h3>Thevenin Equivalent of a Norton Equivalent<a class="headerlink" href="#thevenin-equivalent-of-a-norton-equivalent" title="Permalink to this heading">#</a></h3>
 <p>Now let’s turn it around the other way. Starting with a Norton equivalent circuit let’s find its Thevenin equivalent.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1034,7 +1035,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 \[ R_{TH}=R_{N} \]</div>
 </section>
 <section id="summary-of-conversions">
-<h3>Summary of Conversions<a class="headerlink" href="#summary-of-conversions" title="Permalink to this headline">#</a></h3>
+<h3>Summary of Conversions<a class="headerlink" href="#summary-of-conversions" title="Permalink to this heading">#</a></h3>
 <p>These conversion allow us to move quickly between Thevenin and Norton equivalents. In doing so the goal is to combine resistors and sources in such a way that reduces the complexity of the circuit. Let’s keep the conversion shown below in our heads as we further develop this technique.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1048,7 +1049,15 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 </section>
 <section id="circuit-analysis-and-reduction-of-complexity-with-source-conversions">
-<h3>Circuit Analysis and Reduction of Complexity with Source Conversions<a class="headerlink" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions" title="Permalink to this headline">#</a></h3>
+<h3>Circuit Analysis and Reduction of Complexity with Source Conversions<a class="headerlink" href="#circuit-analysis-and-reduction-of-complexity-with-source-conversions" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
@@ -1056,6 +1065,21 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <figure class="align-default" id="source-conversion-example-00">
 <a class="reference internal image-reference" href="_images/source-conversion-example-00.svg"><img alt="_images/source-conversion-example-00.svg" height="300px" src="_images/source-conversion-example-00.svg" /></a>
 </figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<figure class="align-default" id="source-conversion-example-00-step-01">
+<a class="reference internal image-reference" href="_images/source-conversion-example-00-step-01.svg"><img alt="_images/source-conversion-example-00-step-01.svg" height="300px" src="_images/source-conversion-example-00-step-01.svg" /></a>
+</figure>
+<figure class="align-default" id="source-conversion-example-00-step-02">
+<a class="reference internal image-reference" href="_images/source-conversion-example-00-step-02.svg"><img alt="_images/source-conversion-example-00-step-02.svg" height="300px" src="_images/source-conversion-example-00-step-02.svg" /></a>
+</figure>
+<figure class="align-default" id="source-conversion-example-00-step-03">
+<a class="reference internal image-reference" href="_images/source-conversion-example-00-step-03.svg"><img alt="_images/source-conversion-example-00-step-03.svg" height="300px" src="_images/source-conversion-example-00-step-03.svg" /></a>
+</figure>
+<figure class="align-default" id="source-conversion-example-00-step-04">
+<a class="reference internal image-reference" href="_images/source-conversion-example-00-step-04.svg"><img alt="_images/source-conversion-example-00-step-04.svg" height="300px" src="_images/source-conversion-example-00-step-04.svg" /></a>
+</figure>
+</div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1077,7 +1101,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 Add Dependent supply example</p>
 </section>
 <section id="strategy-for-source-conversions">
-<h3>Strategy for Source Conversions<a class="headerlink" href="#strategy-for-source-conversions" title="Permalink to this headline">#</a></h3>
+<h3>Strategy for Source Conversions<a class="headerlink" href="#strategy-for-source-conversions" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -1152,4 +1176,42 @@ Add Dependent supply example</p>
 
 
   </body>
-</html><!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->

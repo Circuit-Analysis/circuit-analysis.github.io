@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,6 +34,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Alternating Current: Phasors" href="chapter-13.html" />
     <link rel="prev" title="Other Passive Components" href="chapter-11.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     
@@ -460,26 +461,6 @@ title="Print to PDF"
      Nodal Analysis
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#superposition">
-     Superposition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#thevenin-s-theorem">
-     Thevenin’s Theorem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#norton-s-theorem">
-     Norton’s Theorem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#source-conversions">
-     Source Conversions
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -531,26 +512,6 @@ title="Print to PDF"
      Nodal Analysis
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#superposition">
-     Superposition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#thevenin-s-theorem">
-     Thevenin’s Theorem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#norton-s-theorem">
-     Norton’s Theorem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#source-conversions">
-     Source Conversions
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -569,7 +530,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="alternating-current-differential-equation-approach">
-<span id="content-chapter-differentialequations"></span><h1>Alternating Current: Differential Equation Approach<a class="headerlink" href="#alternating-current-differential-equation-approach" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-differentialequations"></span><h1>Alternating Current: Differential Equation Approach<a class="headerlink" href="#alternating-current-differential-equation-approach" title="Permalink to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
@@ -579,9 +540,9 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <section id="analysis-methods-and-theorems-with-alternating-current">
-<h2>Analysis Methods and Theorems with Alternating Current<a class="headerlink" href="#analysis-methods-and-theorems-with-alternating-current" title="Permalink to this headline">#</a></h2>
+<h2>Analysis Methods and Theorems with Alternating Current<a class="headerlink" href="#analysis-methods-and-theorems-with-alternating-current" title="Permalink to this heading">#</a></h2>
 <section id="voltage-divider">
-<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
+<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-0">
@@ -673,7 +634,7 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 </div>
 </section>
 <section id="current-divider">
-<h3>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this headline">#</a></h3>
+<h3>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
@@ -701,31 +662,124 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 \[ \mu(t) = e^{\frac{t}{RC}} \]</div>
 <p>and multiplying both sides of our differential equation by this factor yields</p>
 <div class="math notranslate nohighlight">
-\[ (\mu(t) v(t))^′ = \mu(t) 400 \cos(1000t-30^\circ ).\]</div>
+\[ \frac{d}{dt} (\mu(t) v(t)) = \mu(t) 400 \cos(1000t-30^\circ ).\]</div>
 <p>We can now integrate this as we did in the voltage divider example to give</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\int (e^{\frac{t}{RC}} v(t))^′ dt &amp;=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
-\int (e^{\frac{t}{5 \times 10^{-4}}} v(t))^′ dt &amp;=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
+\int \frac{d}{dt}  (e^{\frac{t}{RC}} v(t)) dt &amp;=  \int e^{\frac{t}{RC}} 400 \cos(1000t-30^\circ) dt \\
+\int \frac{d}{dt} (e^{\frac{t}{5 \times 10^{-4}}} v(t)) dt &amp;=  \int e^{\frac{t}{5 \times 10^{-4}}} 400 \cos(1000t-30^\circ) dt \\
 e^{2000 t} v(t) + c &amp;= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
-v(t) &amp;= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t} 
+v(t) &amp;= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t}
+\end{align*}\]</div>
+<p>And after a long time (<span class="math notranslate nohighlight">\(t &gt; 5 RC = 2.5 ms\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+v(t) = 0.178885 \sin(1000 t + 33.4^\circ )
+\]</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+i_O(t) &amp;= C \frac{d~v(t)}{dt} \\
+&amp;=  1 \times 10^{-6} \times (  178.885 \cos(1000 t + 33.4^\circ) )\\
+&amp;= 178.885  \cos(1000 t + 33.4^\circ) \mu A
 \end{align*}\]</div>
 </div>
 </div>
 </section>
 <section id="mesh-analysis">
-<h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h3>
+<h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-1">
 <p class="admonition-title">Example</p>
+<p>Solve for <span class="math notranslate nohighlight">\(v_O(t)\)</span> using mesh analysis where</p>
+<div class="math notranslate nohighlight">
+\[
+v_S(t) = 12 \cos( 100 t) \mbox{V}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
+\]</div>
 <figure class="align-default" id="mesh-analysis-differential-equations">
-<a class="reference internal image-reference" href="_images/mesh-analysis-differential-equations.svg"><img alt="_images/mesh-analysis-differential-equations.svg" height="600px" src="_images/mesh-analysis-differential-equations.svg" /></a>
+<a class="reference internal image-reference" href="_images/mesh-analysis-differential-equations.svg"><img alt="_images/mesh-analysis-differential-equations.svg" height="400px" src="_images/mesh-analysis-differential-equations.svg" /></a>
 </figure>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution using differential equations</p>
+<p>First, let’s define the mesh currents <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span>.</p>
+<figure class="align-default" id="mesh-analysis-differential-equations-meshes">
+<a class="reference internal image-reference" href="_images/mesh-analysis-differential-equations-meshes.svg"><img alt="_images/mesh-analysis-differential-equations-meshes.svg" height="400px" src="_images/mesh-analysis-differential-equations-meshes.svg" /></a>
+</figure>
+<p>Then, the KVL equation for the <span class="math notranslate nohighlight">\(I_1\)</span> mesh is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+-v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &amp;=&amp; 0\\
+12\cos( 100 t) + I_1(t) R_1 + \ldots \\
+\frac{1}{C} \int I_1(t) dt + (I_1(t) - I_2(t)) R_2 &amp;=&amp; 0\\
+12\cos( 100 t) + 4 I_1(t) + \ldots \\
+1000 \int I_1(t) dt + 5(I_1(t) - I_2(t)) &amp;=&amp; 0
+\end{align*}\]</div>
+<p>yielding</p>
+<div class="math notranslate nohighlight" id="equation-loop-1-mesh">
+<span class="eqno">(19)<a class="headerlink" href="#equation-loop-1-mesh" title="Permalink to this equation">#</a></span>\[9 I_1(t) + 1000 \int I_1(t) dt - 5 I_2(t)  = -12\cos( 100 t).\]</div>
+<p>Looking at the <span class="math notranslate nohighlight">\(I_2\)</span> mesh, we see that there is a current source and that <span class="math notranslate nohighlight">\(I_2\)</span> is in the same direction as <span class="math notranslate nohighlight">\(i_S\)</span>.</p>
+<p>This simplifies the analysis because it means</p>
+<div class="math notranslate nohighlight">
+\[
+I_2(t) = i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
+\]</div>
+<p>Substituting this into <a class="reference internal" href="#equation-loop-1-mesh">(19)</a> gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+9 I_1(t) + 1000 \int I_1(t) dt - 20 \cos( 100 t + 90^\circ)  &amp;=&amp;\\ -12\cos( 100 t)\\
+9 I_1(t) + 1000 \int I_1(t) dt   &amp;=&amp;\\ -12\cos( 100 t) + 20 \cos( 100 t + 90^\circ)\\
+9 I_1(t) + 1000 \int I_1(t) dt &amp;=&amp;\\ -4 \sqrt(34) \sin(100 t + \tan^{-1}(3/5))\\
+9 I_1(t) + 1000 \int I_1(t) dt &amp;=&amp;\\ -4 \sqrt(34) \sin(100 t + 30.96^\circ)
+\end{align*}\]</div>
+<p>Then, to turn this into a differential equation, we can differentiate both sides with respect to <span class="math notranslate nohighlight">\(t\)</span> to get:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+9 \frac{d}{dt} I_1(t) + 1000 I_1(t) = -400 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+0.009 \frac{d}{dt} I_1(t) +  I_1(t) = -0.4 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+\end{align*}\]</div>
+<p>Again using our integrating factor <span class="math notranslate nohighlight">\(\mu(t) = e^{t/0.009}\)</span>, we get</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} (\mu(t) I_1(t)) = -400 \sqrt{34} \cos(100 t + 30.96^\circ) \mu(t).
+\]</div>
+<p>Integrating both sides with respect to <span class="math notranslate nohighlight">\(t\)</span> gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+e^{t/0.009} I_1(t) + c &amp;=&amp; -0.4 \sqrt{34} \int e^{t/0.009} \cos(100 t + 30.96^\circ) dt\\
+e^{t/0.009} I_1(t) + c &amp;=&amp; -0.4 \sqrt{34} \left (0.009 e^{t/0.009} \cos(100 t + 30.96^\circ)\right. \\
+&amp;&amp; + \left . \displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} \right)
+\end{align*}\]</div>
+<p>Rearranging, we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+I_1(t) &amp;=&amp; -0.4 \sqrt{34} \biggl( 0.009 \cos(100 t + 30.96^\circ) \\
+&amp;&amp; +  \left(\displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} - c \right)e^{-t/0.009} \biggr )
+\end{align*}\]</div>
+<p>and then after more than <span class="math notranslate nohighlight">\(t \gg 5 \times 0.009\)</span> we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+I_1(t) &amp;=&amp; -0.4 \sqrt{34} 0.009 \cos(100 t + 30.96^\circ)\\
+ &amp;=&amp; -20.99 \cos(100 t + 30.96^\circ) \mbox{A.}
+\end{align*}\]</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+v_O(t) &amp;=&amp; (I_1(t) + I_2(t)) R_2 \\
+&amp;=&amp; -20.99 \cos(100 t + 30.96^\circ)  \\
+&amp;&amp; + 20 \cos( 100 t + 90^\circ) \\
+&amp;=&amp; 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
+\end{align*}\]</div>
+</div>
 </div>
 </section>
 <section id="nodal-analysis">
-<h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h3>
+<h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
@@ -741,99 +795,9 @@ v(t) &amp;= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t}
 </figure>
 </div>
 </section>
-<section id="superposition">
-<h3>Superposition<a class="headerlink" href="#superposition" title="Permalink to this headline">#</a></h3>
-</section>
-<section id="thevenin-s-theorem">
-<h3>Thevenin’s Theorem<a class="headerlink" href="#thevenin-s-theorem" title="Permalink to this headline">#</a></h3>
-<div class="cell tag_remove-input tag_remove-output docutils container">
-</div>
-<div class="admonition-example admonition" id="index-2">
-<p class="admonition-title">Example</p>
-<figure class="align-default" id="thevenin-differential-equations">
-<a class="reference internal image-reference" href="_images/thevenin-differential-equations.svg"><img alt="_images/thevenin-differential-equations.svg" height="300px" src="_images/thevenin-differential-equations.svg" /></a>
-</figure>
-<p>Find the Thevenin equivalent of the circuit above.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Find <span class="math notranslate nohighlight">\(V\tss{OC}\)</span> first. The load is already removed in this example so there is already an open circuit where the load will connect. Find the voltage across that open.</p>
-<figure class="align-default" id="thevenin-differential-equations-mesh">
-<a class="reference internal image-reference" href="_images/thevenin-differential-equations-mesh.svg"><img alt="_images/thevenin-differential-equations-mesh.svg" height="300px" src="_images/thevenin-differential-equations-mesh.svg" /></a>
-</figure>
-<p>We can find I using mesh analysis on the single mesh.</p>
-<div class="math notranslate nohighlight">
-\[ (50\angle{30^\circ}~V)-(j20~\Omega)I-(-j10~\Omega)I=0 \]</div>
-<p>so</p>
-<div class="math notranslate nohighlight">
-\[ I=\frac{(50\angle{30^\circ}~V)}{(j10~\Omega)}=(5\angle{-60^\circ}~A) \]</div>
-<p>Using <span class="math notranslate nohighlight">\(I\)</span> we can find the voltage across the inductor and capacitor</p>
-<div class="math notranslate nohighlight">
-\[ V_L=(5\angle{-60^\circ}~A)(j20~\Omega)=(100\angle{30^\circ}~V) \]</div>
-<p>and</p>
-<div class="math notranslate nohighlight">
-\[ V_C=(5\angle{-60^\circ}~A)(-j10~\Omega)=(50\angle{-150^\circ}~V) \]</div>
-<p>There is no current through the resistor since it is not part of a closed path. Therefore there is no voltage across it. We can label all of these voltage on the schematic</p>
-<figure class="align-default" id="thevenin-differential-equations-voltages">
-<a class="reference internal image-reference" href="_images/thevenin-differential-equations-voltages.svg"><img alt="_images/thevenin-differential-equations-voltages.svg" height="300px" src="_images/thevenin-differential-equations-voltages.svg" /></a>
-</figure>
-<p>Now we can write a KVL that includes the unknown <span class="math notranslate nohighlight">\(V_{OC}\)</span>. I chose to move over the capacitor, resistor, and open since it is the shortest loop that included <span class="math notranslate nohighlight">\(V_{OC}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[ (50\angle{-150^\circ}~V)-(0~V)-V_{OC}=0 \]</div>
-<p>which reduces to</p>
-<div class="math notranslate nohighlight">
-\[ V_{OC}=50\angle{-150^\circ}~V=V_{TH} \]</div>
-<p>which is the Thevenin voltage.
-Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method #1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.</p>
-<figure class="align-default" id="label-8">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p>For this circuit</p>
-<div class="math notranslate nohighlight">
-\[ Z\tss{TH}=R+(L||C)=10-j20~\Omega \]</div>
-<p>We can now draw the Thevenin equivalent circuit since we have both <span class="math notranslate nohighlight">\(V\tss{TH}\)</span> and <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>.</p>
-<figure class="align-default" id="label-9">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-</div>
-</div>
-</section>
-<section id="norton-s-theorem">
-<h3>Norton’s Theorem<a class="headerlink" href="#norton-s-theorem" title="Permalink to this headline">#</a></h3>
-</section>
-<section id="source-conversions">
-<span id="index-3"></span><h3>Source Conversions<a class="headerlink" href="#source-conversions" title="Permalink to this headline">#</a></h3>
-<div class="admonition-example admonition" id="index-4">
-<p class="admonition-title">Example</p>
-<figure class="align-default" id="label-10">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p>Find <span class="math notranslate nohighlight">\(I_O\)</span></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>First, look for any impedances that are in series/parallel. The <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the left and the <span class="math notranslate nohighlight">\(j1~\Omega\)</span> inductor are in series. Also, the <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the right and the <span class="math notranslate nohighlight">\(-j1~\Omega\)</span> capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.</p>
-<p>Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.</p>
-<figure class="align-default" id="label-11">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p>No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.</p>
-<figure class="align-default" id="label-12">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p>Note that the current of the Norton equivalent is <span class="math notranslate nohighlight">\((8+j2~V)/(1+j1~\Omega)\)</span>=<span class="math notranslate nohighlight">\((5-j3~A)\)</span></p>
-<p>After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> and <span class="math notranslate nohighlight">\(1-j1~\Omega\)</span> impedances are in parallel. They are not next to each other but they are connected to the same two nodes.</p>
-<figure class="align-default" id="label-13">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
-</figure>
-<p>Those two impedances combine to a <span class="math notranslate nohighlight">\(1~\Omega\)</span> impedance.</p>
-<p>From this point we can use a simple current divider to find <span class="math notranslate nohighlight">\(I_O\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A \]</div>
-</div>
-</div>
-</section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <div class="docutils container" id="id3">
 <dl class="citation">
 <dt class="label" id="id12"><span class="brackets">Daw22</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
@@ -914,5 +878,4 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 
 
   </body>
-</html>
-<!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
+</html><!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->

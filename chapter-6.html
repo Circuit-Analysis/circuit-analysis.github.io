@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,6 +34,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Mesh Analysis" href="chapter-7.html" />
     <link rel="prev" title="A Sloppy Approach to Circuit Analysis" href="chapter-5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     
@@ -539,7 +540,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="review-of-solving-linear-systems">
-<span id="content-chapter-linearsystems"></span><h1>Review of Solving Linear Systems<a class="headerlink" href="#review-of-solving-linear-systems" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-linearsystems"></span><h1>Review of Solving Linear Systems<a class="headerlink" href="#review-of-solving-linear-systems" title="Permalink to this heading">#</a></h1>
 <p id="index-0"><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
@@ -549,7 +550,7 @@ title="Print to PDF"
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <section id="what-is-a-linear-system">
-<h2>What is a linear system?<a class="headerlink" href="#what-is-a-linear-system" title="Permalink to this headline">#</a></h2>
+<h2>What is a linear system?<a class="headerlink" href="#what-is-a-linear-system" title="Permalink to this heading">#</a></h2>
 <p>In this book, a linear system is a series of equations. The equations have one or more unknowns (AKA variables). Each unknown probably has a scaling factor (coefficient). And each equation also probably has a constant associated with it.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
@@ -573,7 +574,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="why-are-we-interested">
-<h2>Why are we interested?<a class="headerlink" href="#why-are-we-interested" title="Permalink to this headline">#</a></h2>
+<h2>Why are we interested?<a class="headerlink" href="#why-are-we-interested" title="Permalink to this heading">#</a></h2>
 <p>Linear equations like <a class="reference internal" href="#equation-eq-lin1">(4)</a> are useful in circuit analysis, because they crop up when applying the Mesh Analysis and Nodal Analysis techniques we will meet shortly in Chapters <a class="reference internal" href="chapter-7.html#content-chapter-mesh"><span class="std std-ref">Mesh Analysis</span></a> and <a class="reference internal" href="chapter-8.html#content-chapter-nodal"><span class="std std-ref">Nodal Analysis</span></a>.</p>
 <p>However, many real world problems (outside of circuit analysis) can be solved by applying linear systems.</p>
 <div class="admonition-example admonition" id="ex-lumber1">
@@ -606,11 +607,11 @@ title="Print to PDF"
 </div>
 </section>
 <section id="solving-linear-systems">
-<h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this headline">#</a></h2>
+<h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this heading">#</a></h2>
 <p>The equations in the <a class="reference internal" href="#ex-lumber2"><span class="std std-ref">second lumber example</span></a> are harder to solve than the single equation in <a class="reference internal" href="#ex-lumber1"><span class="std std-ref">this example</span></a>. This is because the second example has 3 <span class="math notranslate nohighlight">\(\green{\rm unknowns}\)</span> or variables. The second example must satisfy all three constraints <em>simultaneously</em>. This is the reason that these linear systems are sometimes called <em>simultaneous equations</em>.</p>
 <p id="index-1">There are several ways to solve linear systems of simultaneous equations. We will talk about three of them: elimination, substitution, and matrix inverse. The first two can be done using linear algebra and manipulating equations. The third is very useful if you have a calculator capable of doing matrix math.</p>
 <section id="substitution">
-<h3>Substitution<a class="headerlink" href="#substitution" title="Permalink to this headline">#</a></h3>
+<h3>Substitution<a class="headerlink" href="#substitution" title="Permalink to this heading">#</a></h3>
 <p>Substitution involves manipulating one of the equations so that a single unknown is on the left side of the equation, and all the others are on the right. Then we can replace all instances of this unknown in the remaining equations to reduce their complexity.</p>
 <div class="admonition-example admonition" id="ex-subst">
 <p class="admonition-title">Example</p>
@@ -644,7 +645,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="elimination">
-<h3>Elimination<a class="headerlink" href="#elimination" title="Permalink to this headline">#</a></h3>
+<h3>Elimination<a class="headerlink" href="#elimination" title="Permalink to this heading">#</a></h3>
 <p>Elimination involves adding or subtracting the equations we have so that one or more of the unknowns is eliminated. Once we’ve eliminated all but one of the unknowns, we can then solve the problem with the remaining single unknown like we did in <a class="reference internal" href="#ex-lumber1"><span class="std std-ref">this example</span></a>.</p>
 <div class="admonition-example admonition" id="ex-elim">
 <p class="admonition-title">Example</p>
@@ -695,7 +696,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="matrix-inverse">
-<h3>Matrix Inverse<a class="headerlink" href="#matrix-inverse" title="Permalink to this headline">#</a></h3>
+<h3>Matrix Inverse<a class="headerlink" href="#matrix-inverse" title="Permalink to this heading">#</a></h3>
 <p>Matrices and vectors can be used to write linear systems in a shorthand notation.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
@@ -915,7 +916,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators">
-<h2>Solving Linear Systems with Complex Coefficients on TI-83 / TI-84 Calculators<a class="headerlink" href="#solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators" title="Permalink to this headline">#</a></h2>
+<h2>Solving Linear Systems with Complex Coefficients on TI-83 / TI-84 Calculators<a class="headerlink" href="#solving-linear-systems-with-complex-coefficients-on-ti-83-ti-84-calculators" title="Permalink to this heading">#</a></h2>
 <p>Some calculators, like the TI-83 or TI-84, only allow matrices with real-valued entries. For circuit analysis of capacitive or inductive impedances, we need to work with complex-valued matrices.</p>
 <p>It’s possible to use these calculators to deal with complex-valued matrices, but we have to use a trick: each complex number must be replaced by a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix as indicated below.</p>
 <div class="math notranslate nohighlight">
@@ -1052,4 +1053,19 @@ a + \jmath b \rightarrow \left[ \begin{array}{cc} a &amp; -b \\ b &amp; a\end{ar
 
 
 
-<!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->

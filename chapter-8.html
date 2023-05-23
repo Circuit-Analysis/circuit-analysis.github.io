@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,6 +34,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Superposition" href="chapter-9.html" />
     <link rel="prev" title="More Anatomy of a Circuit" href="chapter-8-prelude.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     
@@ -559,7 +560,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="nodal-analysis">
-<span id="content-chapter-nodal"></span><h1>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-nodal"></span><h1>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this heading">#</a></h1>
 <p id="index-0"><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
@@ -570,7 +571,7 @@ title="Print to PDF"
 </div>
 <p>Nodal Analysis is another methodical application of KVL, KCL, and Ohm’s law that allow use to analyze any circuit. Nodal Analysis has a key advantage over Mesh Analysis but in general students become comfortable with one method or the other. The advantage Nodal Analysis has is the ease of locating the unknowns. This is true for humans and computers. Most circuit simulation software uses Nodal Analysis since it is easier to see where components connect (nodes) rather than closed paths with no intermediate branches. This becomes particularly true when analyzing circuits with ideal operational amplifiers, as we will do in this chapter.</p>
 <section id="the-steps">
-<h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
+<h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this heading">#</a></h2>
 <p>I’m going to list the steps here as reference. Use these steps as we walk through the next example.</p>
 <div class="admonition-steps-for-nodal-analysis admonition">
 <p class="admonition-title">Steps for Nodal Analysis</p>
@@ -585,7 +586,7 @@ title="Print to PDF"
 <p>These steps give us a starting point for the first example. <a class="reference internal" href="#subsection-nodal-strategy"><span class="std std-ref">We’ll develop what to do with special circumstances in more complex circuits.</span></a></p>
 </section>
 <section id="our-first-toy-problem">
-<h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
+<h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -722,8 +723,8 @@ I_{R4}=\frac{V_C-0}{R_4}=\frac{V_C}{R_4}
 <p>And we’re done with this one. Again, we’re left with an equation with constants and the unknown node voltages, nothing more.</p>
 <p><strong>Solving the system of equations</strong></p>
 <p>We have three equations and three unknowns. Let’s collect the equations from above here for easy reference.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f5b8747-dd8d-482f-9761-bf7796d42e98">
-<span class="eqno">(6)<a class="headerlink" href="#equation-1f5b8747-dd8d-482f-9761-bf7796d42e98" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c38d3d94-2acb-473b-8208-63f53fda1a31">
+<span class="eqno">(6)<a class="headerlink" href="#equation-c38d3d94-2acb-473b-8208-63f53fda1a31" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 -\frac{1}{2}V_A+\frac{1}{2}V_B&amp;=&amp;-6\\
 \frac{1}{2}V_A-V_B+\frac{1}{4}V_C&amp;=&amp;0\\
 \frac{1}{4}V_B-\frac{3}{4}V_C&amp;=&amp;0
@@ -854,10 +855,10 @@ V_{O}=V_B-V_C=-8-(-32)=24~\text{V}
 </div>
 </section>
 <section id="nodal-with-voltage-sources">
-<h2>Nodal with Voltage Sources<a class="headerlink" href="#nodal-with-voltage-sources" title="Permalink to this headline">#</a></h2>
+<h2>Nodal with Voltage Sources<a class="headerlink" href="#nodal-with-voltage-sources" title="Permalink to this heading">#</a></h2>
 <p>Just as current sources create special cases for mesh analysis, voltage sources create special cases for Nodal analysis. We will write a KVL for each voltage supply in a circuit we are analyzing with nodal analysis. The rest of the equations in the system will be KCLs. These special cases are divided into two categories: 1) a voltage supply connecting a non-reference node and ground and 2) a voltage supply connecting two non-reference nodes. These next sections describe how to analyze circuits in these two categories using nodal analysis.</p>
 <section id="voltage-sources-connected-to-ground">
-<h3>Voltage Sources Connected to Ground<a class="headerlink" href="#voltage-sources-connected-to-ground" title="Permalink to this headline">#</a></h3>
+<h3>Voltage Sources Connected to Ground<a class="headerlink" href="#voltage-sources-connected-to-ground" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -948,8 +949,8 @@ I_{R1}-I_{R2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-699205d4-e1ff-4b9e-ba36-e8842d11c397">
-<span class="eqno">(7)<a class="headerlink" href="#equation-699205d4-e1ff-4b9e-ba36-e8842d11c397" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-a63ae603-67ae-4cc4-b362-a8553ba6d324">
+<span class="eqno">(7)<a class="headerlink" href="#equation-a63ae603-67ae-4cc4-b362-a8553ba6d324" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 &amp;&amp;V_C&amp;=8~\text{V}\nonumber\\
 -\frac{1}{6}V_A+&amp;\frac{1}{6}V_B&amp;&amp;=-\frac{2}{3}~\text{A}\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{3}V_B+&amp;\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -978,7 +979,7 @@ I_{O}=\frac{V_B-0}{12}=\frac{2}{3}~\text{A}
 </div>
 </section>
 <section id="voltage-sources-connected-to-two-non-ground-nodes">
-<h3>Voltage Sources Connected to Two Non-ground Nodes<a class="headerlink" href="#voltage-sources-connected-to-two-non-ground-nodes" title="Permalink to this headline">#</a></h3>
+<h3>Voltage Sources Connected to Two Non-ground Nodes<a class="headerlink" href="#voltage-sources-connected-to-two-non-ground-nodes" title="Permalink to this heading">#</a></h3>
 <p>When a voltage supply connects two non-reference nodes we call it a “supernode”. We treat the voltage supply in a similar manner as the previous example. We write a KVL that includes that voltage supply. The problem we face is then writing a sufficient number of KCL equations to complete the system. Kirchhoff’s Current law can be stated more broadly to address this problem. Rather than stating that the algebraic sum of current entering a <strong>node</strong> is zero, we say that the algebraic sum of currents entering a <strong>bounded region</strong> is zero. Therefore, we can draw the bounded region around the voltage supply including the two nodes it connects to and write a KCL for this “super node”. Let’s look at an example.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1079,8 +1080,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-807b67f4-3be9-42fb-b6e2-8c9c741bda52">
-<span class="eqno">(8)<a class="headerlink" href="#equation-807b67f4-3be9-42fb-b6e2-8c9c741bda52" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-fcf2cfdb-2b44-4215-a25c-bc705b5c90f3">
+<span class="eqno">(8)<a class="headerlink" href="#equation-fcf2cfdb-2b44-4215-a25c-bc705b5c90f3" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{3}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1214,8 +1215,8 @@ I_{R5}-I_{R6}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40b4bbca-a800-404a-aa1a-21341f1398ac">
-<span class="eqno">(9)<a class="headerlink" href="#equation-40b4bbca-a800-404a-aa1a-21341f1398ac" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-72514bde-c9ea-4095-a0fd-7573e4da92d5">
+<span class="eqno">(9)<a class="headerlink" href="#equation-72514bde-c9ea-4095-a0fd-7573e4da92d5" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 ~&amp;~~\text{V}_B-&amp;~\text{V}_C~~&amp;~&amp;=8\nonumber\\
 \frac{1}{6}V_A-&amp;\frac{1}{4}V_B-&amp;\frac{1}{8}V_C+&amp;\frac{1}{8}V_D&amp;=0\nonumber\\
 -\frac{1}{2}V_A+&amp;\frac{1}{6}V_B&amp;~&amp;~&amp;=0\nonumber\\
@@ -1242,7 +1243,7 @@ V_O=V_C-0=-5.732-0=-5.732~\text{V}
 </div>
 </section>
 <section id="nodal-analysis-with-dependent-supplies">
-<h3>Nodal Analysis with Dependent Supplies<a class="headerlink" href="#nodal-analysis-with-dependent-supplies" title="Permalink to this headline">#</a></h3>
+<h3>Nodal Analysis with Dependent Supplies<a class="headerlink" href="#nodal-analysis-with-dependent-supplies" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -1341,8 +1342,8 @@ I_{R4}+I_{S2}-I_{R3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0dcfa242-2d87-47b2-8569-493356a800e8">
-<span class="eqno">(10)<a class="headerlink" href="#equation-0dcfa242-2d87-47b2-8569-493356a800e8" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-d465be3f-17ca-4fff-b064-2c16154db235">
+<span class="eqno">(10)<a class="headerlink" href="#equation-d465be3f-17ca-4fff-b064-2c16154db235" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{9}{8}V_A&amp;&amp;+V_C&amp;=4~\text{A}\nonumber\\
 -\frac{1}{4}V_A&amp;-\frac{1}{2}V_B&amp;&amp;=-4~\text{A}\nonumber\\
 \frac{5}{4}V_A&amp;&amp;-\frac{5}{4}V_C&amp;=0~\text{A}\nonumber
@@ -1449,8 +1450,8 @@ I_{S2}-\frac{V_C-V_B}{R_4}+I_{S3}=0
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc2144d8-0e4f-4202-ac88-4563f94bb55c">
-<span class="eqno">(11)<a class="headerlink" href="#equation-bc2144d8-0e4f-4202-ac88-4563f94bb55c" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-7bd8e286-6ecf-487b-a20d-5c700c12772e">
+<span class="eqno">(11)<a class="headerlink" href="#equation-7bd8e286-6ecf-487b-a20d-5c700c12772e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 -\frac{7}{20}V_A&amp;-\frac{11}{4}V_B&amp;+3V_C&amp;=2~\text{A}\nonumber\\
 \frac{1}{4}V_A&amp;-\frac{19}{20}V_B&amp;+\frac{1}{2}V_C&amp;=0~\text{A}\nonumber\\
 &amp;\frac{1}{2}V_B&amp;-\frac{1}{2}V_C&amp;=-6~\text{A}\nonumber%alignment
@@ -1548,8 +1549,8 @@ V_C=15~\text{V}
 \]</div>
 <p><strong>Solve the System of Equations</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-02c3ebc1-5037-4264-8106-220aaab2bc26">
-<span class="eqno">(12)<a class="headerlink" href="#equation-02c3ebc1-5037-4264-8106-220aaab2bc26" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-b0c0103d-9da9-46c9-8983-6bc2bf0af492">
+<span class="eqno">(12)<a class="headerlink" href="#equation-b0c0103d-9da9-46c9-8983-6bc2bf0af492" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
   -V_A&amp;-\frac{2}{3}V_B&amp;+\frac{1}{3}V_C&amp;=0~\text{A}\nonumber\\
   -\frac{1}{6}V_A&amp;-\frac{1}{4}V_B&amp;+\frac{5}{24}V_C&amp;=0~\text{A}\nonumber\\
   &amp;&amp;V_C&amp;=15~\text{V}\nonumber%alignment
@@ -1572,7 +1573,7 @@ I_x=\frac{16.5-15}{12}=125~\text{mA}
 </div>
 </section>
 <section id="nodal-analysis-with-an-ideal-operational-amplifier">
-<h3>Nodal Analysis with an Ideal Operational Amplifier<a class="headerlink" href="#nodal-analysis-with-an-ideal-operational-amplifier" title="Permalink to this headline">#</a></h3>
+<h3>Nodal Analysis with an Ideal Operational Amplifier<a class="headerlink" href="#nodal-analysis-with-an-ideal-operational-amplifier" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-1"></span><div class="cell tag_remove-input tag_remove-output docutils container" id="index-2">
 </div>
 <figure class="align-default" id="opamp">
@@ -1626,8 +1627,8 @@ V_B=0~\text{V}
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00433299-3b4e-42f9-b5d1-ad5bc22e0449">
-<span class="eqno">(13)<a class="headerlink" href="#equation-00433299-3b4e-42f9-b5d1-ad5bc22e0449" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-1e28e6ff-6ec8-470a-9295-698f42e52a32">
+<span class="eqno">(13)<a class="headerlink" href="#equation-1e28e6ff-6ec8-470a-9295-698f42e52a32" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 ~&amp;~~~~~~~\text{V}_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 \frac{1}{3k}V_A&amp;-\frac{6}{15k}&amp;V_B+\frac{1}{15k}V_C&amp;=0~\text{A}\nonumber
@@ -1691,8 +1692,8 @@ V_A-V_B=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the three equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bd9cdaa-47f3-42d5-a314-eda240d650b1">
-<span class="eqno">(14)<a class="headerlink" href="#equation-9bd9cdaa-47f3-42d5-a314-eda240d650b1" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
+<div class="amsmath math notranslate nohighlight" id="equation-970c697e-fb65-4451-bbe5-ddcbe1c2afe5">
+<span class="eqno">(14)<a class="headerlink" href="#equation-970c697e-fb65-4451-bbe5-ddcbe1c2afe5" title="Permalink to this equation">#</a></span>\[\begin{alignat}{3}
 V_A&amp;&amp;&amp;=10~\text{V}\nonumber\\
 V_A&amp;-V_B&amp;~&amp;=0~\text{V}\nonumber\\%there has got to be a better way to align this
 ~&amp;-\frac{1}{3}&amp;V_B+\frac{1}{12}V_C&amp;=0~\text{A}\nonumber
@@ -1774,8 +1775,8 @@ V_C-V_D=0
 \]</div>
 <p><strong>Solve the System</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42d8757b-ac55-4704-aa3e-734faaa2ba51">
-<span class="eqno">(15)<a class="headerlink" href="#equation-42d8757b-ac55-4704-aa3e-734faaa2ba51" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-77ff5004-ae95-4348-869a-798e8c90aa7f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-77ff5004-ae95-4348-869a-798e8c90aa7f" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;&amp;&amp;&amp;=2~\text{V}\nonumber\\
 \frac{1}{4k}V_A&amp;-\frac{83}{140k}V_B&amp;+\frac{1}{7k}V_C&amp;+\frac{1}{5k}V_D&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;\frac{1}{7k}V_B&amp;-\frac{17}{70k}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
@@ -1856,8 +1857,8 @@ V_C=0~\text{V}
 \]</div>
 <p><strong>Solve the system</strong></p>
 <p>Let’s gather the results of the four equations written above</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f96a3c83-8e4d-4fed-99d0-c2460d31035e">
-<span class="eqno">(16)<a class="headerlink" href="#equation-f96a3c83-8e4d-4fed-99d0-c2460d31035e" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
+<div class="amsmath math notranslate nohighlight" id="equation-61af2f4e-e179-45d6-b03e-9c684031e277">
+<span class="eqno">(16)<a class="headerlink" href="#equation-61af2f4e-e179-45d6-b03e-9c684031e277" title="Permalink to this equation">#</a></span>\[\begin{alignat}{4}
 V_A&amp;~-V_B&amp;&amp;&amp;=4~\text{V}\nonumber\\
 -\frac{1}{6}V_A&amp;-\frac{1}{6}V_B&amp;+\frac{1}{18}V_C&amp;&amp;=0~\text{A}\nonumber\\%there has got to be a better way to align this
 &amp;&amp;V_C&amp;&amp;=0~\text{V}\nonumber\\
@@ -1887,7 +1888,7 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 </section>
 </section>
 <section id="the-shortcut">
-<h2>The Shortcut<a class="headerlink" href="#the-shortcut" title="Permalink to this headline">#</a></h2>
+<h2>The Shortcut<a class="headerlink" href="#the-shortcut" title="Permalink to this heading">#</a></h2>
 <figure class="align-default" id="nodal-first-toy-problem-1-shortcut">
 <a class="reference internal image-reference" href="_images/nodal-first-toy-problem-1.svg"><img alt="_images/nodal-first-toy-problem-1.svg" height="300px" src="_images/nodal-first-toy-problem-1.svg" /></a>
 </figure>
@@ -1933,7 +1934,7 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 </figure>
 </section>
 <section id="strategy-for-nodal-analysis">
-<span id="subsection-nodal-strategy"></span><h2>Strategy for Nodal Analysis<a class="headerlink" href="#strategy-for-nodal-analysis" title="Permalink to this headline">#</a></h2>
+<span id="subsection-nodal-strategy"></span><h2>Strategy for Nodal Analysis<a class="headerlink" href="#strategy-for-nodal-analysis" title="Permalink to this heading">#</a></h2>
 <p>The examples I’ve worked are intended to teach you how to deal with the little oddities that arise when performing nodal analysis. If you master these you will be able to analyze any linear electric circuits. I’ve also shown you how to use the “shortcut” to perform nodal analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.</p>
 <p>Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.</p>
 <ol class="simple">
@@ -2052,4 +2053,19 @@ I_O=-\frac{0-8}{72}+\frac{8-0}{12}=\frac{7}{9}~\text{A}=777.8~\text{mA}
 
 
 
-<!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->

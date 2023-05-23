@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,6 +34,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="More Anatomy of a Circuit" href="chapter-8-prelude.html" />
     <link rel="prev" title="Review of Solving Linear Systems" href="chapter-6.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     
@@ -607,7 +608,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="mesh-analysis">
-<span id="content-chapter-mesh"></span><h1>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h1>
+<span id="content-chapter-mesh"></span><h1>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
@@ -618,10 +619,10 @@ title="Print to PDF"
 </div>
 <p id="index-0">We often refer to mesh analysis as a <em>method</em> of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.</p>
 <section id="relating-circuit-values-to-mesh-currents">
-<h2>Relating Circuit Values to Mesh Currents<a class="headerlink" href="#relating-circuit-values-to-mesh-currents" title="Permalink to this headline">#</a></h2>
+<h2>Relating Circuit Values to Mesh Currents<a class="headerlink" href="#relating-circuit-values-to-mesh-currents" title="Permalink to this heading">#</a></h2>
 <p>The unknowns in this case are the currents flowing around each mesh of the circuit. Let’s take a step back and first use the mesh current to find expressions for other values in the circuit. It’s a bit of make-believe to begin with but it will help as we develop the method. Let’s pretend we already know the mesh currents and want to use them to determine other currents and voltages in the circuit.</p>
 <section id="currents">
-<h3>Currents<a class="headerlink" href="#currents" title="Permalink to this headline">#</a></h3>
+<h3>Currents<a class="headerlink" href="#currents" title="Permalink to this heading">#</a></h3>
 <p>Let’s start with the circuit shown here</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -708,7 +709,7 @@ I_b=I_1-I_2
 </section>
 </section>
 <section id="our-first-toy-problem">
-<h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this headline">#</a></h2>
+<h2>Our First Toy Problem<a class="headerlink" href="#our-first-toy-problem" title="Permalink to this heading">#</a></h2>
 <p>Applying the fundamental laws (Ohm’s, KVL, KCL) in the haphazard manner demonstrated in Section \ref{sec_MacGyver} leaves the desire for a more methodical approach to circuit analysis. The first of the two methods we consider is Mesh Analysis. We should build off of a simple example as we explore Mesh Analysis. The first example in this section is solvable using previous methods but will serve to increase our confidence in the new method.</p>
 <p>Find <span class="math notranslate nohighlight">\(V_A\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -737,7 +738,7 @@ I_b=I_1-I_2
 <p>Seat of the pants analysis tells us that <span class="math notranslate nohighlight">\(V_A\)</span> is 14 V. Let’s keep this result in mind for the next few sections</p>
 </section>
 <section id="the-steps">
-<h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
+<h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this heading">#</a></h2>
 <p>I’m going to list the steps here as reference. Use these steps as we walk through the next example. <a class="reference internal" href="#subsection-mesh-strategy"><span class="std std-ref">A more complete summary is included at the endof the chapter.</span></a></p>
 <span class="target" id="index-1"></span><div class="admonition-steps-for-mesh-analysis admonition" id="index-2">
 <p class="admonition-title">Steps for Mesh Analysis</p>
@@ -882,7 +883,7 @@ R_2I_1+(-R_2-R_3-R_4)I_2=0
 </div>
 </section>
 <section id="mesh-analysis-with-multiple-sources">
-<h2>Mesh Analysis with Multiple Sources<a class="headerlink" href="#mesh-analysis-with-multiple-sources" title="Permalink to this headline">#</a></h2>
+<h2>Mesh Analysis with Multiple Sources<a class="headerlink" href="#mesh-analysis-with-multiple-sources" title="Permalink to this heading">#</a></h2>
 <p>I mentioned before that mesh analysis can be used to analyze circuits with multiple sources. The same steps are applied with no alteration. Let’s look at a quick example</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1021,13 +1022,13 @@ R_4I_2+(-R_2-R_4)I_3=V_1
 </div>
 </section>
 <section id="current-sources-in-mesh-analysis">
-<h2>Current Sources in Mesh Analysis<a class="headerlink" href="#current-sources-in-mesh-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Current Sources in Mesh Analysis<a class="headerlink" href="#current-sources-in-mesh-analysis" title="Permalink to this heading">#</a></h2>
 <p>KVL equations are the default when performing Mesh analysis. There are cases where you are unable to write enough KVL equations to form a fully-determined system of equations. Those cases can be easily recognized if we look for current supplies.</p>
 <p>Each term in a KVL must be a voltage. Those voltages must be rewritten to be in terms of the unknown mesh currents. This is possible with resistors using Ohm’s law. When current supplies are present we cannot readily represent the voltage across that current supply in terms of the unknown mesh currents. So how do we approach current supplies when performing Mesh analysis?</p>
 <p>Since we cannot write a KVL for a mesh when it contains a current supply, we must write a KCL instead. The goal remains to write the same number of equations as we have unknowns in order to find a unique solution for those unknowns. So, for each current supply (dependent or independent) we write a KCL. The remainder of the equations we need to equal the number of unknowns are then KVL equations written in the usual way.</p>
 <p>Let’s examine two cases of circuits that have current supplies and perform Mesh analysis on them.</p>
 <section id="current-sources-with-a-single-mesh-current">
-<h3>Current Sources with a Single Mesh Current<a class="headerlink" href="#current-sources-with-a-single-mesh-current" title="Permalink to this headline">#</a></h3>
+<h3>Current Sources with a Single Mesh Current<a class="headerlink" href="#current-sources-with-a-single-mesh-current" title="Permalink to this heading">#</a></h3>
 <p>The first case is a current supply that is only affected by a single mesh current. But before we write the KCL for that current supply consider the types and quantities of equations that you will write to find the unknown mesh currents. For each current supply write a KCL equation, only one in the case if the next example. A total of 2 equations are required since we have two unknown mesh currents. That leaves 1 KVL to have a fully-determined system.</p>
 <p>Let’s find the mesh currents in this example circuit:</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -1082,7 +1083,7 @@ Label Mesh currents and polarities of passive components:</p>
 </div>
 </section>
 <section id="current-sources-with-multiple-mesh-currents">
-<h3>Current Sources with Multiple Mesh Currents<a class="headerlink" href="#current-sources-with-multiple-mesh-currents" title="Permalink to this headline">#</a></h3>
+<h3>Current Sources with Multiple Mesh Currents<a class="headerlink" href="#current-sources-with-multiple-mesh-currents" title="Permalink to this heading">#</a></h3>
 <p>The case of current supplies that are affected by multiple mesh currents varies only slightly from the previous example where a current supply is affected by a single mesh current. We still write a KCL for this current supply. The change comes while writing the KVL. Neither of the individual meshes will allow you to write a KVL in terms of the unknown mesh currents since both meshes contain the current supply. Therefore you will have to write the KVL around the two meshes taken together. Recall that Kirchhoff stated that the algebraic sum of voltages around a <strong>loop</strong> is zero. The path around the two meshes taken together is a loop and the voltages will sum to zero.</p>
 <p>Let’s look at an example.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -1189,7 +1190,7 @@ V_S-I_1R_1-I_2R_3-I_2R_4=0\\
 </section>
 </section>
 <section id="mesh-analysis-with-dependent-supplies">
-<h2>Mesh Analysis with Dependent Supplies<a class="headerlink" href="#mesh-analysis-with-dependent-supplies" title="Permalink to this headline">#</a></h2>
+<h2>Mesh Analysis with Dependent Supplies<a class="headerlink" href="#mesh-analysis-with-dependent-supplies" title="Permalink to this heading">#</a></h2>
 <p>I often describe dependent supplies as the one component we’ve covered thus far that I cannot pull out of a draw and put in your hands. Nevertheless, dependent supplies play an important role in analysis of modern electronics. Every transistor is modeled with a dependent supply during analysis. If you have a smart phone in your pocket right now, you have between one billion and two billion dependent supplies with you right now. Maybe you’re even using them to read this!</p>
 <p>Mesh analysis does not change much from what we have done so far. The only change is the need to write an expression for the control variable of the dependent supply, and then substitute it into the system of equations.</p>
 <p>Here’s an example</p>
@@ -1322,11 +1323,11 @@ V_S-I_1R_1-I_2R_3-I_2R_4=0\\
 </div>
 </section>
 <section id="the-shortcut">
-<h2>The Shortcut<a class="headerlink" href="#the-shortcut" title="Permalink to this headline">#</a></h2>
+<h2>The Shortcut<a class="headerlink" href="#the-shortcut" title="Permalink to this heading">#</a></h2>
 <p>Mesh Analysis can be performed quickly in some cases. I am not inviting you to forget everything we just did. When I do things quickly I’m less confident in the result. However, with practice you can solve many circuit analysis problems using Mesh analysis in about a minute.</p>
 <p>We can use mesh analysis on some problems by writing values directly into the matrix. In order to do this we must label all mesh currents in the same direction. I have the habit of marking all mesh currents in the clockwise direction but it works equally well in the counter-clockwise direction. This is not a requirement for Mesh Analysis but it makes this shortcut much less error-prone.</p>
 <section id="basic-shortcut">
-<h3>Basic Shortcut<a class="headerlink" href="#basic-shortcut" title="Permalink to this headline">#</a></h3>
+<h3>Basic Shortcut<a class="headerlink" href="#basic-shortcut" title="Permalink to this heading">#</a></h3>
 <p>I’m comfortable using the shortcut on problems without dependent supplies. It is not impossible to use the shortcut on circuits with dependent supplies but I tend to slow down and make sure everything ends up in the right place for those circuits. I’ll address use of the shortcut for those problems in the next section. Here we’ll limit the discussion to those circuits without dependent supplies.</p>
 <p>We begin by setting up a matrix and vector appropriate for the circuit being analyzed. In the case of the first problem we solved using Mesh analysis, we used a 2x2 matrix and a 2x1 vector. Let revisit that problem</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -1649,7 +1650,7 @@ We’ll write a KCL for the <span class="math notranslate nohighlight">\(I_2\)</
 </div>
 </section>
 <section id="advanced-shortcut">
-<h3>Advanced Shortcut<a class="headerlink" href="#advanced-shortcut" title="Permalink to this headline">#</a></h3>
+<h3>Advanced Shortcut<a class="headerlink" href="#advanced-shortcut" title="Permalink to this heading">#</a></h3>
 <p>I want you to read the word “Advanced” and think to yourself: I could very well screw this up. Our primary goal is to analyze the circuit correctly. Speed is only a secondary goal.</p>
 <p>I am going to include two solutions for each of these problems. We can try to be true to the spirit of the “shortcut” and do everything simply by looking at the circuit and entering numbers into the matrices. This may be good to impress your friends but then we have to consider the type of friends you have.</p>
 <p>This pure shortcut approach is error prone even for experienced circuit analyzers. I take a hybrid approach when analyzing circuits with dependent supplies. I use the shortcut for all of the equations that do not involve the dependent supply. Then I finish the problem by writing out the equation(s) that do involve the dependent supply and entering them in the matrices after a bit of algebra.</p>
@@ -1879,7 +1880,7 @@ I_2-I_3=2I_1\\
 </section>
 </section>
 <section id="strategy-for-mesh-analysis">
-<span id="subsection-mesh-strategy"></span><h2>Strategy for Mesh Analysis<a class="headerlink" href="#strategy-for-mesh-analysis" title="Permalink to this headline">#</a></h2>
+<span id="subsection-mesh-strategy"></span><h2>Strategy for Mesh Analysis<a class="headerlink" href="#strategy-for-mesh-analysis" title="Permalink to this heading">#</a></h2>
 <p>The examples I’ve worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis. If you master these you will be able to analyze most linear electric circuits. I’ve also shown you how to use the “shortcut” to perform mesh analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.</p>
 <p>Not all circuits require you to use the techniques introduced here. When I first begin analysis of a circuit I look for certain conditions and I make a plan to deal with them. I will do my best to summarize the strategy I use when analyzing a circuit.</p>
 <ol>
@@ -1993,4 +1994,19 @@ I_2-I_3=2I_1\\
 
 
 
-<!-- 8a0f31f37a3e35cabeedaffb91611a8aea038ca9 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
