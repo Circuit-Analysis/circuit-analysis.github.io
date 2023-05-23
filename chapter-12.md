@@ -214,6 +214,11 @@ e^{2000 t} v(t) + c &= 0.178885 e^{2000 t} \sin(1000 t + 33.4^\circ ) + k\\
 v(t) &= 0.178885 \sin(1000 t + 33.4^\circ ) + \kappa e^{-2000 t} 
 \end{align*}
 
+And after a long time ($t > 5 RC = 2.5 ms$):
+
+$$
+v(t) = 0.178885 \sin(1000 t + 33.4^\circ )
+$$
 
 ````
 
