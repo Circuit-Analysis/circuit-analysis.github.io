@@ -25,9 +25,11 @@ kernelspec:
 :load: includes/python_imports.py
 ```
 
-## Analysis Methods and Theorems with Alternating Current
+Before moving to phasor analysis of resistive, capacitive, and inductive circuits, this chapter looks at analysis of such circuits using differential equations directly. The aim is to show that phasor analysis makes our lives _much_ easier.
 
-### Voltage Divider
+For an excellent review of the mathematics of solving linear, first order, constant coefficient differential equations, see {cite:ts}`paul_dawkins_math_notes`.
+
+## Voltage Divider
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -151,7 +153,11 @@ v_O(t) &= L \frac{d~i(t)}{dt} \\
 ````
 `````
 
-### Current Divider
+## Current Divider
+
+```{index} Current Divider
+
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -235,7 +241,7 @@ i_O(t) &= C \frac{d~v(t)}{dt} \\
 
 `````
 
-### Mesh Analysis
+## Mesh Analysis
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -382,46 +388,63 @@ v_O(t) &=& (I_1(t) + I_2(t)) R_2 \\
 ````
 `````
 
-### Nodal Analysis
+## Nodal Analysis
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='nodal-analysis-differential-equations.svg') as d:
-    d += elm.SourceV().up().label('$v_S(t)$\n$6 \\angle 0^\circ$')
-    d += elm.Inductor().right().label('$L$')
+    d += elm.SourceV().up().label('$v_S(t)$')
+    d += elm.Inductor().right().label('$L$\n$100$ mH')
     d.push()
-    d += elm.Capacitor().right().label('$C$')
-    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
+    d += elm.Capacitor().right().label('$C$\n$100 \mu$F')
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$\n$100 \Omega$', loc='bot')
     d += elm.Line().length(6).left()
     d.pop()
-    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{45^\circ}$')
+    d += elm.SourceI().down().label('$i_S(t)$')
 
-with schemdraw.Drawing(file='nodal-analysis-differential-equations-2.svg') as d:
-    d += elm.Line().length(3).up()
-    d += elm.Line().length(2).up()
-    d += elm.SourceV().right().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
-    d += elm.Line().length(2).down()
+with schemdraw.Drawing(file='nodal-analysis-differential-equations-nodes.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$')
+    d += (NodeA := elm.Dot(color='red').label('A'))
+    d += elm.Inductor().right().label('$L$\n$100$ mH')
+    d += (NodeB := elm.Dot(color='green').label('B'))
     d.push()
-    d += elm.Resistor().label('$R_3$').down()
-    d += elm.Inductor().left().label('$L$')
-    d.push()
-    d.push()
-    d += elm.Ground().right()
+    d += elm.Capacitor().right().label('$C$\n$100 \mu$F')
+    d += (NodeC := elm.Dot(color='blue').label('C'))
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$\n$100 \Omega$', loc='bot')
+    d += elm.Line().length(6).left()
     d.pop()
-    d += (R2 := elm.Resistor().up().label('$R_2$'))
-    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$i_O(t)$', loc='bot')
-    d.pop()
-    d += elm.Line().left()
-    d.pop()
-    d += elm.Capacitor().left().label('$C$', loc='bot')
-    d += elm.Resistor().left().label('$R_1$', loc='bot')
+    d += elm.SourceI().down().label('$i_S(t)$')
+
+    d.move_from(NodeA.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(NodeB.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(NodeB.start, 1, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(NodeC.start, 1.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
 
 
 ```
 
-````{admonition} Example
+```{index} Nodal Analysis
 
+```
+
+`````{admonition} Example
+
+Find $v_O(t)$ using nodal analysis where
+
+$$
+v_S(t) = 6 \cos(100 t ) \mbox{V}
+$$
+
+and
+
+$$
+i_S(t) = 4 \cos(100 t + 45^\circ) \mbox{A.}
+$$
 
 ```{figure} nodal-analysis-differential-equations.svg
 ---
@@ -430,21 +453,48 @@ name: nodal-analysis-differential-equations
 ---
 ```
 
+````{admonition} Solution using differential equations
+:class: tip, dropdown
 
-````
-
-````{admonition} Example
+First, let's define the nodes and the component current directions.
 
 
-```{figure} nodal-analysis-differential-equations-2.svg
+```{figure} nodal-analysis-differential-equations-nodes.svg
 ---
-height: 600px
-name: nodal-analysis-differential-equations-2
+height: 400px
+name: nodal-analysis-differential-equations-nodes
 ---
 ```
 
 
+**Node $\color{red}{\bf A}$ :**
+
+At node $\color{red}{\text{A}}$ we can immediately see that
+
+$$
+v_A(t) = v_S(t)
+$$
+
+**Node $\color{green}{\bf B}$ :**
+
+At node $\color{green}{\text{B}}$, the KCL equation is
+
+$$
+i_L(t) - i_S(t) - i_C(t) = 0
+$$
+
+**Node $\color{blue}{\bf C}$ :**
+
+At node $\color{blue}{\text{C}}$, the KCL equation is
+
+$$
+i_C(t) - i_R(t) = 0
+$$
+
+
+
 ````
+`````
 
 ## References
 
