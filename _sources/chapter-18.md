@@ -16,14 +16,10 @@ kernelspec:
 
 # More Complex Circuits using the "Step-by-step Method"
 
-
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
-
 
 ```{admonition} Steps for First-order Transient Analysis
 - Find the initial condition.
@@ -35,7 +31,7 @@ kernelspec:
 ```
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{OUT}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -49,7 +45,7 @@ name: LABEL_0
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{OUT}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -63,7 +59,7 @@ name: LABEL_1
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{OUT}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -77,7 +73,7 @@ name: LABEL_2
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $i\tss{OUT}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -91,7 +87,7 @@ name: LABEL_3
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{O}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -105,7 +101,7 @@ name: LABEL_4
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{O}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -119,7 +115,7 @@ name: LABEL_5
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{O}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -133,7 +129,7 @@ name: LABEL_6
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $v\tss{O}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png
@@ -147,7 +143,7 @@ name: LABEL_7
 ````
 
 ````{admonition} Example
- 
+
 Write an expression for $i\tss{O}(t)$ for $t\geq 0$.
 
 ```{figure} logo.png

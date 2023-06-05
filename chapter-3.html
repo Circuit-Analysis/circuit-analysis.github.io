@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -541,12 +546,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="equivalent-components">
 <h1>Equivalent Components<a class="headerlink" href="#equivalent-components" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <section id="series-parallel-neither-both">
@@ -785,8 +784,8 @@ How are they connected?</p>
 </section>
 <section id="delta-wye-conversions">
 <h2>Delta-Wye Conversions<a class="headerlink" href="#delta-wye-conversions" title="Permalink to this heading">#</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-63876ea1-a977-436d-8b7a-1bf4748ffd9c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-63876ea1-a977-436d-8b7a-1bf4748ffd9c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e43fb77e-033d-43e9-8319-bb2c68e0bb3d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e43fb77e-033d-43e9-8319-bb2c68e0bb3d" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \\
 R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \\
 R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
@@ -799,8 +798,8 @@ R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">The wye configuration.</span><a class="headerlink" href="#wye" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="amsmath math notranslate nohighlight" id="equation-91d6f80f-a2dc-479c-8c76-8c6829274a68">
-<span class="eqno">(3)<a class="headerlink" href="#equation-91d6f80f-a2dc-479c-8c76-8c6829274a68" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-429901e6-f99e-4d6d-8bcc-a66405cd3946">
+<span class="eqno">(3)<a class="headerlink" href="#equation-429901e6-f99e-4d6d-8bcc-a66405cd3946" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \\
 R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \\
 R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
@@ -902,26 +901,4 @@ R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->

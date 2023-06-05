@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -440,12 +445,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="power-in-alternating-current-circuits">
 <span id="content-chapter-powerinaccircuits"></span><h1>Power in Alternating Current Circuits<a class="headerlink" href="#power-in-alternating-current-circuits" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>In the early chapters of this book the calculation of power dissipated or supplied by components was simple enough to be embedded within chapters covering the fundamental calculations of circuit analysis.
@@ -479,7 +478,7 @@ For this case the voltage and current are constant and will be written using cap
 \[ P=\frac{VI}{T}\int_t^{t+T}~d\tau \]</div>
 <p>leading to</p>
 <div class="math notranslate nohighlight">
-\[ P=\left.\frac{VI}{T}~\tau\right|_t^{t+T} \]</div>
+\[ P=\left.\frac{VI}{T}~\tau\right|\_t^{t+T} \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[ P=\frac{VI}{T}~\left[t+T-t\right] \]</div>
@@ -561,19 +560,19 @@ Instead we use the concept of effective power to avoid this. Effective power is 
 <p>The resistor is constant so I’ve moved it to the coefficient of the integral.</p>
 <p>The DC circuit is a straight-forward application of the power equation</p>
 <div class="math notranslate nohighlight">
-\[ P=I_{eff}^2R \]</div>
+\[ P=I\_{eff}^2R \]</div>
 <p>We set the two equal to each to solve for <span class="math notranslate nohighlight">\(I_{eff}\)</span></p>
 <div class="math notranslate nohighlight">
-\[ I_{eff}^2R=\frac{R}{T}\int_0^Ti^2dt \]</div>
+\[ I\_{eff}^2R=\frac{R}{T}\int_0^Ti^2dt \]</div>
 <p>The first thing I notice is that R cancels out. The value of <span class="math notranslate nohighlight">\(I_{eff}\)</span> is not dependent on the resistor.</p>
 <div class="math notranslate nohighlight">
-\[ I_{eff}^2=\frac{1}{T}\int_0^Ti^2dt \]</div>
+\[ I\_{eff}^2=\frac{1}{T}\int_0^Ti^2dt \]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(I_{eff}\)</span> is then as simple as calculating the square root of both sides.</p>
 <div class="math notranslate nohighlight">
-\[ I_{eff}=\sqrt{\frac{1}{T}\int_0^Ti^2dt} \]</div>
+\[ I\_{eff}=\sqrt{\frac{1}{T}\int_0^Ti^2dt} \]</div>
 <p>A similar path can be followed to show that</p>
 <div class="math notranslate nohighlight">
-\[ V_{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt} \]</div>
+\[ V\_{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt} \]</div>
 <p>Looking closely at the previous equation show us where the term ``RMS’’ came from. Inside the integral is the <strong>square</strong> of the current. The integral itself is finding the <strong>mean</strong> of that squared current. Lastly, the <strong>root</strong> covers to whole equation. This <strong>root-mean-square</strong> (RMS) formula can be applied to any signal.</p>
 <p>\subsection{RMS Voltage and Current for Sinusoidal Signals}
 For the AC case we can find a more compact form that does not involve calculus. Given a current in the form of</p>
@@ -581,34 +580,34 @@ For the AC case we can find a more compact form that does not involve calculus. 
 \[ i(t)=I\*pcos(\omega t+\theta_i) \]</div>
 <p>we can setup the integral to find the effective current (which will now be referred to as the RMS current)</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\frac{1}{T}\int*0^T\left[ I_pcos(\omega t+\theta_i) \right]^2dt} \]</div>
+\[ I\_{RMS}=\sqrt{\frac{1}{T}\int\*0^T\left[ I_pcos(\omega t+\theta_i) \right]^2dt} \]</div>
 <p>We can pull <span class="math notranslate nohighlight">\(I_p\)</span>, along with its exponent, out in fron of the integral as in</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\frac{I*p^2}{T}\int_0^T\left[ cos(\omega t+\theta_i) \right]^2dt} \]</div>
+\[ I\_{RMS}=\sqrt{\frac{I\*p^2}{T}\int_0^T\left[ cos(\omega t+\theta_i) \right]^2dt} \]</div>
 <p>and integrate</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\left.\frac{I*p^2}{T}\left[\frac{\omega}{2}+\frac{sin(2\theta+2\omega t}{4t}\right]\right|_0^T} \]</div>
+\[ I\_{RMS}=\sqrt{\left.\frac{I\*p^2}{T}\left[\frac{\omega}{2}+\frac{sin(2\theta+2\omega t}{4t}\right]\right|\_0^T} \]</div>
 <p>which reduces to</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\frac{I*p^2}{T}\left[\frac{\pi}{\omega}\right]} \]</div>
+\[ I\_{RMS}=\sqrt{\frac{I\*p^2}{T}\left[\frac{\pi}{\omega}\right]} \]</div>
 <p>Using the fact that <span class="math notranslate nohighlight">\(\omega\)</span> is related to <span class="math notranslate nohighlight">\(T\)</span> by <span class="math notranslate nohighlight">\(T=(2\pi)/\omega\)</span> leads to</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\frac{I*p^2\pi}{T\omega}}=\sqrt{\frac{I_p^2\pi}{\frac{2\pi}{\omega}\omega}} \]</div>
+\[ I\_{RMS}=\sqrt{\frac{I\*p^2\pi}{T\omega}}=\sqrt{\frac{I_p^2\pi}{\frac{2\pi}{\omega}\omega}} \]</div>
 <p>Canceling the <span class="math notranslate nohighlight">\(\omega\)</span>’s and the <span class="math notranslate nohighlight">\(\pi\)</span>’s</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\sqrt{\frac{I*p^2}{2}} \]</div>
+\[ I\_{RMS}=\sqrt{\frac{I\*p^2}{2}} \]</div>
 <p>or the more common form</p>
 <div class="math notranslate nohighlight">
-\[ I_{RMS}=\frac{I*p}{\sqrt{2}}\approx 0.707I_p \]</div>
+\[ I\_{RMS}=\frac{I\*p}{\sqrt{2}}\approx 0.707I_p \]</div>
 <p>Similar analysis can be done for voltage with a similar result</p>
 <div class="math notranslate nohighlight">
-\[ V_{RMS}=\frac{I*p}{\sqrt{2}}\approx 0.707V_p \]</div>
+\[ V\_{RMS}=\frac{I\*p}{\sqrt{2}}\approx 0.707V_p \]</div>
 <p>It is also common to see the equations inverted to solve for the peak values</p>
 <div class="math notranslate nohighlight">
-\[ I_{p}=I_{RMS}\sqrt{2}\approx 1.414I_{RMS} \]</div>
+\[ I*{p}=I*{RMS}\sqrt{2}\approx 1.414I\_{RMS} \]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
-\[ V_{p}=V_{RMS}\sqrt{2}\approx 1.414V_{RMS} \]</div>
+\[ V*{p}=V*{RMS}\sqrt{2}\approx 1.414V\_{RMS} \]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -697,26 +696,4 @@ For the AC case we can find a more compact form that does not involve calculus. 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->

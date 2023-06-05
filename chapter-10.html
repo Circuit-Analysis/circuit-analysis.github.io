@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -585,12 +590,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="equivalent-circuits">
 <span id="content-chapter-equivalentcircuits"></span><h1>Equivalent Circuits<a class="headerlink" href="#equivalent-circuits" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>For instance, we may know nothing about the analog input circuit of the microcontroller pictured below on the left. We know we can connect the ground pin to a circuit we want to connect to and the analog input to another node in that circuit at which we want to measure the voltage. Let’s use the voltage divider pictured below on the right. Ideally, connecting the output of the voltage divider to the input of the microcontroller will not affect the voltage labeled <span class="math notranslate nohighlight">\(V_\text{OUT}\)</span>. We would like it to be 6~\text{V} as would be the case if nothing is connected to the voltage divider. Realistically, <span class="math notranslate nohighlight">\(V_\text{OUT}\)</span> will be affected, but by how much?</p>
@@ -638,7 +637,7 @@ title="Print to PDF"
 <a class="reference internal image-reference" href="_images/thevenin-toy-Rth-method-1.svg"><img alt="_images/thevenin-toy-Rth-method-1.svg" height="300px" src="_images/thevenin-toy-Rth-method-1.svg" /></a>
 </figure>
 <div class="math notranslate nohighlight">
-\[ R_{TH}=(R_1||R_2)+R_3=7~\Omega \]</div>
+\[ R\_{TH}=(R_1||R_2)+R_3=7~\Omega \]</div>
 <div class="admonition-method-2-open-circuit-voltage-short-circuit-current admonition">
 <p class="admonition-title"><strong>Method~#2~Open Circuit Voltage/Short Circuit Current:</strong></p>
 <p><u><strong>Limitations:</strong></u>~Circuit must have one or more <strong>independent</strong> supplies.</p>
@@ -670,7 +669,7 @@ title="Print to PDF"
 \end{array} \right]^{-1}\left[\begin{array}{c}12V\\0V\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}2.095~\text{A}\\1.143~\text{A}\end{array}\right]
 \end{split}\]</div>
 <p>and <span class="math notranslate nohighlight">\(I_{SC}\)</span>=<span class="math notranslate nohighlight">\(I_2\)</span> in this case leading to
-$<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega \)</span>$</p>
+$<span class="math notranslate nohighlight">\( R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega \)</span>$</p>
 <p>First, note that this result is the same as the value calculated with the previous method. Second, note that the units of the formula above follow Ohm’s Law.</p>
 <div class="admonition-method-3-apply-a-voltage-source admonition">
 <p class="admonition-title"><strong>Method~#3~Apply a Voltage Source:</strong></p>
@@ -698,7 +697,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{OC}}{I_{SC}}=\fra
 \end{array} \right]^{-1}\left[\begin{array}{c}0~\text{V}\\42~\text{V}\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\end{array}\right]=\left[\begin{array}{c}4~\text{A}\\6~\text{A}\end{array}\right]
 \end{split}\]</div>
 <p>and <span class="math notranslate nohighlight">\(I_{NEW}\)</span>=<span class="math notranslate nohighlight">\(I_2\)</span> in this case leading to
-$<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega \)</span>$</p>
+$<span class="math notranslate nohighlight">\( R*{TH}=\frac{V*{NEW}}{I\_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega \)</span>$</p>
 <p>All three methods are applicable to this example and all three yield the same result for <span class="math notranslate nohighlight">\(R_{TH}\)</span>. Some problems may not allow the application of all three methods according to their limitations however, if multiple methods are applicable the results will be equivalent.</p>
 <p>Some examples will allow us to consider each of the three cases and their limitations.</p>
 <div class="admonition-example admonition">
@@ -922,28 +921,28 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 <p>Second, a student will usually guess that <span class="math notranslate nohighlight">\(R_{L}\)</span> is infinite (an open) reasoning that if 0~\text{V} gives us 0~\text{W} we should maximize voltage across the load. This, of course, causes the current to drop to 0~\text{A}. Once again this results in the load resistor dissipating 0~\text{W}. So the extreme limits of the load resistance won’t dissipate any power. The answer lies somewhere in between those extremes. But where? Let’s do some calculus.</p>
 <p>We start by developing the function (relationship) between the load resistance and the power that load resistance dissipates. We start with the definition of power</p>
 <div class="math notranslate nohighlight">
-\[ P_{RL}=V_{RL}I_{RL} \]</div>
+\[ P*{RL}=V*{RL}I\_{RL} \]</div>
 <p>where the load voltage as pictured in the circuit above can be written with a simple voltage divider</p>
 <div class="math notranslate nohighlight">
-\[ V_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right] \]</div>
+\[ V*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R_L}\right] \]</div>
 <p>and the load current is an application of equivalent resistances and Ohm’s law.</p>
 <div class="math notranslate nohighlight">
-\[ I_{RL}=\frac{V_{TH}}{R_{TH}+R_L} \]</div>
+\[ I*{RL}=\frac{V*{TH}}{R\_{TH}+R_L} \]</div>
 <p>We can rewrite the load power by substituting the previous two expressions into the first.</p>
 <div class="math notranslate nohighlight">
-\[ P_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right]\frac{V_{TH}}{R_{TH}+R_L} \]</div>
+\[ P*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R_L}\right]\frac{V*{TH}}{R*{TH}+R_L} \]</div>
 <p>or in a reduced form</p>
 <div class="math notranslate nohighlight">
-\[ P_{RL}=\frac{V_{TH}^2R_L}{(R_{TH}+R_L)^2} \]</div>
+\[ P*{RL}=\frac{V*{TH}^2R*L}{(R*{TH}+R_L)^2} \]</div>
 <p>We can calculate the load power for a given load resistance. Alternatively, to find the maximum power we can set its derivative equal to zero and solve for <span class="math notranslate nohighlight">\(R_{L}\)</span>. The derivative with respect to <span class="math notranslate nohighlight">\(R_{L}\)</span> is</p>
 <div class="math notranslate nohighlight">
-\[ \frac{dP_{RL}}{dR_L}=\frac{V_{TH}^2(R_{TH}-R_L)}{(R_{TH}+R_L)^3} \]</div>
+\[ \frac{dP*{RL}}{dR_L}=\frac{V*{TH}^2(R*{TH}-R_L)}{(R*{TH}+R_L)^3} \]</div>
 <p>The derivative will be 0 when the numerator is 0 leading to</p>
 <div class="math notranslate nohighlight">
-\[ V_{TH}^2(R_{TH}-R_L)=0 \]</div>
+\[ V*{TH}^2(R*{TH}-R_L)=0 \]</div>
 <p>where <span class="math notranslate nohighlight">\(V_{TH}\)</span> and <span class="math notranslate nohighlight">\(R_{TH}\)</span> are fixed values so we solve for <span class="math notranslate nohighlight">\(R_{L}\)</span>. The only value of <span class="math notranslate nohighlight">\(R_{L}\)</span> that makes this equation true is</p>
 <div class="math notranslate nohighlight">
-\[ R_L=R_{TH} \]</div>
+\[ R*L=R*{TH} \]</div>
 <p>This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let’s consider two applications of this theorem.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1001,7 +1000,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 <p>Calculating the short circuit current is a simple application of Ohm’s law</p>
 <div class="math notranslate nohighlight">
-\[ I_N=I_{SC}=\frac{V_{TH}}{R_{TH}} \]</div>
+\[ I*N=I*{SC}=\frac{V*{TH}}{R*{TH}} \]</div>
 <p>Finding <span class="math notranslate nohighlight">\(R_{N}\)</span> is similarly straight forward. The voltage supply is replaced by a short as shown here</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1010,7 +1009,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 <p>The relationship between <span class="math notranslate nohighlight">\(R_{N}\)</span> and <span class="math notranslate nohighlight">\(R_{TH}\)</span> is simple given there is only a single resistor to consider.</p>
 <div class="math notranslate nohighlight">
-\[ R_N=R_{TH} \]</div>
+\[ R*N=R*{TH} \]</div>
 <p>While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.</p>
 </section>
 <section id="thevenin-equivalent-of-a-norton-equivalent">
@@ -1023,7 +1022,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 <p>Finding <span class="math notranslate nohighlight">\(V_{OC}\)</span> is once again is a simple application of Ohm’s Law.</p>
 <div class="math notranslate nohighlight">
-\[ V_{TH}=V_{OC}=I_NR_N \]</div>
+\[ V*{TH}=V*{OC}=I_NR_N \]</div>
 <p>Finding <span class="math notranslate nohighlight">\(R_{TH}\)</span> is similarly straight forward. The current supply is replaced by an open as shown here</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
@@ -1032,7 +1031,7 @@ $<span class="math notranslate nohighlight">\( R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\f
 </figure>
 <p>The relationship between <span class="math notranslate nohighlight">\(R_{TH}\)</span> and <span class="math notranslate nohighlight">\(R_{N}\)</span> is again simple given there is only a single resistor to consider.</p>
 <div class="math notranslate nohighlight">
-\[ R_{TH}=R_{N} \]</div>
+\[ R*{TH}=R*{N} \]</div>
 </section>
 <section id="summary-of-conversions">
 <h3>Summary of Conversions<a class="headerlink" href="#summary-of-conversions" title="Permalink to this heading">#</a></h3>
@@ -1192,26 +1191,4 @@ Add Dependent supply example</p>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->

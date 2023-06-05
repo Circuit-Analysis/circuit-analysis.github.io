@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -609,12 +614,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="transients-in-capacitors-and-inductors">
 <span id="content-chapter-transients"></span><h1>Transients in Capacitors and Inductors<a class="headerlink" href="#transients-in-capacitors-and-inductors" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <section id="capacitors-a-first-step">
@@ -643,9 +642,9 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ \frac{1}{v_C(t)}dv_C(t)=\frac{-1}{RC}dt \]</div>
 <div class="math notranslate nohighlight">
-\[ \int_{v_C(0)}^{v_C(t)}\frac{1}{v_C(\mathcal{T})}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} \]</div>
+\[ \int*{v_C(0)}^{v_C(t)}\frac{1}{v_C(\mathcal{T})}dv_C(\mathcal{T})=\int*{0}^{t}\frac{-1}{RC}d\mathcal{T} \]</div>
 <div class="math notranslate nohighlight">
-\[ \left.\ln~v_C(\mathcal{T})\right|_{v_C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|_{0}^{t} \]</div>
+\[ \left.\ln~v*C(\mathcal{T})\right|*{v*C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|*{0}^{t} \]</div>
 <div class="math notranslate nohighlight">
 \[ \ln~v_C(t)-\ln~v_C(0)=\frac{-t}{RC}-\frac{-0}{RC} \]</div>
 <div class="math notranslate nohighlight">
@@ -679,7 +678,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ dv_C(t)=\frac{(v_C(t)-V_S)dt}{-RC} \]</div>
 <div class="math notranslate nohighlight">
-\[ \int_{v_C(0)}^{v_C(t)}\frac{1}{(v_C(\mathcal{T})-V_S)}dv_C(\mathcal{T})=\int_{0}^{t}\frac{-1}{RC}d\mathcal{T} \]</div>
+\[ \int*{v_C(0)}^{v_C(t)}\frac{1}{(v_C(\mathcal{T})-V_S)}dv_C(\mathcal{T})=\int*{0}^{t}\frac{-1}{RC}d\mathcal{T} \]</div>
 <div class="math notranslate nohighlight">
 \[ \left.\ln~\left[v_C(\mathcal{T})-V_S\right]\right|_{v_C(0)}^{v_C(t)}=\left.\frac{-1}{RC}\mathcal{T}\right|_{0}^{t} \]</div>
 <div class="math notranslate nohighlight">
@@ -722,9 +721,9 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ \frac{1}{i_L(t)}di_L(t)=\frac{-1}{\frac{L}{R}}dt \]</div>
 <div class="math notranslate nohighlight">
-\[ \int_{i_L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} \]</div>
+\[ \int*{i_L(0)}^{i_L(t)}\frac{1}{i_L(\mathcal{T})}di_L(\mathcal{T})=\int*{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} \]</div>
 <div class="math notranslate nohighlight">
-\[ \left.\ln~i_L(\mathcal{T})\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\frac{L}{R}}\mathcal{T}\right|_{0}^{t} \]</div>
+\[ \left.\ln~i*L(\mathcal{T})\right|*{i*L(0)}^{i_L(t)}=\left.\frac{-1}{\frac{L}{R}}\mathcal{T}\right|*{0}^{t} \]</div>
 <div class="math notranslate nohighlight">
 \[ \ln~i_L(t)-\ln~i_L(0)=\frac{-t}{\frac{L}{R}}-\frac{-0}{\frac{L}{R}} \]</div>
 <div class="math notranslate nohighlight">
@@ -754,7 +753,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ -\frac{L}{R}\frac{di_L(t)}{dt}=i(t)-\frac{V_S}{R} \]</div>
 <div class="math notranslate nohighlight">
-\[ \int_{i_L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\frac{V_S}{R}}di_L(\mathcal{T})=\int_{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} \]</div>
+\[ \int*{i_L(0)}^{i_L(t)}\frac{1}{i(\mathcal{T})-\frac{V_S}{R}}di_L(\mathcal{T})=\int*{0}^{t}\frac{-1}{\frac{L}{R}}d\mathcal{T} \]</div>
 <div class="math notranslate nohighlight">
 \[ \left.\ln~\left[i(\mathcal{T})-\frac{V_S}{R}\right]\right|_{i_L(0)}^{i_L(t)}=\left.\frac{-1}{\frac{L}{R}}\mathcal{T}\right|_{0}^{t} \]</div>
 <div class="math notranslate nohighlight">
@@ -933,9 +932,9 @@ Integration&amp;<span class="math notranslate nohighlight">\(\mathcal{L}\left[\i
 <div class="math notranslate nohighlight">
 \[ V_C(s)=\frac{A}{s}+\frac{B}{s+\frac{1}{RC}}+\frac{v_C(0^{-})}{s+\frac{1}{RC}} \]</div>
 <div class="math notranslate nohighlight">
-\[ A=\left.\frac{\frac{V_S}{RC}}{s+\frac{1}{RC}}\right|_{s=0}=\frac{\frac{V_S}{RC}}{\frac{1}{RC}}=V_S \]</div>
+\[ A=\left.\frac{\frac{V*S}{RC}}{s+\frac{1}{RC}}\right|*{s=0}=\frac{\frac{V_S}{RC}}{\frac{1}{RC}}=V_S \]</div>
 <div class="math notranslate nohighlight">
-\[ B=\left.\frac{\frac{V_S}{RC}}{s}\right|_{s=-\frac{1}{RC}}=\frac{\frac{V_S}{RC}}{-\frac{1}{RC}}=-V_S \]</div>
+\[ B=\left.\frac{\frac{V*S}{RC}}{s}\right|*{s=-\frac{1}{RC}}=\frac{\frac{V_S}{RC}}{-\frac{1}{RC}}=-V_S \]</div>
 <div class="math notranslate nohighlight">
 \[ V_C(s)=\frac{V_S}{s}-\frac{V_S}{s+\frac{1}{RC}}+\frac{v_C(0^{-})}{s+\frac{1}{RC}} \]</div>
 <div class="math notranslate nohighlight">
@@ -1011,9 +1010,9 @@ Integration&amp;<span class="math notranslate nohighlight">\(\mathcal{L}\left[\i
 <div class="math notranslate nohighlight">
 \[ \frac{A}{s}+\frac{B}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) \]</div>
 <div class="math notranslate nohighlight">
-\[ A=\left.\frac{\frac{V_S}{L}}{s+\frac{R}{L}}\right|_{s=0}=\frac{\frac{V_S}{L}}{\frac{R}{L}}=\frac{V_S}{R} \]</div>
+\[ A=\left.\frac{\frac{V*S}{L}}{s+\frac{R}{L}}\right|*{s=0}=\frac{\frac{V_S}{L}}{\frac{R}{L}}=\frac{V_S}{R} \]</div>
 <div class="math notranslate nohighlight">
-\[ B=\left.\frac{\frac{V_S}{L}}{s}\right|_{s=-\frac{R}{L}}=\frac{\frac{V_S}{L}}{-\frac{R}{L}}=-\frac{V_S}{R} \]</div>
+\[ B=\left.\frac{\frac{V*S}{L}}{s}\right|*{s=-\frac{R}{L}}=\frac{\frac{V_S}{L}}{-\frac{R}{L}}=-\frac{V_S}{R} \]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{\frac{V_S}{R}}{s}-\frac{\frac{V_S}{R}}{s+\frac{R}{L}}+\frac{i_L(0^{-})}{s+\frac{R}{L}}=I(s) \]</div>
 <div class="math notranslate nohighlight">
@@ -1110,26 +1109,4 @@ Integration&amp;<span class="math notranslate nohighlight">\(\mathcal{L}\left[\i
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->

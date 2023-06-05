@@ -16,8 +16,6 @@ kernelspec:
 
 # Equivalent Circuits
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -35,21 +33,20 @@ with schemdraw.Drawing(file='thevenin-intro.svg') as d:
             edgepadH = 2.5,  # Make it a bit wider
             lblsize=12,
             pinspacing=1))
-    d += (GndSig := elm.GroundSignal().at(uC.GND))    
-    d += (Rin := elm.Resistor().at(uC.GND).up())    
-    d += (LineT := elm.Line().left().tox(uC.A0))    
-    d += (Lbl1 := elm.Label().at(uC.A0).label('Analog\nInput',loc='left'))    
-    d += (Lbl2 := elm.Label().at((1.5,5.1)).label('Microcontroller',loc='top'))    
+    d += (GndSig := elm.GroundSignal().at(uC.GND))
+    d += (Rin := elm.Resistor().at(uC.GND).up())
+    d += (LineT := elm.Line().left().tox(uC.A0))
+    d += (Lbl1 := elm.Label().at(uC.A0).label('Analog\nInput',loc='left'))
+    d += (Lbl2 := elm.Label().at((1.5,5.1)).label('Microcontroller',loc='top'))
 
     d.move_from(uC.GND, dx=6, dy=6)
     d += elm.Dot(open=True).label('$+12V$',loc='right')
     d += (R1 := elm.Resistor().down().label('$R_{1}$\n42kΩ', loc='top'))
-    d += (R2 := elm.Resistor().down().label('$R_{2}$\n42kΩ', loc='top'))    
-    d += (GndSig := elm.GroundSignal())    
-    d += (LineOut := elm.Line().at(R1.end).right().length(d.unit/4))    
+    d += (R2 := elm.Resistor().down().label('$R_{2}$\n42kΩ', loc='top'))
+    d += (GndSig := elm.GroundSignal())
+    d += (LineOut := elm.Line().at(R1.end).right().length(d.unit/4))
     d += elm.Dot(open=True).label('$V_{OUT}$',loc='right')
 ```
-
 
 ```{figure} thevenin-intro.svg
 ---
@@ -67,13 +64,13 @@ The two theorems that will help us answer this question, Thevenin's and Norton's
 
 with schemdraw.Drawing(file='thevenin-canonical.svg') as d:
     d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='bottom').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(Vth.start))    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(Vth.start))
     d += (thevenin := elm.EncircleBox([Vth, Rth],includelabels=False).linestyle('--').linewidth(1).color('blue'))
     d += (Lbl1 := elm.Label().at((1.5,3.6)).label('Thevenin Equivalent',loc='top').color('blue'))
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
 ```
 
@@ -91,17 +88,17 @@ name: thevenin-canonical
 
 with schemdraw.Drawing(file='thevenin-toy.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(Vs.start))
 
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-   
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+
     d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
     d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
 ```
 
@@ -117,15 +114,15 @@ name: thevenin-toy
 
 with schemdraw.Drawing(file='thevenin-toy-load-removed.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'), loc='bottom').length(4*d.unit/6))    
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'), loc='bottom').length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
 ```
 
@@ -140,7 +137,7 @@ name: thevenin-toy-load-removed
 
 There are three methods to determine Thevenin resistance. All three will be demonstrated on the toy problem in this section but each has strengths and weaknesses. Careful attention should be paid to the limitations of each method.
 
-```{admonition} **Method~\#1~Equivalent Resistance:**
+```{admonition} **Method~#1~Equivalent Resistance:**
 
 <u>**Limitations:**</u>~ Circuit cannot have any **dependent** supplies.
 
@@ -154,22 +151,22 @@ There are three methods to determine Thevenin resistance. All three will be demo
 
 with schemdraw.Drawing(file='thevenin-toy-Rth-method-1.svg') as d:
     d += elm.LineDot().up().length(d.unit/6)
-    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += (Vs := elm.Line().up().length(4*d.unit/6))
     d += elm.LineDot().up().length(d.unit/6).reverse()
-    
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
+
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
     d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
-    
-    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))    
+
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))
 ```
 
 ```{figure} thevenin-toy-Rth-method-1.svg
@@ -179,9 +176,9 @@ name: thevenin-toy-Rth-method-1
 ---
 ```
 
-$$ R_{TH}=(R_1||R_2)+R_3=7~\Omega $$
+$$ R\_{TH}=(R_1||R_2)+R_3=7~\Omega $$
 
-```{admonition} **Method~\#2~Open Circuit Voltage/Short Circuit Current:**
+```{admonition} **Method~#2~Open Circuit Voltage/Short Circuit Current:**
 
 <u>**Limitations:**</u>~Circuit must have one or more **independent** supplies.
 
@@ -199,18 +196,19 @@ $V_{OC}$ was calculated in a previous section as 8~\text{V}. The load is then re
 
 with schemdraw.Drawing(file='thevenin-toy-Rth-method-2.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += (Rl := elm.Line().down().length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')
 ```
+
 ```{figure} thevenin-toy-Rth-method-2.svg
 ---
 height: 300px
@@ -225,20 +223,21 @@ Use any method of analysis that you are confident in. I used mesh here:
 
 with schemdraw.Drawing(file='thevenin-toy-Rth-method-2-mesh.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += (Rl := elm.Line().down().length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')
     d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75).label('$I_1$').color('red')
     d += elm.LoopCurrent([R3,Rl,LineB,R2],pad=0.75).label('$I_2$').color('blue')
-    
+
 ```
+
 ```{figure} thevenin-toy-Rth-method-2-mesh.svg
 ---
 height: 300px
@@ -254,11 +253,11 @@ $$
 $$
 
 and $I_{SC}$=$I_2$ in this case leading to
-$$ R_{TH}=\frac{V_{OC}}{I_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega $$
+$$ R*{TH}=\frac{V*{OC}}{I\_{SC}}=\frac{8~\text{V}}{1.143~\text{A}}=7~\Omega $$
 
 First, note that this result is the same as the value calculated with the previous method. Second, note that the units of the formula above follow Ohm's Law.
 
-```{admonition} **Method~\#3~Apply a Voltage Source:**
+```{admonition} **Method~#3~Apply a Voltage Source:**
 <u>**Limitations:**</u>~None
 
 - Remove the load if it is not already removed.
@@ -275,23 +274,23 @@ Let's try it. I picked 42~\text{V} for the voltage source.
 
 with schemdraw.Drawing(file='thevenin-toy-Rth-method-3-mesh.svg') as d:
     d += elm.LineDot().up().length(d.unit/6)
-    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += (Vs := elm.Line().up().length(4*d.unit/6))
     d += elm.LineDot().up().length(d.unit/6).reverse()
-    
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
+
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.SourceV().down().length(4*d.unit/6).label('$V_{NEW}$\n42V',loc='bottom').reverse())    
+    d += (Rl := elm.SourceV().down().length(4*d.unit/6).label('$V_{NEW}$\n42V',loc='bottom').reverse())
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(1.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(1.5))
     d += elm.LoopCurrent([R1,R2,LineB,Vs],pad=0.75,direction='ccw').label('$I_1$').color('red')
     d += elm.LoopCurrent([R3,Rl,LineB,R2],pad=0.75,direction='ccw').label('$I_2$').color('blue')
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
     d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
-    
+
 ```
 
 ```{figure} thevenin-toy-Rth-method-3-mesh.svg
@@ -311,47 +310,48 @@ $$
 $$
 
 and $I_{NEW}$=$I_2$ in this case leading to
-$$ R_{TH}=\frac{V_{NEW}}{I_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega $$
+$$ R*{TH}=\frac{V*{NEW}}{I\_{NEW}}=\frac{42~\text{V}}{6~\text{A}}=7~\Omega $$
 
 All three methods are applicable to this example and all three yield the same result for $R_{TH}$. Some problems may not allow the application of all three methods according to their limitations however, if multiple methods are applicable the results will be equivalent.
 
 Some examples will allow us to consider each of the three cases and their limitations.
 
-````{admonition} Example
- 
+```{admonition} Example
+
 Find the Thevenin equivalent for the circuit shown here around the resistor, $R_{L}$.
 
-````
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent.svg') as d:
-    d += (Vs1 := elm.SourceV().up().label('12V'))    
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
-    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
-    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
-    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += (Vs1 := elm.SourceV().up().label('12V'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))
     d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
-    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')
+
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent-Voc.svg') as d:
-    d += (Vs1 := elm.SourceV().up().label('12V'))    
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
-    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
-    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
-    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += (Vs1 := elm.SourceV().up().label('12V'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))
     d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
-    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))
     d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
 ```
 
@@ -359,70 +359,73 @@ with schemdraw.Drawing(file='thevenin-dependent-and-independent-Voc.svg') as d:
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent-voltages.svg') as d:
-    d += (Vs1 := elm.SourceV().up().label('12V'))    
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').label(('+','6V','-'),loc='bottom'))    
-    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('3Ω', loc='top').label(('+','0V','-'),loc='bottom'))    
-    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom').label(('+','9V','-'),loc='top'))    
-    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += (Vs1 := elm.SourceV().up().label('12V'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').label(('+','6V','-'),loc='bottom'))
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top').label(('+','0V','-'),loc='bottom'))
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom').label(('+','9V','-'),loc='top'))
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))
     d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
-    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')
+    d += (Voc := elm.Gap().at(R3.end).down().toy(LineB.end).label(('+','$V_{OC}$','-')))
     d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I$').color('red')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-2.svg') as d:
-    d += (Vs1 := elm.SourceV().up().label('12V'))    
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
-    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
-    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
-    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))    
+    d += (Vs1 := elm.SourceV().up().label('12V'))
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))
+    d += (LineB := elm.Line().at(Vs1.start).right().tox(R3.end))
     d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
-    d += (Isc := elm.Line().at(R3.end).down().toy(LineB.end))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.3).at(Isc).label('$I_{SC}$',loc='bottom')     
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')
+    d += (Isc := elm.Line().at(R3.end).down().toy(LineB.end))
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.3).at(Isc).label('$I_{SC}$',loc='bottom')
     d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
     d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent-Rth-3.svg') as d:
     d += (LineL := elm.LineDot().up().length(d.unit/6))
-    d += (Vs1 := elm.Line().up().length(4*d.unit/6))    
+    d += (Vs1 := elm.Line().up().length(4*d.unit/6))
     d += elm.LineDot().up().length(d.unit/6).reverse()
- 
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
-    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))    
-    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))    
-    d += (LineB := elm.Line().at(LineL.start).right().tox(R3.end))    
+
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))
+    d += (Vs2 := elm.SourceControlledV().right().label('$2I_x$', loc='top'))
+    d += (R3 := elm.Resistor().right().label('3Ω', loc='top'))
+    d += (R2 := elm.Resistor().at(Vs2.end).down().label('6Ω', loc='bottom'))
+    d += (LineB := elm.Line().at(LineL.start).right().tox(R3.end))
     d += elm.Dot(open=True).at(R3.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')     
-    d += (Isc := elm.Battery().at(R3.end).down().toy(LineB.end).label('$V_{NEW}$',loc='bottom'))    
-    d += elm.CurrentLabelInline(direction='out', ofst=0.7).at(Isc).label('$I_{NEW}$',loc='bottom')     
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R2).label('$I_{x}$',loc='bottom')
+    d += (Isc := elm.Battery().at(R3.end).down().toy(LineB.end).label('$V_{NEW}$',loc='bottom'))
+    d += elm.CurrentLabelInline(direction='out', ofst=0.7).at(Isc).label('$I_{NEW}$',loc='bottom')
     d += elm.LoopCurrent([R1,R2,LineB,Vs1],pad=0.75).label('$I_1$').color('red')
     d += elm.LoopCurrent([R3,Isc,LineB,R2],pad=0.75).label('$I_2$').color('blue')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-and-independent-Thevenin.svg') as d:
-    d += (Vth := elm.Battery().up().label('$V_{TH}$\n9V').reverse())    
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n6Ω', loc='top'))       
-    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n9V').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n6Ω', loc='top'))
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))
     d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
 ```
 
 `````{admonition} Example
- 
+
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
 
@@ -590,23 +593,23 @@ A load connected to the original circuit between nodes A and B will see the same
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-dependent-only.svg') as d:
-    d += (Is1 := elm.SourceControlledI().up().label('$I_{S1}$\n$6I_x$').length(4))    
-    d += (LineT := elm.Line().right())       
-    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8Ω', loc='top'))       
-    d += (R4 := elm.Resistor().right().label('$R_{4}$\n10Ω', loc='top'))       
-    d += (R6 := elm.Resistor().right().label('$R_{6}$\n4Ω', loc='top'))       
-    d += (LineB := elm.Line().at(Is1.start).right().tox(R6.end))       
+    d += (Is1 := elm.SourceControlledI().up().label('$I_{S1}$\n$6I_x$').length(4))
+    d += (LineT := elm.Line().right())
+    d += (R2 := elm.Resistor().right().label('$R_{2}$\n8Ω', loc='top'))
+    d += (R4 := elm.Resistor().right().label('$R_{4}$\n10Ω', loc='top'))
+    d += (R6 := elm.Resistor().right().label('$R_{6}$\n4Ω', loc='top'))
+    d += (LineB := elm.Line().at(Is1.start).right().tox(R6.end))
     d += elm.Dot(open=True).at(R6.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
-    d += (R1 := elm.Resistor().at(LineT.end).down().label('$R_{1}$\n30Ω', loc='top').toy(Is1.start))       
-    d += (R3 := elm.Resistor().at(R2.end).down().label('$R_{3}$\n25Ω', loc='top').toy(Is1.start))       
-    d += (R5 := elm.Resistor().at(R4.end).down().label('$R_{5}$\n6Ω', loc='bottom').length(2))       
-    d += (Is2 := elm.SourceControlledI().down().label('$I_{S2}$\n$10I_x$', loc='bottom').length(2))       
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.3).at(R3).label('$I_{x}$',loc='top')    
+    d += (R1 := elm.Resistor().at(LineT.end).down().label('$R_{1}$\n30Ω', loc='top').toy(Is1.start))
+    d += (R3 := elm.Resistor().at(R2.end).down().label('$R_{3}$\n25Ω', loc='top').toy(Is1.start))
+    d += (R5 := elm.Resistor().at(R4.end).down().label('$R_{5}$\n6Ω', loc='bottom').length(2))
+    d += (Is2 := elm.SourceControlledI().down().label('$I_{S2}$\n$10I_x$', loc='bottom').length(2))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.3).at(R3).label('$I_{x}$',loc='top')
 ```
 
 ````{admonition} Example
- 
+
 Find the Thevenin equivalent for the circuit shown here between nodes A and B.
 
 ```{figure} thevenin-dependent-only.svg
@@ -627,61 +630,61 @@ We often use Thevenin equivalent circuits to characterize sub-circuits without h
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-2-equivalents.svg') as d:
-    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
-    d += (LineTL := elm.Line().right())       
-    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
-    d += (LineT := elm.Line().right())       
-    d += (LineTR := elm.Line().right())       
-    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
-    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))
+    d += (LineTL := elm.Line().right())
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))
+    d += (LineT := elm.Line().right())
+    d += (LineTR := elm.Line().right())
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())
 
-    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
-    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
-    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
-    
-    d += (LineBL := elm.Line().at(R1.start).right())       
-    d += (Vs1 := elm.SourceV().right().label('32V'))    
-    d += (LineBR := elm.Line().right().tox(Vs2.end))       
-    
-    d += elm.CurrentLabelInline(direction='in', ofst=0).at(LineT).label('$I_{O}$',loc='bottom')    
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())
+
+    d += (LineBL := elm.Line().at(R1.start).right())
+    d += (Vs1 := elm.SourceV().right().label('32V'))
+    d += (LineBR := elm.Line().right().tox(Vs2.end))
+
+    d += elm.CurrentLabelInline(direction='in', ofst=0).at(LineT).label('$I_{O}$',loc='bottom')
     d.move_from(R2.end,.8,0)
-    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))
 
     d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
     d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
-    
+
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-2-equivalents-blue.svg') as d:
-    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))       
-    d += (LineTL := elm.Line().right())       
-    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))       
-    d += (LineT := elm.Line().right().length(1))       
-    
-    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())    
-    
-    d += (LineBL := elm.Line().at(R1.start).right())       
-    d += (Vs1 := elm.SourceV().right().label('32V'))    
-    d += (LineBR := elm.Line().right().tox(LineT.end))       
-    
+    d += (R1 := elm.Resistor().up().label('10Ω', loc='bottom'))
+    d += (LineTL := elm.Line().right())
+    d += (R2 := elm.Resistor().right().label('18Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
+
+    d += (Is1 := elm.SourceI().at(LineTL.end).down().label('2.2A').reverse())
+
+    d += (LineBL := elm.Line().at(R1.start).right())
+    d += (Vs1 := elm.SourceV().right().label('32V'))
+    d += (LineBR := elm.Line().right().tox(LineT.end))
+
     d.move_from(R2.end,.8,0)
-    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))
 
     d += (thevenin1 := elm.EncircleBox([R1,R2,Is1,Vs1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
-    
+
     d += elm.Dot(open=True).at(LineT.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineBR.end).label('B',loc='right')
 
     d.move_from(Is1.center,5,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(LineBR.end,4,0)
-    d += (Vth := elm.Battery().up().label('$V_{TH}$\n-10V').reverse())    
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n28Ω', loc='top'))       
-    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))       
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n-10V').reverse())
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n28Ω', loc='top'))
+    d += (LineB := elm.Line().at(Vth.start).right().tox(Rth.end))
     d += elm.Dot(open=True).at(Rth.end).label('A',loc='right')
     d += elm.Dot(open=True).at(LineB.end).label('B',loc='right')
 ```
@@ -690,63 +693,62 @@ with schemdraw.Drawing(file='thevenin-2-equivalents-blue.svg') as d:
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-2-equivalents-red.svg') as d:
-    d += (LineT := elm.Line().right().length(1))       
-    d += (LineTR := elm.Line().right())       
-    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))       
-    d += (Vs2 := elm.SourceV().down().label('36V').reverse())    
+    d += (LineT := elm.Line().right().length(1))
+    d += (LineTR := elm.Line().right())
+    d += (R4 := elm.Resistor().right().label('18Ω', loc='bottom'))
+    d += (Vs2 := elm.SourceV().down().label('36V').reverse())
 
-    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))    
-    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())    
-    
+    d += (R3 := elm.Resistor().at(LineT.end).down().label('9Ω', loc='bottom'))
+    d += (Is2 := elm.SourceI().at(LineTR.end).down().label('2.5A').reverse())
+
     d.move_from(R3.start,-1.2,0)
-    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
-    d += (LineBR := elm.Line().at(Vo.end).right().tox(Vs2.end))       
-    
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))
+    d += (LineBR := elm.Line().at(Vo.end).right().tox(Vs2.end))
+
     d += elm.Dot(open=True).at(LineT.start).label('A',loc='left')
     d += elm.Dot(open=True).at(LineBR.start).label('B',loc='left')
 
     d += (thevenin2 := elm.EncircleBox([R3,R4,Is2,Vs2],includelabels=False).linestyle('--').linewidth(1).color('red'))
-    
+
     d.move_from(Is2.center,4.5,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(LineBR.end,4,0)
-    d += (LineB := elm.Line().right())       
-    d += (Vth := elm.Battery().up().label('$V_{TH}$\n27V').reverse())    
-    d += (Rth := elm.Resistor().left().label('$R_{TH}$\n6Ω', loc='top'))       
-    
+    d += (LineB := elm.Line().right())
+    d += (Vth := elm.Battery().up().label('$V_{TH}$\n27V').reverse())
+    d += (Rth := elm.Resistor().left().label('$R_{TH}$\n6Ω', loc='top'))
+
     d += elm.Dot(open=True).at(Rth.end).label('A',loc='left')
     d += elm.Dot(open=True).at(LineB.start).label('B',loc='left')
 
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='thevenin-2-equivalents-thevenins.svg') as d:
-    d += (Vth1 := elm.Battery().up().label('-10V',loc='bottom').reverse())    
-    d += (Rth1 := elm.Resistor().right().label('28Ω', loc='bottom'))       
-    d += (LineT := elm.Line().right().length(1.5))       
-    d += (LineB1 := elm.Line().at(Vth1.start).right().tox(Rth1.end))       
-    d += (LineB := elm.Line().right().length(1.5))       
-    
-    d += (LineB2 := elm.Line().right())       
-    d += (Vth2 := elm.Battery().up().label('27V').reverse())    
-    d += (Rth2:= elm.Resistor().left().label('6Ω', loc='bottom'))       
-    
+    d += (Vth1 := elm.Battery().up().label('-10V',loc='bottom').reverse())
+    d += (Rth1 := elm.Resistor().right().label('28Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1.5))
+    d += (LineB1 := elm.Line().at(Vth1.start).right().tox(Rth1.end))
+    d += (LineB := elm.Line().right().length(1.5))
+
+    d += (LineB2 := elm.Line().right())
+    d += (Vth2 := elm.Battery().up().label('27V').reverse())
+    d += (Rth2:= elm.Resistor().left().label('6Ω', loc='bottom'))
+
     d += (thevenin1 := elm.EncircleBox([Vth1, Rth1,LineB1],includelabels=False).linestyle('--').linewidth(1).color('blue'))
     d += (thevenin2 := elm.EncircleBox([Vth2, Rth2,LineB2],includelabels=True).linestyle('--').linewidth(1).color('red'))
-    
+
     d.move_from(Rth1.end,.6,0)
-    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.2).at(LineT).label('$I_{O}$',loc='top')    
-    
+    d += (Vo := elm.Gap().down().label(('+','$V_{O}$','-'), loc='bottom'))
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.2).at(LineT).label('$I_{O}$',loc='top')
+
 
 ```
 
-
-
 ````{admonition} Example
- 
+
 ```{figure} thevenin-2-equivalents.svg
 ---
 height: 300px
@@ -806,15 +808,15 @@ name: thevenin-2-equivalents-thevenins
 
 with schemdraw.Drawing(file='norton-canonical.svg') as d:
     d += (In := elm.SourceI().up().label('$I_{N}$', loc='top'))
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))
 
-    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(In.start))    
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(In.start))
     d += (thevenin := elm.EncircleBox([In, Rn],includelabels=False,padx=.5).linestyle('--').linewidth(1).color('blue'))
     d += (Lbl1 := elm.Label().at((1,3.3)).label('Norton Equivalent',loc='top').color('blue'))
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
 ```
 
@@ -830,17 +832,17 @@ name: norton-canonical
 
 with schemdraw.Drawing(file='norton-toy.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(Vs.start))
 
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-   
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+
     d += (thevenin := elm.EncircleBox([Vs,R1,R2,R3],includelabels=False).linestyle('--').linewidth(1).color('blue'))
     d += (Lbl1 := elm.Label().at((2,3.8)).label('Fixed Circuit',loc='top').color('blue'))
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load').color('blue').linestyle('--')
 ```
 
@@ -856,17 +858,17 @@ name: norton-toy
 
 with schemdraw.Drawing(file='norton-toy-Isc.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='top').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='top'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Line().down().length(4*d.unit/6))    
+    d += (Rl := elm.Line().down().length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nReplaced').color('blue').linestyle('--')
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')
 ```
 
 ```{figure} norton-toy-Isc.svg
@@ -881,22 +883,22 @@ name: norton-toy-Isc
 
 with schemdraw.Drawing(file='norton-toy-Rth-method-1.svg') as d:
     d += elm.LineDot().up().length(d.unit/6)
-    d += (Vs := elm.Line().up().length(4*d.unit/6))    
+    d += (Vs := elm.Line().up().length(4*d.unit/6))
     d += elm.LineDot().up().length(d.unit/6).reverse()
-    
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))    
-    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))    
-    d += (LineT := elm.Line().right().length(1))    
+
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
     d += elm.LineDot().down().length(d.unit/6)
-    d += (Rl := elm.Gap().down().length(4*d.unit/6))    
+    d += (Rl := elm.Gap().down().length(4*d.unit/6))
     d += elm.LineDot().down().length(d.unit/6).reverse()
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))    
-    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))            
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
     d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
     d += elm.Annotate(th1=0).at(Vs.center).delta(dx=-1.5, dy=1).label('$V_S$\nReplaced').color('blue').linestyle('--')
-    
-    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{N}$',loc='right').length(0.8))    
+
+    d += (LineRth := elm.Line(arrow='->').at((7,1.5)).left().label('$R_{N}$',loc='right').length(0.8))
 ```
 
 ```{figure} norton-toy-Rth-method-1.svg
@@ -911,13 +913,13 @@ name: norton-toy-Rth-method-1
 
 with schemdraw.Drawing(file='norton-equivalent.svg') as d:
     d += (In := elm.SourceI().up().label('$I_{N}$\n1.143A', loc='top'))
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{N}$\n7Ω', loc='top'))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{N}$\n7Ω', loc='top'))
 
-    d += (LineT := elm.Line().at(Rn.start).right().length(2))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$\n42Ω', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(In.start))    
-    
+    d += (LineT := elm.Line().at(Rn.start).right().length(2))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$\n42Ω', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(In.start))
+
 ```
 
 ```{figure} norton-equivalent.svg
@@ -926,7 +928,6 @@ height: 300px
 name: norton-equivalent
 ---
 ```
-
 
 ## Maximum Power Transfer
 
@@ -944,12 +945,13 @@ The circuit transmitting can be thought of as its Thevenin equivalent with a loa
 
 with schemdraw.Drawing(file='max-power.svg') as d:
     d += (Vth := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
-    d += (LineB := elm.Line().left().tox(Vth.start))   
-    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))
+    d += (LineB := elm.Line().left().tox(Vth.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')
 ```
+
 ```{figure} max-power.svg
 ---
 height: 300px
@@ -965,35 +967,35 @@ Second, a student will usually guess that $R_{L}$ is infinite (an open) reasonin
 
 We start by developing the function (relationship) between the load resistance and the power that load resistance dissipates. We start with the definition of power
 
-$$ P_{RL}=V_{RL}I_{RL} $$
+$$ P*{RL}=V*{RL}I\_{RL} $$
 
 where the load voltage as pictured in the circuit above can be written with a simple voltage divider
 
-$$ V_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right] $$
+$$ V*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R_L}\right] $$
 
 and the load current is an application of equivalent resistances and Ohm's law.
 
-$$ I_{RL}=\frac{V_{TH}}{R_{TH}+R_L} $$
+$$ I*{RL}=\frac{V*{TH}}{R\_{TH}+R_L} $$
 
 We can rewrite the load power by substituting the previous two expressions into the first.
 
-$$ P_{RL}=V_{TH}\left[\frac{R_L}{R_{TH}+R_L}\right]\frac{V_{TH}}{R_{TH}+R_L} $$
+$$ P*{RL}=V*{TH}\left[\frac{R_L}{R_{TH}+R_L}\right]\frac{V*{TH}}{R*{TH}+R_L} $$
 
 or in a reduced form
 
-$$ P_{RL}=\frac{V_{TH}^2R_L}{(R_{TH}+R_L)^2} $$
+$$ P*{RL}=\frac{V*{TH}^2R*L}{(R*{TH}+R_L)^2} $$
 
 We can calculate the load power for a given load resistance. Alternatively, to find the maximum power we can set its derivative equal to zero and solve for $R_{L}$. The derivative with respect to $R_{L}$ is
 
-$$ \frac{dP_{RL}}{dR_L}=\frac{V_{TH}^2(R_{TH}-R_L)}{(R_{TH}+R_L)^3} $$
+$$ \frac{dP*{RL}}{dR_L}=\frac{V*{TH}^2(R*{TH}-R_L)}{(R*{TH}+R_L)^3} $$
 
 The derivative will be 0 when the numerator is 0 leading to
 
-$$ V_{TH}^2(R_{TH}-R_L)=0 $$
+$$ V*{TH}^2(R*{TH}-R_L)=0 $$
 
 where $V_{TH}$ and $R_{TH}$ are fixed values so we solve for $R_{L}$. The only value of $R_{L}$ that makes this equation true is
 
-$$ R_L=R_{TH} $$
+$$ R*L=R*{TH} $$
 
 This is it. This is the condition that guarantees the maximum power will be dissipated by/delivered to the load. Let's consider two applications of this theorem.
 
@@ -1002,11 +1004,11 @@ This is it. This is the condition that guarantees the maximum power will be diss
 
 with schemdraw.Drawing(file='max-power-example.svg') as d:
     d += (Vth := elm.Battery().up().label('$V_{TH}$\n10V', loc='top').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n2Ω', loc='top'))    
-    d += (LineT := elm.Line().right().length(1))    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))    
-    d += (LineB := elm.Line().left().tox(Vth.start))   
-    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')     
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$\n2Ω', loc='top'))
+    d += (LineT := elm.Line().right().length(1))
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom').label(('+','$V_{RL}$','-')))
+    d += (LineB := elm.Line().left().tox(Vth.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1).at(Rl).label('$I_{RL}$',loc='bottom')
 ```
 
 ```{code-cell} ipython3
@@ -1046,7 +1048,7 @@ plt.savefig('max-power-plot.svg')
 ```
 
 ````{admonition} Example
- 
+
 Let's take a look at an example with values that supports the theory introduced above. Consider a circuit that has a Thevenin voltage of 10~\text{V} and a Thevenin resistance of 2~\Om. The equivalent circuit can be drawn with a load connected as shown here:
 
 ```{figure} max-power-example.svg
@@ -1080,11 +1082,11 @@ The maximum power is dissipated when $R_{L}$=$R_{TH}$, 2~\Om~for this example. T
 
 with schemdraw.Drawing(file='max-power-limit.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{S}$\n32V', loc='top').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4Ω', loc='top'))    
-    d += (LineT := elm.Line().right())    
-    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n12Ω', loc='bottom'))    
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n4Ω', loc='top'))
+    d += (LineT := elm.Line().right())
+    d += (Rl := elm.Resistor().down().label('$R_{L}$', loc='bottom'))
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n12Ω', loc='bottom'))
 ```
 
 ```{code-cell} ipython3
@@ -1092,13 +1094,13 @@ with schemdraw.Drawing(file='max-power-limit.svg') as d:
 
 with schemdraw.Drawing(file='max-power-limit-equivalent.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{TH}$\n24V', loc='top').reverse())
-    d += (R1 := elm.Resistor().right().label('$R_{TH}$\n3Ω', loc='top'))    
-    d += (R2 := elm.Resistor().down().label('$R_{L}$\n3Ω', loc='bottom').label(('+','$V_{RL}$','-')))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (R1 := elm.Resistor().right().label('$R_{TH}$\n3Ω', loc='top'))
+    d += (R2 := elm.Resistor().down().label('$R_{L}$\n3Ω', loc='bottom').label(('+','$V_{RL}$','-')))
+    d += (LineB := elm.Line().left().tox(Vs.start))
 ```
 
 ````{admonition} Example
- 
+
 Can $R_{L}$ dissipate 50~\text{W} in this circuit?
 
 ```{figure} max-power-limit.svg
@@ -1146,13 +1148,14 @@ To begin, we will find the Norton equivalent of a Thevenin equivalent circuit. T
 
 with schemdraw.Drawing(file='norton-of-thevenin-current.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Line().down())    
+    d += (Rl := elm.Line().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')        
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.1).at(Rl).label('$I_{SC}$',loc='bottom')
 ```
+
 ```{figure} norton-of-thevenin-current.svg
 ---
 height: 300px
@@ -1162,7 +1165,7 @@ name: norton-of-thevenin-current
 
 Calculating the short circuit current is a simple application of Ohm's law
 
-$$ I_N=I_{SC}=\frac{V_{TH}}{R_{TH}} $$
+$$ I*N=I*{SC}=\frac{V*{TH}}{R*{TH}} $$
 
 Finding $R_{N}$ is similarly straight forward. The voltage supply is replaced by a short as shown here
 
@@ -1171,12 +1174,12 @@ Finding $R_{N}$ is similarly straight forward. The voltage supply is replaced by
 
 with schemdraw.Drawing(file='norton-of-thevenin-resistance.svg') as d:
     d += (Vs := elm.Line().up())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
-    d += (LineRth := elm.Line(arrow='->').at((3,1.5)).left().label('$R_{N}$',loc='right').length(0.8))    
+    d += (LineRth := elm.Line(arrow='->').at((3,1.5)).left().label('$R_{N}$',loc='right').length(0.8))
 ```
 
 ```{figure} norton-of-thevenin-resistance.svg
@@ -1188,11 +1191,12 @@ name: norton-of-thevenin-resistance
 
 The relationship between $R_{N}$ and $R_{TH}$ is simple given there is only a single resistor to consider.
 
-$$ R_N=R_{TH} $$
+$$ R*N=R*{TH} $$
 
 While the value is the same the location of the resistance is different in the two equivalent circuits. In series with the supply in the Thevenin equivalent and in parallel with the supply in the Norton equivalent.
 
-### Thevenin Equivalent of a Norton Equivalent 
+### Thevenin Equivalent of a Norton Equivalent
+
 Now let's turn it around the other way. Starting with a Norton equivalent circuit let's find its Thevenin equivalent.
 
 ```{code-cell} ipython3
@@ -1200,14 +1204,15 @@ Now let's turn it around the other way. Starting with a Norton equivalent circui
 
 with schemdraw.Drawing(file='thevenin-of-norton-voltage.svg') as d:
     d += (Vs := elm.SourceI().up().label('$I_{N}$', loc='top'))
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'),loc='bottom'))    
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'),loc='bottom'))
     d += elm.Dot(open=True)
-    d += (LineB := elm.Line().left().tox(Vs.start))    
+    d += (LineB := elm.Line().left().tox(Vs.start))
 ```
+
 ```{figure} thevenin-of-norton-voltage.svg
 ---
 height: 300px
@@ -1217,7 +1222,7 @@ name: thevenin-of-norton-voltage
 
 Finding $V_{OC}$ is once again is a simple application of Ohm's Law.
 
-$$ V_{TH}=V_{OC}=I_NR_N $$
+$$ V*{TH}=V*{OC}=I_NR_N $$
 
 Finding $R_{TH}$ is similarly straight forward. The current supply is replaced by an open as shown here
 
@@ -1226,16 +1231,17 @@ Finding $R_{TH}$ is similarly straight forward. The current supply is replaced b
 
 with schemdraw.Drawing(file='thevenin-of-norton-resistance.svg') as d:
     d += (Vs := elm.Gap().up())
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
-    d += (LineRth := elm.Line(arrow='->').at((5,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))    
-    
+    d += (LineRth := elm.Line(arrow='->').at((5,1.5)).left().label('$R_{TH}$',loc='right').length(0.8))
+
 ```
+
 ```{figure} thevenin-of-norton-resistance.svg
 ---
 height: 300px
@@ -1245,7 +1251,7 @@ name: thevenin-of-norton-resistance
 
 The relationship between $R_{TH}$ and $R_{N}$ is again simple given there is only a single resistor to consider.
 
-$$ R_{TH}=R_{N} $$
+$$ R*{TH}=R*{N} $$
 
 ### Summary of Conversions
 
@@ -1256,25 +1262,26 @@ These conversion allow us to move quickly between Thevenin and Norton equivalent
 
 with schemdraw.Drawing(file='norton-of-thevenin.svg') as d:
     d += (Vs := elm.Battery().up().label('$V_{TH}$', loc='top').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))    
+    d += (Rth := elm.Resistor().right().label('$R_{TH}$', loc='top'))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
-    
+
     d.move_from(Rth.end, dx=0.75, dy=-d.unit/2)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))
 
     d.move_from(LineB.start, dx=5, dy=0)
     d += (Vs := elm.SourceI().up().label('$V_{TH}/R_{TH}$', loc='top'))
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{TH}$', loc='top'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{TH}$', loc='top'))
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
 ```
+
 ```{figure} norton-of-thevenin.svg
 ---
 height: 300px
@@ -1287,25 +1294,26 @@ name: norton-of-thevenin
 
 with schemdraw.Drawing(file='thevenin-of-norton.svg') as d:
     d += (Vs := elm.SourceI().up().label('$I_N$', loc='top'))
-    d += (LineTL := elm.Line().right().length(2))    
-    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))    
+    d += (LineTL := elm.Line().right().length(2))
+    d += (Rn := elm.Resistor().down().label('$R_{N}$', loc='top'))
+    d += (LineTR := elm.Line().at(LineTL.end).right().length(2))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
-            
+
     d.move_from(Rth.end, dx=1.75, dy=-d.unit/2)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(2).color('violet').linewidth(6).label('converts to'))
 
     d.move_from(LineB.start, dx=4.5, dy=0)
     d += (Vs := elm.Battery().up().label('$I_NR_N$', loc='top').reverse())
-    d += (Rth := elm.Resistor().right().label('$R_{N}$', loc='top'))    
+    d += (Rth := elm.Resistor().right().label('$R_{N}$', loc='top'))
     d += elm.Dot(open=True)
-    d += (Rl := elm.Gap().down())    
+    d += (Rl := elm.Gap().down())
     d += elm.Dot(open=True)
     d += (LineB := elm.Line().left().tox(Vs.start))
 ```
+
 ```{figure} thevenin-of-norton.svg
 ---
 height: 300px
@@ -1320,116 +1328,118 @@ name: thevenin-of-norton
 
 with schemdraw.Drawing(file='source-conversion-example-00.svg') as d:
     d += (Vs := elm.SourceV().up().label('$12V$', loc='top'))
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))    
-    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
-    d += (LineT := elm.Line().at(R1.end).right())    
-    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top'))
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))
+    d += (LineT := elm.Line().at(R1.end).right())
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='source-conversion-example-00-step-01.svg') as d:
     d += (Vs := elm.SourceV().up().label('$12V$', loc='top').color('yellowgreen'))
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').color('yellowgreen'))    
-    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
-    d += (LineT := elm.Line().at(R1.end).right())    
-    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
-    d += (LineB := elm.Line().left().tox(Vs.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').color('yellowgreen'))
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))
+    d += (LineT := elm.Line().at(R1.end).right())
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 
     d.move_from(R3.center,1,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(R3.end,4.25,0)
     d += (Is := elm.SourceI().up().label('$12V/4Ω$\n$=3A$', loc='top').color('yellowgreen'))
-    d += (LineTL := elm.Line().right().color('yellowgreen'))    
-    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('yellowgreen'))    
-    d += (LineT := elm.Line().at(LineTL.end).right())    
-    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))    
-    d += (LineTR := elm.Line().at(LineT.end).right())    
-    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
-    d += (LineBR := elm.Line().left().tox(R1.end))    
-    d += (LineBL := elm.Line().left().tox(Is.start).color('yellowgreen'))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+    d += (LineTL := elm.Line().right().color('yellowgreen'))
+    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('yellowgreen'))
+    d += (LineT := elm.Line().at(LineTL.end).right())
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top'))
+    d += (LineTR := elm.Line().at(LineT.end).right())
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))
+    d += (LineBR := elm.Line().left().tox(R1.end))
+    d += (LineBL := elm.Line().left().tox(Is.start).color('yellowgreen'))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='source-conversion-example-00-step-02.svg') as d:
     d += (Is := elm.SourceI().up().label('$3A$', loc='top'))
-    d += (LineTL := elm.Line().right())    
-    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('red'))    
-    d += (LineT := elm.Line().at(LineTL.end).right().color('red'))    
-    d += (R2 := elm.Resistor().down().label('6Ω', loc='top').color('red'))    
-    d += (LineTR := elm.Line().at(LineT.end).right())    
-    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
-    d += (LineBR := elm.Line().left().tox(R2.end))    
-    d += (LineB := elm.Line().left().tox(R1.end).color('red'))    
-    d += (LineBL := elm.Line().left().tox(Is.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
-    
+    d += (LineTL := elm.Line().right())
+    d += (R1 := elm.Resistor().down().label('4Ω', loc='top').color('red'))
+    d += (LineT := elm.Line().at(LineTL.end).right().color('red'))
+    d += (R2 := elm.Resistor().down().label('6Ω', loc='top').color('red'))
+    d += (LineTR := elm.Line().at(LineT.end).right())
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))
+    d += (LineBR := elm.Line().left().tox(R2.end))
+    d += (LineB := elm.Line().left().tox(R1.end).color('red'))
+    d += (LineBL := elm.Line().left().tox(Is.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
+
     d.move_from(R3.center,1,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(R3.end,3.5,0)
     d += (Is := elm.SourceI().up().label('$3A$', loc='top'))
-    d += (LineTL := elm.Line().right())    
-    d += (R1 := elm.Resistor().down().label('4Ω||6Ω\n=2.4Ω', loc='top').color('red'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right())    
-    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
-    d += (LineBR := elm.Line().left().tox(R1.end))    
-    d += (LineBL := elm.Line().left().tox(Is.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    d += (LineTL := elm.Line().right())
+    d += (R1 := elm.Resistor().down().label('4Ω||6Ω\n=2.4Ω', loc='top').color('red'))
+    d += (LineTR := elm.Line().at(LineTL.end).right())
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))
+    d += (LineBR := elm.Line().left().tox(R1.end))
+    d += (LineBL := elm.Line().left().tox(Is.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='source-conversion-example-00-step-03.svg') as d:
     d += (Is := elm.SourceI().up().label('$3A$', loc='top').color('blue'))
-    d += (LineTL := elm.Line().right().color('blue'))    
-    d += (R1 := elm.Resistor().down().label('2.4Ω', loc='top').color('blue'))    
-    d += (LineTR := elm.Line().at(LineTL.end).right())    
-    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))    
-    d += (LineBR := elm.Line().left().tox(R1.end))    
-    d += (LineBL := elm.Line().left().tox(Is.start).color('blue'))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    d += (LineTL := elm.Line().right().color('blue'))
+    d += (R1 := elm.Resistor().down().label('2.4Ω', loc='top').color('blue'))
+    d += (LineTR := elm.Line().at(LineTL.end).right())
+    d += (R3 := elm.Resistor().at(LineTR.end).down().label('3Ω', loc='top'))
+    d += (LineBR := elm.Line().left().tox(R1.end))
+    d += (LineBL := elm.Line().left().tox(Is.start).color('blue'))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 
     d.move_from(R3.center,1,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(R3.end,4.5,0)
     d += (Vs := elm.SourceV().up().label('$3A\U000022C5 2.4Ω$\n=7.2V', loc='top').color('blue'))
-    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('blue'))    
-    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))    
-    d += (LineBL := elm.Line().left().tox(Vs.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('blue'))
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top'))
+    d += (LineBL := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='source-conversion-example-00-step-04.svg') as d:
     d += (Vs := elm.SourceV().up().label('7.2V', loc='top'))
-    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('orange'))    
-    d += (R3 := elm.Resistor().down().label('3Ω', loc='top').color('orange'))    
-    d += (LineBL := elm.Line().left().tox(Vs.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    d += (R1 := elm.Resistor().right().label('2.4Ω', loc='top').color('orange'))
+    d += (R3 := elm.Resistor().down().label('3Ω', loc='top').color('orange'))
+    d += (LineBL := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 
     d.move_from(R3.center,1,0)
-    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))       
+    d += (BigArrow := elm.Line(arrow='->',arrowwidth=0.5,arrowlength=0.5).right().length(1).color('violet').linewidth(6))
 
     d.move_from(R3.end,4.5,0)
     d += (Vs := elm.SourceV().up().label('7.2V', loc='top'))
-    d += (LineT := elm.Line().right())    
-    d += (R3 := elm.Resistor().down().label('2.4Ω+3Ω\n=5.4Ω', loc='top').color('orange'))    
-    d += (LineBL := elm.Line().left().tox(Vs.start))    
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')     
+    d += (LineT := elm.Line().right())
+    d += (R3 := elm.Resistor().down().label('2.4Ω+3Ω\n=5.4Ω', loc='top').color('orange'))
+    d += (LineBL := elm.Line().left().tox(Vs.start))
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 
 ```
-
-
 
 `````{admonition} Example
 ```{figure} source-conversion-example-00.svg
@@ -1472,21 +1482,22 @@ name: source-conversion-example-00-step-04
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='source-conversion-example-01.svg') as d:
-    d += (R1 := elm.Resistor().up().label('6Ω', loc='top'))    
-    d += (Line1 := elm.Line().right())    
-    d += (Line2 := elm.Line().right())    
+    d += (R1 := elm.Resistor().up().label('6Ω', loc='top'))
+    d += (Line1 := elm.Line().right())
+    d += (Line2 := elm.Line().right())
     d += (Vs := elm.Battery().right().label('$5V$', loc='top').reverse())
-    d += (Line4 := elm.Line().right())    
-    d += (R4 := elm.Resistor().right().label('1Ω', loc='top'))    
-    d += (R5 := elm.Resistor().down().label('4Ω', loc='top'))    
-    d += (LineB := elm.Line().left().tox(R1.start))    
+    d += (Line4 := elm.Line().right())
+    d += (R4 := elm.Resistor().right().label('1Ω', loc='top'))
+    d += (R5 := elm.Resistor().down().label('4Ω', loc='top'))
+    d += (LineB := elm.Line().left().tox(R1.start))
 
     d += (I1 := elm.SourceI().at(Line1.end).down().label('5A', loc='top').reverse())
-    d += (R2 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))    
-    d += (R3 := elm.Resistor().at(Vs.end).down().label('7Ω', loc='top'))    
+    d += (R2 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))
+    d += (R3 := elm.Resistor().at(Vs.end).down().label('7Ω', loc='top'))
     d += (I2 := elm.SourceI().at(Line4.end).down().label('3A', loc='top').reverse())
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R3).label('$I_{O}$',loc='bottom')
 ```
+
 ````{admonition} Example
 ```{figure} source-conversion-example-01.svg
 ---
@@ -1501,15 +1512,16 @@ name: source-conversion-example-01
 
 with schemdraw.Drawing(file='source-conversion-example-02.svg') as d:
     d += (Vs := elm.Battery().up().label('12V', loc='top'))
-    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').length(2))    
-    d += (R2 := elm.Resistor().right().label('2Ω', loc='top').length(2))    
-    d += (Line2 := elm.Line().right())    
-    d += (Line3 := elm.Line().right())    
+    d += (R1 := elm.Resistor().right().label('4Ω', loc='top').length(2))
+    d += (R2 := elm.Resistor().right().label('2Ω', loc='top').length(2))
+    d += (Line2 := elm.Line().right())
+    d += (Line3 := elm.Line().right())
     d += (I1 := elm.SourceI().down().label('4A', loc='top').reverse())
-    d += (LineB := elm.Line().left().tox(R1.start))     
-    d += (R3 := elm.Resistor().at(R2.end).down().label('8Ω', loc='top').label(('+','$V_{O}$','-'), loc='bottom'))    
-    d += (R4 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))        
+    d += (LineB := elm.Line().left().tox(R1.start))
+    d += (R3 := elm.Resistor().at(R2.end).down().label('8Ω', loc='top').label(('+','$V_{O}$','-'), loc='bottom'))
+    d += (R4 := elm.Resistor().at(Line2.end).down().label('3Ω', loc='top'))
 ```
+
 ````{admonition} Example
 ```{figure} source-conversion-example-02.svg
 ---

@@ -16,18 +16,16 @@ kernelspec:
 
 # Alternating Current: Differential Equation Approach
 
-```{include} includes/latex_imports.md
-
-```
-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
 
-## Analysis Methods and Theorems with Alternating Current
+Before moving to phasor analysis of resistive, capacitive, and inductive circuits, this chapter looks at analysis of such circuits using differential equations directly. The aim is to show that phasor analysis makes our lives _much_ easier.
 
-### Voltage Divider
+For an excellent review of the mathematics of solving linear, first order, constant coefficient differential equations, see {cite:ts}`paul_dawkins_math_notes`.
+
+## Voltage Divider
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -151,7 +149,11 @@ v_O(t) &= L \frac{d~i(t)}{dt} \\
 ````
 `````
 
-### Current Divider
+## Current Divider
+
+```{index} Current Divider
+
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -235,7 +237,7 @@ i_O(t) &= C \frac{d~v(t)}{dt} \\
 
 `````
 
-### Mesh Analysis
+## Mesh Analysis
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -302,22 +304,25 @@ name: mesh-analysis-differential-equations-meshes
 ---
 ```
 
+**$I_1$ Mesh**
+
 Then, the KVL equation for the $I_1$ mesh is
 
 \begin{align*}
--v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &=& 0\\
-12\cos( 100 t) + I_1(t) R_1 + \ldots \\
-\frac{1}{C} \int I_1(t) dt + (I_1(t) - I_2(t)) R_2 &=& 0\\
-12\cos( 100 t) + 4 I_1(t) + \ldots \\
-1000 \int I_1(t) dt + 5(I_1(t) - I_2(t)) &=& 0
+-v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &= 0\\
+-12\cos( 100 t) + I_1(t) R_1 + \ldots \\
+\frac{1}{C} \int I_1(t) + I_2(t) dt + (I_1(t) + I_2(t)) R_2 &= 0\\
+-12\cos( 100 t) + 4 I_1(t) + \ldots \\
+1000 \int I_1(t) + I_2(t) dt + 5(I_1(t) + I_2(t)) &= 0
 \end{align*}
 
 yielding
 
 ```{math}
 :label: loop_1_mesh
-9 I_1(t) + 1000 \int I_1(t) dt - 5 I_2(t)  = -12\cos( 100 t).
+9 I_1(t) + 1000 \int I_1(t) + I_2(t) dt + 5 I_2(t)  = 12\cos( 100 t).
 ```
+**$I_2$ Mesh**
 
 Looking at the $I_2$ mesh, we see that there is a current source and that $I_2$ is in the same direction as $i_S$.
 
@@ -327,101 +332,126 @@ $$
 I_2(t) = i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
 $$
 
-Substituting this into {eq}`loop_1_mesh` gives
+**Combining the $I_1$ and $I_2$ equations**
+
+Substituting this expression for $I_2$ into {eq}`loop_1_mesh` gives
 
 \begin{align*}
-9 I_1(t) + 1000 \int I_1(t) dt - 20 \cos( 100 t + 90^\circ)  &=&\\ -12\cos( 100 t)\\
-9 I_1(t) + 1000 \int I_1(t) dt   &=&\\ -12\cos( 100 t) + 20 \cos( 100 t + 90^\circ)\\
-9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + \tan^{-1}(3/5))\\
-9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + 30.96^\circ)
+9 I_1(t) + 1000 \int I_1(t) &+ 4 \cos( 100 t + 90^\circ) dt \\
+&+ 20 \cos( 100 t + 90^\circ)  = 12\cos( 100 t)\\
+9 I_1(t) + 1000 \int I_1(t) &+ 4 \cos( 100 t + 90^\circ) dt\\
+&= 12\cos( 100 t) - 20 \cos( 100 t + 90^\circ)\\
+9 I_1(t) + 1000 \int I_1(t) dt & \\
+&= 23.32 \cos(100 t - 59.03^\circ) \\
+&- 4000 \int \cos( 100 t + 90^\circ) dt
 \end{align*}
 
 Then, to turn this into a differential equation, we can differentiate both sides with respect to $t$ to get:
 
 \begin{align*}
-9 \frac{d}{dt} I_1(t) + 1000 I_1(t) = -400 \sqrt{34} \cos(100 t + 30.96^\circ)\\
-0.009 \frac{d}{dt} I_1(t) +  I_1(t) = -0.4 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+9 \frac{d}{dt} I_1(t) + 1000 I_1(t) &= -2332 \sin(100 t - 59.03^\circ)\\
+&-4000 \cos( 100 t + 90^\circ) \\
+\frac{d}{dt} I_1(t) +  111.111 I_1(t) &= 259.11 \cos(100 t + 30.97^\circ)\\
+&-444.444 \cos( 100 t + 90^\circ) \\
+\frac{d}{dt} I_1(t) +  111.111 I_1(t) &=   382.294 \cos(100 t -54.47^\circ)\\
 \end{align*}
 
 Again using our integrating factor $\mu(t) = e^{t/0.009}$, we get
 
 $$
-\frac{d}{dt} (\mu(t) I_1(t)) = -400 \sqrt{34} \cos(100 t + 30.96^\circ) \mu(t).
+\frac{d}{dt} (\mu(t) I_1(t)) = 382.294 \cos(100 t -54.47^\circ) \mu(t).
 $$
 
 Integrating both sides with respect to $t$ gives
 
 \begin{align*}
-e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \int e^{t/0.009} \cos(100 t + 30.96^\circ) dt\\
-e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \left (0.009 e^{t/0.009} \cos(100 t + 30.96^\circ)\right. \\
-&& + \left . \displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} \right)
+e^{t/0.009} I_1(t) + c &=  382.294 \int e^{t/0.009}  \cos(100 t -54.47^\circ)  dt \\
+e^{t/0.009} I_1(t) + c &= -2.55741 e^{t/0.009}  \sin(100 t + 173.54^\circ) + k
 \end{align*}
 
 Rearranging, we get
 
 \begin{align*}
-I_1(t) &=& -0.4 \sqrt{34} \biggl( 0.009 \cos(100 t + 30.96^\circ) \\
-&& +  \left(\displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} - c \right)e^{-t/0.009} \biggr )
+I_1(t) &= -2.55741 e^{t/0.009}  \sin(100 t + 173.54^\circ)  + \kappa e^{-t/0.009}\\
+&= 2.55741 \cos(100t + 263.54^\circ) + \kappa e^{-t/0.009}
 \end{align*}
 
 and then after more than $t \gg 5 \times 0.009$ we get
 
 \begin{align*}
-I_1(t) &=& -0.4 \sqrt{34} 0.009 \cos(100 t + 30.96^\circ)\\
- &=& -20.99 \cos(100 t + 30.96^\circ) \mbox{A.}
+I_1(t) &= 2.55741 \cos(100t + 263.54^\circ) \mbox{A.}
 \end{align*}
+
+**Solving for $v_O(t)$**
 
 Then
 
 \begin{align*}
-v_O(t) &=& (I_1(t) + I_2(t)) R_2 \\
-&=& -20.99 \cos(100 t + 30.96^\circ)  \\
-&& + 20 \cos( 100 t + 90^\circ) \\
-&=& 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
+v_O(t) &= (I_1(t) + I_2(t)) R_2 \\
+&=  12.78705 \cos(100t + 263.54^\circ)   \\
+&+ 20 \cos( 100 t + 90^\circ) \\
+&= 7.4347 \cos(100 t + 101.16^\circ) \mbox{V.}
 \end{align*}
 ````
 `````
 
-### Nodal Analysis
+## Nodal Analysis
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='nodal-analysis-differential-equations.svg') as d:
-    d += elm.SourceV().up().label('$v_S(t)$\n$6 \\angle 0^\circ$')
-    d += elm.Inductor().right().label('$L$')
+    d += elm.SourceV().up().label('$v_S(t)$')
+    d += elm.Inductor().right().label('$L$\n$100$ mH')
     d.push()
-    d += elm.Capacitor().right().label('$C$')
-    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$', loc='bot')
+    d += elm.Capacitor().right().label('$C$\n$100 \mu$F')
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$\n$100 \Omega$', loc='bot')
     d += elm.Line().length(6).left()
     d.pop()
-    d += elm.SourceI().down().label('$i_S(t)$\n$4 \\angle{45^\circ}$')
+    d += elm.SourceI().down().label('$i_S(t)$')
 
-with schemdraw.Drawing(file='nodal-analysis-differential-equations-2.svg') as d:
-    d += elm.Line().length(3).up()
-    d += elm.Line().length(2).up()
-    d += elm.SourceV().right().label('$v_S(t)$\n$12 \\angle 0^\circ$').length(6)
-    d += elm.Line().length(2).down()
+with schemdraw.Drawing(file='nodal-analysis-differential-equations-nodes.svg') as d:
+    d += elm.SourceV().up().label('$v_S(t)$')
+    d += (NodeA := elm.Dot(color='red').label('X'))
+    d += elm.Inductor().right().label('$L$\n$100$ mH')
+    d += (NodeB := elm.Dot(color='green').label('Y'))
     d.push()
-    d += elm.Resistor().label('$R_3$').down()
-    d += elm.Inductor().left().label('$L$')
-    d.push()
-    d.push()
-    d += elm.Ground().right()
+    d += elm.Capacitor().right().label('$C$\n$100 \mu$F')
+    d += (NodeC := elm.Dot(color='blue').label('Z'))
+    d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$\n$100 \Omega$', loc='bot')
+    d += elm.Line().length(6).left()
     d.pop()
-    d += (R2 := elm.Resistor().up().label('$R_2$'))
-    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$i_O(t)$', loc='bot')
-    d.pop()
-    d += elm.Line().left()
-    d.pop()
-    d += elm.Capacitor().left().label('$C$', loc='bot')
-    d += elm.Resistor().left().label('$R_1$', loc='bot')
+    d += elm.SourceI().down().label('$i_S(t)$')
+
+    d.move_from(NodeA.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(NodeB.start, 1, -0.5)
+    d += elm.Arrow().right().length(1).color('blue')
+    d.move_from(NodeB.start, 1, -1)
+    d += elm.Arrow().down().length(1).color('blue')
+    d.move_from(NodeC.start, 1.5, -1)
+    d += elm.Arrow().down().length(1).color('blue')
 
 
 ```
 
-````{admonition} Example
+```{index} Nodal Analysis
 
+```
+
+`````{admonition} Example
+
+Find $v_O(t)$ using nodal analysis where
+
+$$
+v_S(t) = 6 \cos(100t) \mbox{V}
+$$
+
+and
+
+$$
+i_S(t) = 4 \cos(100 t + 45^\circ) \mbox{A.}
+$$
 
 ```{figure} nodal-analysis-differential-equations.svg
 ---
@@ -430,21 +460,83 @@ name: nodal-analysis-differential-equations
 ---
 ```
 
+````{admonition} Solution using differential equations
+:class: tip, dropdown
 
-````
-
-````{admonition} Example
+First, let's define the nodes and the component current directions.
 
 
-```{figure} nodal-analysis-differential-equations-2.svg
+```{figure} nodal-analysis-differential-equations-nodes.svg
 ---
-height: 600px
-name: nodal-analysis-differential-equations-2
+height: 400px
+name: nodal-analysis-differential-equations-nodes
 ---
 ```
 
+**Inductor Current**
+
+The current in inductor $L$ can be derived from
+
+$$
+v_L(t) = L \frac{d}{dt} i_L(t)
+$$
+
+so
+
+\begin{align*}
+i_L(t) &= \frac{1}{L} \int v_L(t) dt + c\\
+&= \frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c
+\end{align*}
+
+which is in terms of the node voltages.
+
+**Capacitor Current**
+
+The current in the capacitor $C$ is
+
+$$
+i_C(t) = C \frac{d}{dt} v_C(t) = C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right)
+$$
+
+**Resistor Current**
+
+The current in the resistor $R$ is
+
+$$
+i_R(t) = v_Z(t)/R
+$$
+
+**Node $\color{red}{\bf X}$ :**
+
+At node $\color{red}{\text{X}}$ we can immediately see that
+
+$$
+v_X(t) = v_S(t) = 6 \cos(100t)
+$$
+
+**Node $\color{green}{\bf Y}$ :**
+
+At node $\color{green}{\text{Y}}$, the KCL equation is
+
+\begin{align*}
+i_L(t) - i_S(t) - i_C(t) &= 0\\
+\frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c &\\
+- 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &= 0
+\end{align*}
+
+**Node $\color{blue}{\bf Z}$ :**
+
+At node $\color{blue}{\text{Z}}$, the KCL equation is
+
+\begin{align*}
+i_C(t) - i_R(t) &= 0\\
+C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &= 0
+\end{align*}
+
+
 
 ````
+`````
 
 ## References
 

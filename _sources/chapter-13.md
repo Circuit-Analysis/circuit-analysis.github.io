@@ -16,10 +16,6 @@ kernelspec:
 
 # Alternating Current: Phasors
 
-```{include} includes/latex_imports.md
-
-```
-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py

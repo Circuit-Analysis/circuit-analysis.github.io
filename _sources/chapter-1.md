@@ -16,12 +16,11 @@ kernelspec:
 
 # Fundamentals
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 git_hash = !git rev-parse HEAD
@@ -30,7 +29,6 @@ f.write(str(git_hash[0]))
 f.close()
 
 ```
-
 
 (content:section:si_units)=
 

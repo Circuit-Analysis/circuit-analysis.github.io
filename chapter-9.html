@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -487,12 +492,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="superposition">
 <span id="content-chapter-superposition"></span><h1>Superposition<a class="headerlink" href="#superposition" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p id="index-0">Superposition is the first circuit theorem we will study. It is not an efficient method of circuit analysis but at times it is the only option to analyze a circuit. The examples here could be analyzed as we have in previous chapter and do not require the application of superposition. However, these examples serve as a stepping stone before we consider more complex circuits that do require superposition. Beyond that it is an important theoretical concept for some of the more advanced analysis methods you will learn if you continue your studies.</p>
@@ -883,26 +882,4 @@ I_O=I_O^{(1)}+I_O^{(2)}=-1.2~\text{A}-600~\text{mA}=-1.8~\text{A}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->

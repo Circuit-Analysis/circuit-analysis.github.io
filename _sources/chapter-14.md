@@ -16,8 +16,6 @@ kernelspec:
 
 # Power in Alternating Current Circuits
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -67,7 +65,7 @@ $$ P=\frac{VI}{T}\int_t^{t+T}~d\tau $$
 
 leading to
 
-$$ P=\left.\frac{VI}{T}~\tau\right|_t^{t+T} $$
+$$ P=\left.\frac{VI}{T}~\tau\right|\_t^{t+T} $$
 
 and
 
@@ -157,8 +155,6 @@ The average power suffers from an additional problem. That's not to say it isn't
 \subsection{General Form of RMS Voltage and Current}
 Instead we use the concept of effective power to avoid this. Effective power is often referred to as RMS power for reason that will become apparent at the end of this section. To introduce effective power we will tell the story of two circuits: an AC circuit and a DC circuit. Those circuits are pictured here:
 
-
-
 ```{figure} logo.png
 ---
 height: 300px
@@ -166,15 +162,12 @@ name: LABEL_0
 ---
 ```
 
-
 ```{figure} logo.png
 ---
 height: 300px
 name: LABEL_1
 ---
 ```
-
-
 
 Our goal is to find values for $V_{EFF}$ and $I_{EFF}$ such that the the resistor in the AC circuit dissipates the same power as the resistor in the DC circuit. In other words, the two circuits will be **effectively** the same with regards to the power dissipated by the resistor.
 
@@ -186,23 +179,23 @@ The resistor is constant so I've moved it to the coefficient of the integral.
 
 The DC circuit is a straight-forward application of the power equation
 
-$$ P=I_{eff}^2R $$
+$$ P=I\_{eff}^2R $$
 
 We set the two equal to each to solve for $I_{eff}$
 
-$$ I_{eff}^2R=\frac{R}{T}\int_0^Ti^2dt $$
+$$ I\_{eff}^2R=\frac{R}{T}\int_0^Ti^2dt $$
 
 The first thing I notice is that R cancels out. The value of $I_{eff}$ is not dependent on the resistor.
 
-$$ I_{eff}^2=\frac{1}{T}\int_0^Ti^2dt $$
+$$ I\_{eff}^2=\frac{1}{T}\int_0^Ti^2dt $$
 
 Solving for $I_{eff}$ is then as simple as calculating the square root of both sides.
 
-$$ I_{eff}=\sqrt{\frac{1}{T}\int_0^Ti^2dt} $$
+$$ I\_{eff}=\sqrt{\frac{1}{T}\int_0^Ti^2dt} $$
 
 A similar path can be followed to show that
 
-$$ V_{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt} $$
+$$ V\_{eff}=\sqrt{\frac{1}{T}\int_0^Tv^2dt} $$
 
 Looking closely at the previous equation show us where the term ``RMS'' came from. Inside the integral is the **square** of the current. The integral itself is finding the **mean** of that squared current. Lastly, the **root** covers to whole equation. This **root-mean-square** (RMS) formula can be applied to any signal.
 
@@ -213,40 +206,40 @@ $$ i(t)=I\*pcos(\omega t+\theta_i) $$
 
 we can setup the integral to find the effective current (which will now be referred to as the RMS current)
 
-$$ I_{RMS}=\sqrt{\frac{1}{T}\int*0^T\left[ I_pcos(\omega t+\theta_i) \right]^2dt} $$
+$$ I\_{RMS}=\sqrt{\frac{1}{T}\int\*0^T\left[ I_pcos(\omega t+\theta_i) \right]^2dt} $$
 
 We can pull $I_p$, along with its exponent, out in fron of the integral as in
 
-$$ I_{RMS}=\sqrt{\frac{I*p^2}{T}\int_0^T\left[ cos(\omega t+\theta_i) \right]^2dt} $$
+$$ I\_{RMS}=\sqrt{\frac{I\*p^2}{T}\int_0^T\left[ cos(\omega t+\theta_i) \right]^2dt} $$
 
 and integrate
 
-$$ I_{RMS}=\sqrt{\left.\frac{I*p^2}{T}\left[\frac{\omega}{2}+\frac{sin(2\theta+2\omega t}{4t}\right]\right|_0^T} $$
+$$ I\_{RMS}=\sqrt{\left.\frac{I\*p^2}{T}\left[\frac{\omega}{2}+\frac{sin(2\theta+2\omega t}{4t}\right]\right|\_0^T} $$
 
 which reduces to
 
-$$ I_{RMS}=\sqrt{\frac{I*p^2}{T}\left[\frac{\pi}{\omega}\right]} $$
+$$ I\_{RMS}=\sqrt{\frac{I\*p^2}{T}\left[\frac{\pi}{\omega}\right]} $$
 
 Using the fact that $\omega$ is related to $T$ by $T=(2\pi)/\omega$ leads to
 
-$$ I_{RMS}=\sqrt{\frac{I*p^2\pi}{T\omega}}=\sqrt{\frac{I_p^2\pi}{\frac{2\pi}{\omega}\omega}} $$
+$$ I\_{RMS}=\sqrt{\frac{I\*p^2\pi}{T\omega}}=\sqrt{\frac{I_p^2\pi}{\frac{2\pi}{\omega}\omega}} $$
 
 Canceling the $\omega$'s and the $\pi$'s
 
-$$ I_{RMS}=\sqrt{\frac{I*p^2}{2}} $$
+$$ I\_{RMS}=\sqrt{\frac{I\*p^2}{2}} $$
 
 or the more common form
 
-$$ I_{RMS}=\frac{I*p}{\sqrt{2}}\approx 0.707I_p $$
+$$ I\_{RMS}=\frac{I\*p}{\sqrt{2}}\approx 0.707I_p $$
 
 Similar analysis can be done for voltage with a similar result
 
-$$ V_{RMS}=\frac{I*p}{\sqrt{2}}\approx 0.707V_p $$
+$$ V\_{RMS}=\frac{I\*p}{\sqrt{2}}\approx 0.707V_p $$
 
 It is also common to see the equations inverted to solve for the peak values
 
-$$ I_{p}=I_{RMS}\sqrt{2}\approx 1.414I_{RMS} $$
+$$ I*{p}=I*{RMS}\sqrt{2}\approx 1.414I\_{RMS} $$
 
 or
 
-$$ V_{p}=V_{RMS}\sqrt{2}\approx 1.414V_{RMS} $$
+$$ V*{p}=V*{RMS}\sqrt{2}\approx 1.414V\_{RMS} $$

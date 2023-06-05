@@ -1,1 +1,1 @@
-chapter-11.md:461: [redirected with Found] https://electronics.stackexchange.com/a/68361/4338 to https://electronics.stackexchange.com/questions/68355/inductor-equivalent-of-capacitors-charge/68361#68361
+chapter-11.md:464: [redirected with Found] https://electronics.stackexchange.com/a/68361/4338 to https://electronics.stackexchange.com/questions/68355/inductor-equivalent-of-capacitors-charge/68361#68361

@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"tss": ["_{\\mathrm{#1}}", 1], "textss": ["_{\\mbox{#1}}", 1], "Deg": "^\\circ", "green": ["{\\color{green} #1}", 1], "blue": ["{\\color{blue} #1}", 1], "red": ["{\\color{red} #1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -224,6 +224,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-19.html">
    Analyzing Circuits with Transient Signals using Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="appendix-maths.html">
+   Mathematical Identities
   </a>
  </li>
  <li class="toctree-l1">
@@ -511,12 +516,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="more-anatomy-of-a-circuit">
 <span id="content-chapter-more-anatomy"></span><h1>More Anatomy of a Circuit<a class="headerlink" href="#more-anatomy-of-a-circuit" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tss}[1]{_{\mathrm{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\textss}[1]{_{\mbox{#1}}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Deg}{^\circ}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\green}[1]{{\color{green} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\blue}[1]{{\color{blue} #1}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\red}[1]{{\color{red} #1}}\)</span></p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>Before proceeding to Nodal Analysis let’s look at nodes, node voltages and how they relate to other circuit values.</p>
@@ -543,7 +542,7 @@ title="Print to PDF"
 </figure>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="upjyLyXshCnj" data-shufflequestions="False"
+<div class="output text_html"><div id="BqzmSSKGpLbb" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -705,7 +704,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style></div><script type="application/javascript">var questionsupjyLyXshCnj=[
+}</style></div><script type="application/javascript">var questionsBqzmSSKGpLbb=[
     {
         "question": "What is the voltage $V_1$ using the node voltages?",
         "type": "many_choice",
@@ -1657,7 +1656,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsupjyLyXshCnj,  upjyLyXshCnj);
+        show_questions(questionsBqzmSSKGpLbb,  BqzmSSKGpLbb);
         }
         </script></div>
 </div>
@@ -1670,7 +1669,7 @@ if (typeof version == 'undefined') {
 </figure>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="GxCulLoYMIAl" data-shufflequestions="False"
+<div class="output text_html"><div id="BlsEjYgXuyrd" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -1832,7 +1831,7 @@ if (typeof version == 'undefined') {
     100% {
         background-color: var(--correct-green);
     }
-}</style></div><script type="application/javascript">var questionsGxCulLoYMIAl=[
+}</style></div><script type="application/javascript">var questionsBlsEjYgXuyrd=[
     {
         "question": "What is the current $I_a$ using the node voltages and resistance values?",
         "type": "many_choice",
@@ -2784,7 +2783,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsGxCulLoYMIAl,  GxCulLoYMIAl);
+        show_questions(questionsBlsEjYgXuyrd,  BlsEjYgXuyrd);
         }
         </script></div>
 </div>
@@ -2794,7 +2793,7 @@ if (typeof version == 'undefined') {
 </figure>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="eUWwlMyWLCxB" data-shufflequestions="False"
+<div class="output text_html"><div id="ulTNgrsqcefG" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -2956,7 +2955,7 @@ if (typeof version == 'undefined') {
     100% {
         background-color: var(--correct-green);
     }
-}</style></div><script type="application/javascript">var questionseUWwlMyWLCxB=[
+}</style></div><script type="application/javascript">var questionsulTNgrsqcefG=[
     {
         "question": "What is the current $I_a$ using the node voltages and resistance values?",
         "type": "many_choice",
@@ -3728,7 +3727,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionseUWwlMyWLCxB,  eUWwlMyWLCxB);
+        show_questions(questionsulTNgrsqcefG,  ulTNgrsqcefG);
         }
         </script></div>
 </div>
@@ -3822,26 +3821,4 @@ if (typeof version == 'undefined') {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 75d6ae229a43015b5bc4429aa37b5434e5979a54 -->
+<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->
