@@ -48,11 +48,11 @@ sphinx:
       tex:
         macros:
           "tss": ["_{\\mathrm{#1}}", 1]
-          "textss": ["_{\mbox{#1}}", 1]
-          "Deg": "^\circ"
-          "green": ["{\color{green} #1}", 1]
-          "blue": ["{\color{blue} #1}", 1]
-          "red": ["{\color{red} #1}", 1]
+          "textss": ["_{\\mbox{#1}}", 1]
+          "Deg": "^\\circ"
+          "green": ["{\\color{green} #1}", 1]
+          "blue": ["{\\color{blue} #1}", 1]
+          "red": ["{\\color{red} #1}", 1]
 
 parse:
   myst_enable_extensions:
