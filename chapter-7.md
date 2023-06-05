@@ -16,8 +16,6 @@ kernelspec:
 
 # Mesh Analysis
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -26,7 +24,6 @@ kernelspec:
 ```{index} Mesh Analysis
 
 ```
-
 
 We often refer to mesh analysis as a _method_ of analysis as that is the goal of this analysis, to perform it methodically. As mentioned in the previous chapter, many folks choose to analyze circuits by haphazardly applying a combination of the fundamental laws, equivalent components, and the divider equations in order to find a single value of interest. Mesh analysis is organized and consistent when performed correctly. Furthermore, once we find the unknowns, we can use them to find any other value of interest in the circuit.
 
@@ -312,7 +309,7 @@ Seat of the pants analysis tells us that $V_A$ is 14 V. Let's keep this result i
 
 ## The Steps
 
-I'm going to list the steps here as reference. Use these steps as we walk through the next example. [A more complete summary is included at the endof the chapter.](subsection-mesh-strategy) 
+I'm going to list the steps here as reference. Use these steps as we walk through the next example. [A more complete summary is included at the endof the chapter.](subsection-mesh-strategy)
 
 ```{index} Super-mesh
 
@@ -2365,7 +2362,9 @@ $$
 More consistent results!  Check against the previous to examples of analyzing this circuit.
 ````
 `````
+
 (subsection-mesh-strategy)=
+
 ## Strategy for Mesh Analysis
 
 The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing mesh analysis. If you master these you will be able to analyze most linear electric circuits. I've also shown you how to use the "shortcut" to perform mesh analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.

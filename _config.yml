@@ -6,7 +6,7 @@ author: David J. Broderick &amp; Peter J. Kootsookos
 copyright: "2023"
 logo: logo.png
 
-exclude_patterns: [.git, animations/.venv, .venv, includes ] 
+exclude_patterns: [.git, animations/.venv, .venv, includes]
 
 only_build_toc_files: true
 
@@ -44,6 +44,15 @@ sphinx:
     - myst_nb
   config:
     bibtex_reference_style: author_year
+    mathjax3_config:
+      tex:
+        macros:
+          "tss": ["_{\\mathrm{#1}}", 1]
+          "textss": ["_{\mbox{#1}}", 1]
+          "Deg": "^\circ"
+          "green": ["{\color{green} #1}", 1]
+          "blue": ["{\color{blue} #1}", 1]
+          "red": ["{\color{red} #1}", 1]
 
 parse:
   myst_enable_extensions:

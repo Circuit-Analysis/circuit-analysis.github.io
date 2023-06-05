@@ -16,8 +16,6 @@ kernelspec:
 
 # Superposition
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -54,7 +52,7 @@ with schemdraw.Drawing(file='super-example.svg') as d:
     d += (LineB := elm.Line().left().tox(Vs1.start))
     d += (GndSig := elm.GroundSignal())
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
-    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O$')
     d += elm.Dot().color('red').at(R2.start).label('$V_A$')
 ```
 
@@ -71,27 +69,26 @@ with schemdraw.Drawing(file='super-example-sub1.svg') as d:
     d += (LineB := elm.Line().left().tox(Vs1.start))
     d += (GndSig := elm.GroundSignal())
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
-    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(1)}$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(1)}$')
     d += elm.Dot().color('red').at(R2.start).label('$V_A^{(1)}$')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 with schemdraw.Drawing(file='super-example-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.LineDot().up().length(d.unit/2)
-    d += elm.Line().up().length(d.unit/4)    
+    d += elm.Line().up().length(d.unit/4)
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
     d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
     d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n60V', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
     d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top'))
-    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(2)}$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=0.3).at(R2.end).label('$I_O^{(2)}$')
     d += elm.Dot().color('red').at(R2.start).label('$V_A^{(2)}$')
 ```
-
-
 
 `````{admonition} Example
 
@@ -177,8 +174,9 @@ with schemdraw.Drawing(file='super-example-current-supply.svg') as d:
     d += (Is := elm.SourceI().down().label('$I_{S}$\n-3A', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O$','-'),loc='bottom'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O$','-'),loc='bottom'))
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -191,8 +189,9 @@ with schemdraw.Drawing(file='super-example-current-supply-sub1.svg') as d:
     d += elm.LineDot().down().length(d.unit/4).reverse()
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(1)}$','-'),loc='bottom'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(1)}$','-'),loc='bottom'))
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -200,16 +199,14 @@ with schemdraw.Drawing(file='super-example-current-supply-sub2.svg') as d:
     d += elm.LineDot().up().length(d.unit/4)
     d += elm.LineDot().up().length(d.unit/2)
     d += elm.Line().up().length(d.unit/4)
-    
+
     d += (R1 := elm.Resistor().right().label('$R_{1}$\n10Ω', loc='top'))
     d += (R3 := elm.Resistor().right().label('$R_{3}$\n10Ω', loc='top'))
     d += (Is := elm.SourceI().down().label('$I_{S}$\n-3A', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(2)}$','-'),loc='bottom'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n10Ω', loc='top').label(('+','$V_O^{(2)}$','-'),loc='bottom'))
 ```
-
-
 
 `````{admonition} Example
 
@@ -286,12 +283,12 @@ with schemdraw.Drawing(file='super-example-3-supplies.svg') as d:
     d += (R3 := elm.Resistor().down().label('$R_{3}$\n4kΩ', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))
     d += (LineL := elm.Line().at(R1.start).up())
     d += (R4 := elm.Resistor().right().label('$R_{4}$\n4kΩ', loc='top'))
     d += (Vs2 := elm.SourceV().right().label('$V_{S2}$\n12V', loc='top').reverse())
     d += (LineR := elm.Line().down())
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O$')
 ```
 
 ```{code-cell} ipython3
@@ -304,21 +301,22 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub1.svg') as d:
     d += elm.LineDot().right().length(d.unit/4)
     d += elm.Gap().right().length(d.unit/2)
     d += elm.LineDot().right().length(d.unit/4).reverse()
-        
+
     d += (R3 := elm.Resistor().down().label('$R_{3}$\n4kΩ', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))
     d += (LineL := elm.Line().at(R1.start).up())
     d += (R4 := elm.Resistor().right().label('$R_{4}$\n4kΩ', loc='top'))
-    
+
     d += elm.LineDot().right().length(d.unit/4)
     d += elm.Line().right().length(d.unit/2)
     d += elm.LineDot().right().length(d.unit/4).reverse()
 
     d += (LineR := elm.Line().down())
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(1)}$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(1)}$')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -336,13 +334,14 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub2.svg') as d:
     d += (R3 := elm.Resistor().down().label('$R_{3}$\n4kΩ', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))
     d += (LineL := elm.Line().at(R1.start).up())
     d += (R4 := elm.Resistor().right().label('$R_{4}$\n4kΩ', loc='top'))
     d += (Vs2 := elm.SourceV().right().label('$V_{S2}$\n12V', loc='top').reverse())
     d += (LineR := elm.Line().down())
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(2)}$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(2)}$')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -356,7 +355,7 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub3.svg') as d:
     d += (R3 := elm.Resistor().down().label('$R_{3}$\n4kΩ', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))    
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n4kΩ', loc='top'))
     d += (LineL := elm.Line().at(R1.start).up())
     d += (R4 := elm.Resistor().right().label('$R_{4}$\n4kΩ', loc='top'))
 
@@ -365,10 +364,8 @@ with schemdraw.Drawing(file='super-example-3-supplies-sub3.svg') as d:
     d += elm.LineDot().right().length(d.unit/4).reverse()
 
     d += (LineR := elm.Line().down())
-    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(3)}$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-1.2).at(R1).label('$I_O^{(3)}$')
 ```
-
-
 
 `````{admonition} Example
 
@@ -471,9 +468,10 @@ with schemdraw.Drawing(file='super-example-dependent.svg') as d:
     d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n12V', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (Is := elm.SourceI().at(R1.end).down().label('$I_{S}$\n2A', loc='top').reverse())       
-    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O$')    
+    d += (Is := elm.SourceI().at(R1.end).down().label('$I_{S}$\n2A', loc='top').reverse())
+    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O$')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -486,9 +484,10 @@ with schemdraw.Drawing(file='super-example-dependent-sub1.svg') as d:
     d += elm.Line().down().length(d.unit/4)
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    d += (Is := elm.SourceI().at(R1.end).down().label('$I_{S}$\n2A', loc='top').reverse())       
-    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O^{(1)}$')    
+    d += (Is := elm.SourceI().at(R1.end).down().label('$I_{S}$\n2A', loc='top').reverse())
+    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O^{(1)}$')
 ```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -499,15 +498,13 @@ with schemdraw.Drawing(file='super-example-dependent-sub2.svg') as d:
     d += (Vs2 := elm.Battery().down().label('$V_{S2}$\n12V', loc='bottom'))
     d += (LineB := elm.Line().left().tox(R1.start))
     d += (GndSig := elm.GroundSignal())
-    
+
     d += elm.LineDot().at(R1.end).down().length(d.unit/4)
     d += (Is := elm.Gap().down().length(d.unit/2))
     d += elm.LineDot().down().length(d.unit/4).reverse()
-        
-    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O^{(2)}$')    
+
+    d += elm.CurrentLabelInline(direction='out', ofst=.9).at(R2).label('$I_O^{(2)}$')
 ```
-
-
 
 `````{admonition} Example
 

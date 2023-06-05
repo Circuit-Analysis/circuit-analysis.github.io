@@ -16,8 +16,6 @@ kernelspec:
 
 # Analyzing Circuits with Transient Signals using Differential Equations
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py

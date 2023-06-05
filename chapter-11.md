@@ -14,8 +14,6 @@ kernelspec:
 
 (content:chapter:otherpassivecomponents)=
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -23,10 +21,12 @@ kernelspec:
 
 # Other Passive Components
 
-So far, we've only looked at resistors as passive components.  Now, we introduce [capacitors](content:section:capacitors) and [inductors](content:section:inductors).
+So far, we've only looked at resistors as passive components. Now, we introduce [capacitors](content:section:capacitors) and [inductors](content:section:inductors).
 
 (content:section:capacitors)=
+
 ## Capacitors
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -39,9 +39,11 @@ A capacitor is a device that stores charge. Supercapacitors are sometimes used a
 ### Physical Characteristics
 
 ```{index} Capacitance
+
 ```
 
 ```{index} Elastance
+
 ```
 
 The relationship between the voltage across a capacitor and the charge stored by the capacitor is
@@ -55,7 +57,7 @@ where $Q$ is the charge measured in coulombs, $V$ is the applied voltage measure
 height: 250px
 name: one-capacitor
 ---
-Schematic representation of a capacitor. 
+Schematic representation of a capacitor.
 ```
 
 Just like resistance has an inverse quantity of conductance, capacitance has an inverse quantity of elastance.
@@ -86,8 +88,6 @@ Just like resistance has an inverse quantity of conductance, capacitance has an 
   - $D$
 ```
 
-
-
 ### Equivalent Capacitance: Series
 
 ```{code-cell} ipython3
@@ -97,16 +97,16 @@ with schemdraw.Drawing(file='series-capacitors.svg') as d:
     d += elm.Capacitor().label('$C_2$')
 
 with schemdraw.Drawing(file='series-capacitors-equivalent.svg') as d:
-    d += elm.Capacitor().label('$D_1 + D_2$')    
+    d += elm.Capacitor().label('$D_1 + D_2$')
 
 with schemdraw.Drawing(file='capacitors-parallel.svg') as d:
     d += elm.Capacitor().label('$C_1$').up()
     d += elm.Line().right()
     d += elm.Capacitor().label('$C_2$').down()
-    d += elm.Line().left()        
+    d += elm.Line().left()
 
 with schemdraw.Drawing(file='parallel-capacitors-equivalent.svg') as d:
-    d += elm.Capacitor().label('$C_1 + C_2$')    
+    d += elm.Capacitor().label('$C_1 + C_2$')
 
 ```
 
@@ -144,7 +144,7 @@ The value of two capacitors in series is commonly expressed as
 
 $$ C_S=\frac{C_1C_2}{C_1+C_2} $$
 
-which is similar to the way the equivalent resistors of resistors in *parallel* is calculated {eq}`resistors-in-parallel`.
+which is similar to the way the equivalent resistors of resistors in _parallel_ is calculated {eq}`resistors-in-parallel`.
 
 ### Equivalent Capacitance: Parallel
 
@@ -191,15 +191,18 @@ v(t)=\frac{1}{C}\int_{t_0}^t i(\tau)d\tau + v(t_0)
 
 For capacitors, these two forms of the capacitor equation take the place of Ohm's Law in the methods of analysis previously introduced.
 
-We shall see in the section *{ref}`content:subsubsub:capacitor`* how we can make the connection to Ohm's Law even more direct.
+We shall see in the section _{ref}`content:subsubsub:capacitor`_ how we can make the connection to Ohm's Law even more direct.
 
 (content:section:inductors)=
+
 ## Inductors
 
 ```{index} Inductance
+
 ```
 
 ```{index} Reluctance
+
 ```
 
 ```{code-cell} ipython3
@@ -215,7 +218,7 @@ with schemdraw.Drawing(file='inductors-parallel.svg') as d:
     d += elm.Inductor().label('$L_1$').up()
     d += elm.Line().right()
     d += elm.Inductor().label('$L_2$').down()
-    d += elm.Line().left()    
+    d += elm.Line().left()
 with schemdraw.Drawing(file='parallel-inductors-equivalent.svg') as d:
     d += elm.Inductor().label('$\cal{R}$$_1$ + $\cal{R}$$_2$', loc='bot')
 ```
@@ -235,7 +238,7 @@ where $\phi$ is the flux measured in webers, $I$ is the current measured in ampe
 height: 250px
 name: one-inductor
 ---
-Schematic representation of an inductor. 
+Schematic representation of an inductor.
 ```
 
 Just like resistance has an inverse quantity of conductance, inductance has an inverse quantity of reluctance.
@@ -265,7 +268,6 @@ Just like resistance has an inverse quantity of conductance, inductance has an i
   - H$^{-1}$
   - $\cal{R}$
 ```
-
 
 ### Equivalent Inductance: Series
 
@@ -307,7 +309,7 @@ name: parallel-inductors-equivalent
 ---
 ```
 
-The *reluctances* add. Recall that
+The _reluctances_ add. Recall that
 
 $$ \mathcal{R}=\frac{1}{L} $$
 
@@ -338,14 +340,14 @@ i(t)=\frac{1}{L}\int_{t_0}^t v(\tau)d\tau + i(t_0)
 
 For inductors, these two forms of the inductor equation take the place of Ohm's Law in the methods of analysis previously introduced.
 
-We shall see in the section *{ref}`content:subsubsub:inductor`* how we can make the connection to Ohm's Law even more direct.
-
+We shall see in the section _{ref}`content:subsubsub:inductor`_ how we can make the connection to Ohm's Law even more direct.
 
 ## Realistic Models of Passive Components
 
-What we have looked at above and earlier are *ideal* resistors, capacitors, and inductors. In reality, each of these devices often exhibits aspects of the other two also. Different models for **real** devices have been developed. They are as follows.
+What we have looked at above and earlier are _ideal_ resistors, capacitors, and inductors. In reality, each of these devices often exhibits aspects of the other two also. Different models for **real** devices have been developed. They are as follows.
 
 ```{index} Realistic Models
+
 ```
 
 ```{code-cell} ipython3
@@ -403,6 +405,7 @@ A realistic resistor model from {cite:ts}`horowitz_x_chapters`.
 * - $C_P$
   - The parallel or shunt capacitance.
 ```
+
 ### A Realistic Capacitor Model
 
 {cite:ts}`agilent_impedance_measurement` presents the following model for a realistic capacitor.

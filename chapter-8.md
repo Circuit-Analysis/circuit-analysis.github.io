@@ -20,8 +20,6 @@ kernelspec:
 
 ```
 
-```{include} includes/latex_imports.md
-```
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -319,14 +317,14 @@ with schemdraw.Drawing(file='nodal-problem-2-current.svg') as d:
     d.pop()
     d += elm.SourceI().label(['$2~$mA', '$I_{S1}$']).label('A', loc='right')
     d += elm.Dot().color('red')
-    
+
     d += (R1 := elm.Resistor().right().label('$R_1$\n4k$\Omega$').label('B', loc='right', ofst=(0,0.25))  )
-    d += elm.Dot().color('red')    
+    d += elm.Dot().color('red')
     d.push()
     d += (R2 := elm.Resistor().down().label('$R_2$\n2$k\Omega$'))
     d.pop()
     d += (R3 := elm.Resistor().right().label('$R_3$\n4k$\Omega$').label(['+', '$V_O$', '-'], loc='bot').label('C', loc='right', ofst=(0,0.25)))
-    d += elm.Dot().color('red')    
+    d += elm.Dot().color('red')
     d += elm.SourceI().label(['$I_{S2}$', '$6~$mA'], loc='bot').down()
     d += elm.Line().left().length(6)
     d.move_from(R1.start, 1, -0.5)
@@ -1157,7 +1155,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies.svg') as d:
     d += elm.Line().up()
     d += elm.Resistor().right().label('$R_4$\n 1$~\Omega$').length(6)
     d += elm.Line().down()
-```    
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -1186,11 +1184,11 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-currents.svg
     d.move_from(R1.end, 0.5,-1)
     d += elm.Arrow().down().color('blue').length(1)
     d.move_from(R2.start, 0.5,-1)
-    d += elm.Arrow().down().color('blue').length(1)  
+    d += elm.Arrow().down().color('blue').length(1)
     d.move_from(R3.start, 0.5,-1)
-    d += elm.Arrow().down().color('blue').length(1)    
+    d += elm.Arrow().down().color('blue').length(1)
     d.move_from(R4.start, 2.5,-0.5)
-    d += elm.Arrow().right().color('blue').length(1)        
+    d += elm.Arrow().right().color('blue').length(1)
 ```
 
 `````{admonition} Example
@@ -1372,7 +1370,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2.svg') as d
     d += elm.Line().up().length(2)
     d += elm.SourceI().right().label('$I_{S2}$\n$2~A$').length(6)
     d += elm.Line().down().length(2)
-    
+
 ```
 
 ```{code-cell} ipython3
@@ -1412,7 +1410,6 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-2-currents.s
     d += elm.Arrow().left().length(1).color('blue')
 
 ```
-
 
 `````{admonition} Example
 
@@ -1550,6 +1547,7 @@ $$
 
 ````
 `````
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -1570,8 +1568,8 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3.svg') as d
     d += elm.Line().left()
     d.pop()
     d += elm.SourceControlledV().right().label('$4I_x$')
-```    
-    
+```
+
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -1608,7 +1606,7 @@ with schemdraw.Drawing(file='nodal-analysis-with-dependent-supplies-3-currents.s
     d += elm.Line().color('orange').length(5).right()
     d += elm.Line().color('orange').length(1.5).up()
     d += elm.Line().color('orange').length(5).left().label('Super Node')
-```    
+```
 
 `````{admonition} Example
 
@@ -1759,7 +1757,7 @@ $$
 with schemdraw.Drawing(file='opamp.svg') as d:
     d += (O1 := elm.Opamp(leads=True).label('Inputs', loc='left').label('Output', loc='right').label('$V_-$', loc='in1').label('$V_+$', loc='in2'))
     d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in1).label('$I_-$')
-    d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in2).label('$I_+$')    
+    d += elm.CurrentLabelInline(direction='in', ofst=-0.5).at(O1.in2).label('$I_+$')
 ```
 
 ```{figure} opamp.svg
@@ -1791,7 +1789,7 @@ with schemdraw.Drawing(file='opamp-dc-gain.svg') as d:
     d += elm.Line().up()
     d += (R3 := elm.Resistor().left().label('$15~k\Omega$').length(3.5))
     d += elm.Line().down().length(2.35)
-```    
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -1816,9 +1814,9 @@ with schemdraw.Drawing(file='opamp-dc-gain-currents.svg') as d:
     d.move_from(R1.end, 1, 0.5)
     d += elm.Arrow().length(1).color('blue').right()
     d.move_from(R3.end, 1.25, -0.5)
-    d += elm.Arrow().length(1).color('blue').right() 
+    d += elm.Arrow().length(1).color('blue').right()
     d.move_from(R2.end, -1, -0.5)
-    d += elm.Arrow().length(1).color('blue').down()  
+    d += elm.Arrow().length(1).color('blue').down()
 ```
 
 `````{admonition} Example
@@ -1939,19 +1937,19 @@ with schemdraw.Drawing(file='opamp-positive.svg') as d:
 with schemdraw.Drawing(file='opamp-positive-currents.svg') as d:
     d += (O1 := elm.Opamp(leads=True).flip())
     d += (L1 := elm.Line().left().at(O1.in2).label('A', loc='left', ofst=(0.5,0)))
-    d += elm.Dot().color('red')    
+    d += elm.Dot().color('red')
     d += elm.SourceV().label('$10~V$').down().reverse().length(6)
     d += elm.GroundSignal()
     d += elm.Line().right()
     d += (R1 := elm.Resistor().up().label('$4~\Omega$').label('B', loc='right', ofst=(0,0.5)))
-    d += elm.Dot().color('red')    
+    d += elm.Dot().color('red')
     d.push()
     d += elm.Line().up().length(1.7)
     d.pop()
     d += (R2:= elm.Resistor().right().label('$12~\Omega$').length(4))
     d += elm.Line().up().length(2.4)
     d += elm.Line().right().at(O1.out).label('C', loc='right', ofst=(0.5,0))
-    d += elm.Dot().color('red')    
+    d += elm.Dot().color('red')
     d += (R3:= elm.Resistor().down().label('$8~\Omega$').length(5.375))
     d += elm.CurrentLabelInline(direction='in', ofst=0.5).at(R3.end).label('$I_O$', loc='bot')
     d += elm.Line().left().length(7)
@@ -2054,7 +2052,6 @@ $$
 
 `````
 
-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -2104,11 +2101,11 @@ with schemdraw.Drawing(file='nodal-opamp-3-currents.svg') as d:
     d.move_from(R1.end, 1, -0.5)
     d += elm.Arrow().color('blue').length(1).right()
     d.move_from(R2.end, 1, -0.5)
-    d += elm.Arrow().color('blue').length(1).right()        
+    d += elm.Arrow().color('blue').length(1).right()
     d.move_from(R4.end, 0.5, -1)
-    d += elm.Arrow().color('blue').length(1).down()    
+    d += elm.Arrow().color('blue').length(1).down()
     d.move_from(R3.start, 0.5, -1)
-    d += elm.Arrow().color('blue').length(1).down()        
+    d += elm.Arrow().color('blue').length(1).down()
 ```
 
 `````{admonition} Example
@@ -2233,7 +2230,6 @@ How will this change if we connect a load resistor to the output?
 ````
 `````
 
-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
@@ -2254,8 +2250,7 @@ with schemdraw.Drawing(file='nodal-opamp-example-54.svg') as d:
     d += (R5 := elm.Resistor().left().label('$72~\Omega$').length(5))
     d += elm.Line().down().length(2.3)
     d += elm.Line().down().length(1.75).at(op.in1)
-```    
-    
+```
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -2297,7 +2292,7 @@ with schemdraw.Drawing(file='nodal-opamp-example-54-currents.svg') as d:
     d += elm.Arrow().color('blue').length(1).at(R4.end, dx=0.5, dy = -0.75).down()
     d += elm.Arrow().color('blue').length(1).at(R1.end, dx=1, dy = -0.75).right()
     d += elm.Arrow().color('blue').length(1).at(R5.end, dx=2, dy = -0.75).right()
-```    
+```
 
 `````{admonition} Example
 
@@ -2601,6 +2596,7 @@ name: nodal-opamp-super-shortcut
 ```
 
 (subsection-nodal-strategy)=
+
 ## Strategy for Nodal Analysis
 
 The examples I've worked are intended to teach you how to deal with the little oddities that arise when performing nodal analysis. If you master these you will be able to analyze any linear electric circuits. I've also shown you how to use the "shortcut" to perform nodal analysis quickly. With practice you may be able to analyze most circuits simply by looking at the circuit and using your calculator to build the system of equations.

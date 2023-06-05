@@ -16,10 +16,6 @@ kernelspec:
 
 # Alternating Current: Differential Equation Approach
 
-```{include} includes/latex_imports.md
-
-```
-
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 :load: includes/python_imports.py
@@ -308,22 +304,25 @@ name: mesh-analysis-differential-equations-meshes
 ---
 ```
 
+**$I_1$ Mesh**
+
 Then, the KVL equation for the $I_1$ mesh is
 
 \begin{align*}
--v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &=& 0\\
-12\cos( 100 t) + I_1(t) R_1 + \ldots \\
-\frac{1}{C} \int I_1(t) dt + (I_1(t) - I_2(t)) R_2 &=& 0\\
-12\cos( 100 t) + 4 I_1(t) + \ldots \\
-1000 \int I_1(t) dt + 5(I_1(t) - I_2(t)) &=& 0
+-v_s(t)  + v_{R1}(t) + v_C(t) + v_{R2}(t) &= 0\\
+-12\cos( 100 t) + I_1(t) R_1 + \ldots \\
+\frac{1}{C} \int I_1(t) + I_2(t) dt + (I_1(t) + I_2(t)) R_2 &= 0\\
+-12\cos( 100 t) + 4 I_1(t) + \ldots \\
+1000 \int I_1(t) + I_2(t) dt + 5(I_1(t) + I_2(t)) &= 0
 \end{align*}
 
 yielding
 
 ```{math}
 :label: loop_1_mesh
-9 I_1(t) + 1000 \int I_1(t) dt - 5 I_2(t)  = -12\cos( 100 t).
+9 I_1(t) + 1000 \int I_1(t) + I_2(t) dt + 5 I_2(t)  = 12\cos( 100 t).
 ```
+**$I_2$ Mesh**
 
 Looking at the $I_2$ mesh, we see that there is a current source and that $I_2$ is in the same direction as $i_S$.
 
@@ -336,54 +335,55 @@ $$
 Substituting this into {eq}`loop_1_mesh` gives
 
 \begin{align*}
-9 I_1(t) + 1000 \int I_1(t) dt - 20 \cos( 100 t + 90^\circ)  &=&\\ -12\cos( 100 t)\\
-9 I_1(t) + 1000 \int I_1(t) dt   &=&\\ -12\cos( 100 t) + 20 \cos( 100 t + 90^\circ)\\
-9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + \tan^{-1}(3/5))\\
-9 I_1(t) + 1000 \int I_1(t) dt &=&\\ -4 \sqrt(34) \sin(100 t + 30.96^\circ)
+9 I_1(t) + 1000 \int I_1(t) &+ 4 \cos( 100 t + 90^\circ) dt \\
+&+ 20 \cos( 100 t + 90^\circ)  = 12\cos( 100 t)\\
+9 I_1(t) + 1000 \int I_1(t) &+ 4 \cos( 100 t + 90^\circ) dt\\
+&= 12\cos( 100 t) - 20 \cos( 100 t + 90^\circ)\\
+9 I_1(t) + 1000 \int I_1(t) dt & \\
+&= 23.32 \cos(100 t - 59.03^\circ) \\
+&- 4000 \int \cos( 100 t + 90^\circ) dt
 \end{align*}
 
 Then, to turn this into a differential equation, we can differentiate both sides with respect to $t$ to get:
 
 \begin{align*}
-9 \frac{d}{dt} I_1(t) + 1000 I_1(t) = -400 \sqrt{34} \cos(100 t + 30.96^\circ)\\
-0.009 \frac{d}{dt} I_1(t) +  I_1(t) = -0.4 \sqrt{34} \cos(100 t + 30.96^\circ)\\
+9 \frac{d}{dt} I_1(t) + 1000 I_1(t) &= -2332 \sin(100 t - 59.03^\circ)\\
+&-4000 \cos( 100 t + 90^\circ) \\
+0.009 \frac{d}{dt} I_1(t) +  I_1(t) &= -2.332 \sin(100 t - 59.03^\circ)\\
 \end{align*}
 
 Again using our integrating factor $\mu(t) = e^{t/0.009}$, we get
 
 $$
-\frac{d}{dt} (\mu(t) I_1(t)) = -400 \sqrt{34} \cos(100 t + 30.96^\circ) \mu(t).
+\frac{d}{dt} (\mu(t) I_1(t)) = -2.332 \sin(100 t - 59.03^\circ) \mu(t).
 $$
 
 Integrating both sides with respect to $t$ gives
 
 \begin{align*}
-e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \int e^{t/0.009} \cos(100 t + 30.96^\circ) dt\\
-e^{t/0.009} I_1(t) + c &=& -0.4 \sqrt{34} \left (0.009 e^{t/0.009} \cos(100 t + 30.96^\circ)\right. \\
-&& + \left . \displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} \right)
+e^{t/0.009} I_1(t) + c &=  -2.332 \int e^{t/0.009}\sin(100 t - 59.03^\circ)  dt \\
+e^{t/0.009} I_1(t) + c &= -0.0156003 e^{t/0.009}  \sin(100 t + 78.98^\circ) + k
 \end{align*}
 
 Rearranging, we get
 
 \begin{align*}
-I_1(t) &=& -0.4 \sqrt{34} \biggl( 0.009 \cos(100 t + 30.96^\circ) \\
-&& +  \left(\displaystyle\frac{0.9 \sin(100 t + 30.96^\circ)}{(10000 (0.009)^2 + 1)} - c \right)e^{-t/0.009} \biggr )
+I_1(t) &= -0.0156003 \sin(100 t + 78.98^\circ) + \kappa e^{-t/0.009}
 \end{align*}
 
 and then after more than $t \gg 5 \times 0.009$ we get
 
 \begin{align*}
-I_1(t) &=& -0.4 \sqrt{34} 0.009 \cos(100 t + 30.96^\circ)\\
- &=& -20.99 \cos(100 t + 30.96^\circ) \mbox{A.}
+I_1(t) &= -0.0156003 \sin(100 t + 78.98^\circ)  \mbox{A.}
 \end{align*}
 
 Then
 
 \begin{align*}
-v_O(t) &=& (I_1(t) + I_2(t)) R_2 \\
-&=& -20.99 \cos(100 t + 30.96^\circ)  \\
-&& + 20 \cos( 100 t + 90^\circ) \\
-&=& 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
+v_O(t) &= (I_1(t) + I_2(t)) R_2 \\
+&= -0.0156003 \sin(100 t + 78.98^\circ)   \\
+&+ 20 \cos( 100 t + 90^\circ) \\
+&= 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
 \end{align*}
 ````
 `````
@@ -405,12 +405,12 @@ with schemdraw.Drawing(file='nodal-analysis-differential-equations.svg') as d:
 
 with schemdraw.Drawing(file='nodal-analysis-differential-equations-nodes.svg') as d:
     d += elm.SourceV().up().label('$v_S(t)$')
-    d += (NodeA := elm.Dot(color='red').label('A'))
+    d += (NodeA := elm.Dot(color='red').label('X'))
     d += elm.Inductor().right().label('$L$\n$100$ mH')
-    d += (NodeB := elm.Dot(color='green').label('B'))
+    d += (NodeB := elm.Dot(color='green').label('Y'))
     d.push()
     d += elm.Capacitor().right().label('$C$\n$100 \mu$F')
-    d += (NodeC := elm.Dot(color='blue').label('C'))
+    d += (NodeC := elm.Dot(color='blue').label('Z'))
     d += elm.Resistor().down().label(['+', '$v_O(t)$', '-']).label('$R$\n$100 \Omega$', loc='bot')
     d += elm.Line().length(6).left()
     d.pop()
@@ -437,7 +437,7 @@ with schemdraw.Drawing(file='nodal-analysis-differential-equations-nodes.svg') a
 Find $v_O(t)$ using nodal analysis where
 
 $$
-v_S(t) = 6 \cos(100 t ) \mbox{V}
+v_S(t) = 6 \cos(100t) \mbox{V}
 $$
 
 and
@@ -466,30 +466,65 @@ name: nodal-analysis-differential-equations-nodes
 ---
 ```
 
+**Inductor Current**
 
-**Node $\color{red}{\bf A}$ :**
-
-At node $\color{red}{\text{A}}$ we can immediately see that
-
-$$
-v_A(t) = v_S(t)
-$$
-
-**Node $\color{green}{\bf B}$ :**
-
-At node $\color{green}{\text{B}}$, the KCL equation is
+The current in inductor $L$ can be derived from
 
 $$
-i_L(t) - i_S(t) - i_C(t) = 0
+v_L(t) = L \frac{d}{dt} i_L(t)
 $$
 
-**Node $\color{blue}{\bf C}$ :**
+so
 
-At node $\color{blue}{\text{C}}$, the KCL equation is
+\begin{align*}
+i_L(t) &= \frac{1}{L} \int v_L(t) dt + c\\
+&= \frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c
+\end{align*}
+
+which is in terms of the node voltages.
+
+**Capacitor Current**
+
+The current in the capacitor $C$ is
 
 $$
-i_C(t) - i_R(t) = 0
+i_C(t) = C \frac{d}{dt} v_C(t) = C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right)
 $$
+
+**Resistor Current**
+
+The current in the resistor $R$ is
+
+$$
+i_R(t) = v_Z(t)/R
+$$
+
+**Node $\color{red}{\bf X}$ :**
+
+At node $\color{red}{\text{X}}$ we can immediately see that
+
+$$
+v_X(t) = v_S(t) = 6 \cos(100t)
+$$
+
+**Node $\color{green}{\bf Y}$ :**
+
+At node $\color{green}{\text{Y}}$, the KCL equation is
+
+\begin{align*}
+i_L(t) - i_S(t) - i_C(t) &= 0\\
+\frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c &\\
+- 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &= 0
+\end{align*}
+
+**Node $\color{blue}{\bf Z}$ :**
+
+At node $\color{blue}{\text{Z}}$, the KCL equation is
+
+\begin{align*}
+i_C(t) - i_R(t) &= 0\\
+C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &= 0
+\end{align*}
 
 
 
