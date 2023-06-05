@@ -332,7 +332,9 @@ $$
 I_2(t) = i_S(t) = 4 \cos( 100 t + 90^\circ) \mbox{A}.
 $$
 
-Substituting this into {eq}`loop_1_mesh` gives
+**Combining the $I_1$ and $I_2$ equations**
+
+Substituting this expression for $I_2$ into {eq}`loop_1_mesh` gives
 
 \begin{align*}
 9 I_1(t) + 1000 \int I_1(t) &+ 4 \cos( 100 t + 90^\circ) dt \\
@@ -379,6 +381,8 @@ and then after more than $t \gg 5 \times 0.009$ we get
 \begin{align*}
 I_1(t) &= 2.55741 \cos(100t + 263.54^\circ) \mbox{A.}
 \end{align*}
+
+**Solving for $v_O(t)$**
 
 Then
 
