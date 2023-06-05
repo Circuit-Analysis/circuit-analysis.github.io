@@ -25,6 +25,12 @@ A \cos(\omega t + B) &= A \sin(\frac{\pi}{2} - (\omega t + B))\\
 &= -A \sin(\omega t + B -\frac{\pi}{2})
 \end{align*}
 
+### $\sin(\cdot)$ to $\cos(\cdot)$
+
+\begin{align*}
+A \sin(\omega t + B) &= -A \cos(\omega t + B +\frac{\pi}{2})
+\end{align*}
+
 ### Adding two cosine waves of the same frequency
 
 \begin{align*}

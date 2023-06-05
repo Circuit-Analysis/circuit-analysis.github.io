@@ -349,41 +349,44 @@ Then, to turn this into a differential equation, we can differentiate both sides
 \begin{align*}
 9 \frac{d}{dt} I_1(t) + 1000 I_1(t) &= -2332 \sin(100 t - 59.03^\circ)\\
 &-4000 \cos( 100 t + 90^\circ) \\
-0.009 \frac{d}{dt} I_1(t) +  I_1(t) &= -2.332 \sin(100 t - 59.03^\circ)\\
+\frac{d}{dt} I_1(t) +  111.111 I_1(t) &= 259.11 \cos(100 t + 30.97^\circ)\\
+&-444.444 \cos( 100 t + 90^\circ) \\
+\frac{d}{dt} I_1(t) +  111.111 I_1(t) &=   382.294 \cos(100 t -54.47^\circ)\\
 \end{align*}
 
 Again using our integrating factor $\mu(t) = e^{t/0.009}$, we get
 
 $$
-\frac{d}{dt} (\mu(t) I_1(t)) = -2.332 \sin(100 t - 59.03^\circ) \mu(t).
+\frac{d}{dt} (\mu(t) I_1(t)) = 382.294 \cos(100 t -54.47^\circ) \mu(t).
 $$
 
 Integrating both sides with respect to $t$ gives
 
 \begin{align*}
-e^{t/0.009} I_1(t) + c &=  -2.332 \int e^{t/0.009}\sin(100 t - 59.03^\circ)  dt \\
-e^{t/0.009} I_1(t) + c &= -0.0156003 e^{t/0.009}  \sin(100 t + 78.98^\circ) + k
+e^{t/0.009} I_1(t) + c &=  382.294 \int e^{t/0.009}  \cos(100 t -54.47^\circ)  dt \\
+e^{t/0.009} I_1(t) + c &= -2.55741 e^{t/0.009}  \sin(100 t + 173.54^\circ) + k
 \end{align*}
 
 Rearranging, we get
 
 \begin{align*}
-I_1(t) &= -0.0156003 \sin(100 t + 78.98^\circ) + \kappa e^{-t/0.009}
+I_1(t) &= -2.55741 e^{t/0.009}  \sin(100 t + 173.54^\circ)  + \kappa e^{-t/0.009}\\
+&= 2.55741 \cos(100t + 263.54^\circ) + \kappa e^{-t/0.009}
 \end{align*}
 
 and then after more than $t \gg 5 \times 0.009$ we get
 
 \begin{align*}
-I_1(t) &= -0.0156003 \sin(100 t + 78.98^\circ)  \mbox{A.}
+I_1(t) &= 2.55741 \cos(100t + 263.54^\circ) \mbox{A.}
 \end{align*}
 
 Then
 
 \begin{align*}
 v_O(t) &= (I_1(t) + I_2(t)) R_2 \\
-&= -0.0156003 \sin(100 t + 78.98^\circ)   \\
+&=  12.78705 \cos(100t + 263.54^\circ)   \\
 &+ 20 \cos( 100 t + 90^\circ) \\
-&= 20.215 \cos(100 t + 152.92^\circ) \mbox{V.}
+&= 7.4347 \cos(100 t + 101.16^\circ) \mbox{V.}
 \end{align*}
 ````
 `````
