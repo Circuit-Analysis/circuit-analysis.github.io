@@ -31,6 +31,20 @@ A \cos(\omega t + B) &= A \sin(\frac{\pi}{2} - (\omega t + B))\\
 A \sin(\omega t + B) &= -A \cos(\omega t + B +\frac{\pi}{2})
 \end{align*}
 
+## Trigonometric Integrals
+
+### Integral of $\cos(\omega t + \theta)$
+
+\begin{align*}
+\int \cos(\omega t + \theta) dt &= \frac{1}{\omega} \sin(\omega t + \theta) + c
+\end{align*}
+
+### Integral of $\sin(\omega t + \theta)$
+
+\begin{align*}
+\int \sin(\omega t + \theta) dt &= - \frac{1}{\omega} \cos(\omega t + \theta) + c
+\end{align*}
+
 ### Adding two cosine waves of the same frequency
 
 \begin{align*}

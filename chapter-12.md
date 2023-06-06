@@ -521,8 +521,19 @@ At node $\color{green}{\text{Y}}$, the KCL equation is
 \begin{align*}
 i_L(t) - i_S(t) - i_C(t) &= 0\\
 \frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c &\\
+- 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &= 0\\
+\frac{1}{L} \int \left(6 \cos(100t) - v_Y(t)\right) dt + c &\\
 - 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &= 0
 \end{align*}
+
+Taking the derivative with respect to $t$ gives
+
+\begin{align*}
+\frac{6}{L}  \cos(100t) &- \frac{1}{L} v_Y(t)\\
+& + 400 \sin(100 t + 45^\circ) - C \frac{d^2}{dt^2} \left( v_Y(t) - v_Z(t) \right) \\
+&= 0
+\end{align*}
+
 
 **Node $\color{blue}{\bf Z}$ :**
 
@@ -530,9 +541,16 @@ At node $\color{blue}{\text{Z}}$, the KCL equation is
 
 \begin{align*}
 i_C(t) - i_R(t) &= 0\\
-C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &= 0
+C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &= 0\\
+RC \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t) &= 0
 \end{align*}
 
+Then, integrating the equation gives:
+
+\begin{align*}
+RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &= 0\\
+v_Y(t) = \frac{1}{RC} v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c
+\end{align*}
 
 
 ````
