@@ -528,11 +528,12 @@ i_L(t) - i_S(t) - i_C(t) &= 0\\
 
 Taking the derivative with respect to $t$ gives
 
-\begin{align*}
-\frac{6}{L}  \cos(100t) &- \frac{1}{L} v_Y(t)\\
-& + 400 \sin(100 t + 45^\circ) - C \frac{d^2}{dt^2} \left( v_Y(t) - v_Z(t) \right) \\
-&= 0
-\end{align*}
+```{math}
+:label: node_y_equation
+&\frac{6}{L}  \cos(100t) - \frac{1}{L} v_Y(t)\\
+&+ 400 \sin(100 t + 45^\circ)\\
+&- C \frac{d^2}{dt^2} \left( v_Y(t) - v_Z(t) \right) = 0
+```
 
 
 **Node $\color{blue}{\bf Z}$ :**
@@ -548,8 +549,56 @@ RC \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t) &= 0
 Then, integrating the equation gives:
 
 \begin{align*}
-RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &= 0\\
-v_Y(t) = \frac{1}{RC} v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c
+RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &= 0
+\end{align*}
+
+```{math}
+:label: node_z_equation
+v_Y(t) =  v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c
+```
+**Substituting**
+
+Substitution of {eq}`node_z_equation` into {eq}`node_y_equation` then yields:
+
+\begin{align*}
+&\frac{6}{L}  \cos(100t) \\
+&- \frac{1}{L} ( v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c)\\
+& + 400 \sin(100 t + 45^\circ) \\
+&- C \frac{d^2}{dt^2} \left(v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c - v_Z(t) \right) \\
+&= 0
+\end{align*}
+
+which gives
+
+\begin{align*}
+&\frac{6}{L}  \cos(100t) \\
+&- \frac{1}{L} v_Z(t) - \frac{1}{RCL} \int v_Z(t) dt - \frac{c}{L} \\
+& + 400 \sin(100 t + 45^\circ) \\
+&- \frac{d^2}{dt^2} \left(  \frac{1}{R} \int v_Z(t) dt + c \right) \\
+&= 0
+\end{align*}
+
+or
+
+\begin{align*}
+&\frac{6}{L}  \cos(100t) \\
+&- \frac{1}{L} v_Z(t) - \frac{1}{RCL} \int v_Z(t) dt - \frac{c}{L} \\
+& + 400 \sin(100 t + 45^\circ) \\
+&- \frac{1}{R} \frac{d v_Z(t)}{dt}  \\
+&= 0
+\end{align*}
+
+Taking the derivative of the equation with respect to $t$ yields
+
+\begin{align*}
+&-\frac{600}{L}  \sin(100t) \\
+&- \frac{1}{L} \frac{d v_Z(t)}{dt} - \frac{1}{RCL} v_Z(t) \\
+& + 40000 \cos(100 t + 45^\circ) \\
+&- \frac{1}{R} \frac{d^2 v_Z(t)}{dt^2}  \\
+&= 0\\
+
+& 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+&6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)
 \end{align*}
 
 

@@ -31,6 +31,20 @@ A \cos(\omega t + B) &= A \sin(\frac{\pi}{2} - (\omega t + B))\\
 A \sin(\omega t + B) &= -A \cos(\omega t + B +\frac{\pi}{2})
 \end{align*}
 
+## Trigonometric Derivatives
+
+### Derivative of $\cos(\omega t + \theta)$
+
+\begin{align*}
+\frac{d}{dt} \left ( \cos(\omega t + \theta) \right ) = - \omega \sin(\omega t + \theta)
+\end{align*}
+
+### Derivative of $\sin(\omega t + \theta)$
+
+\begin{align*}
+\frac{d}{dt} \left ( \sin(\omega t + \theta) \right ) = \omega \cos(\omega t + \theta)
+\end{align*}
+
 ## Trigonometric Integrals
 
 ### Integral of $\cos(\omega t + \theta)$
