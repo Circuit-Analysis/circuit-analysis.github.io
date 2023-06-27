@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
-    <link rel="prev" title="Analyzing Circuits with Transient Signals using Differential Equations" href="chapter-19.html" />
+    <link rel="prev" title="More Complex Circuits using the “Step-by-step Method”" href="chapter-16.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -203,27 +203,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-15.html">
-   A Simpler Approach: Complex Power
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-16.html">
-   Power Factor Correction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-17.html">
    Transients in Capacitors and Inductors
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chapter-18.html">
+  <a class="reference internal" href="chapter-16.html">
    More Complex Circuits using the “Step-by-step Method”
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-19.html">
-   Analyzing Circuits with Transient Signals using Differential Equations
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -468,6 +453,52 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trigonometric-derivatives">
+   Trigonometric Derivatives
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivative-of-cos-omega-t-theta">
+     Derivative of
+     <span class="math notranslate nohighlight">
+      \(\cos(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivative-of-sin-omega-t-theta">
+     Derivative of
+     <span class="math notranslate nohighlight">
+      \(\sin(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trigonometric-integrals">
+   Trigonometric Integrals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-of-cos-omega-t-theta">
+     Integral of
+     <span class="math notranslate nohighlight">
+      \(\cos(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-of-sin-omega-t-theta">
+     Integral of
+     <span class="math notranslate nohighlight">
+      \(\sin(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adding-two-cosine-waves-of-the-same-frequency">
      Adding two cosine waves of the same frequency
@@ -521,6 +552,52 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trigonometric-derivatives">
+   Trigonometric Derivatives
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivative-of-cos-omega-t-theta">
+     Derivative of
+     <span class="math notranslate nohighlight">
+      \(\cos(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivative-of-sin-omega-t-theta">
+     Derivative of
+     <span class="math notranslate nohighlight">
+      \(\sin(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trigonometric-integrals">
+   Trigonometric Integrals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-of-cos-omega-t-theta">
+     Integral of
+     <span class="math notranslate nohighlight">
+      \(\cos(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-of-sin-omega-t-theta">
+     Integral of
+     <span class="math notranslate nohighlight">
+      \(\sin(\omega t + \theta)\)
+     </span>
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adding-two-cosine-waves-of-the-same-frequency">
      Adding two cosine waves of the same frequency
@@ -555,6 +632,40 @@ A \cos(\omega t + B) &amp;= A \sin(\frac{\pi}{2} - (\omega t + B))\\
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 A \sin(\omega t + B) &amp;= -A \cos(\omega t + B +\frac{\pi}{2})
+\end{align*}\]</div>
+</section>
+</section>
+<section id="trigonometric-derivatives">
+<h2>Trigonometric Derivatives<a class="headerlink" href="#trigonometric-derivatives" title="Permalink to this heading">#</a></h2>
+<section id="derivative-of-cos-omega-t-theta">
+<h3>Derivative of <span class="math notranslate nohighlight">\(\cos(\omega t + \theta)\)</span><a class="headerlink" href="#derivative-of-cos-omega-t-theta" title="Permalink to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{d}{dt} \left ( \cos(\omega t + \theta) \right ) = - \omega \sin(\omega t + \theta)
+\end{align*}\]</div>
+</section>
+<section id="derivative-of-sin-omega-t-theta">
+<h3>Derivative of <span class="math notranslate nohighlight">\(\sin(\omega t + \theta)\)</span><a class="headerlink" href="#derivative-of-sin-omega-t-theta" title="Permalink to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{d}{dt} \left ( \sin(\omega t + \theta) \right ) = \omega \cos(\omega t + \theta)
+\end{align*}\]</div>
+</section>
+</section>
+<section id="trigonometric-integrals">
+<h2>Trigonometric Integrals<a class="headerlink" href="#trigonometric-integrals" title="Permalink to this heading">#</a></h2>
+<section id="integral-of-cos-omega-t-theta">
+<h3>Integral of <span class="math notranslate nohighlight">\(\cos(\omega t + \theta)\)</span><a class="headerlink" href="#integral-of-cos-omega-t-theta" title="Permalink to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int \cos(\omega t + \theta) dt &amp;= \frac{1}{\omega} \sin(\omega t + \theta) + c
+\end{align*}\]</div>
+</section>
+<section id="integral-of-sin-omega-t-theta">
+<h3>Integral of <span class="math notranslate nohighlight">\(\sin(\omega t + \theta)\)</span><a class="headerlink" href="#integral-of-sin-omega-t-theta" title="Permalink to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int \sin(\omega t + \theta) dt &amp;= - \frac{1}{\omega} \cos(\omega t + \theta) + c
 \end{align*}\]</div>
 </section>
 <section id="adding-two-cosine-waves-of-the-same-frequency">
@@ -605,11 +716,11 @@ A \cos(\omega t + B) + C \cos(\omega t + D) &amp;= \Re\{A e^{j (\omega t + B)} +
                 
     
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="chapter-19.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="chapter-16.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyzing Circuits with Transient Signals using Differential Equations</p>
+            <p class="prev-next-title">More Complex Circuits using the “Step-by-step Method”</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="genindex.html" title="next page">
@@ -648,13 +759,4 @@ A \cos(\omega t + B) + C \cos(\omega t + D) &amp;= \Re\{A e^{j (\omega t + B)} +
 
 
   </body>
-</html>
-
-
-
-
-
-
-
-
-<!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->
+</html><!-- bec411b25e053e5ab767c21b8fa1ecafa059af38 -->

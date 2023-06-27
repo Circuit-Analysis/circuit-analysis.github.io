@@ -203,27 +203,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-15.html">
-   A Simpler Approach: Complex Power
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-16.html">
-   Power Factor Correction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-17.html">
    Transients in Capacitors and Inductors
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chapter-18.html">
+  <a class="reference internal" href="chapter-16.html">
    More Complex Circuits using the “Step-by-step Method”
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-19.html">
-   Analyzing Circuits with Transient Signals using Differential Equations
   </a>
  </li>
  <li class="toctree-l1">
@@ -833,14 +818,69 @@ v_X(t) = v_S(t) = 6 \cos(100t)
 \[\begin{align*}
 i_L(t) - i_S(t) - i_C(t) &amp;= 0\\
 \frac{1}{L} \int \left(v_X(t) - v_Y(t)\right) dt + c &amp;\\
+- 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &amp;= 0\\
+\frac{1}{L} \int \left(6 \cos(100t) - v_Y(t)\right) dt + c &amp;\\
 - 4 \cos(100 t + 45^\circ) - C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) &amp;= 0
 \end{align*}\]</div>
+<p>Taking the derivative with respect to <span class="math notranslate nohighlight">\(t\)</span> gives</p>
+<div class="math notranslate nohighlight" id="equation-node-y-equation">
+<span class="eqno">(20)<a class="headerlink" href="#equation-node-y-equation" title="Permalink to this equation">#</a></span>\[\begin{split}&amp;\frac{6}{L}  \cos(100t) - \frac{1}{L} v_Y(t)\\
+&amp;+ 400 \sin(100 t + 45^\circ)\\
+&amp;- C \frac{d^2}{dt^2} \left( v_Y(t) - v_Z(t) \right) = 0\end{split}\]</div>
 <p><strong>Node <span class="math notranslate nohighlight">\(\color{blue}{\bf Z}\)</span> :</strong></p>
 <p>At node <span class="math notranslate nohighlight">\(\color{blue}{\text{Z}}\)</span>, the KCL equation is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 i_C(t) - i_R(t) &amp;= 0\\
-C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &amp;= 0
+C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &amp;= 0\\
+RC \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t) &amp;= 0
+\end{align*}\]</div>
+<p>Then, integrating the equation gives:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &amp;= 0
+\end{align*}\]</div>
+<div class="math notranslate nohighlight" id="equation-node-z-equation">
+<span class="eqno">(21)<a class="headerlink" href="#equation-node-z-equation" title="Permalink to this equation">#</a></span>\[v_Y(t) =  v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c\]</div>
+<p><strong>Substituting</strong></p>
+<p>Substitution of <a class="reference internal" href="#equation-node-z-equation">(21)</a> into <a class="reference internal" href="#equation-node-y-equation">(20)</a> then yields:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\frac{6}{L}  \cos(100t) \\
+&amp;- \frac{1}{L} ( v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c)\\
+&amp; + 400 \sin(100 t + 45^\circ) \\
+&amp;- C \frac{d^2}{dt^2} \left(v_Z(t) + \frac{1}{RC} \int v_Z(t) dt + c - v_Z(t) \right) \\
+&amp;= 0
+\end{align*}\]</div>
+<p>which gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\frac{6}{L}  \cos(100t) \\
+&amp;- \frac{1}{L} v_Z(t) - \frac{1}{RCL} \int v_Z(t) dt - \frac{c}{L} \\
+&amp; + 400 \sin(100 t + 45^\circ) \\
+&amp;- \frac{d^2}{dt^2} \left(  \frac{1}{R} \int v_Z(t) dt + c \right) \\
+&amp;= 0
+\end{align*}\]</div>
+<p>or</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\frac{6}{L}  \cos(100t) \\
+&amp;- \frac{1}{L} v_Z(t) - \frac{1}{RCL} \int v_Z(t) dt - \frac{c}{L} \\
+&amp; + 400 \sin(100 t + 45^\circ) \\
+&amp;- \frac{1}{R} \frac{d v_Z(t)}{dt}  \\
+&amp;= 0
+\end{align*}\]</div>
+<p>Taking the derivative of the equation with respect to <span class="math notranslate nohighlight">\(t\)</span> yields</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;-\frac{600}{L}  \sin(100t) \\
+&amp;- \frac{1}{L} \frac{d v_Z(t)}{dt} - \frac{1}{RCL} v_Z(t) \\
+&amp; + 40000 \cos(100 t + 45^\circ) \\
+&amp;- \frac{1}{R} \frac{d^2 v_Z(t)}{dt^2}  \\
+&amp;= 0\\
+
+&amp; 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+&amp;6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)
 \end{align*}\]</div>
 </div>
 </div>
@@ -927,4 +967,4 @@ C \frac{d}{dt} \left( v_Y(t) - v_Z(t) \right) - v_Z(t)/R &amp;= 0
 
 
   </body>
-</html><!-- 42d921bfee118db87ed0f4b7d735172983422b99 -->
+</html><!-- bec411b25e053e5ab767c21b8fa1ecafa059af38 -->
