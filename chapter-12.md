@@ -42,7 +42,6 @@ with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
 
 `````{admonition} Example
 
-
 ```{figure} voltage-divider-resistor-inductor.svg
 ---
 height: 300px
@@ -54,6 +53,7 @@ Find v$_O$(t) given that $v_I(t)=4 \cos(10000t+45^\circ)$ V
 
 ````{admonition} Solution using differential equations
 :class: tip, dropdown
+
 First remember that
 
 $$v_O(t) = L \frac{d~i(t)}{dt}$$
@@ -596,11 +596,101 @@ Taking the derivative of the equation with respect to $t$ yields
 & + 40000 \cos(100 t + 45^\circ) \\
 &- \frac{1}{R} \frac{d^2 v_Z(t)}{dt^2}  \\
 &= 0\\
-
 & 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
-&6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)
+&6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)\\
+& 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+&-6000 \cos(100t + 90^\circ) - 40000 \cos(100 t + 45^\circ)\\
+& 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+& 44446 \cos(100 t - 129.5^\circ)
 \end{align*}
 
+We can then solve this using {cite:ts}`paul_dawkins_math_notes_second_order` to find the homogenous and particular solutions.
+
+**Homogenous Solution**
+
+The characteristic equation for the homogenous solutions is
+
+$$ 0.01 r^2 - 10 r - 1000 = 0$$
+
+which has solutions
+
+\begin{align*}
+r &= \frac{ 10 \pm \sqrt{100 - 4 \times 0.01 \times -1000}}{2 \times 0.01}\\
+&= 1091.6 \mbox{ or  } -91.6
+\end{align*}
+
+So the homogenous solution is
+\begin{align*}
+v_{Z_h}(t) = c_1 e^{1091.6 t} + c_2 e^{-91.6 t}
+\end{align*}
+where $c_1$ and $c_2$ are constants that need to be determined by initial or other conditions on $v_{Z_h}(t)$.
+
+**Particular Solution**
+
+To find the particular solution, assume
+
+$$
+v_{Z_p}(t) = A \cos(100 t + B)
+$$
+
+Substituting this into the left-hand side of the differential equation gives
+\begin{align*}
+&- 0.01 \times 100^2 A \cos(100 t + B)\\
+&- 10 \times (-100 A \sin( 100 t + B))\\
+& - 1000 A \cos(100 t + B)\\
+&=\\
+&- 100 A \cos(100 t + B)\\
+&+ 1000 A \sin( 100 t + B)\\
+& - 1000 A \cos(100 t + B)\\
+&=\\
+&- 100 A \cos(100 t + B)\\
+&- 1000 A \cos( 100 t + B + 90^\circ)\\
+& - 1000 A \cos(100 t + B)\\
+&= 1486 A \cos(100 t + B - 137^\circ)
+\end{align*}
+
+Equating the two sides of the equation
+\begin{align*}
+& 1486 A \cos(100 t + B - 137^\circ) \\
+& = 44446 \cos(100 t - 129.5^\circ)
+\end{align*}
+shows that
+
+$$
+A = 44446/1486 = 29.91
+$$
+
+and
+
+$$
+B = 7.5^\circ
+$$
+
+so that
+
+$$
+v_{Z_p}(t) = 29.91 \cos(100 t + 7.5^\circ) \mbox{V}
+$$
+
+**Finding $v_Y(t)$**
+
+Then we can substitute $v_{Z_p}(t)$ into {eq}`node_z_equation` to get
+
+\begin{align*}
+v_Y(t) &=  29.91 \cos(100 t + 7.5^\circ) + \frac{1}{RC} \int 29.91 \cos(100 t + 7.5^\circ) dt + c\\
+&= 29.91 \cos(100 t + 7.5^\circ) + 100 \int 29.91 \cos(100 t + 7.5^\circ) dt + c\\
+&= 29.91 \cos(100 t + 7.5^\circ) +  29.91 \sin(100 t + 7.5^\circ) + c\\
+&= 29.91 \cos(100 t + 7.5^\circ) -  29.91 \cos(100 t + 97.5^\circ) + c\\
+&= 42.299 \cos(100 t - 37.5^\circ)
+\end{align*}
+
+** Finding $v_O(t)$**
+
+Then
+
+$$
+v_O(t) = v_Z(t) = 29.91 \cos(100 t + 7.5^\circ) \mbox{V}.
+$$
 
 ````
 `````
