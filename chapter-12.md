@@ -685,7 +685,7 @@ v_Y(t) &=  29.91 \cos(100 t + 7.5^\circ) + \frac{1}{RC} \int 29.91 \cos(100 t + 
 &= 42.299 \cos(100 t - 37.5^\circ)
 \end{align*}
 
-** Finding $v_O(t)$**
+**Finding $v_O(t)$**
 
 Then
 
