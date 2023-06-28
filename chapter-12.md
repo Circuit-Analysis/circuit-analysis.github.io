@@ -42,6 +42,7 @@ with schemdraw.Drawing(file='voltage-divider-resistor-inductor.svg') as d:
 
 `````{admonition} Example
 
+
 ```{figure} voltage-divider-resistor-inductor.svg
 ---
 height: 300px
