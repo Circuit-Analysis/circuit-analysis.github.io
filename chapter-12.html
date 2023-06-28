@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -34,7 +34,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -59,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Alternating Current: Phasors" href="chapter-13.html" />
     <link rel="prev" title="Other Passive Components" href="chapter-11.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     
@@ -506,13 +505,13 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="alternating-current-differential-equation-approach">
-<span id="content-chapter-differentialequations"></span><h1>Alternating Current: Differential Equation Approach<a class="headerlink" href="#alternating-current-differential-equation-approach" title="Permalink to this heading">#</a></h1>
+<span id="content-chapter-differentialequations"></span><h1>Alternating Current: Differential Equation Approach<a class="headerlink" href="#alternating-current-differential-equation-approach" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>Before moving to phasor analysis of resistive, capacitive, and inductive circuits, this chapter looks at analysis of such circuits using differential equations directly. The aim is to show that phasor analysis makes our lives <em>much</em> easier.</p>
-<p>For an excellent review of the mathematics of solving linear, first order, constant coefficient differential equations, see <span id="id1">Dawkins [<a class="reference internal" href="#id13" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>.</p>
+<p>For an excellent review of the mathematics of solving linear, first order, constant coefficient differential equations, see <span id="id1">Dawkins [<a class="reference internal" href="#id14" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>.</p>
 <section id="voltage-divider">
-<h2>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this heading">#</a></h2>
+<h2>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-0">
@@ -535,10 +534,10 @@ title="Print to PDF"
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[ 4 \cos(10000t+45^\circ) = R i(t) + L \frac{d~i(t)}{dt}\]</div>
-<p>Now, we need to solve this linear, first order differential equation (<span id="id2">Dawkins [<a class="reference internal" href="#id13" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>).</p>
+<p>Now, we need to solve this linear, first order differential equation (<span id="id2">Dawkins [<a class="reference internal" href="#id14" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span>).</p>
 <div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
-<p><span id="id3">Dawkins [<a class="reference internal" href="#id13" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span> says to:</p>
+<p><span id="id3">Dawkins [<a class="reference internal" href="#id14" title="Paul Dawkins. Differential Equations - Linear Equations. https://tutorial.math.lamar.edu/classes/de/Linear.aspx, 2022. [Online; accessed 14-March-2023].">2022</a>]</span> says to:</p>
 <ul class="simple">
 <li><p>Put the differential equation in the correct initial form.</p></li>
 </ul>
@@ -604,7 +603,7 @@ v_O(t) &amp;= L \frac{d~i(t)}{dt} \\
 </div>
 </section>
 <section id="current-divider">
-<h2>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this heading">#</a></h2>
+<h2>Current Divider<a class="headerlink" href="#current-divider" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container" id="index-1">
 </div>
 <div class="admonition-example admonition">
@@ -657,7 +656,7 @@ i_O(t) &amp;= C \frac{d~v(t)}{dt} \\
 </div>
 </section>
 <section id="mesh-analysis">
-<h2>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-2">
@@ -757,7 +756,7 @@ v_O(t) &amp;= (I_1(t) + I_2(t)) R_2 \\
 </div>
 </section>
 <section id="nodal-analysis">
-<h2>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-3">
@@ -878,19 +877,101 @@ RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &amp;= 0
 &amp; + 40000 \cos(100 t + 45^\circ) \\
 &amp;- \frac{1}{R} \frac{d^2 v_Z(t)}{dt^2}  \\
 &amp;= 0\\
-
 &amp; 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
-&amp;6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)
+&amp;6000 \sin(100t) - 40000 \cos(100 t + 45^\circ)\\
+&amp; 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+&amp;-6000 \cos(100t + 90^\circ) - 40000 \cos(100 t + 45^\circ)\\
+&amp; 0.01 \frac{d^2 v_Z(t)}{dt^2}  - 10 \frac{d v_Z(t)}{dt} - 1000 v_Z(t) = \\
+&amp; 44446 \cos(100 t - 129.5^\circ)
 \end{align*}\]</div>
+<p>We can then solve this using <span id="id4">Dawkins [<a class="reference internal" href="#id15" title="Paul Dawkins. Differential Equations - Second Order DEs. https://tutorial.math.lamar.edu/Classes/DE/SecondOrderConcepts.aspx, 2022. [Online; accessed 28-June-2023].">2022</a>]</span> to find the homogenous and particular solutions.</p>
+<p><strong>Homogenous Solution</strong></p>
+<p>The characteristic equation for the homogenous solutions is</p>
+<div class="math notranslate nohighlight">
+\[ 0.01 r^2 - 10 r - 1000 = 0\]</div>
+<p>which has solutions</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+r &amp;= \frac{ 10 \pm \sqrt{100 - 4 \times 0.01 \times -1000}}{2 \times 0.01}\\
+&amp;= 1091.6 \mbox{ or  } -91.6
+\end{align*}\]</div>
+<p>So the homogenous solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+v_{Z_h}(t) = c_1 e^{1091.6 t} + c_2 e^{-91.6 t}
+\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are constants that need to be determined by initial or other conditions on <span class="math notranslate nohighlight">\(v_{Z_h}(t)\)</span>.</p>
+<p><strong>Particular Solution</strong></p>
+<p>To find the particular solution, assume</p>
+<div class="math notranslate nohighlight">
+\[
+v_{Z_p}(t) = A \cos(100 t + B)
+\]</div>
+<p>Substituting this into the left-hand side of the differential equation gives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;- 0.01 \times 100^2 A \cos(100 t + B)\\
+&amp;- 10 \times (-100 A \sin( 100 t + B))\\
+&amp; - 1000 A \cos(100 t + B)\\
+&amp;=\\
+&amp;- 100 A \cos(100 t + B)\\
+&amp;+ 1000 A \sin( 100 t + B)\\
+&amp; - 1000 A \cos(100 t + B)\\
+&amp;=\\
+&amp;- 100 A \cos(100 t + B)\\
+&amp;- 1000 A \cos( 100 t + B + 90^\circ)\\
+&amp; - 1000 A \cos(100 t + B)\\
+&amp;= 1486 A \cos(100 t + B - 137^\circ)
+\end{align*}\]</div>
+<p>Equating the two sides of the equation</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; 1486 A \cos(100 t + B - 137^\circ) \\
+&amp; = 44446 \cos(100 t - 129.5^\circ)
+\end{align*}\]</div>
+<p>shows that</p>
+<div class="math notranslate nohighlight">
+\[
+A = 44446/1486 = 29.91
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+B = 7.5^\circ
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+v_{Z_p}(t) = 29.91 \cos(100 t + 7.5^\circ) \mbox{V}
+\]</div>
+<p><strong>Finding <span class="math notranslate nohighlight">\(v_Y(t)\)</span></strong></p>
+<p>Then we can substitute <span class="math notranslate nohighlight">\(v_{Z_p}(t)\)</span> into <a class="reference internal" href="#equation-node-z-equation">(21)</a> to get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+v_Y(t) &amp;=  29.91 \cos(100 t + 7.5^\circ) + \frac{1}{RC} \int 29.91 \cos(100 t + 7.5^\circ) dt + c\\
+&amp;= 29.91 \cos(100 t + 7.5^\circ) + 100 \int 29.91 \cos(100 t + 7.5^\circ) dt + c\\
+&amp;= 29.91 \cos(100 t + 7.5^\circ) +  29.91 \sin(100 t + 7.5^\circ) + c\\
+&amp;= 29.91 \cos(100 t + 7.5^\circ) -  29.91 \cos(100 t + 97.5^\circ) + c\\
+&amp;= 42.299 \cos(100 t - 37.5^\circ)
+\end{align*}\]</div>
+<p>** Finding <span class="math notranslate nohighlight">\(v_O(t)\)</span>**</p>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+v_O(t) = v_Z(t) = 29.91 \cos(100 t + 7.5^\circ) \mbox{V}.
+\]</div>
 </div>
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id4">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id5">
 <dl class="citation">
-<dt class="label" id="id13"><span class="brackets">Daw22</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
+<dt class="label" id="id14"><span class="brackets">Daw22a</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
 <dd><p>Paul Dawkins. Differential Equations - Linear Equations. <a class="reference external" href="https://tutorial.math.lamar.edu/classes/de/Linear.aspx">https://tutorial.math.lamar.edu/classes/de/Linear.aspx</a>, 2022. [Online; accessed 14-March-2023].</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id4">Daw22b</a></span></dt>
+<dd><p>Paul Dawkins. Differential Equations - Second Order DEs. <a class="reference external" href="https://tutorial.math.lamar.edu/Classes/DE/SecondOrderConcepts.aspx">https://tutorial.math.lamar.edu/Classes/DE/SecondOrderConcepts.aspx</a>, 2022. [Online; accessed 28-June-2023].</p>
 </dd>
 </dl>
 </div>
@@ -967,4 +1048,5 @@ RC \left( v_Y(t) - v_Z(t) \right) - \int v_Z(t) dt + c &amp;= 0
 
 
   </body>
-</html><!-- bec411b25e053e5ab767c21b8fa1ecafa059af38 -->
+</html>
+<!-- 1a756698c59874a5015149b758be2c20885e5260 -->
