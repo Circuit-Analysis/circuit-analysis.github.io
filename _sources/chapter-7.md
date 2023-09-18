@@ -116,7 +116,7 @@ with schemdraw.Drawing(file='find-Ib.svg') as d:
     d += (LB := elm.Line().at(R1.start).right().tox(R5.end))
     d += (LBR := elm.Line().at(R5.end).right().tox(R4.end))
     d += (LL := elm.Line().at(R1.end).up())
-    d += elm.CurrentLabelInline(direction='in').at(LL).label('$I_2$').color('green')
+    d += elm.CurrentLabelInline(direction='in').at(LL).label('$I_3$').color('green')
     d += elm.Line().right().tox(R2.center)
     d += (R6 := elm.RBox().right())
     d += elm.CurrentLabelInline(direction='in').at(R6).label('$I_f$')
@@ -195,20 +195,20 @@ name: find-ib
 Writing the KCL equation for the indicated point in the circuit gives us
 
 $$
-I_1-I_b-I_2=0
+I_1-I_b-I_3=0
 $$
 
 which we solve for $I_b$
 
 $$
-I_b=I_1-I_2
+I_b=I_1-I_3
 $$
 ````
 ````{admonition} Find $I_b$ quickly and accurately
 :class: tip, dropdown
 1. Does the $I_1$ touch $I_b$? Yes.  Does it travel in the same or opposite direction?  Same.  Therefore, add a $+I_1$ to the expression for $I_b$.
-2. Does the $I_2$ touch $I_b$? Yes.  Does it travel in the same or opposite direction?  Opposite.  Therefore, add a $-I_2$ to the expression for $I_b$.
-3. Does the $I_3$ touch $I_b$? No.  Therefore, there is no $I_3$ term in the expression for $I_b$.
+2. Does the $I_2$ touch $I_b$? No.  Therefore, there is no $I_3$ term in the expression for $I_b$.
+3. Does the $I_3$ touch $I_b$? Yes.  Does it travel in the same or opposite direction?  Opposite.  Therefore, add a $-I_3$ to the expression for $I_b$.
 
 Altogether we can write the expression for $I_b$ as
 
