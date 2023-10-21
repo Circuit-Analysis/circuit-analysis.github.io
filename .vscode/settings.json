@@ -4,6 +4,7 @@
         "biggl",
         "biggr",
         "carbatteryvoltage",
+        "certifi",
         "differentialequations",
         "dollarmath",
         "genindex",
@@ -16,6 +17,7 @@
         "milliamps",
         "opamp",
         "otherpassivecomponents",
+        "qrcode",
         "reluctances",
         "subsubsub",
         "wirecutter"
