@@ -98,7 +98,7 @@ name: LABEL_7
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_8
+name: LABEL_8B
 ---
 ```
 
@@ -1212,6 +1212,8 @@ $$ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A
 
 # NOTE: Below may be a duplicate of above!
 
+## This is here to stop non-consecutive error.
+
 ### Superposition
 
 ### Thevenin's Theorem
@@ -1328,7 +1330,7 @@ Next, we find $Z\tss{TH}$. There are no dependent supplies in this circuit so we
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_8
+name: LABEL_8A
 ---
 ```
 
@@ -1341,7 +1343,7 @@ We can now draw the Thevenin equivalent circuit since we have both $V\tss{TH}$ a
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_9
+name: LABEL_9A
 ---
 ```
 
@@ -1367,7 +1369,7 @@ name: LABEL_9
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_10
+name: LABEL_10A
 ---
 ```
 
@@ -1382,16 +1384,16 @@ Second look for, voltage supplies in series or current supplies in parallel. In 
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_11
+name: LABEL_11A
 ---
 ```
 
-No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
+No more impedances or sources can be combined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impedance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
 
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_12
+name: LABEL_12A
 ---
 ```
 
@@ -1402,7 +1404,7 @@ After the transformation we can again look for impedances in series/parallel, vo
 ```{figure} logo.png
 ---
 height: 300px
-name: LABEL_13
+name: LABEL_13A
 ---
 ```
 

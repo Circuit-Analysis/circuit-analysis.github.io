@@ -20,6 +20,7 @@
         "qrcode",
         "reluctances",
         "subsubsub",
+        "textit",
         "wirecutter"
     ],
     "files.exclude": {
