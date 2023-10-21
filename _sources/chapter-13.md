@@ -1388,7 +1388,7 @@ name: LABEL_11A
 ---
 ```
 
-No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
+No more impedances or sources can be combined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the $1+j1~\Omega$ impedance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.
 
 ```{figure} logo.png
 ---
