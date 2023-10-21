@@ -8,7 +8,7 @@
 
     <title>Equivalent Components &#8212; Circuit Analysis</title>
     
-  
+  <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <meta name="docsearch:language" content="None">
     
 
-    
+    <!-- Google Analytics -->
     
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-98DZSDJ29K"></script>
 <script>
@@ -73,17 +73,17 @@ const thebe_selector_output = ".output, .cell_output"
 
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-
+<!-- Checkboxes to toggle the left sidebar -->
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
 <label class="overlay overlay-navbar" for="__navigation">
     <div class="visually-hidden">Toggle navigation sidebar</div>
 </label>
-
+<!-- Checkboxes to toggle the in-page toc -->
 <input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
 <label class="overlay overlay-pagetoc" for="__page-toc">
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
 </label>
-
+<!-- Headers at the top -->
 <div class="announcement header-item noprint"></div>
 <div class="header header-item noprint"></div>
 
@@ -95,13 +95,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-
+<!-- Sidebar -->
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
@@ -225,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
-             
+             <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
             Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -241,9 +241,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-
+<!-- Main content -->
 <div class="col py-0 content-container">
     
     <div class="header-article row sticky-top noprint">
@@ -418,7 +418,7 @@ title="Print to PDF"
     </div>
 </div>
 
-
+<!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
     <div class="tocsection onthispage pt-5 pb-3">
         <i class="fas fa-list"></i> Contents
@@ -469,10 +469,10 @@ title="Print to PDF"
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
-            
+            <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Equivalent Components</h1>
-                
+                <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
@@ -768,8 +768,8 @@ How are they connected?</p>
 </section>
 <section id="delta-wye-conversions">
 <h2>Delta-Wye Conversions<a class="headerlink" href="#delta-wye-conversions" title="Permalink to this headline">#</a></h2>
-<div class="amsmath math notranslate nohighlight" id="equation-5dfb896b-1205-4d37-b2af-81616b3dd3b5">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5dfb896b-1205-4d37-b2af-81616b3dd3b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fae97211-2a1f-471f-adae-9f5444dc22a0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-fae97211-2a1f-471f-adae-9f5444dc22a0" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_a &amp;= \frac{R_1 R_2}{R_1 + R_2 + R_3} \\
 R_b &amp;= \frac{R_1 R_3}{R_1 + R_2 + R_3} \\
 R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
@@ -782,8 +782,8 @@ R_c &amp;= \frac{R_2 R_3}{R_1 + R_2 + R_3}
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">The wye configuration.</span><a class="headerlink" href="#wye" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="amsmath math notranslate nohighlight" id="equation-fae3e456-f5d8-42f9-910f-d84f67944097">
-<span class="eqno">(3)<a class="headerlink" href="#equation-fae3e456-f5d8-42f9-910f-d84f67944097" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2cdc50ad-f24f-4cca-961d-9ce0a91189ca">
+<span class="eqno">(3)<a class="headerlink" href="#equation-2cdc50ad-f24f-4cca-961d-9ce0a91189ca" title="Permalink to this equation">#</a></span>\[\begin{align}
 R_1 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_c} \\
 R_2 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_b} \\
 R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
@@ -824,7 +824,7 @@ R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
             </main>
             <footer class="footer-article noprint">
                 
-    
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="chapter-2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -864,16 +864,9 @@ R_3 &amp;= \frac{R_a R_b + R_b R_c + R_a R_c}{R_a}
       </div>
     </div>
   
-  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
   <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
 </html>
-
-
-
-
-
-
-<!-- 77541e68b1ee2ea9e2ace55dfce635c1b1790180 -->

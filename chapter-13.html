@@ -8,7 +8,7 @@
 
     <title>Alternating Current: Phasors &#8212; Circuit Analysis</title>
     
-  
+  <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <meta name="docsearch:language" content="None">
     
 
-    
+    <!-- Google Analytics -->
     
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-98DZSDJ29K"></script>
 <script>
@@ -73,17 +73,17 @@ const thebe_selector_output = ".output, .cell_output"
 
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-
+<!-- Checkboxes to toggle the left sidebar -->
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
 <label class="overlay overlay-navbar" for="__navigation">
     <div class="visually-hidden">Toggle navigation sidebar</div>
 </label>
-
+<!-- Checkboxes to toggle the in-page toc -->
 <input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
 <label class="overlay overlay-pagetoc" for="__page-toc">
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
 </label>
-
+<!-- Headers at the top -->
 <div class="announcement header-item noprint"></div>
 <div class="header header-item noprint"></div>
 
@@ -95,13 +95,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-
+<!-- Sidebar -->
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
@@ -225,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
-             
+             <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
             Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -241,9 +241,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-
+<!-- Main content -->
 <div class="col py-0 content-container">
     
     <div class="header-article row sticky-top noprint">
@@ -418,7 +418,7 @@ title="Print to PDF"
     </div>
 </div>
 
-
+<!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
     <div class="tocsection onthispage pt-5 pb-3">
         <i class="fas fa-list"></i> Contents
@@ -622,24 +622,31 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Superposition
+    <a class="reference internal nav-link" href="#this-is-here-to-stop-non-consecutive-error">
+     This is here to stop non-consecutive error.
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Thevenin’s Theorem
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Norton’s Theorem
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Source Conversions
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Superposition
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Thevenin’s Theorem
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Norton’s Theorem
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#index-10">
+       Source Conversions
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -650,10 +657,10 @@ title="Print to PDF"
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
-            
+            <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Alternating Current: Phasors</h1>
-                
+                <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
@@ -859,24 +866,31 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Superposition
+    <a class="reference internal nav-link" href="#this-is-here-to-stop-non-consecutive-error">
+     This is here to stop non-consecutive error.
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Thevenin’s Theorem
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Norton’s Theorem
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Source Conversions
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Superposition
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Thevenin’s Theorem
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Norton’s Theorem
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#index-10">
+       Source Conversions
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -926,7 +940,7 @@ title="Print to PDF"
 <figure class="align-default" id="label-7">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
-<figure class="align-default" id="label-8">
+<figure class="align-default" id="label-8b">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <figure class="align-default" id="label-9">
@@ -1674,11 +1688,13 @@ First, look for any impedances that are in series/parallel. The <span class="mat
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="note-below-may-be-a-duplicate-of-above">
 <h1>NOTE: Below may be a duplicate of above!<a class="headerlink" href="#note-below-may-be-a-duplicate-of-above" title="Permalink to this headline">#</a></h1>
+<section id="this-is-here-to-stop-non-consecutive-error">
+<h2>This is here to stop non-consecutive error.<a class="headerlink" href="#this-is-here-to-stop-non-consecutive-error" title="Permalink to this headline">#</a></h2>
 <section id="id2">
-<h2>Superposition<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h3>Superposition<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="id3">
-<h2>Thevenin’s Theorem<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h3>Thevenin’s Theorem<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition" id="index-9">
@@ -1717,27 +1733,27 @@ First, look for any impedances that are in series/parallel. The <span class="mat
 \[ V_{OC}=50\angle{-150^\circ}~V=V_{TH} \]</div>
 <p>which is the Thevenin voltage.
 Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. There are no dependent supplies in this circuit so we can treat it as an equivalent impedance problem. This is method #1 presented in the Thevenin section. Replace the voltage supply with its ideal impedance, a short.</p>
-<figure class="align-default" id="id4">
+<figure class="align-default" id="label-8a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>For this circuit</p>
 <div class="math notranslate nohighlight">
 \[ Z\tss{TH}=R+(L||C)=10-j20~\Omega \]</div>
 <p>We can now draw the Thevenin equivalent circuit since we have both <span class="math notranslate nohighlight">\(V\tss{TH}\)</span> and <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>.</p>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="label-9a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 </div>
 </div>
 </section>
-<section id="id6">
-<h2>Norton’s Theorem<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<section id="id4">
+<h3>Norton’s Theorem<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 </section>
-<section id="id7">
-<h2>Source Conversions<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<section id="index-10">
+<span id="id5"></span><h3>Source Conversions<a class="headerlink" href="#index-10" title="Permalink to this headline">#</a></h3>
 <div class="admonition-example admonition" id="index-11">
 <p class="admonition-title">Example</p>
-<figure class="align-default" id="id8">
+<figure class="align-default" id="label-10a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>Find <span class="math notranslate nohighlight">\(I_O\)</span></p>
@@ -1745,16 +1761,16 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 <p class="admonition-title">Solution</p>
 <p>First, look for any impedances that are in series/parallel. The <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the left and the <span class="math notranslate nohighlight">\(j1~\Omega\)</span> inductor are in series. Also, the <span class="math notranslate nohighlight">\(1~\Omega\)</span> resistor on the right and the <span class="math notranslate nohighlight">\(-j1~\Omega\)</span> capacitor are in series. Both combinations are shown in the schematic below as a generic impedance. They appear as a box with an impedance label.</p>
 <p>Second look for, voltage supplies in series or current supplies in parallel. In this case the two voltage supplies are in series. Their polarities match so they add together. Take a moment to practice these calculations either on your calculator or by hand.</p>
-<figure class="align-default" id="id9">
+<figure class="align-default" id="label-11a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>No more impedances or sources can be comined yet. Now we consider if we can perform any source transformations. There are no current sources so there are no Norton equivalents to consider. There is a voltage source so we can consider whether it is a Thevenin equivalent. Does it have an impedance in series? Yes, the <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> impdeance. Those two components can be transformed into a Norton equivalent and reconnected to the rest of the circuit as the load.</p>
-<figure class="align-default" id="id10">
+<figure class="align-default" id="label-12a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>Note that the current of the Norton equivalent is <span class="math notranslate nohighlight">\((8+j2~V)/(1+j1~\Omega)\)</span>=<span class="math notranslate nohighlight">\((5-j3~A)\)</span></p>
 <p>After the transformation we can again look for impedances in series/parallel, voltage sources in series, or current supplies in parallel. The <span class="math notranslate nohighlight">\(1+j1~\Omega\)</span> and <span class="math notranslate nohighlight">\(1-j1~\Omega\)</span> impedances are in parallel. They are not next to each other but they are connected to the same two nodes.</p>
-<figure class="align-default" id="id11">
+<figure class="align-default" id="label-13a">
 <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 300px;" /></a>
 </figure>
 <p>Those two impedances combine to a <span class="math notranslate nohighlight">\(1~\Omega\)</span> impedance.</p>
@@ -1763,6 +1779,7 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
 \[ I_O=(5-j3~A)\left[\frac{1}{1+1}\right]=2.5-j1.5~A=2.915\angle{-30.96^\circ}~A \]</div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1791,7 +1808,7 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
             </main>
             <footer class="footer-article noprint">
                 
-    
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="chapter-12.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1831,16 +1848,9 @@ Next, we find <span class="math notranslate nohighlight">\(Z\tss{TH}\)</span>. T
       </div>
     </div>
   
-  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
   <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
 </html>
-
-
-
-
-
-
-<!-- 77541e68b1ee2ea9e2ace55dfce635c1b1790180 -->
