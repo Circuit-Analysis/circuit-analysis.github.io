@@ -267,7 +267,7 @@ First, note that this result is the same as the value calculated with the previo
 - $R_{TH}$ is then $\frac{V_{NEW}}{I_{NEW}}$
 ```
 
-Let's try it. I picked 42~\text{V} for the voltage source.
+Let's try it. I picked 42~V for the voltage source.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
