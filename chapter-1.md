@@ -617,6 +617,13 @@ $$
 
 ## Ohm's Law
 
+```{code-cell} ipython3
+:tags: [remove-input]
+
+from IPython.display import YouTubeVideo
+YouTubeVideo("NYgM2O4X8qI", width=500)
+```
+
 ```{index} Ohm's Law
 
 ```
