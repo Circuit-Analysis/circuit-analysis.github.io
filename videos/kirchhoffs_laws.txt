@@ -1,0 +1,29 @@
+Many areas of engineering have laws or theorems which are "zero sum games".
+
+In circuit analysis, two such laws are Kirchhoff's Current Law and Kirchhoff's Voltage Law.
+
+Before we look at Kirchhoff's laws, we need to define some parts of a circuit.
+
+The first part of a circuit is a node.
+
+A node is an area of constant voltage.  It's usually drawn as a circle, but the node extends to all parts of the circuit connected to the marked circle with a wire only. 
+
+The second part of a circuit is a loop.
+
+A loop is a closed path around the circuit that doesn't cross itself.  A closed path is one that ends where it started.
+
+Now, let's look at Kirchhoff's Current Law or KCL for short.
+
+Kirchhoff's Current Law says that the sum of the currents into a node is zero.
+
+A current flowing out of a node is subtracted.
+
+Another way of stating KCL is that the sum of the currents into a node equals the sum of the currents out of the node.
+
+For this node, we can see that I1 plus I2 plus I3 plus I4 minus I5 equals zero.
+
+Or stated the other way: I1 plus I2 plus I3 plus I4 equals I5.
+
+Let's move on to Kirchhoff's Voltage law.
+
+Kirchhoff's Voltage Law or KVL for short states that the sum of the voltages around a loop in the circuit is zero.
