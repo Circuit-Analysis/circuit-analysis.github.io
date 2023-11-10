@@ -7,13 +7,19 @@ import random
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
 matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
+resistors_only = True
+
 def choose_active():
-    return random.choice([elm.SourceV(), elm.SourceI()])
+    return random.choice([elm.SourceV(), elm.SourceI(), elm.SourceControlledI(), elm.SourceControlledV()])
 
 def choose_passive():
-    return random.choice([elm.Resistor(), elm.Capacitor(), elm.Inductor()])
+    if resistors_only:
+        return elm.Resistor()
+    else:
+        return random.choice([elm.Resistor(), elm.Capacitor(), elm.Inductor()])
 
 def choose_component():
+
     choice = random.choice(['A','P','P','P'])
 
     if choice == 'A':
@@ -21,7 +27,12 @@ def choose_component():
     else:
         return choose_passive()
     
+components_to_choose = [choose_active(), choose_component(), choose_component(), choose_component(), choose_component(), choose_component() ]
 
+def get_component():
+    choice = random.choice(components_to_choose)
+    components_to_choose.remove(choice)
+    return choice
 
 # 
 #  *---------[COMPONENT]-----------*
@@ -41,16 +52,16 @@ with schemdraw.Drawing(file='three_mesh.svg') as d:
     d += elm.Line().right()
     d.push()
     d += elm.Line().right()
-    d += choose_component().up()
-    d += choose_component().left()
-    d += choose_component().left()
+    d += get_component().up()
+    d += get_component().left()
+    d += get_component().left()
     d += elm.Line().up()
-    d += choose_component().right(6)
+    d += get_component().right(6)
     d += elm.Line().down()
     d.pop()
-    d += choose_component().up()
+    d += get_component().up()
     d.pop()
-    d += choose_component().up()
+    d += get_component().up()
         
 
 
