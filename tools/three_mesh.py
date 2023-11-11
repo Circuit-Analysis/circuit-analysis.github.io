@@ -34,11 +34,21 @@ def get_component():
     components_to_choose.remove(choice)
     return choice
 
+label_by_type = { elm.Resistor: "R", elm.Capacitor: "C", elm.Inductor: "L",
+                 elm.SourceI: "Is", elm.SourceV: "Vs", elm.SourceControlledI: "Ic",
+                 elm.SourceControlledV: "Vc"}
+
+
+number_by_type = { elm.Resistor: 0, elm.Capacitor: 0, elm.Inductor: 0,
+                 elm.SourceI: 0, elm.SourceV: 0, elm.SourceControlledI: 0,
+                 elm.SourceControlledV: 0}
+
 def get_label(component):
-    label_by_type = { elm.Resistor: "R", elm.Capacitor: "C", elm.Inductor: "L",
-                 elm.SourceI: "I", elm.SourceV: "V", elm.SourceControlledI: "I",
-                 elm.SourceControlledV: "V"}
-    return label_by_type[type(component)]
+    label = label_by_type[type(component)]
+    number = number_by_type[type(component)] + 1
+    number_by_type[type(component)] = number
+    
+    return label+str(number)
 
 # 
 #  *---------[COMPONENT]-----------*
@@ -59,21 +69,21 @@ with schemdraw.Drawing(file='three_mesh.svg') as d:
     d.push()
     d += elm.Line().right()
     CMP1 = get_component()
-    d += CMP1.up().label(get_label(CMP1) + "1")
+    d += CMP1.up().label(get_label(CMP1))
     CMP2 = get_component()
-    d += CMP2.left().label(get_label(CMP2) + "2")
+    d += CMP2.left().label(get_label(CMP2))
     CMP3 = get_component()
-    d += CMP3.left().label(get_label(CMP3) + "3")
+    d += CMP3.left().label(get_label(CMP3))
     d += elm.Line().up()
     CMP4 = get_component()
-    d += CMP4.right(6).label(get_label(CMP4) + "4")
+    d += CMP4.right(6).label(get_label(CMP4))
     d += elm.Line().down()
     d.pop()
     CMP5 = get_component()
-    d += CMP5.up().label(get_label(CMP5) + "5")
+    d += CMP5.up().label(get_label(CMP5))
     d.pop()
     CMP6 = get_component()
-    d += CMP6.up().label(get_label(CMP6) + "6")
+    d += CMP6.up().label(get_label(CMP6))
         
 
 
