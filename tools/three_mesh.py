@@ -7,7 +7,7 @@ import random
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
 matplotlib.rcParams['font.family'] = 'STIXGeneral'
 
-resistors_only = True
+resistors_only = False
 
 def choose_active():
     return random.choice([elm.SourceV(), elm.SourceI(), elm.SourceControlledI(), elm.SourceControlledV()])
@@ -34,6 +34,12 @@ def get_component():
     components_to_choose.remove(choice)
     return choice
 
+def get_label(component):
+    label_by_type = { elm.Resistor: "R", elm.Capacitor: "C", elm.Inductor: "L",
+                 elm.SourceI: "I", elm.SourceV: "V", elm.SourceControlledI: "I",
+                 elm.SourceControlledV: "V"}
+    return label_by_type[type(component)]
+
 # 
 #  *---------[COMPONENT]-----------*
 #  |                               |
@@ -52,16 +58,22 @@ with schemdraw.Drawing(file='three_mesh.svg') as d:
     d += elm.Line().right()
     d.push()
     d += elm.Line().right()
-    d += get_component().up()
-    d += get_component().left()
-    d += get_component().left()
+    CMP1 = get_component()
+    d += CMP1.up().label(get_label(CMP1) + "1")
+    CMP2 = get_component()
+    d += CMP2.left().label(get_label(CMP2) + "2")
+    CMP3 = get_component()
+    d += CMP3.left().label(get_label(CMP3) + "3")
     d += elm.Line().up()
-    d += get_component().right(6)
+    CMP4 = get_component()
+    d += CMP4.right(6).label(get_label(CMP4) + "4")
     d += elm.Line().down()
     d.pop()
-    d += get_component().up()
+    CMP5 = get_component()
+    d += CMP5.up().label(get_label(CMP5) + "5")
     d.pop()
-    d += get_component().up()
+    CMP6 = get_component()
+    d += CMP6.up().label(get_label(CMP6) + "6")
         
 
 
