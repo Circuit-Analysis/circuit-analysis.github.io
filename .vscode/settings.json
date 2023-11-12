@@ -10,6 +10,7 @@
         "genindex",
         "halign",
         "ipython",
+        "linestyle",
         "manim",
         "mathcal",
         "mathjax",
@@ -20,6 +21,7 @@
         "qrcode",
         "reluctances",
         "subsubsub",
+        "supermesh",
         "textit",
         "wirecutter"
     ],
