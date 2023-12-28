@@ -309,7 +309,7 @@ Seat of the pants analysis tells us that $V_A$ is 14 V. Let's keep this result i
 
 ## The Steps
 
-I'm going to list the steps here as reference. Use these steps as we walk through the next example. [A more complete summary is included at the endof the chapter.](subsection-mesh-strategy)
+I'm going to list the steps here as reference. Use these steps as we walk through the next example. [A more complete summary is included at the end of the chapter.](subsection-mesh-strategy)
 
 ```{index} Super-mesh
 
@@ -2108,7 +2108,7 @@ V_x\text{ expression}\\
 
 The KVL around $I_2$ includes the dependent supply.  We can include this in the system by writing the gain, with the correct sign, in the column that corresponds to the control variable.
 
-$I_1$ and $I_2$ share $R_3$ so -4 is the entry in the first column.  $I_2$ touches $R_3$, $R_4$, and $R_5$ on this mesh so their sum, +16, is the entry in the second column.  The dependent supply causes a rise as we move clockwise around the mesh.  We're acustom to a rise being positive as we include it on the right-hand side of the equation.  In this case this entry in on the left-hand side of the equation so it is negative.  The gain is 3 making the entry in the third column -3.  The right-hand side of the equation is the rise across $V_{S1}$ making it +12.
+$I_1$ and $I_2$ share $R_3$ so -4 is the entry in the first column.  $I_2$ touches $R_3$, $R_4$, and $R_5$ on this mesh so their sum, +16, is the entry in the second column.  The dependent supply causes a rise as we move clockwise around the mesh.  We're accustomed to a rise being positive as we include it on the right-hand side of the equation.  In this case this entry in on the left-hand side of the equation so it is negative.  The gain is 3 making the entry in the third column -3.  The right-hand side of the equation is the rise across $V_{S1}$ making it +12.
 
 $$\begin{array}{c}
 \text{KVL $I_1$}\\
@@ -2120,7 +2120,7 @@ V_x\text{ expression}\\
 ~&~&~\\
 \end{array} \right]^{-1}\left[\begin{array}{c}-12\\+12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]$$
 
-Finally we need the expression for the contorl variable.  Let's stop and think about what the equation is and how we can get that equation simply by looking at the circuit.  The equation is
+Finally we need the expression for the control variable.  Let's stop and think about what the equation is and how we can get that equation simply by looking at the circuit.  The equation is
 
 $$V_x=2I_1$$
 
@@ -2132,7 +2132,7 @@ $$0=2I_1-V_x$$
 
 $$2I_1-V_x=0$$
 
-When I enter these values directly in the matrix I start with a -1 in the column that corresponds with the control variable.  I then ask which mesh currents flow through the resistor and in which direction.  In this case only $I_1$ flows through $R_2$ and it flows in the positive direction according to the passive sign convention.  That leads to a +2 as the entry in the first column.  $I_2$ does not flow through $R_2$ therfore there is a 0 in the second column.
+When I enter these values directly in the matrix I start with a -1 in the column that corresponds with the control variable.  I then ask which mesh currents flow through the resistor and in which direction.  In this case only $I_1$ flows through $R_2$ and it flows in the positive direction according to the passive sign convention.  That leads to a +2 as the entry in the first column.  $I_2$ does not flow through $R_2$ therefore there is a 0 in the second column.
 
 $$\begin{array}{c}
 \text{KVL $I_1$}\\
@@ -2183,7 +2183,7 @@ The expression for the control variable is
 
 $$V_x=2I_1$$
 
-which is subtituted into the equation
+which is substituted into the equation
 
 \begin{eqnarray*}
 \color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3(2I_1)=0\\
@@ -2217,7 +2217,7 @@ The mesh currents match our previous two solutions for this circuit.  I take thi
 ````
 `````
 
-The shortcut can be used with a dependent curent supply as well. Here is another example.
+The shortcut can be used with a dependent current supply as well. Here is another example.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -2257,7 +2257,7 @@ name: mesh-dependent-supers-annotated-supermesh-shortcut
 ```
 ````{admonition} Solution - Pure shortcut
 :class: tip, dropdown
-In this case we have four unknowns, $I_1$, $I_2$, $I_3$, and $I_x$.  The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them enetered already.
+In this case we have four unknowns, $I_1$, $I_2$, $I_3$, and $I_x$.  The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them entered already.
 
 $$\begin{array}{c}
 \text{KCL Super($I_1$,$I_2$)}\\
@@ -2320,7 +2320,7 @@ Compare this result to our earlier analysis and you'll find it is consistent.
 :class: tip, dropdown
 I am more likely to take the hybrid approach.  Part shortcut, part normal.  This is personal preference. Just get the right answer.
 
-The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them enetered already.
+The KCL for $I_{S1}$ and the super KVL can be entered in the usual manner using the shortcut.  Let's start with a system that has them entered already.
 
 $$\begin{array}{c}
 \text{KCL Super($I_1$,$I_2$)}\\

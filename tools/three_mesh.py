@@ -27,7 +27,7 @@ def choose_component():
     else:
         return choose_passive()
     
-components_to_choose = [choose_active(), choose_component(), choose_component(), choose_component(), choose_component(), choose_component() ]
+components_to_choose = [random.choice([elm.SourceV(), elm.SourceI()]), choose_component(), choose_component(), choose_component(), choose_component(), choose_component() ]
 
 def get_component():
     choice = random.choice(components_to_choose)
@@ -35,8 +35,8 @@ def get_component():
     return choice
 
 label_by_type = { elm.Resistor: "R", elm.Capacitor: "C", elm.Inductor: "L",
-                 elm.SourceI: "I", elm.SourceV: "V", elm.SourceControlledI: "I",
-                 elm.SourceControlledV: "V"}
+                 elm.SourceI: "I", elm.SourceV: "V", elm.SourceControlledI: "I^c",
+                 elm.SourceControlledV: "V^c"}
 
 
 number_by_type = { elm.Resistor: 0, elm.Capacitor: 0, elm.Inductor: 0,
@@ -95,8 +95,8 @@ vx_component = ""
 if any(isinstance(x, elm.SourceControlledI) for x in components):
     vx_component = choose_component_that_is_not_a_source(components)
     
-
-with schemdraw.Drawing(file='three_mesh.svg') as d:
+# show=False
+with schemdraw.Drawing(file='three_mesh.svg', show=True) as d:
     d.push()
     d += elm.Line().right()
     d.push()
