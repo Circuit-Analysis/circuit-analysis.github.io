@@ -722,7 +722,7 @@ I_b=I_1-I_2
 </section>
 <section id="the-steps">
 <h2>The Steps<a class="headerlink" href="#the-steps" title="Permalink to this headline">#</a></h2>
-<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example. <a class="reference internal" href="#subsection-mesh-strategy"><span class="std std-ref">A more complete summary is included at the endof the chapter.</span></a></p>
+<p>I’m going to list the steps here as reference. Use these steps as we walk through the next example. <a class="reference internal" href="#subsection-mesh-strategy"><span class="std std-ref">A more complete summary is included at the end of the chapter.</span></a></p>
 <span class="target" id="index-1"></span><div class="admonition-steps-for-mesh-analysis admonition" id="index-2">
 <p class="admonition-title">Steps for Mesh Analysis</p>
 <ol class="simple">
@@ -1661,7 +1661,7 @@ V_x\text{ expression}\\
 ~&amp;~&amp;~\\
 \end{array} \right]^{-1}\left[\begin{array}{c}-12\\~\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]\end{split}\]</div>
 <p>The KVL around <span class="math notranslate nohighlight">\(I_2\)</span> includes the dependent supply.  We can include this in the system by writing the gain, with the correct sign, in the column that corresponds to the control variable.</p>
-<p><span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span> share <span class="math notranslate nohighlight">\(R_3\)</span> so -4 is the entry in the first column.  <span class="math notranslate nohighlight">\(I_2\)</span> touches <span class="math notranslate nohighlight">\(R_3\)</span>, <span class="math notranslate nohighlight">\(R_4\)</span>, and <span class="math notranslate nohighlight">\(R_5\)</span> on this mesh so their sum, +16, is the entry in the second column.  The dependent supply causes a rise as we move clockwise around the mesh.  We’re acustom to a rise being positive as we include it on the right-hand side of the equation.  In this case this entry in on the left-hand side of the equation so it is negative.  The gain is 3 making the entry in the third column -3.  The right-hand side of the equation is the rise across <span class="math notranslate nohighlight">\(V_{S1}\)</span> making it +12.</p>
+<p><span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span> share <span class="math notranslate nohighlight">\(R_3\)</span> so -4 is the entry in the first column.  <span class="math notranslate nohighlight">\(I_2\)</span> touches <span class="math notranslate nohighlight">\(R_3\)</span>, <span class="math notranslate nohighlight">\(R_4\)</span>, and <span class="math notranslate nohighlight">\(R_5\)</span> on this mesh so their sum, +16, is the entry in the second column.  The dependent supply causes a rise as we move clockwise around the mesh.  We’re accustomed to a rise being positive as we include it on the right-hand side of the equation.  In this case this entry in on the left-hand side of the equation so it is negative.  The gain is 3 making the entry in the third column -3.  The right-hand side of the equation is the rise across <span class="math notranslate nohighlight">\(V_{S1}\)</span> making it +12.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c}
 \text{KVL $I_1$}\\
@@ -1672,7 +1672,7 @@ V_x\text{ expression}\\
 -4&amp;16&amp;-3\\
 ~&amp;~&amp;~\\
 \end{array} \right]^{-1}\left[\begin{array}{c}-12\\+12\\~\end{array}\right]=\left[\begin{array}{c}I_1\\I_2\\V_x\end{array}\right]=\left[\begin{array}{c}~\\~\\~\end{array}\right]\end{split}\]</div>
-<p>Finally we need the expression for the contorl variable.  Let’s stop and think about what the equation is and how we can get that equation simply by looking at the circuit.  The equation is</p>
+<p>Finally we need the expression for the control variable.  Let’s stop and think about what the equation is and how we can get that equation simply by looking at the circuit.  The equation is</p>
 <div class="math notranslate nohighlight">
 \[V_x=2I_1\]</div>
 <p>to include in the system we need to treat <span class="math notranslate nohighlight">\(V_x\)</span> as an unknown.  Let’s move all of the unknowns to the left side of the expression</p>
@@ -1681,7 +1681,7 @@ V_x\text{ expression}\\
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[2I_1-V_x=0\]</div>
-<p>When I enter these values directly in the matrix I start with a -1 in the column that corresponds with the control variable.  I then ask which mesh currents flow through the resistor and in which direction.  In this case only <span class="math notranslate nohighlight">\(I_1\)</span> flows through <span class="math notranslate nohighlight">\(R_2\)</span> and it flows in the positive direction according to the passive sign convention.  That leads to a +2 as the entry in the first column.  <span class="math notranslate nohighlight">\(I_2\)</span> does not flow through <span class="math notranslate nohighlight">\(R_2\)</span> therfore there is a 0 in the second column.</p>
+<p>When I enter these values directly in the matrix I start with a -1 in the column that corresponds with the control variable.  I then ask which mesh currents flow through the resistor and in which direction.  In this case only <span class="math notranslate nohighlight">\(I_1\)</span> flows through <span class="math notranslate nohighlight">\(R_2\)</span> and it flows in the positive direction according to the passive sign convention.  That leads to a +2 as the entry in the first column.  <span class="math notranslate nohighlight">\(I_2\)</span> does not flow through <span class="math notranslate nohighlight">\(R_2\)</span> therefore there is a 0 in the second column.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c}
 \text{KVL $I_1$}\\
@@ -1725,7 +1725,7 @@ V_x\text{ expression}\\
 <p>The expression for the control variable is</p>
 <div class="math notranslate nohighlight">
 \[V_x=2I_1\]</div>
-<p>which is subtituted into the equation</p>
+<p>which is substituted into the equation</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
 \color{red}V_{S1}-(I_2-I_1)R_3-I_2R_4-I_2R_5+3(2I_1)=0\\
@@ -1754,7 +1754,7 @@ V_x\text{ expression}\\
 <p>The mesh currents match our previous two solutions for this circuit.  I take this route since I have more confidence in the outcome.  Speed is good.  Accuracy is better.</p>
 </div>
 </div>
-<p>The shortcut can be used with a dependent curent supply as well. Here is another example.</p>
+<p>The shortcut can be used with a dependent current supply as well. Here is another example.</p>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="admonition-example admonition">
@@ -1765,7 +1765,7 @@ V_x\text{ expression}\\
 </figure>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution - Pure shortcut</p>
-<p>In this case we have four unknowns, <span class="math notranslate nohighlight">\(I_1\)</span>, <span class="math notranslate nohighlight">\(I_2\)</span>, <span class="math notranslate nohighlight">\(I_3\)</span>, and <span class="math notranslate nohighlight">\(I_x\)</span>.  The KCL for <span class="math notranslate nohighlight">\(I_{S1}\)</span> and the super KVL can be entered in the usual manner using the shortcut.  Let’s start with a system that has them enetered already.</p>
+<p>In this case we have four unknowns, <span class="math notranslate nohighlight">\(I_1\)</span>, <span class="math notranslate nohighlight">\(I_2\)</span>, <span class="math notranslate nohighlight">\(I_3\)</span>, and <span class="math notranslate nohighlight">\(I_x\)</span>.  The KCL for <span class="math notranslate nohighlight">\(I_{S1}\)</span> and the super KVL can be entered in the usual manner using the shortcut.  Let’s start with a system that has them entered already.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c}
 \text{KCL Super($I_1$,$I_2$)}\\
@@ -1822,7 +1822,7 @@ I_x\text{ expression}\\
 <div class="tip dropdown admonition">
 <p class="admonition-title">Solution - Hybrid</p>
 <p>I am more likely to take the hybrid approach.  Part shortcut, part normal.  This is personal preference. Just get the right answer.</p>
-<p>The KCL for <span class="math notranslate nohighlight">\(I_{S1}\)</span> and the super KVL can be entered in the usual manner using the shortcut.  Let’s start with a system that has them enetered already.</p>
+<p>The KCL for <span class="math notranslate nohighlight">\(I_{S1}\)</span> and the super KVL can be entered in the usual manner using the shortcut.  Let’s start with a system that has them entered already.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c}
 \text{KCL Super($I_1$,$I_2$)}\\
@@ -1956,5 +1956,4 @@ I_2-I_3=2I_1\\
   </body>
 </html>
 
-
-<!-- 1c4eaa40dfeaa24c3fa460193323890a6d5b99ab -->
+<!-- 1d545d4af396d3a0565a127d270629c6e511b7d9 -->

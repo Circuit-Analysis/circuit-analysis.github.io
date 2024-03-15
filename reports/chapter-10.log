@@ -1,0 +1,45 @@
+Traceback (most recent call last):
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kootsoop/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+with schemdraw.Drawing(file='thevenin-toy-load-removed.svg') as d:
+    d += (Vs := elm.Battery().up().label('$V_{S}$\n12V', loc='bottom').reverse())
+    d += (R1 := elm.Resistor().right().label('$R_{1}$\n3Ω', loc='bottom'))
+    d += (R3 := elm.Resistor().right().label('$R_{3}$\n5Ω', loc='bottom'))
+    d += (LineT := elm.Line().right().length(1))
+    d += elm.LineDot().down().length(d.unit/6)
+    d += (Rl := elm.Gap().down().label(('+','$V_{OC}$','-'), loc='bottom').length(4*d.unit/6))
+    d += elm.LineDot().down().length(d.unit/6).reverse()
+    d += (LineB := elm.Line().left().tox(Vs.start))
+    d += (R2 := elm.Resistor().at(R1.end).down().label('$R_{2}$\n6Ω', loc='bottom'))
+    d += (G1 := elm.Gap().at(Rl.center).right().length(0.5))
+    d += elm.Annotate(th1=0).at(G1.end).delta(dx=1.5, dy=1).label('Load\nRemoved').color('blue').linestyle('--')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m/var/folders/65/qy_bbqpj2x3470cgr0fmhyc40000gn/T/ipykernel_31272/3437768789.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m     [0md[0m [0;34m+=[0m [0;34m([0m[0mR3[0m [0;34m:=[0m [0melm[0m[0;34m.[0m[0mResistor[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mright[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m'$R_{3}$\n5Ω'[0m[0;34m,[0m [0mloc[0m[0;34m=[0m[0;34m'bottom'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0md[0m [0;34m+=[0m [0;34m([0m[0mLineT[0m [0;34m:=[0m [0melm[0m[0;34m.[0m[0mLine[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mright[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlength[0m[0;34m([0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0md[0m [0;34m+=[0m [0melm[0m[0;34m.[0m[0mLineDot[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mdown[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlength[0m[0;34m([0m[0md[0m[0;34m.[0m[0munit[0m[0;34m/[0m[0;36m6[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m     [0md[0m [0;34m+=[0m [0;34m([0m[0mRl[0m [0;34m:=[0m [0melm[0m[0;34m.[0m[0mGap[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mdown[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlabel[0m[0;34m([0m[0;34m([0m[0;34m'+'[0m[0;34m,[0m[0;34m'$V_{OC}$'[0m[0;34m,[0m[0;34m'-'[0m[0;34m)[0m[0;34m,[0m [0mloc[0m[0;34m=[0m[0;34m'bottom'[0m[0;34m)[0m[0;34m.[0m[0mlength[0m[0;34m([0m[0;36m4[0m[0;34m*[0m[0md[0m[0;34m.[0m[0munit[0m[0;34m/[0m[0;36m6[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0md[0m [0;34m+=[0m [0melm[0m[0;34m.[0m[0mLineDot[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mdown[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlength[0m[0;34m([0m[0md[0m[0;34m.[0m[0munit[0m[0;34m/[0m[0;36m6[0m[0;34m)[0m[0;34m.[0m[0mreverse[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'schemdraw.elements' has no attribute 'LineDot'
+AttributeError: module 'schemdraw.elements' has no attribute 'LineDot'
+
