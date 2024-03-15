@@ -617,14 +617,6 @@ $$
 
 ## Ohm's Law
 
-````{figure} 
----
-height: 250px
-name: ohms-law-video
----
-Video about of Ohm's law.
-````
-
 ```{code-cell} ipython3
 :tags: [remove-input]
 
