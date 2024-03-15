@@ -1,7 +1,7 @@
 jupyter-book
 matplotlib
 numpy
-schemdraw
+schemdraw==0.18
 jupytext
 jupyterquiz
 docutils==0.17.1
