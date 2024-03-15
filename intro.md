@@ -31,3 +31,4 @@ YouTubeVideo("CBDcXlyYNcI", width=500)
 
 - [David J. Broderick](mailto:broderick@ccsu.edu), author.
 - [Peter J. Kootsookos](mailto:pkootsookos@mxcc.commnet.edu), author.
+- [Daniel Nocera](https://mxcc.edu/bios/dan-nocera/), video producer
